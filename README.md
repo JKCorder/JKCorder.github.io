@@ -1,4 +1,3 @@
 # JKCorder.github.io
-Beta website
 
-This is a test site - to migrate content from wordpress
+This is a landing page to link to the book folders for Introduction to Applied Statistics and Applied Statistics using R
