@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 5 Measures of association: Chi-square | Applied Statistics for Political Science</title>
+<meta name="author" content="J.K. Corder">
+<meta name="description" content="The Chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 5 Measures of association: Chi-square | Applied Statistics for Political Science">
+<meta property="og:type" content="book">
+<meta property="og:description" content="The Chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 5 Measures of association: Chi-square | Applied Statistics for Political Science">
+<meta name="twitter:description" content="The Chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Applied Statistics for Political Science</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About this book</a></li>
+<li><a class="" href="data-science-political-science-and-public-policy.html"><span class="header-section-number">1</span> Data science, political science, and public policy</a></li>
+<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">2</span> Descriptive statistics</a></li>
+<li><a class="" href="an-introduction-to-measures-of-association-correlation.html"><span class="header-section-number">3</span> An introduction to measures of association: correlation</a></li>
+<li><a class="" href="measures-of-association-t-test.html"><span class="header-section-number">4</span> Measures of association: t-test</a></li>
+<li><a class="active" href="measures-of-association-chi-square.html"><span class="header-section-number">5</span> Measures of association: Chi-square</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">6</span> Regression</a></li>
+<li><a class="" href="statistical-models-with-many-predictors.html"><span class="header-section-number">7</span> Statistical models with many predictors</a></li>
+<li><a class="" href="references.html">References</a></li>
+<li><a class="" href="about-the-author.html">About the author</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/JKCorder/JKCorder.github.io/">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="measures-of-association-chi-square" class="section level1" number="5">
+<h1>
+<span class="header-section-number">5</span> Measures of association: Chi-square<a class="anchor" aria-label="anchor" href="#measures-of-association-chi-square"><i class="fas fa-link"></i></a>
+</h1>
+<p>The Chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship and whether the effect on Y is large or small and you can use a measure of association - the chi-square - to make an inference about the population from the sample data.</p>
+<p>In this chapter we will use an example – the link between gender and ideology self-placement - to introduce the Chi-square – how the statistic is calculated, what it means, and how you can use the test statistic to evaluate what you find in a sample. We also cover hypothesis testing and Type I and Type II errors.</p>
+<div id="what-is-the-distribution-of-ideology-today" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> What is the distribution of ideology today?<a class="anchor" aria-label="anchor" href="#what-is-the-distribution-of-ideology-today"><i class="fas fa-link"></i></a>
+</h2>
+<p>The ANES includes a survey question that asks respondents to report their ideology - a “self-placement.” The distribution of the response in 2020 is summarized below in Table 5.1</p>
+<div id="table-5.1-2020-anes-ideology-measure" class="section level3 unnumbered">
+<h3>Table 5.1 2020 ANES ideology measure<a class="anchor" aria-label="anchor" href="#table-5.1-2020-anes-ideology-measure"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">Ideology</th>
+<th align="right">Percentage</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Extremely liberal</td>
+<td align="right">4.8</td>
+</tr>
+<tr class="even">
+<td align="left">Liberal</td>
+<td align="right">15.6</td>
+</tr>
+<tr class="odd">
+<td align="left">Slightly liberal</td>
+<td align="right">12.0</td>
+</tr>
+<tr class="even">
+<td align="left">Middle of the road</td>
+<td align="right">28.1</td>
+</tr>
+<tr class="odd">
+<td align="left">Slightly conservative</td>
+<td align="right">12.4</td>
+</tr>
+<tr class="even">
+<td align="left">Conservative</td>
+<td align="right">21.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Extremely conservative</td>
+<td align="right">6.1</td>
+</tr>
+</tbody>
+</table></div>
+<p>We have learned that a larger proportion of Americans are strong partisans, but despite that partisan identity, most voters pick “middle of the road” to describe their ideology. Figure 5.1 reports the proportion selecting “middle of the road’ in each ANES sample from 1972 thru 2016 <span class="citation">American National Election Studies [ANES] (2021b)</span>. The middle of the road is obviously the mode but there are two other responses - liberal and conservative - that now make up over 1/3 of the electorate - so today there are more”ideologues" - a fair characterization? - than moderates.</p>
+</div>
+<div id="figure-5.1.-middle-of-the-road-is-always-the-mode" class="section level3 unnumbered">
+<h3>Figure 5.1. Middle of the road is always the mode<a class="anchor" aria-label="anchor" href="#figure-5.1.-middle-of-the-road-is-always-the-mode"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure"><img src="images/ANES_ideology.png" width="100%"></div>
+</div>
+</div>
+<div id="should-we-expect-differences-between-men-and-women" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> Should we expect differences between men and women?<a class="anchor" aria-label="anchor" href="#should-we-expect-differences-between-men-and-women"><i class="fas fa-link"></i></a>
+</h2>
+<p>Is there a link between gender and ideology? Are men or women more likely to self-identify as a conservative or liberal or middle of the road?</p>
+<p>Given what you see in Table 5.1, what would you expect to see if we compared men and women? There might be a couple of reasons that could lead you to the idea that women are more liberal. We know that women are more likely to identity as strong Democrats, so there might be reasons rooted in partisanship to find more female liberals. Women are more likely to be economically disadvantaged, heading single parent households, receiving less pay for the same work, so that also might lead to more liberal views, particularly attitudes toward social welfare. Some might also make a case based on psychological differences – if women are more nurturing and caring, then there could be fewer conservative women. To test the basic expectation – that women are more likely to self-place as liberal – we can produce a simple table and ask for the Chi-square test statistic.</p>
+<p>The data from the 2020 ANES is summarized below in Table 5.2. The test statistic is reported at the bottom ot the table.</p>
+<div id="table-5.2.-gender-and-ideology-percentages-2020-anes" class="section level3 unnumbered">
+<h3>Table 5.2. Gender and ideology, percentages, 2020 ANES<a class="anchor" aria-label="anchor" href="#table-5.2.-gender-and-ideology-percentages-2020-anes"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<colgroup>
+<col width="4%">
+<col width="14%">
+<col width="6%">
+<col width="13%">
+<col width="15%">
+<col width="17%">
+<col width="10%">
+<col width="18%">
+</colgroup>
+<thead><tr class="header">
+<th align="left"></th>
+<th align="right">Extremely liberal</th>
+<th align="right">Liberal</th>
+<th align="right">Slightly liberal</th>
+<th align="right">Middle of the road</th>
+<th align="right">Slightly conservative</th>
+<th align="right">Conservative</th>
+<th align="right">Extremely conservative</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Men</td>
+<td align="right">3.9</td>
+<td align="right">13.6</td>
+<td align="right">11.6</td>
+<td align="right">27.4</td>
+<td align="right">13.7</td>
+<td align="right">23</td>
+<td align="right">6.9</td>
+</tr>
+<tr class="even">
+<td align="left">Women</td>
+<td align="right">5.8</td>
+<td align="right">17.8</td>
+<td align="right">12.5</td>
+<td align="right">28.6</td>
+<td align="right">11.1</td>
+<td align="right">19</td>
+<td align="right">5.3</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code>Chi-square = 55.49066 , p = 0.000 , df = 6</code></pre>
+<p>The table suggests that there are some differences in the distribution of ideology. While the most common response - or mode - for men and women is the same (“Middle of the road”) and the second most frequent response is also the same (“Conservative”), there are a higher proportion of women in each of the three liberal categories. So women are slightly more liberal than men. You can see that the p-value or significance level associated with this table is 0.000, so we know the result is statistically significant.</p>
+<p>The actual test statistic- the Chi-square -is computed by comparing the actual number of people in each cell of the table with the expected number of people in each cell. The expected number is the number we would see if the distribution of the groups was identical, the same as the entire sample. The observed and expected counts for the 2020 table are reproduced below. We expect to see more women than men in each cell since there are more women in the sample.</p>
+</div>
+<div id="table-5.3.-gender-and-ideology-observed-counts-2020-anes" class="section level3 unnumbered">
+<h3>Table 5.3. Gender and ideology, observed counts, 2020 ANES<a class="anchor" aria-label="anchor" href="#table-5.3.-gender-and-ideology-observed-counts-2020-anes"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<colgroup>
+<col width="4%">
+<col width="14%">
+<col width="6%">
+<col width="13%">
+<col width="15%">
+<col width="17%">
+<col width="10%">
+<col width="18%">
+</colgroup>
+<thead><tr class="header">
+<th align="left"></th>
+<th align="right">Extremely liberal</th>
+<th align="right">Liberal</th>
+<th align="right">Slightly liberal</th>
+<th align="right">Middle of the road</th>
+<th align="right">Slightly conservative</th>
+<th align="right">Conservative</th>
+<th align="right">Extremely conservative</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Men</td>
+<td align="right">116</td>
+<td align="right">410</td>
+<td align="right">349</td>
+<td align="right">823</td>
+<td align="right">411</td>
+<td align="right">691</td>
+<td align="right">207</td>
+</tr>
+<tr class="even">
+<td align="left">Women</td>
+<td align="right">176</td>
+<td align="right">542</td>
+<td align="right">380</td>
+<td align="right">872</td>
+<td align="right">338</td>
+<td align="right">579</td>
+<td align="right">162</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="table-5.4.-gender-and-ideology-expected-counts-2020-anes" class="section level3 unnumbered">
+<h3>Table 5.4. Gender and ideology, expected counts, 2020 ANES<a class="anchor" aria-label="anchor" href="#table-5.4.-gender-and-ideology-expected-counts-2020-anes"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<colgroup>
+<col width="4%">
+<col width="14%">
+<col width="6%">
+<col width="13%">
+<col width="15%">
+<col width="17%">
+<col width="10%">
+<col width="18%">
+</colgroup>
+<thead><tr class="header">
+<th align="left"></th>
+<th align="right">Extremely liberal</th>
+<th align="right">Liberal</th>
+<th align="right">Slightly liberal</th>
+<th align="right">Middle of the road</th>
+<th align="right">Slightly conservative</th>
+<th align="right">Conservative</th>
+<th align="right">Extremely conservative</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Men</td>
+<td align="right">145</td>
+<td align="right">473</td>
+<td align="right">362</td>
+<td align="right">842</td>
+<td align="right">372</td>
+<td align="right">631</td>
+<td align="right">183</td>
+</tr>
+<tr class="even">
+<td align="left">Women</td>
+<td align="right">147</td>
+<td align="right">479</td>
+<td align="right">367</td>
+<td align="right">854</td>
+<td align="right">377</td>
+<td align="right">639</td>
+<td align="right">186</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="chi-square-tests" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Chi-square tests<a class="anchor" aria-label="anchor" href="#chi-square-tests"><i class="fas fa-link"></i></a>
+</h2>
+<div id="how-do-we-calculate-chi-square" class="section level3 unnumbered">
+<h3>How do we calculate Chi-square?<a class="anchor" aria-label="anchor" href="#how-do-we-calculate-chi-square"><i class="fas fa-link"></i></a>
+</h3>
+<p>The Chi-square test statistic (55.49, from Table 5.2) is computed by comparing expected and observed numbers in each cell of the table (14 cells in the example above – 7 columns for 2 groups). For instance, if the distribution of ideology was identical for men and women, we would expect 15.6% of men and 15.6% of women to be liberal (this is based on the distribution reported in Table 5.1).</p>
+<p>In Table 5.4, you can see the number of liberal women we should see or expect if the distribution was identical - 479. The number we actually see - in Table 5.3 - is 542. To compute the Chi-square we take the difference between expected and observed, square it, divide by expected and repeat that for all 14 cells in the table and sum those caculations. For the numbers above <span class="math inline">\((542-479)^2/479=8.3\)</span>. It is obvious that this cell contributes to the large Chi-square we observe. But look at the large differences in the conservatives and slightly conservative columns. Many more men are slightly conservative and conservative. All of these differences combined lead to the Chi-square of 55.49. How do we use this number?</p>
+</div>
+<div id="how-do-we-use-chi-square" class="section level3 unnumbered">
+<h3>How do we use Chi-square?<a class="anchor" aria-label="anchor" href="#how-do-we-use-chi-square"><i class="fas fa-link"></i></a>
+</h3>
+<p>So what do we learn from Chi-square? Notice that the Chi-square is associated with a p-value. This is known as the significance level or probability value (<span class="math inline">\(p\)</span>). We use this number to determine if we can make an inference about the population from our sample data.</p>
+<p>If <span class="math inline">\(p&lt;0.05\)</span>, then we can very confident that the result we observe in the sample will also be observed in the population. If <span class="math inline">\(p&gt;0.05\)</span>, then we cannot make that inference. If <span class="math inline">\(p&lt;0.05\)</span>, then we say that the link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is statistically significant. So we know from the output in Table 5.3, that (1) women are more likely to be liberal and men are more likely to be slightly conservative, (2) these differences are not very large – not all women are liberals and not all men are conservatives, and (3) we can be confident that we will observe these differences in the population based on what we see in the sample.</p>
+<p>So what is the measure of significance or the “p-value?” As discussed in Chapter 4, all statistics we use will be accompanied by a measure of significance – often denoted as <span class="math inline">\(p\)</span> or the probability value. For our purposes. <span class="math inline">\(p\)</span> is the probability that a test statistic of some value could be observed in a sample drawn from a population where the actual or true value of the test statistic is zero (meaning the distribution of <span class="math inline">\(Y\)</span> is the same for all categories of <span class="math inline">\(X\)</span>). There is a near 0 probability that we could observe a Chi-square of 55.49 in our sample even if men and women had identical distributions of ideology in the population. Note that this is very specific type of inference – we can learn something about the population from our small sample.</p>
+</div>
+<div id="why-are-statistics-reported-with-a-value-for-p" class="section level3 unnumbered">
+<h3>Why are statistics reported with a value for p?<a class="anchor" aria-label="anchor" href="#why-are-statistics-reported-with-a-value-for-p"><i class="fas fa-link"></i></a>
+</h3>
+<p>Recall that statistics relies on the logic of repeated sampling. Each dataset we use is a random sample from a population (one of an infinite number of random samples). So each sample produces a different value of the test statistic. And if we were to repeat the sampling procedure many times, we would see that test statistics have particular sampling distributions. Moreover, test statistics have sampling distributions with known properties, enabling us to evaluate the probability that our sample could have been drawn from a population with no link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The p-value is simply the probability that the observed test statistic – Chi-square or correlation or t-test- could be drawn from a sampling distribution where the true value was zero. The probability can determined analytically or simulated by drawing 1000s of samples from a contrived population with a true value of zero and examining the probability that value as high as your sample Chi-square is observed</p>
+</div>
+</div>
+<div id="hypothesis-testing-type-i-and-type-ii-errors" class="section level2" number="5.4">
+<h2>
+<span class="header-section-number">5.4</span> Hypothesis testing, Type I and Type II errors<a class="anchor" aria-label="anchor" href="#hypothesis-testing-type-i-and-type-ii-errors"><i class="fas fa-link"></i></a>
+</h2>
+<p>The calculation and disclosure of p-values is at the core of hypothesis testing in social science. All statistics we use will be accompanied by a measure of significance, a probability value. In social science we use this value to test what is known as the null hypothesis. We typically use theory or intuition or experience to come up with an affirmative expectation about how <span class="math inline">\(X\)</span> will influence <span class="math inline">\(Y\)</span> (in social science language, the alternative hypothesis). The null hypothesis is simply that there is no link – that the population value of the test statistic is zero.</p>
+<p>If <span class="math inline">\(p&lt;.05\)</span>, then we can reject the null hypothesis – the test statistic must be different from zero in the population. If <span class="math inline">\(p&gt;0.05\)</span>, then we accept the null, there is probably no link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+<p>Why is there a standard for <span class="math inline">\(p&lt;.05\)</span>? Consider the general problem of inference in the form of a 2 x 2 table. You can observe the link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> in the sample, you want to know the truth about the link <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> in the population, which you cannot observe directly. The expectation that <span class="math inline">\(X\)</span> influences <span class="math inline">\(Y\)</span> could be true or false in the population and your sample could support or not support your expectation that there is a link.</p>
+<p>Table 5.5 sketches out the ways this could play out in a research situation</p>
+<div id="table-5.5.-type-i-and-type-ii-errors" class="section level3 unnumbered">
+<h3>Table 5.5. Type I and Type II errors<a class="anchor" aria-label="anchor" href="#table-5.5.-type-i-and-type-ii-errors"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure"><img src="images/Error_types.png" width="80%"></div>
+<p>You could commit one of two types of errors as you attempt to draw an inference based on a sample. A <em>Type I error</em> is rejecting a null hypothesis you should accept (X does not affect Y, but you conclude that it does). A <em>Type II error</em> is accepting a null hypothesis you should reject (X does affect Y, but you conclude that is does not).</p>
+<p>If p=0.05, then there is a 5% probability of Type I error. This is an arbitrary but very widespread standard in social science – that we only accept results if the chance of a Type I error is lower than 5%.</p>
+<p>The probability of Type II error is a mainly function of sample size (small sample sizes imply high probability of Type II error). So one option to minimize Type II error is to collect more data.</p>
+</div>
+<div id="example-what-happens-if-we-use-a-small-sample" class="section level3 unnumbered">
+<h3>Example: what happens if we use a small sample?<a class="anchor" aria-label="anchor" href="#example-what-happens-if-we-use-a-small-sample"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can evaluate how much Chi-square changes as sample size changes. Table 5.1 reported the value of the Chi-square test statistic, the degrees of freedom (df) (in practice, the number of row minus one multiplied by the number of columns minus one), and, the probability value. In our original sample, we generate a Chi-square of 55.49 with 6 degrees of freedom has a p-value of 0.000 (significant).</p>
+<p>You can calculate the Chi-square for the same percentages - the same distributions for men and women - but a smaller sample size. If I just rely on a sample that is 1/10th of the original, I would see a Chi-square of 5.54 with 6 degrees of freedom has a p-value of 0.476 (not significant). The smaller sample would lead to a Type II error. The specific numbers are below.</p>
+</div>
+<div id="table-5.6.-gender-and-ideology-original-sample-chi-square-and-small-sample-chi-square" class="section level3 unnumbered">
+<h3>Table 5.6. Gender and ideology, original sample chi-square and small sample chi-square<a class="anchor" aria-label="anchor" href="#table-5.6.-gender-and-ideology-original-sample-chi-square-and-small-sample-chi-square"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>n= 6055 Chi-square = 55.49066 , p = 0.000 , df = 6
+n= 606 Chi-square = 5.549066 , p = 0.476 , df = 6</code></pre>
+<p>Failure to reject the null doesn’t necessarily “prove” that the alternative is false – with a small sample you simply don’t have enough data to draw an inference about the population.</p>
+</div>
+</div>
+<div id="when-errors-have-consequences" class="section level2" number="5.5">
+<h2>
+<span class="header-section-number">5.5</span> When errors have consequences<a class="anchor" aria-label="anchor" href="#when-errors-have-consequences"><i class="fas fa-link"></i></a>
+</h2>
+<p>Balancing Type I and Type II takes on a serious dimension when costs of errors are high. For example, NASA engineers are confronted with a difficult trade-off as they evaluate engineering data about the safety of a shuttle launch. Is the space shuttle safe to launch? The null hypothesis here would be no – we don’t put a crew at risk unless we can be confident they will be safe. After engineering and other data evaluated, NASA managers must balance the costs of two errors. A Type I error means an unsafe shuttle is launched, risking an accident. A Type II error means a safe shuttle is grounded, a costly delay. I worked at a NASA facility for almost two years (1987-8) and no shuttle was launched during that time – the 1986 Challenger accident and loss of crew directed attention to the costs and prospects of a Type I error. Over time, as delays and costs mounted, the agency paid more attention to Type II errors, leading to a return to launch and another catastrophic accident.</p>
+<p>Today, we face a public policy challenge related to treatments and vaccines for COVID-19. When should a new drug be released by the FDA? The null hypothesis is that a new drug is not safe or effective. Experimental data must reject null. A Type I error means an unsafe drug is released. A Type II error means a safe drug is not released. What is an acceptable probability for Type I and Type II errors in these contexts? For the FDA, the costs are going to depend on the severity of the disease and the availability of other treatments. If a serious disease has no other treatment, then it makes sense to release early and accept a Type I error. If the target disease is not severe and there are other treatments, then it makes sense to delay and possibly accept a Type II error. In social science, 5% probability of Type I error is the standard. Larger sample sizes minimize Type II error</p>
+</div>
+<div id="conclusion-2" class="section level2" number="5.6">
+<h2>
+<span class="header-section-number">5.6</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>The Chi-square test statistic is useful when you can summarize the difference between a small number of groups in a simple table. If group differences are large enough and the sample size is large enough, you will see differences that are statistically significant. You can be confident that the groups are different in the population.</p>
+<p>We use a threshold for significance of 0.05. When is <span class="math inline">\(p&lt;.05\)</span> inappropriate? In social science, 5% probability of Type I error is the standard, an arbitrary choice traced to <span class="citation">Fisher (1926)</span>. The author of the t-test, Gossett, argued that the threshold should be tailored to the specific research enterprise, reflecting costs of each type of error in practice. He is, of course, correct and in public policy questions it would be essential to know the costs of a Type I and Type II error and costs of collecting additional data to lower the probability of a Type II error. Even the Supreme Court was compelled to evaluate the standard of statistical significance and the Court determined that statistical significance alone can’t be used to evaluate the usefulness of information (see <span class="citation"><em><span class="upright">Matrixx Initiatives, Inc. V. Siracusano, 563 <span>U.S.</span> 27 (2011)</span></em></span>).</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="measures-of-association-t-test.html"><span class="header-section-number">4</span> Measures of association: t-test</a></div>
+<div class="next"><a href="regression.html"><span class="header-section-number">6</span> Regression</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#measures-of-association-chi-square"><span class="header-section-number">5</span> Measures of association: Chi-square</a></li>
+<li>
+<a class="nav-link" href="#what-is-the-distribution-of-ideology-today"><span class="header-section-number">5.1</span> What is the distribution of ideology today?</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#table-5.1-2020-anes-ideology-measure">Table 5.1 2020 ANES ideology measure</a></li>
+<li><a class="nav-link" href="#figure-5.1.-middle-of-the-road-is-always-the-mode">Figure 5.1. Middle of the road is always the mode</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#should-we-expect-differences-between-men-and-women"><span class="header-section-number">5.2</span> Should we expect differences between men and women?</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#table-5.2.-gender-and-ideology-percentages-2020-anes">Table 5.2. Gender and ideology, percentages, 2020 ANES</a></li>
+<li><a class="nav-link" href="#table-5.3.-gender-and-ideology-observed-counts-2020-anes">Table 5.3. Gender and ideology, observed counts, 2020 ANES</a></li>
+<li><a class="nav-link" href="#table-5.4.-gender-and-ideology-expected-counts-2020-anes">Table 5.4. Gender and ideology, expected counts, 2020 ANES</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#chi-square-tests"><span class="header-section-number">5.3</span> Chi-square tests</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#how-do-we-calculate-chi-square">How do we calculate Chi-square?</a></li>
+<li><a class="nav-link" href="#how-do-we-use-chi-square">How do we use Chi-square?</a></li>
+<li><a class="nav-link" href="#why-are-statistics-reported-with-a-value-for-p">Why are statistics reported with a value for p?</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#hypothesis-testing-type-i-and-type-ii-errors"><span class="header-section-number">5.4</span> Hypothesis testing, Type I and Type II errors</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#table-5.5.-type-i-and-type-ii-errors">Table 5.5. Type I and Type II errors</a></li>
+<li><a class="nav-link" href="#example-what-happens-if-we-use-a-small-sample">Example: what happens if we use a small sample?</a></li>
+<li><a class="nav-link" href="#table-5.6.-gender-and-ideology-original-sample-chi-square-and-small-sample-chi-square">Table 5.6. Gender and ideology, original sample chi-square and small sample chi-square</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#when-errors-have-consequences"><span class="header-section-number">5.5</span> When errors have consequences</a></li>
+<li><a class="nav-link" href="#conclusion-2"><span class="header-section-number">5.6</span> Conclusion</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/JKCorder/JKCorder.github.io//blob/master/05-chisq.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/JKCorder/JKCorder.github.io//edit/master/05-chisq.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Applied Statistics for Political Science</strong>" was written by J.K. Corder. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

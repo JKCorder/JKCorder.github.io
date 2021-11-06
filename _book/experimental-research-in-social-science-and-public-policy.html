@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 4 Experimental research in social science and public policy | Applied Statistics for Political Science</title>
+<meta name="author" content="J.K. Corder">
+<meta name="description" content="The social sciences – economics, sociology, political science – have historically relied more on observation and less on experiments. But there are at least two types of experimental designs that...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 4 Experimental research in social science and public policy | Applied Statistics for Political Science">
+<meta property="og:type" content="book">
+<meta property="og:description" content="The social sciences – economics, sociology, political science – have historically relied more on observation and less on experiments. But there are at least two types of experimental designs that...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 4 Experimental research in social science and public policy | Applied Statistics for Political Science">
+<meta name="twitter:description" content="The social sciences – economics, sociology, political science – have historically relied more on observation and less on experiments. But there are at least two types of experimental designs that...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Applied Statistics for Political Science</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About this book</a></li>
+<li><a class="" href="data-science-political-science-and-public-policy.html"><span class="header-section-number">1</span> Data science, political science, and public policy</a></li>
+<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">2</span> Descriptive statistics</a></li>
+<li><a class="" href="an-introduction-to-measures-of-association-correlation.html"><span class="header-section-number">3</span> An introduction to measures of association: correlation</a></li>
+<li><a class="active" href="experimental-research-in-social-science-and-public-policy.html"><span class="header-section-number">4</span> Experimental research in social science and public policy</a></li>
+<li><a class="" href="observational-approaches-what-are-our-options.html"><span class="header-section-number">5</span> Observational approaches: What are our options?</a></li>
+<li><a class="" href="so-why-use-statistics-if-we-can-summarize-with-figures.html"><span class="header-section-number">6</span> So why use statistics if we can summarize with figures?</a></li>
+<li><a class="" href="what-are-measures-of-association.html"><span class="header-section-number">7</span> What are measures of association?</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">8</span> Correlation</a></li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">9</span> Conclusion</a></li>
+<li><a class="" href="measures-of-association-t-test.html"><span class="header-section-number">10</span> Measures of association: t-test</a></li>
+<li><a class="" href="measures-of-association-chi-square.html"><span class="header-section-number">11</span> Measures of association: Chi-square</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">12</span> Regression</a></li>
+<li><a class="" href="statistical-models-with-many-predictors.html"><span class="header-section-number">13</span> Statistical models with many predictors</a></li>
+<li><a class="" href="references.html">References</a></li>
+<li><a class="" href="about-the-author.html">About the author</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="experimental-research-in-social-science-and-public-policy" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> Experimental research in social science and public policy<a class="anchor" aria-label="anchor" href="#experimental-research-in-social-science-and-public-policy"><i class="fas fa-link"></i></a>
+</h1>
+<p>The social sciences – economics, sociology, political science – have historically relied more on observation and less on experiments. But there are at least two types of experimental designs that are fairly common in social science. Public policy can be evaluated by randomly assigning people to receive or not receive some service or program. And, survey research can randomly give one set of questions to one group and another set of questions to another group.</p>
+<p>One interesting set of work in the survey tradition asks respondents to evaluate a candidate’s suitability for office after reading a biographical sketch and viewing a picture. One group – selected at random – is shown a picture of a white candidate. The second group is shown a picture of a minority candidate. The <em>manipulation</em> - what is changed as the survey is repeated - is simply the picture. For example, <span class="citation">Terkildsen (2014)</span> surveyed white members of jury pools in Kentucky in 1991/2 and found that white candidates are viewed more favorably than minority candidates: this is obviously troubling - this is a jury!</p>
+<p>The costs and complexity of this type of experiment are important to understand – two different surveys need to be administered to two groups taken completely at random from some potential pool. The Kentucky survey required cooperation and consent from the local authorities to gain access to the jury pool and all of the interviews were conducted face-to-face. You cannot rely on already completed surveys to go back and manipulate survey conditions or wording, so historical research of this type is not possible. Experimental research design also requires careful attention to survey wording and conditions and many political science researchers, for instance, don’t have extensive training in this design (compared to psychologists who have decades of experience with these types of experiments).</p>
+<p>Social science experiments also raise ethical questions: We cringe at the idea that a social scientist might manipulate the vote choice or other attitudes in the form an experiment. This problem emerged in a recent controversial experiment by two political scientists studying judicial elections in Montana <span class="citation">(Johnson 2015)</span>.</p>
+<p>Public policy experiments raise similar challenges. In order to test the effect of a program, some people need to get access and others must be denied access. This is similar to the ethical dilemma faced by medical researchers – the benefits to gaining information about the efficacy of a drug must outweigh the costs of delaying treatment of people randomly assigned to a control group. Can we undo the impact of denying access to a program that works? Administrative costs are also a factor. In order to test a new program, agencies might need to simultaneously administer two programs – the original and the new program – to see what happens over the course of a year or more. This is expensive.</p>
+<p>But the benefits of experimental approaches can be large: what if we had access to good data about exactly which government programs worked and with what effect. We could make better decisions about the allocation of resources. This insight is behind a recent collection of essays published as <em>Moneyball for Government</em> <span class="citation">(Nussle and Orzag 2014)</span>. Any program that has high levels of demand and low levels of available services is a candidate for an experiment. One randomly selected group of applicants – to a charter school or for a particular drug treatment program or repeat offender intervention – can receive the treatment. The remainder of the applicants can be wait-listed for one year. After one year, is the treatment group better off? In medicine, this experimental design is being advocated not just as a way to evaluate new drugs, but for all sorts of innovations in medical practice (see <span class="citation">Sanger-Katz (2014)</span> for an overview of this controversy).</p>
+<div id="an-example-job-training-and-partnership-act-jtpa-programs" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> An example: Job Training and Partnership Act (JTPA) programs<a class="anchor" aria-label="anchor" href="#an-example-job-training-and-partnership-act-jtpa-programs"><i class="fas fa-link"></i></a>
+</h2>
+<p>An early and compelling example of this type of research involved an evaluation of Job Training and Partnership Act (JTPA) programs in the late 1980s. The JTPA programs offered classroom training, on-the-job training, or job search assistance to people who are out of work. In September, 1987: two-thirds of the eligible population who applied to the program were directed to services, one-third were deferred for 18 months. Do training and services offered to the unemployed increase earnings? The results are summarized in the two figures below.</p>
+<div id="figure-3.1-estimated-effects-of-jtpa-programs-on-earnings" class="section level3" number="4.1.1">
+<h3>
+<span class="header-section-number">4.1.1</span> Figure 3.1 Estimated effects of JTPA programs on earnings<a class="anchor" aria-label="anchor" href="#figure-3.1-estimated-effects-of-jtpa-programs-on-earnings"><i class="fas fa-link"></i></a>
+</h3>
+<div id="women-21-and-over" class="section level4" number="4.1.1.1">
+<h4>
+<span class="header-section-number">4.1.1.1</span> Women 21 and over<a class="anchor" aria-label="anchor" href="#women-21-and-over"><i class="fas fa-link"></i></a>
+</h4>
+<div class="inline-figure"><img src="images/bloom19971a.png" width="80%"></div>
+</div>
+<div id="women-18-20" class="section level4" number="4.1.1.2">
+<h4>
+<span class="header-section-number">4.1.1.2</span> Women 18-20<a class="anchor" aria-label="anchor" href="#women-18-20"><i class="fas fa-link"></i></a>
+</h4>
+<div class="inline-figure"><img src="images/bloom19972a.png" width="80%"></div>
+<p>Reproduced from <span class="citation">Bloom (1997)</span>. “The Benefits and Costs of JTPA Title II-A Programs….”</p>
+<p>The results are remarkable. The benefits of the program for adult women were large: they had persistent positive differences in earnings. Women who got the service earned more money (and paid more taxes!) in the long run. The program worked. But the benefits were not observed for younger women – these services did not work. A sensible response to this evaluation would be to design different services for younger women and enroll as many adult women as possible in order to produce long-term earnings gains for as many unemployed older women as possible.</p>
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="an-introduction-to-measures-of-association-correlation.html"><span class="header-section-number">3</span> An introduction to measures of association: correlation</a></div>
+<div class="next"><a href="observational-approaches-what-are-our-options.html"><span class="header-section-number">5</span> Observational approaches: What are our options?</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#experimental-research-in-social-science-and-public-policy"><span class="header-section-number">4</span> Experimental research in social science and public policy</a></li>
+<li>
+<a class="nav-link" href="#an-example-job-training-and-partnership-act-jtpa-programs"><span class="header-section-number">4.1</span> An example: Job Training and Partnership Act (JTPA) programs</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#figure-3.1-estimated-effects-of-jtpa-programs-on-earnings"><span class="header-section-number">4.1.1</span> Figure 3.1 Estimated effects of JTPA programs on earnings</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/03-corr.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/03-corr.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Applied Statistics for Political Science</strong>" was written by J.K. Corder. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
