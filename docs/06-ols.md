@@ -1,6 +1,3 @@
-
-
-
 # Regression
 
 This chapter introduces a statistical modeling approach called regression or ordinary least squares regression, sometimes abbreviated as OLS.  The idea is that we identify something we are interested in learning about or understanding, maybe why some people turn out to vote, or why they select a particular candidate, or whether or not they buy a product, or if they are diagnosed with lung cancer.  We then select a number of things that we think we could use to predict these outcomes – a theory drives these choices.  For turnout, is the person a partisan, are they educated?  For a diagnosis of lung cancer, are they a smoker, are they older or younger?  We then use data to test the link between the factors we think matter – the predictors – and the outcome of interest.  OLS is the technique that we use to determine which factors do or do not matter.

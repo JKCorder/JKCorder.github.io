@@ -79,7 +79,7 @@ There are many different kinds of variables – a survey might capture and recor
 
 ### Ordinal variables (useful){-}
 
-Some variables have a meaninfgul order but are just a series of categories that indicate higher or lower. Education levels are a good example:  there is an order and higher values indicate more education. The specific way that we order education in the ANES is reproduced below.
+Some variables have a meaningful order but are just a series of categories that indicate higher or lower. Education levels are a good example:  there is an order and higher values indicate more education. The specific way that we order education in the ANES is reproduced below.
 
 #### Table 1. Education categories in the ANES{-}
 
@@ -127,8 +127,10 @@ Responses to those questions permit us to place individuals in one of seven part
 
 Individual responses from the 2020 survey are summarized in \ref{tab:table21}. Note that the responses include the numbers -8 and -9. These numbers indicate that there is no data for those respondents – the individual skipped or refused to answer one of the questions. Nearly every respondent offered a response to the question.
 
-Table 2. Frequency table for party identification in 2020
+\@ref(tab:table22) **Frequency table for party identification in 2020**
 
+
+Table: (\#tab:table22)@anes2020
 
 |Response |  n   |
 |:--------|:----:|
@@ -143,8 +145,10 @@ Table 2. Frequency table for party identification in 2020
 |7        | 1730 |
 The frequency table above just gives us the numbers of people in each category, but we are typically more interested in the percentage. The table below improves on Table 2 in couple of ways.  In addition to calculating the percentage, this table now labels the responses (so you can see, for instance that a "1" is a Strong Democrat).  This table also uses survey weights to accurately translate the ANES respondents into a nationally representative sample.  We won't discuss the technology or numbers behind survey weights very much, but all of the results you will be relying on use the appropriate weights. This is our best estimate for the distribution of party identification of eligible voters (citizens, 18 and over) in the United States. 
 
-Table 3. Party identification in 2020, weighted
+\@ref(tab:table23) **Party identification in 2020, weighted**
 
+
+Table: (\#tab:table23)@anes2020
 
 |Party identification       |  %   |
 |:--------------------------|:----:|

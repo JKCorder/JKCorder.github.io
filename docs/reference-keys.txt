@@ -1,6 +1,8 @@
 tab:table1
 fig:figure1
 fig:figure2
+tab:table22
+tab:table23
 tab:women
 tab:men
 data-science-political-science-and-public-policy
