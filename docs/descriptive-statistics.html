@@ -71,8 +71,8 @@
 </h3>
 <p>Most of us learn something about the “average” very early in our lives and I assume most of you are comfortable with the concept of and even the calculations behind an average. In statistics, the average is designated as the mean.</p>
 <p>There are a handful of mathematical symbols that we will use over the course of the semester. The formula for the mean introduces two of those symbols:</p>
-<p><span class="math inline">\(\mu\)</span>, the mean</p>
-<p><span class="math inline">\(\sum\)</span>, the sum from the first observation to the nth observation), more formally…</p>
+<div class="line-block">  <span class="math inline">\(\mu\)</span>, the mean</div>
+<div class="line-block">  <span class="math inline">\(\sum\)</span>, the sum from the first observation to the nth observation), more formally…</div>
 <p><span class="math display">\[\sum_{i=1}^n\]</span></p>
 <p>To calculate the mean, you simply sum up all of the values of a variable for the observations in your dataset and divide by the total number of observations. In symbols, for any variable <span class="math inline">\(X\)</span>:</p>
 <p><span class="math display">\[\mu=(\sum_{i=1}^nX) / n \]</span></p>
@@ -145,67 +145,67 @@ The variance is, in words, the average sum of the squared distances from each ob
 <h3>Ordinal variables (useful)<a class="anchor" aria-label="anchor" href="#ordinal-variables-useful"><i class="fas fa-link"></i></a>
 </h3>
 <p>Some variables have a meaningful order but are just a series of categories that indicate higher or lower. Education levels are a good example: there is an order and higher values indicate more education. The specific way that we order education in the ANES is reproduced below.</p>
-<div id="table-1.-education-categories-in-the-anes" class="section level4 unnumbered">
-<h4>Table 1. Education categories in the ANES<a class="anchor" aria-label="anchor" href="#table-1.-education-categories-in-the-anes"><i class="fas fa-link"></i></a>
-</h4>
+<p>Table <a href="descriptive-statistics.html#tab:table21">2.1</a> <strong>Education categories in the ANES</strong></p>
 <div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:table21">Table 2.1: </span><span class="citation">American National Election Studies [ANES] (2021a)</span>
+</caption>
 <colgroup>
-<col width="10%">
-<col width="89%">
+<col width="91%">
+<col width="8%">
 </colgroup>
 <thead><tr class="header">
-<th align="left">Number</th>
 <th align="left">Meaning</th>
+<th align="center">Number</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">-9</td>
 <td align="left">Refused</td>
+<td align="center">-9</td>
 </tr>
 <tr class="even">
-<td align="left">-8</td>
 <td align="left">Don’t know</td>
+<td align="center">-8</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
 <td align="left">Less than high school credential</td>
+<td align="center">1</td>
 </tr>
 <tr class="even">
-<td align="left">2</td>
 <td align="left">High school graduate - High school diploma or equivalent (e.g. GED)</td>
+<td align="center">2</td>
 </tr>
 <tr class="odd">
-<td align="left">3</td>
 <td align="left">Some college but no degree</td>
+<td align="center">3</td>
 </tr>
 <tr class="even">
-<td align="left">4</td>
 <td align="left">Associate degree in college - occupational/vocational</td>
+<td align="center">4</td>
 </tr>
 <tr class="odd">
-<td align="left">5</td>
 <td align="left">Associate degree in college - academic</td>
+<td align="center">5</td>
 </tr>
 <tr class="even">
-<td align="left">6</td>
 <td align="left">Bachelor’s degree (e.g. BA, AB, BS)</td>
+<td align="center">6</td>
 </tr>
 <tr class="odd">
-<td align="left">7</td>
 <td align="left">Master’s degree (e.g. MA, MS, MEng, MEd, MSW, MBA)</td>
+<td align="center">7</td>
 </tr>
 <tr class="even">
-<td align="left">8</td>
 <td align="left">Professional school degree (e.g. MD, DDS, DVM, LLB,JD)/Doctoral degree (e.g. PHD, EDD)</td>
+<td align="center">8</td>
 </tr>
 <tr class="odd">
-<td align="left">95</td>
 <td align="left">Other {SPECIFY}</td>
+<td align="center">95</td>
 </tr>
 </tbody>
 </table></div>
 <p>We know that a higher number means higher levels of education but we can’t really say that the difference between 4 and 5 (Associate degree vocational versus academic) is the same in as the difference between 6 and 7 (completing a BA compared to completing a Master’s degree). We treat -9, -8, and 95 as missing values. In general, variables that have meaningful order, but intervals that are not uniform, are known as <em>ordinal variables</em>.</p>
-</div>
 </div>
 <div id="categorical-variables-not-useful-at-all" class="section level3 unnumbered">
 <h3>Categorical variables (not useful at all)<a class="anchor" aria-label="anchor" href="#categorical-variables-not-useful-at-all"><i class="fas fa-link"></i></a>
@@ -232,10 +232,10 @@ The variance is, in words, the average sum of the squared distances from each ob
 <h3>Party identification in 2020<a class="anchor" aria-label="anchor" href="#party-identification-in-2020"><i class="fas fa-link"></i></a>
 </h3>
 <p>Individual responses from the 2020 survey are summarized in . Note that the responses include the numbers -8 and -9. These numbers indicate that there is no data for those respondents – the individual skipped or refused to answer one of the questions. Nearly every respondent offered a response to the question.</p>
-<p><a href="descriptive-statistics.html#tab:table22">2.1</a> <strong>Frequency table for party identification in 2020</strong></p>
+<p>Table <a href="descriptive-statistics.html#tab:table22">2.2</a> <strong>Frequency table for party identification in 2020</strong></p>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:table22">Table 2.1: </span><span class="citation">American National Election Studies [ANES] (2021a)</span>
+<span id="tab:table22">Table 2.2: </span><span class="citation">American National Election Studies [ANES] (2021a)</span>
 </caption>
 <thead><tr class="header">
 <th align="left">Response</th>
@@ -281,10 +281,10 @@ The variance is, in words, the average sum of the squared distances from each ob
 </tbody>
 </table></div>
 <p>The frequency table above just gives us the numbers of people in each category, but we are typically more interested in the percentage. The table below improves on Table 2 in couple of ways. In addition to calculating the percentage, this table now labels the responses (so you can see, for instance that a “1” is a Strong Democrat). This table also uses survey weights to accurately translate the ANES respondents into a nationally representative sample. We won’t discuss the technology or numbers behind survey weights very much, but all of the results you will be relying on use the appropriate weights. This is our best estimate for the distribution of party identification of eligible voters (citizens, 18 and over) in the United States.</p>
-<p><a href="descriptive-statistics.html#tab:table23">2.2</a> <strong>Party identification in 2020, weighted</strong></p>
+<p>Table <a href="descriptive-statistics.html#tab:table23">2.3</a> <strong>Party identification in 2020, weighted</strong></p>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:table23">Table 2.2: </span><span class="citation">American National Election Studies [ANES] (2021a)</span>
+<span id="tab:table23">Table 2.3: </span><span class="citation">American National Election Studies [ANES] (2021a)</span>
 </caption>
 <thead><tr class="header">
 <th align="left">Party identification</th>
@@ -322,23 +322,21 @@ The variance is, in words, the average sum of the squared distances from each ob
 </tbody>
 </table></div>
 <p>We could also summarize these numbers with a simple bar chart. The bar chart highlights the fact - surprising to some - that two most common responses to this questions are Strong Democrat and Strong Republican. The table confirms that there are more Strong Democrats than Strong Republicans, but only by a narrow margin.</p>
-<div id="figure-3.-party-identification-2020" class="section level4 unnumbered">
-<h4>Figure 3. Party identification, 2020<a class="anchor" aria-label="anchor" href="#figure-3.-party-identification-2020"><i class="fas fa-link"></i></a>
-</h4>
-<div class="inline-figure"><img src="02-desc_stats_files/figure-html/figure_3-1.png" width="672"></div>
+<p>Figure <a href="#fig:figure23"><strong>??</strong></a> <strong>Party identification, 2020</strong></p>
+<div class="inline-figure"><img src="02-desc_stats_files/figure-html/figure23-1.png" width="672"></div>
 <p>It is clear from the figure that the mode is Strong Democrat, and it appears that the electorate as a whole leans slightly Democratic - each of the three Democratic categories is larger than the corresponding Republican category. This is a good way to see the distribution and to communicate the idea that electorate leans Democratic. But we need a more precise way to both describe this distribution and to compare distributions we might observe for two different groups.</p>
-</div>
 </div>
 <div id="how-has-this-distribution-changed-over-time" class="section level3 unnumbered">
 <h3>How has this distribution changed over time?<a class="anchor" aria-label="anchor" href="#how-has-this-distribution-changed-over-time"><i class="fas fa-link"></i></a>
 </h3>
 <p>You might be curious about the proportion of the electorate that identifies with Democrats or Republicans today, compared to what we saw during the Bush administration or Obama administation. A long view of the balance between Republican and Democrats is reproduced as Figure 4, below. This is from the ANES and based on the 7-point scale we used above. The figure shows you the the total percentage of women and men who identified as some type of Democrat (1,2, or 3) You can see the Democrats enjoyed a substantial, even overwhelming advantage in the early 1960s, with nearly 2/3 of all American identifying with the party. But that advantage has been decaying for 70 years and support for Democrats continued to erode under President Trump. We may, soon, have an election cycle where more people identify as Republican than Democratic, which will come as a surprise to the many people who think that the Republican brand is a demographic corner, doomed to decline as American becomes more diverse and more secular. Also, notice that the support for Democrats decayed more rapidly for men than women, the basis for the contemporary gender gap in presidential voting.</p>
+Figure <a href="descriptive-statistics.html#fig:foo">2.3</a> <strong>Identification with Democrats over time, women compared to men.</strong>
+<div class="figure">
+<span style="display:block;" id="fig:foo"></span>
+<img src="02-desc_stats_files/figure-html/foo-1.png" alt="@anes2020" width="672"><p class="caption">
+Figure 2.3: <span class="citation">American National Election Studies [ANES] (2021a)</span>
+</p>
 </div>
-<div id="figure-5.-identification-with-democrats-over-time-women-compared-to-men." class="section level3" number="2.4.1">
-<h3>
-<span class="header-section-number">2.4.1</span> Figure 5. Identification with Democrats over time, women compared to men.<a class="anchor" aria-label="anchor" href="#figure-5.-identification-with-democrats-over-time-women-compared-to-men."><i class="fas fa-link"></i></a>
-</h3>
-<div class="inline-figure"><img src="02-desc_stats_files/figure-html/image-1.png" width="80%"></div>
 </div>
 </div>
 <div id="what-can-we-learn-about-party-identification-from-measures-of-central-tendency-and-measures-of-dispersion" class="section level2" number="2.5">
@@ -349,8 +347,12 @@ The variance is, in words, the average sum of the squared distances from each ob
 <h3>The entire electorate, 2020.<a class="anchor" aria-label="anchor" href="#the-entire-electorate-2020."><i class="fas fa-link"></i></a>
 </h3>
 <p>The output that you will use for the worksheet and assignment includes two tables in addition to the bar chart – the frequency distribution - the percentage of people in each party identification category - and the descriptive statistics. Table 4 reproduces the descriptive statistics and percentages that summarize party identification in the 2020 electorate.</p>
-<p>Table 4. Descriptive statistics for party identification, entire sample, 2020</p>
-<div class="inline-table"><table class="table table-sm"><tbody>
+<p>Table <a href="descriptive-statistics.html#tab:table4">2.4</a>. <strong>Descriptive statistics for party identification, entire sample, 2020</strong></p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:table4">Table 2.4: </span><span class="citation">(<strong>anes?</strong>)</span>
+</caption>
+<tbody>
 <tr class="odd">
 <td align="left">Mean</td>
 <td align="right">3.93</td>
@@ -371,7 +373,8 @@ The variance is, in words, the average sum of the squared distances from each ob
 <td align="left">Standard_deviation</td>
 <td align="right">2.26</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>Table 4 suggests a couple of interesting things about party identification. First, notice the mode (mode=1). The most frequent response is Strong Democrat - you can see that on the bar chart. Second, remember that the number attached to Independent is 4. Since the mean party id of the sample is 3.93, the electorate is barely leaning toward the lower end of the scale or slightly Democratic. The median is 4 meaning the 50th percentile is in the Independent category. The percentages confirm this. Only 43.8% of the responses are in the first three categories (sum of the first three categories reported in Table 3), so the 50th percentile is 4. And only 41.6% of the responses are in the last three categories. So while the electorate leans toward the Democrats, any candidate, Republican or Democratic, must reach some independents in order to gain support from 50% of the electorate.</p>
 </div>
 </div>
@@ -390,7 +393,7 @@ The variance is, in words, the average sum of the squared distances from each ob
 <div class="inline-figure"><img src="02-desc_stats_files/figure-html/women-1.png" width="672"></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:women">Table 2.3: </span>Descriptive statistics</caption>
+<span id="tab:women">Table 2.5: </span>Descriptive statistics</caption>
 <thead><tr class="header">
 <th align="left">Frequencies (weighted, percentages)</th>
 <th align="center">%</th>
@@ -456,7 +459,7 @@ The variance is, in words, the average sum of the squared distances from each ob
 <div class="inline-figure"><img src="02-desc_stats_files/figure-html/men-1.png" width="672"></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:men">Table 2.4: </span>Frequencies (weighted, percentages)</caption>
+<span id="tab:men">Table 2.6: </span>Frequencies (weighted, percentages)</caption>
 <thead><tr class="header">
 <th align="left"></th>
 <th align="center">%</th>
@@ -494,7 +497,7 @@ The variance is, in words, the average sum of the squared distances from each ob
 </table></div>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:men">Table 2.4: </span>Descriptive statistics</caption>
+<span id="tab:men">Table 2.6: </span>Descriptive statistics</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Mean</td>
@@ -563,7 +566,6 @@ The variance is, in words, the average sum of the squared distances from each ob
 <a class="nav-link" href="#a-starting-point-party-identification"><span class="header-section-number">2.4</span> A starting point: party identification</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#party-identification-in-2020">Party identification in 2020</a></li>
 <li><a class="nav-link" href="#how-has-this-distribution-changed-over-time">How has this distribution changed over time?</a></li>
-<li><a class="nav-link" href="#figure-5.-identification-with-democrats-over-time-women-compared-to-men."><span class="header-section-number">2.4.1</span> Figure 5. Identification with Democrats over time, women compared to men.</a></li>
 </ul>
 </li>
 <li>

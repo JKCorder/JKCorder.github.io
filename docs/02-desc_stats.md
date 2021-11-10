@@ -14,9 +14,10 @@ Most of us learn something about the “average” very early in our lives and I
 
 There are a handful of mathematical symbols that we will use over the course of the semester. The formula for the mean introduces two of those symbols:
 
- $\mu$, the mean
+|   $\mu$, the mean
 
- $\sum$,  the sum from the first observation to the nth observation), more formally...
+
+|   $\sum$,  the sum from the first observation to the nth observation), more formally...
 
 $$\sum_{i=1}^n$$
 
@@ -81,21 +82,24 @@ There are many different kinds of variables – a survey might capture and recor
 
 Some variables have a meaningful order but are just a series of categories that indicate higher or lower. Education levels are a good example:  there is an order and higher values indicate more education. The specific way that we order education in the ANES is reproduced below.
 
-#### Table 1. Education categories in the ANES{-}
+Table \@ref(tab:table21) **Education categories in the ANES**
 
-| Number | Meaning
-|:------- |:-----------------------------------------------------------------|
-|-9 | Refused 
-|-8 | Don’t know
-| 1 | Less than high school credential
-| 2 | High school graduate - High school diploma or equivalent (e.g. GED)
-| 3 | Some college but no degree
-| 4 | Associate degree in college - occupational/vocational
-| 5 | Associate degree in college - academic
-| 6 | Bachelor’s degree (e.g. BA, AB, BS)
-| 7 | Master’s degree (e.g. MA, MS, MEng, MEd, MSW, MBA)
-| 8 | Professional school degree (e.g. MD, DDS, DVM, LLB,JD)/Doctoral degree (e.g. PHD, EDD)
-|95 | Other {SPECIFY}
+
+Table: (\#tab:table21)@anes2020
+
+|Meaning                                                                                | Number |
+|:--------------------------------------------------------------------------------------|:------:|
+|Refused                                                                                |   -9   |
+|Don’t know                                                                             |   -8   |
+|Less than high school credential                                                       |   1    |
+|High school graduate - High school diploma or equivalent (e.g. GED)                    |   2    |
+|Some college but no degree                                                             |   3    |
+|Associate degree in college - occupational/vocational                                  |   4    |
+|Associate degree in college - academic                                                 |   5    |
+|Bachelor’s degree (e.g. BA, AB, BS)                                                    |   6    |
+|Master’s degree (e.g. MA, MS, MEng, MEd, MSW, MBA)                                     |   7    |
+|Professional school degree (e.g. MD, DDS, DVM, LLB,JD)/Doctoral degree (e.g. PHD, EDD) |   8    |
+|Other {SPECIFY}                                                                        |   95   |
 
 We know that a higher number means higher levels of education but we can’t really say that the difference between 4 and 5 (Associate degree vocational versus academic) is the same in as the difference between 6 and 7 (completing a BA compared to completing a Master's degree). We treat -9, -8, and 95 as missing values.  In general, variables that have meaningful order, but intervals that are not uniform, are known as *ordinal variables*.
 
@@ -127,7 +131,7 @@ Responses to those questions permit us to place individuals in one of seven part
 
 Individual responses from the 2020 survey are summarized in \ref{tab:table21}. Note that the responses include the numbers -8 and -9. These numbers indicate that there is no data for those respondents – the individual skipped or refused to answer one of the questions. Nearly every respondent offered a response to the question.
 
-\@ref(tab:table22) **Frequency table for party identification in 2020**
+Table \@ref(tab:table22) **Frequency table for party identification in 2020**
 
 
 Table: (\#tab:table22)@anes2020
@@ -145,7 +149,7 @@ Table: (\#tab:table22)@anes2020
 |7        | 1730 |
 The frequency table above just gives us the numbers of people in each category, but we are typically more interested in the percentage. The table below improves on Table 2 in couple of ways.  In addition to calculating the percentage, this table now labels the responses (so you can see, for instance that a "1" is a Strong Democrat).  This table also uses survey weights to accurately translate the ANES respondents into a nationally representative sample.  We won't discuss the technology or numbers behind survey weights very much, but all of the results you will be relying on use the appropriate weights. This is our best estimate for the distribution of party identification of eligible voters (citizens, 18 and over) in the United States. 
 
-\@ref(tab:table23) **Party identification in 2020, weighted**
+Table \@ref(tab:table23) **Party identification in 2020, weighted**
 
 
 Table: (\#tab:table23)@anes2020
@@ -162,9 +166,9 @@ Table: (\#tab:table23)@anes2020
 
 We could also summarize these numbers with a simple bar chart.  The bar chart highlights the fact - surprising to some - that two most common responses to this questions are Strong Democrat and Strong Republican.  The table confirms that there are more Strong Democrats than Strong Republicans, but only by a narrow margin.
 
-#### Figure 3. Party identification, 2020{-}
+Figure \@ref(fig:figure23) **Party identification, 2020**
 
-<img src="02-desc_stats_files/figure-html/figure_3-1.png" width="672" />
+<img src="02-desc_stats_files/figure-html/figure23-1.png" width="672" />
 
 It is clear from the figure that the mode is Strong Democrat, and it appears that the electorate as a whole leans slightly Democratic - each of the three Democratic categories is larger than the corresponding Republican category. This is a good way to see the distribution and to communicate the idea that electorate leans Democratic.  But we need a more precise way to both describe this distribution and to compare distributions we might observe for two different groups.
 
@@ -172,10 +176,11 @@ It is clear from the figure that the mode is Strong Democrat, and it appears tha
 
 You might be curious about the proportion of the electorate that identifies with Democrats or Republicans today, compared to what we saw during the Bush administration or Obama administation.   A long view of the balance between Republican and Democrats is reproduced as Figure 4, below.  This is from the ANES and based on the 7-point scale we used above.  The figure shows you the the total percentage of women and men who identified as some type of Democrat (1,2, or 3)  You can see the Democrats enjoyed a substantial, even overwhelming advantage in the early 1960s, with nearly 2/3 of all American identifying with the party.  But that advantage has been decaying for 70 years and support for Democrats continued to erode under President Trump.  We may, soon, have an election cycle where more people identify as Republican than Democratic, which will come as a surprise to the many people who think that the Republican brand is a demographic corner, doomed to decline as American becomes more diverse and more secular. Also, notice that the support for Democrats decayed more rapidly for men than women, the basis for the contemporary gender gap in presidential voting.
 
-### Figure 5.  Identification with Democrats over time, women compared to men.
-
-<img src="02-desc_stats_files/figure-html/image-1.png" width="80%" />
-
+Figure \@ref(fig:foo) **Identification with Democrats over time, women compared to men.**
+<div class="figure">
+<img src="02-desc_stats_files/figure-html/foo-1.png" alt="@anes2020" width="672" />
+<p class="caption">(\#fig:foo)@anes2020</p>
+</div>
 
 ## What can we learn about party identification from measures of central tendency and measures of dispersion?
 
@@ -184,7 +189,13 @@ You might be curious about the proportion of the electorate that identifies with
 
 The output that you will use for the worksheet and assignment includes two tables in addition to the bar chart – the frequency distribution - the percentage of people in each party identification category - and the descriptive statistics. Table 4 reproduces the descriptive statistics and percentages that summarize party identification in the 2020 electorate. 
 
-Table 4.  Descriptive statistics for party identification, entire sample, 2020
+
+
+
+Table \@ref(tab:table4).  **Descriptive statistics for party identification, entire sample, 2020**
+
+
+Table: (\#tab:table4)@anes
 
 |                   |     |
 |:------------------|----:|

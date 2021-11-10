@@ -65,11 +65,11 @@ This calculation - the size of the change in Y given a particular change in X - 
 
 ### Graphing relationships between two variables {-}
 
-The relationship between two variables may be linear, or it could take some other form – U-shaped or a curve.  One way to understand the utility and use of the linear model is to produce a scatterplot of X and Y to see what it means to assume the relationship is linear.  The examples below draws on data published by @pollock2011 in an introductory text on social science statistics.  The dependent variable (Y) is the percentage of state legislators who are women (Y) and the independent or predictor variable (X) is the percentage of state population who are Christian – “adhere to a Christian faith.” 
+The relationship between two variables may be linear, or it could take some other form – U-shaped or a curve.  One way to understand the utility and use of the linear model is to produce a scatterplot of X and Y to see what it means to assume the relationship is linear.  The examples below draws on data published by @pollock2011 in an introductory text on social science statistics.  The dependent variable (Y) is the percentage of state legislators who are women and the independent or predictor variable (X) is the percentage of state population who are Christian – “adhere to a Christian faith.” 
 
 A simple scatter plot of this data for the 50 U.S. states is reproduced as Figure 1, below.
 
-#### Figure 1. Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian. {-}
+Figure 1. **Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian.** {-}
 
 <img src="images/states_scatter.png" width="80%" />
  
@@ -79,7 +79,7 @@ What is best way to draw a line that describes the relationship between X and Y?
 
 We are interested in the two parameters or numbers that describe the line that summarizes the relationship between X and Y – the slope and the intercept. What criteria should we use to pick one line over another?  Maybe the distance between points and the line (lowest average error)? Maybe the squared distance between the points and the line (lowest sum of squared errors)?  The second criteria – minimize squared error – is the approach we use. The actual regression line is added to the data in Figure 2, below.
 
-#### Figure 2. Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian, with OLS line. {-}
+Figure 2. **Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian, with OLS line.**
 
 <img src="images/states_OLS.png" width="80%" />
  
@@ -107,10 +107,10 @@ We don’t care much about the constant term since we are mainly interested in c
 
 ### How restrictive is the assumption that the relationship is linear?   {-}
 
-The scatterplot in Figure 2 reveals two things about the data.  First, there is a lot of error – this is a “noisy” relationship.  States with 60 percent Christian adherents range from 5 percent to 35 percent females in the legislator.  The second thing we learn is that, in this case, it appears reasonable to use a line to describe the data.  We can evaluate this by permitting X and Y to be linked in a way other than a line.  For an example, see Figure 3.  The points are summarized with what is known as local “smoother” – so the squared distance between the points and the line is minimized, but the path of the line is determined by a handful of points in a narrow range of X, rather than the entire sample.  Even with this very flexible approach, it appears the relationship is close to linear.
+The scatterplot in Figure 2 reveals two things about the data.  First, there is a lot of error – this is a “noisy” relationship.  States with 60 percent Christian adherents range from 5 percent to 35 percent females in the legislator.  The second thing we learn is that, in this case, it appears reasonable to use a line to describe the data.  We can evaluate this directly by permitting X and Y to be linked in a way other than a line.  For an example, see Figure 3.  The points are summarized with what is known as local “smoother” – so the squared distance between the points and the line is minimized, but the path of the line is determined by a handful of points in a narrow range of X, rather than the entire sample.  Even with this very flexible approach, it appears the relationship is close to linear.
 
 
-#### Figure 3. Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian, with  local smoother. {-}
+Figure 3. **Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian, with  local smoother. **
 
 <img src="images/states_smooth.png" width="80%" />
  
@@ -119,18 +119,20 @@ The scatterplot in Figure 2 reveals two things about the data.  First, there is 
 
 The linear model assumes Y is a linear function of X.  Data are used to test if the relationship between X and Y, the slope of the line, is positive, negative, or zero.  You should have an idea of what you expect to observe before you generate the output.  As was the case with measures of association, this expectation is formally labeled as the “alternative hypothesis.” In the simple linear model, we test our expectations by examining the sign (negative or positive) of $\beta_1$. 
 
-A t-test is used to determine if the difference between the observed $\beta_1$ and zero is statistically significant.  The null hypothesis is that $\beta_1=0$ in the population. The alternative hypothesis $\beta_1~=0$ (not equal to zero).
+A t-test is used to determine if the difference between the observed $\beta_1$ and zero is statistically significant.  The null hypothesis is that $\beta_1=0$ in the population. The alternative hypothesis $\beta_1\not=0$ (not equal to zero).
+
 If p<0.05, then in the population $\beta_1$ is not equal to zero.  (Formally, you reject the null hypothesis).  The relationship between X and Y is statistically significant.
 
 To see how regression works in practice, we use two examples – the link between the the Donald Trump feeling thermometer and party id and the link between income and party identification (introduced in Chapter 1).
 
-### Example: Feelings toward Donald Trump and  party identification {-}
+#### Example: Feelings toward Donald Trump and  party identification {-}
 
 
 
 How are attitudes about Donald Trump related to party id? Following the approach used in earlier chapters, the link between the Donald Trump feeling thermometer and and party identification is summarized in a line chart of group means. You can see that, on average, Strong Republicans love Donald Trump while Strong Democrats do not.
 
-#### Figure 4.  Donald Trump support by party identification {-}
+Figure 4. **Donald Trump support by party identification**
+
 <img src="06-ols_files/figure-html/figure64-1.png" width="672" />
  
 So what exactly would a regression tell us?  To get a sense of what we might expect, consider two questions.  What exactly would you expect the feeling thermometer response to be for a Strong Democrat?  What would you expect the feeling thermometer response to be for a Strong Republican?  If you answered 85 for Strong Democrats and 25 for Strong Republicans, then you are expecting the slope of the regression line to be 10.  Why is this the case?  Recall the formula for the slope: 
@@ -145,7 +147,7 @@ Review and make sure you understand the calculation in this example.
 
 Part of the regression output for this model is reproduced as Table 1.  We will first focus on the *coefficients* - the column of numbers next to the variable labels.
 
-#### Table 1.  Donald Trump Trump feeling thermometer as a function of party id. {-}
+Table 1.  *Donald Trump Trump feeling thermometer as a function of party id**
 
 
 ```
@@ -182,7 +184,7 @@ In Chapter 1 we looked at the link between income and party identification, expe
 
 The output from a linear regression testing the link between party id and income is reproduced as Table 2.
 
-#### Table 2.  Party identification as a function of party id. {-}
+Table 2.  **Party identification as a function of party id**
 
 
 ```
@@ -290,7 +292,7 @@ So while the focus remains on what the slope coefficient tells us about the diff
 
 The example below uses a dummy variable of the type describe above to predict the level of the Donald Trump feeling thermometer.
 
-#### Table 3.  Donald Trump feeling thermometer and gender {-}
+Table 3.  **Donald Trump feeling thermometer and gender**
 
 
 ```
@@ -312,9 +314,9 @@ Adjusted R2                           0.004
 
 The numbers in the table tell us:
 
-For women, Y = 41.2 + -2.7*1 = 35.8
+For women, Y = 41.2 + -5.4*1 = 35.8
 
-For men,   Y = 41.2 + -2.7*0 = 41.2
+For men,   Y = 41.2 + -5.4*0 = 41.2
 
 While the effect or link is statistically significant, so men are slightly warmer towards Trump, the effect is small (5 points).
 
@@ -326,7 +328,7 @@ If the comparison of interest is White compared to Minority, we could create a d
 
 The coefficients for a simple two variable model of Donald Trump feelings and race, using the dummy variable created above, appears below as Table 5.
 
-#### Table 4.  Donald Trump feeling thermometer and race {-}
+Table 4.  **Donald Trump feeling thermometer and race {-}**
 
 
 ```
@@ -354,7 +356,7 @@ You can also see from the table that the impact of race is much bigger - the gro
 
 If you are interested in using a variable with many categories, then you need to use many dummy variables.  If you have N categories, then you need N-1 dummy variables. In the examples above, we had two categories, so we need one dummy variable.  If we wanted to test differences across all racial categories in the ANES (4 categories – white, black, Hispanic, other), then we would need 3 dummy variables.  One category is the baseline category and the dummy variables represent the other category. We could select White as the baseline category and use dummy variables for Black, Hispanic, and Other.  The link between the Donald Trump feeling thermometer and the race dummy variables is reproduced below.
 
-#### Table 5.  Donald Trump feeling thermometer and race (with four categories) {-}
+Table 5.  **Donald Trump feeling thermometer and race (with four categories)** {-}
 
 
 ```
