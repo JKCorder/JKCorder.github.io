@@ -6,7 +6,7 @@ What tools do social scientists use to reach the conclusions you might find in a
 
 How do we use the tools of data analysis to improve public policy? Have you seen the movie *Moneyball*? The idea of the film (Brad Pitt stars!) is that a baseball franchise with few resources uses statistical models to identify players who are likely to perform well but are currently not in lucrative contracts. The manager composes a team of inexpensive overlooked talent that becomes highly competitive. The data scientists – statisticians – make judgments about player potential that are superior to the instincts or intuitions of experienced scouts and coaches. This approach is now used throughout Major League Baseball and has extended to other professional sports. For an NBA example, see @silver_nba. Federal executives have advocated that a similar approach inform the allocation of tax dollars to programs. In a recent book, *Moneyball for Government*, Jim Nussell and Peter Orzag argue that federal agencies should invest substantial resources in program evaluation, in order to ensure that scarce tax dollars are used in the most effective way. The tools of data science and social science can be used to identity federal programs that offer effective solutions to pressing problems [@nussle].
 
-These types of insights – from data and models – are also creeping in to journalism – especially coverage of campaigns and elections. Less than ten years ago, political scientists studying voting behavior devoted an entire book, *Unconventional Wisdom*, to outlining discrepancies between the way that journalists cover and talk about political campaigns and the ways that political scientists understand how campaigns work [@ucw1]. But, this is changing. In 2014, Ezra Klein (now at the *New York Times*), published a short piece on the ways that political science has influence political journalism: “How political science conquered Washington” [@klein]. Some of the enduring lessons or structural features of American politics – which political scientists teach and study – are now integrated with political journalism. The *Washington Post* now hosts a blog, the *Monkey Cage* that publishes readable summaries of often complex statistical or other research by political scientists. One my favorites entries is “Was women’s suffrage a failure? What new evidence tells us about the first women voters” (the link is below under @corder_mc).
+These types of insights – from data and models – are also creeping in to journalism – especially coverage of campaigns and elections. Less than ten years ago, political scientists studying voting behavior devoted an entire book, *Unconventional Wisdom*, to outlining discrepancies between the way that journalists cover and talk about political campaigns and the ways that political scientists understand how campaigns work [@ucw1]. But, this is changing. In 2014, Ezra Klein (now at the *New York Times*), published a short piece on the ways that political science has influence political journalism: “How political science conquered Washington” [@klein]. Some of the enduring lessons or structural features of American politics – which political scientists teach and study – are now integrated with political journalism. The *Washington Post* now hosts a blog, the *Monkey Cage* that publishes readable summaries of often complex statistical or other research by political scientists. One my favorites entries is “Was women’s suffrage a failure? What new evidence tells us about the first women voters” [@corder_mc].
 
 ## The role of theory and the role of observation
 
@@ -24,10 +24,9 @@ In the most recent presidential election, the American National Election Study a
 
 
 
-Table \@ref(tab:table1) **Votes for Donald Trump, by income level**
+**Table \@ref(tab:table11)** Votes for Donald Trump, by income level
 
-
-Table: (\#tab:table1)@anes2020
+Table: (\#tab:table11)
 
 |Total household income |  %   |
 |:----------------------|:----:|
@@ -35,7 +34,7 @@ Table: (\#tab:table1)@anes2020
 |$25,000 to $150,000    | 46.7 |
 |Over $150,000          | 40.1 |
 
-The results in Table \@ref(tab:table1) don't seem to confirm our expectations: rich households were more likely to vote for Trump than poor households, but not by very much and it turns out that the households closer to the middle of the income distribution were more likely to vote for Donald Trump. This is definitely not consistent with our expectations. Our theory about voting and personal finances doesn't hold up to empirical scrutiny.  (This is new, by the way. This result did hold up before 2020 - not a powerful predictor but definitely higher income more Republican than other income groups.)
+The results in Table \@ref(tab:table11) don't seem to confirm our expectations: rich households were more likely to vote for Trump than poor households, but not by very much and it turns out that the households closer to the middle of the income distribution were more likely to vote for Donald Trump. This is definitely not consistent with our expectations. Our theory about voting and personal finances doesn't hold up to empirical scrutiny.  (This is new, by the way. This result did hold up before 2020 - not a powerful predictor but definitely higher income more Republican than other income groups.)
 
 ## Big data in business and social science
 

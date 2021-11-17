@@ -3,14 +3,10 @@ title: "Applied Statistics for Political Science"
 author: "J.K. Corder"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography:
-- book.bib
-- packages.bib
-- bibliography.bib
+bibliography: [book.bib, packages.bib, bibliography.bib]
+link-citations: true
 description: |
   An introduction to applied statistics with a focus on political behavior
-#This this only matters for PDF
-#biblio-style: apalike
 ---
 
 <!-- Note that one .rmd can contain multiple sections starting with # -->

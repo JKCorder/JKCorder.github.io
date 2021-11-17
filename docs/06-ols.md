@@ -69,19 +69,25 @@ The relationship between two variables may be linear, or it could take some othe
 
 A simple scatter plot of this data for the 50 U.S. states is reproduced as Figure 1, below.
 
-Figure 1. **Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian.** {-}
-
-<img src="images/states_scatter.png" width="80%" />
+**Figure \@ref(fig:figure61)**
+Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian
+<div class="figure" style="text-align: center">
+<img src="images/states_scatter.png" alt="\label{fig:figure61}" width="90%" />
+<p class="caption">(\#fig:figure61)\label{fig:figure61}</p>
+</div>
  
 Experiment with sketching the line in the figure above that you think best describes the link between the two variables.  The line is obviously downward sloping: there are a higher proportion of women in the legislature in states that have a lower proportion of Christian adherents.  But the line could be fairly steep  - passing through 40 in the upper left and approach zero for X=80.  Or the line could be fairly flat – passing through 30 in the upper left and approach 10 for X=80
  
 What is best way to draw a line that describes the relationship between X and Y?
 
-We are interested in the two parameters or numbers that describe the line that summarizes the relationship between X and Y – the slope and the intercept. What criteria should we use to pick one line over another?  Maybe the distance between points and the line (lowest average error)? Maybe the squared distance between the points and the line (lowest sum of squared errors)?  The second criteria – minimize squared error – is the approach we use. The actual regression line is added to the data in Figure 2, below.
+We are interested in the two parameters or numbers that describe the line that summarizes the relationship between X and Y – the slope and the intercept. What criteria should we use to pick one line over another?  Maybe the distance between points and the line (lowest average error)? Maybe the squared distance between the points and the line (lowest sum of squared errors)?  The second criteria – minimize squared error – is the approach we use. The actual regression line is added to the data in \@fig:figure62, below.
 
-Figure 2. **Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian, with OLS line.**
-
-<img src="images/states_OLS.png" width="80%" />
+**Figure \@ref(fig:figure62)**
+Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian. with OLS line
+<div class="figure" style="text-align: center">
+<img src="images/states_OLS.png" alt="\label{fig:figure62}" width="90%" />
+<p class="caption">(\#fig:figure62)\label{fig:figure62}</p>
+</div>
  
 The line that best fits the data – that minimizes the sum of the squared distance between each point and the line – has a slope of -0.35   We can say some very specific things about the 50 states in the sample with this number.  Since Y is the percentage of state legislators who are women and X is the percentage of state population who are Christian, we know from the formula above the $\Delta{Y} = \Delta{X}*\beta_1$  So if we compared a state with 70 percent Christian adherents to a state with 50 percent Christian adherents ($\Delta{X}$=70-50 or 20), we would expect to see -0.35*20 or a 7 point drop in the predicted percentage of female legislators.
 
@@ -110,9 +116,11 @@ We don’t care much about the constant term since we are mainly interested in c
 The scatterplot in Figure 2 reveals two things about the data.  First, there is a lot of error – this is a “noisy” relationship.  States with 60 percent Christian adherents range from 5 percent to 35 percent females in the legislator.  The second thing we learn is that, in this case, it appears reasonable to use a line to describe the data.  We can evaluate this directly by permitting X and Y to be linked in a way other than a line.  For an example, see Figure 3.  The points are summarized with what is known as local “smoother” – so the squared distance between the points and the line is minimized, but the path of the line is determined by a handful of points in a narrow range of X, rather than the entire sample.  Even with this very flexible approach, it appears the relationship is close to linear.
 
 
-Figure 3. **Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian, with  local smoother. **
-
-<img src="images/states_smooth.png" width="80%" />
+**Figure \@ref(fig:figure63)** Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian, with  local smoother.
+<div class="figure" style="text-align: center">
+<img src="images/states_smooth.png" alt="\label{fig:figure63}" width="90%" />
+<p class="caption">(\#fig:figure63)\label{fig:figure63}</p>
+</div>
  
 
 ## Interpreting regression coefficients
@@ -131,9 +139,12 @@ To see how regression works in practice, we use two examples – the link betwee
 
 How are attitudes about Donald Trump related to party id? Following the approach used in earlier chapters, the link between the Donald Trump feeling thermometer and and party identification is summarized in a line chart of group means. You can see that, on average, Strong Republicans love Donald Trump while Strong Democrats do not.
 
-Figure 4. **Donald Trump support by party identification**
-
-<img src="06-ols_files/figure-html/figure64-1.png" width="672" />
+**Figure \@ref(fig:figure64)**
+Donald Trump feeling thermometer, as a function of party identification
+<div class="figure" style="text-align: center">
+<img src="06-ols_files/figure-html/figure64-1.png" alt="\label{fig:figure64}" width="90%" />
+<p class="caption">(\#fig:figure64)\label{fig:figure64}</p>
+</div>
  
 So what exactly would a regression tell us?  To get a sense of what we might expect, consider two questions.  What exactly would you expect the feeling thermometer response to be for a Strong Democrat?  What would you expect the feeling thermometer response to be for a Strong Republican?  If you answered 85 for Strong Democrats and 25 for Strong Republicans, then you are expecting the slope of the regression line to be 10.  Why is this the case?  Recall the formula for the slope: 
 
@@ -147,7 +158,7 @@ Review and make sure you understand the calculation in this example.
 
 Part of the regression output for this model is reproduced as Table 1.  We will first focus on the *coefficients* - the column of numbers next to the variable labels.
 
-Table 1.  *Donald Trump Trump feeling thermometer as a function of party id**
+**Table \@ref(tab:model1)**Donald Trump Trump feeling thermometer as a function of party id.<span style="color: white;">(\#tab:model1)</span> 
 
 
 ```
@@ -184,8 +195,7 @@ In Chapter 1 we looked at the link between income and party identification, expe
 
 The output from a linear regression testing the link between party id and income is reproduced as Table 2.
 
-Table 2.  **Party identification as a function of party id**
-
+**Table \@ref(tab:model2)**Party identification as a function of income.<span style="color: white;">(\#tab:model2)</span> 
 
 ```
 
@@ -292,8 +302,7 @@ So while the focus remains on what the slope coefficient tells us about the diff
 
 The example below uses a dummy variable of the type describe above to predict the level of the Donald Trump feeling thermometer.
 
-Table 3.  **Donald Trump feeling thermometer and gender**
-
+**Table \@ref(tab:model3)** Donald Trump feeling thermometer and gender<span style="color: white;">(\#tab:model3)</span>
 
 ```
 

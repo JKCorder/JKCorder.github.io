@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 6 Regression | Applied Statistics for Political Science</title>
+<title>6 Regression | Applied Statistics for Political Science</title>
 <meta name="author" content="J.K. Corder">
 <meta name="description" content="This chapter introduces a statistical modeling approach called regression or ordinary least squares regression, sometimes abbreviated as OLS. The idea is that we identify something we are...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 6 Regression | Applied Statistics for Political Science">
+<meta property="og:title" content="6 Regression | Applied Statistics for Political Science">
 <meta property="og:type" content="book">
 <meta property="og:description" content="This chapter introduces a statistical modeling approach called regression or ordinary least squares regression, sometimes abbreviated as OLS. The idea is that we identify something we are...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 6 Regression | Applied Statistics for Political Science">
+<meta name="twitter:title" content="6 Regression | Applied Statistics for Political Science">
 <meta name="twitter:description" content="This chapter introduces a statistical modeling approach called regression or ordinary least squares regression, sometimes abbreviated as OLS. The idea is that we identify something we are...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -113,15 +113,27 @@ A line is fully and completely described by two parameters, <span class="math in
 <div id="graphing-relationships-between-two-variables" class="section level3 unnumbered">
 <h3>Graphing relationships between two variables<a class="anchor" aria-label="anchor" href="#graphing-relationships-between-two-variables"><i class="fas fa-link"></i></a>
 </h3>
-<p>The relationship between two variables may be linear, or it could take some other form – U-shaped or a curve. One way to understand the utility and use of the linear model is to produce a scatterplot of X and Y to see what it means to assume the relationship is linear. The examples below draws on data published by <span class="citation">Pollock (2011)</span> in an introductory text on social science statistics. The dependent variable (Y) is the percentage of state legislators who are women and the independent or predictor variable (X) is the percentage of state population who are Christian – “adhere to a Christian faith.”</p>
+<p>The relationship between two variables may be linear, or it could take some other form – U-shaped or a curve. One way to understand the utility and use of the linear model is to produce a scatterplot of X and Y to see what it means to assume the relationship is linear. The examples below draws on data published by <span class="citation"><a href="references.html#ref-pollock2011" role="doc-biblioref">Pollock</a> (<a href="references.html#ref-pollock2011" role="doc-biblioref">2011</a>)</span> in an introductory text on social science statistics. The dependent variable (Y) is the percentage of state legislators who are women and the independent or predictor variable (X) is the percentage of state population who are Christian – “adhere to a Christian faith.”</p>
 <p>A simple scatter plot of this data for the 50 U.S. states is reproduced as Figure 1, below.</p>
-<p>Figure 1. <strong>Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian.</strong> {-}</p>
-<div class="inline-figure"><img src="images/states_scatter.png" width="80%"></div>
+<strong>Figure <a href="regression.html#fig:figure61">6.1</a></strong>
+Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:figure61"></span>
+<img src="images/states_scatter.png" alt="\label{fig:figure61}" width="90%"><p class="caption">
+ 
+</p>
+</div>
 <p>Experiment with sketching the line in the figure above that you think best describes the link between the two variables. The line is obviously downward sloping: there are a higher proportion of women in the legislature in states that have a lower proportion of Christian adherents. But the line could be fairly steep - passing through 40 in the upper left and approach zero for X=80. Or the line could be fairly flat – passing through 30 in the upper left and approach 10 for X=80</p>
 <p>What is best way to draw a line that describes the relationship between X and Y?</p>
-<p>We are interested in the two parameters or numbers that describe the line that summarizes the relationship between X and Y – the slope and the intercept. What criteria should we use to pick one line over another? Maybe the distance between points and the line (lowest average error)? Maybe the squared distance between the points and the line (lowest sum of squared errors)? The second criteria – minimize squared error – is the approach we use. The actual regression line is added to the data in Figure 2, below.</p>
-<p>Figure 2. <strong>Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian, with OLS line.</strong></p>
-<div class="inline-figure"><img src="images/states_OLS.png" width="80%"></div>
+<p>We are interested in the two parameters or numbers that describe the line that summarizes the relationship between X and Y – the slope and the intercept. What criteria should we use to pick one line over another? Maybe the distance between points and the line (lowest average error)? Maybe the squared distance between the points and the line (lowest sum of squared errors)? The second criteria – minimize squared error – is the approach we use. The actual regression line is added to the data in @fig:figure62, below.</p>
+<strong>Figure <a href="regression.html#fig:figure62">6.2</a></strong>
+Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian. with OLS line
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:figure62"></span>
+<img src="images/states_OLS.png" alt="\label{fig:figure62}" width="90%"><p class="caption">
+ 
+</p>
+</div>
 <p>The line that best fits the data – that minimizes the sum of the squared distance between each point and the line – has a slope of -0.35 We can say some very specific things about the 50 states in the sample with this number. Since Y is the percentage of state legislators who are women and X is the percentage of state population who are Christian, we know from the formula above the <span class="math inline">\(\Delta{Y} = \Delta{X}*\beta_1\)</span> So if we compared a state with 70 percent Christian adherents to a state with 50 percent Christian adherents (<span class="math inline">\(\Delta{X}\)</span>=70-50 or 20), we would expect to see -0.35*20 or a 7 point drop in the predicted percentage of female legislators.</p>
 </div>
 <div id="computation-in-the-simple-linear-model" class="section level3 unnumbered">
@@ -140,8 +152,13 @@ A line is fully and completely described by two parameters, <span class="math in
 <h3>How restrictive is the assumption that the relationship is linear?<a class="anchor" aria-label="anchor" href="#how-restrictive-is-the-assumption-that-the-relationship-is-linear"><i class="fas fa-link"></i></a>
 </h3>
 <p>The scatterplot in Figure 2 reveals two things about the data. First, there is a lot of error – this is a “noisy” relationship. States with 60 percent Christian adherents range from 5 percent to 35 percent females in the legislator. The second thing we learn is that, in this case, it appears reasonable to use a line to describe the data. We can evaluate this directly by permitting X and Y to be linked in a way other than a line. For an example, see Figure 3. The points are summarized with what is known as local “smoother” – so the squared distance between the points and the line is minimized, but the path of the line is determined by a handful of points in a narrow range of X, rather than the entire sample. Even with this very flexible approach, it appears the relationship is close to linear.</p>
-<p>Figure 3. <strong>Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian, with local smoother. </strong></p>
-<div class="inline-figure"><img src="images/states_smooth.png" width="80%"></div>
+<strong>Figure <a href="regression.html#fig:figure63">6.3</a></strong> Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian, with local smoother.
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:figure63"></span>
+<img src="images/states_smooth.png" alt="\label{fig:figure63}" width="90%"><p class="caption">
+ 
+</p>
+</div>
 </div>
 </div>
 <div id="interpreting-regression-coefficients" class="section level2" number="6.3">
@@ -156,15 +173,21 @@ A line is fully and completely described by two parameters, <span class="math in
 <h4>Example: Feelings toward Donald Trump and party identification<a class="anchor" aria-label="anchor" href="#example-feelings-toward-donald-trump-and-party-identification"><i class="fas fa-link"></i></a>
 </h4>
 <p>How are attitudes about Donald Trump related to party id? Following the approach used in earlier chapters, the link between the Donald Trump feeling thermometer and and party identification is summarized in a line chart of group means. You can see that, on average, Strong Republicans love Donald Trump while Strong Democrats do not.</p>
-<p>Figure 4. <strong>Donald Trump support by party identification</strong></p>
-<div class="inline-figure"><img src="06-ols_files/figure-html/figure64-1.png" width="672"></div>
+<strong>Figure <a href="regression.html#fig:figure64">6.4</a></strong>
+Donald Trump feeling thermometer, as a function of party identification
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:figure64"></span>
+<img src="06-ols_files/figure-html/figure64-1.png" alt="\label{fig:figure64}" width="90%"><p class="caption">
+ 
+</p>
+</div>
 <p>So what exactly would a regression tell us? To get a sense of what we might expect, consider two questions. What exactly would you expect the feeling thermometer response to be for a Strong Democrat? What would you expect the feeling thermometer response to be for a Strong Republican? If you answered 85 for Strong Democrats and 25 for Strong Republicans, then you are expecting the slope of the regression line to be 10. Why is this the case? Recall the formula for the slope:</p>
 <p><span class="math display">\[\beta_1=\Delta{Y}/\Delta{X}\]</span></p>
 <p>So, if you expect the difference between strong Democrats and strong Republicans to be about 60 (<span class="math inline">\(\Delta{Y}\)</span>) and we know that the scale for party id ranges from 1 to 7, so <span class="math inline">\(\Delta{X}\)</span> is 7-1 or 6. We know that our expected slope is:</p>
 <p><span class="math display">\[60/6 = 10\]</span></p>
 <p>Review and make sure you understand the calculation in this example.</p>
 <p>Part of the regression output for this model is reproduced as Table 1. We will first focus on the <em>coefficients</em> - the column of numbers next to the variable labels.</p>
-<p>Table 1. *Donald Trump Trump feeling thermometer as a function of party id**</p>
+<p><strong>Table <a href="#tab:model1">6.1</a></strong>Donald Trump Trump feeling thermometer as a function of party id.<span style="color: white;">(#tab:model1)</span></p>
 <pre><code>
 ======================================================
                      Feeling Thermometer, Donald Trump
@@ -190,7 +213,7 @@ Adjusted R2                        0.596
 </h3>
 <p>In Chapter 1 we looked at the link between income and party identification, expecting that high income voters are more likely to identify with the Republican party than with the Democratic party. If Y is party id from 1 to 7 with “7” designating strong Republicans and X is income (on a scale from “1” designating $5,000 or lower household income and “22” designating $250,000 more), then <span class="math inline">\(\beta_1\)</span> should be positive.</p>
 <p>The output from a linear regression testing the link between party id and income is reproduced as Table 2.</p>
-<p>Table 2. <strong>Party identification as a function of party id</strong></p>
+<p><strong>Table <a href="#tab:model2">6.2</a></strong>Party identification as a function of income.<span style="color: white;">(#tab:model2)</span></p>
 <pre><code>
 ================================
             Party identification
@@ -279,7 +302,7 @@ Adjusted R2        0.0003
 <p><span class="math display">\[Y=\beta_0+\beta_1\]</span></p>
 <p>So while the focus remains on what the slope coefficient tells us about the difference between the two groups. But dummy variables also give us a simple way to deterine the level of Y for each group.</p>
 <p>The example below uses a dummy variable of the type describe above to predict the level of the Donald Trump feeling thermometer.</p>
-<p>Table 3. <strong>Donald Trump feeling thermometer and gender</strong></p>
+<p><strong>Table <a href="#tab:model3">6.3</a></strong> Donald Trump feeling thermometer and gender<span style="color: white;">(#tab:model3)</span></p>
 <pre><code>
 =========================================================
                         Feeling Thermometer, Donald Trump
