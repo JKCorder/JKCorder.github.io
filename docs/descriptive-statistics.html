@@ -60,7 +60,7 @@
 <h1>
 <span class="header-section-number">2</span> Descriptive statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics"><i class="fas fa-link"></i></a>
 </h1>
-<p>Before we learn about statistical tests or statistical models, we will cover some basic measures that are used to describe data. The basic measures fall into two categories – measures of central tendency and measures of dispersion. What is the typical value for some variable? How are the observations spread out or dispersed around that value? This chapter also introduces you to party identification, at least how it is measured. The final part of the chapter focuses on interpreting and explaining statistical output that describes the distribution of party identification in the electorate today. For a background on the meaning and importance of party identification, see the reading assigned in class: <span class="citation"><a href="references.html#ref-ucw2" role="doc-biblioref">Kaufmann, Petrocik, and Shaw</a> (<a href="references.html#ref-ucw2" role="doc-biblioref">2008a</a>)</span>.</p>
+<p>Before we learn about statistical tests or statistical models, we will cover some basic measures that are used to describe data. The basic measures fall into two categories – measures of central tendency and measures of dispersion. What is the typical value for some variable? How are the observations spread out or dispersed around that value? This chapter also introduces you to party identification, at least how it is measured. The final part of the chapter focuses on interpreting and explaining statistical output that describes the distribution of party identification in the electorate today. For a background on the meaning and importance of party identification, take a look at “Americans Hate to Love Their Party, but They Do!” <span class="citation"><a href="references.html#ref-ucw2" role="doc-biblioref">Kaufmann, Petrocik, and Shaw</a> (<a href="references.html#ref-ucw2" role="doc-biblioref">2008a</a>)</span>.</p>
 <div id="measures-of-central-tendency" class="section level2" number="2.1">
 <h2>
 <span class="header-section-number">2.1</span> Measures of central tendency<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency"><i class="fas fa-link"></i></a>
@@ -73,7 +73,7 @@
 <p>There are a handful of mathematical symbols that we will use over the course of the semester. The formula for the mean introduces two of those symbols: <span class="math inline">\(\mu\)</span> (the greek letter we will use to designate the mean) and <span class="math inline">\(\sum\)</span>, the sum, typically used more formally to specify the sum from the first observation to the nth observation:</p>
 <p><span class="math display">\[\sum_{i=1}^n\]</span></p>
 <p>To calculate the mean, you simply sum up all of the values of a variable for the observations in your dataset and divide by the total number of observations. In symbols, for any variable X:</p>
-<p><span class="math display">\[\mu=(\sum_{i=1}^nX) / n \]</span></p>
+<p><span class="math display">\[\mu=(\sum_{i=1}^nX_i) / n \]</span></p>
 </div>
 <div id="median" class="section level3 unnumbered">
 <h3>Median<a class="anchor" aria-label="anchor" href="#median"><i class="fas fa-link"></i></a>
@@ -328,12 +328,12 @@ The variance is, in words, the average sum of the squared distances from each ob
 <div id="how-has-this-distribution-changed-over-time" class="section level3 unnumbered">
 <h3>How has this distribution changed over time?<a class="anchor" aria-label="anchor" href="#how-has-this-distribution-changed-over-time"><i class="fas fa-link"></i></a>
 </h3>
-<p>You might be curious about the proportion of the electorate that identifies with Democrats or Republicans today, compared to what we saw during the Bush administration or Obama administation. A long view of the balance between Republican and Democrats is reproduced as Figure <a href="#figure24"><strong>??</strong></a> , below. This is from the ANES and based on the 7-point scale we used above. The figure shows you the the total percentage of women and men who identified as some type of Democrat (1,2, or 3) You can see the Democrats enjoyed a substantial, even overwhelming advantage in the early 1960s, with nearly 2/3 of all American identifying with the party. But that advantage has been decaying for 70 years and support for Democrats continued to erode under President Trump. We may, soon, have an election cycle where more people identify as Republican than Democratic, which will come as a surprise to the many people who think that the Republican brand is a demographic corner, doomed to decline as American becomes more diverse and more secular. Also, notice that the support for Democrats decayed more rapidly for men than women, the basis for the contemporary gender gap in presidential voting.</p>
+<p>You might be curious about the proportion of the electorate that identifies with Democrats or Republicans today, compared to what we saw during the Bush administration or Obama administration. A long view of the balance between Republican and Democrats is reproduced as Figure <a href="#figure24"><strong>??</strong></a> , below. This is from the ANES and based on the 7-point scale we used above. The figure shows you the the total percentage of women and men who identified as some type of Democrat (1,2, or 3) You can see the Democrats enjoyed a substantial, even overwhelming advantage in the early 1960s, with nearly 2/3 of all American identifying with the party. But that advantage has been decaying for 70 years and support for Democrats continued to erode under President Trump. We may, soon, have an election cycle where more people identify as Republican than Democratic, which will come as a surprise to the many people who think that the Republican brand is a demographic corner, doomed to decline as American becomes more diverse and more secular. Also, notice that the support for Democrats decayed more rapidly for men than women, the basis for the contemporary gender gap in presidential voting.</p>
 <strong>Figure <a href="descriptive-statistics.html#fig:figure24">2.4</a></strong> Identification with Democrats over time, women compared to men.**
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:figure24"></span>
-<img src="02-desc_stats_files/figure-html/figure24-1.png" alt="\label{fig:figure24}" width="95%"><p class="caption">
- 
+<img src="02-desc_stats_files/figure-html/figure24-1.png" alt="\label{fig:figure24}Source: @anes2019" width="95%"><p class="caption">
+ Source: <span class="citation">(<a href="#ref-anes2019" role="doc-biblioref"><strong>anes2019?</strong></a>)</span>
 </p>
 </div>
 </div>
@@ -381,16 +381,20 @@ The variance is, in words, the average sum of the squared distances from each ob
 </h2>
 <p>In many cases we are less interested in the electorate as a whole and more interested in the distribution of some variable for a particular group. To isolate and examine a particular group we use select a subset of cases for analysis. The output for the first worksheet and first paper allow you to compare the party identification data for two different groups. To give some sense of how you use the output, I will focus on differences between men and women.</p>
 <p>Most media coverage you hear suggests that women have distinct political preferences and vote Democratic, while men are more likely to be Republicans. Much of the coverage immediately after the 2016 election suggested that White women voting for Donald Trump was a surprise, especially given that his opponent was Hillary Clinton. In fact, White women have voted for the Republican presidential candidate in every election since 1980, with the exception of 1996 and 1992. So exactly how different is the party identification of men and women?</p>
-<p>Tables 5 and 6 reproduce the frequencies and descriptive statistics for men and women. The table reveals some important differences: men have a different mode (Strong Republican) than women (Strong Democrat). But the median is 4 for both, so a majority of men are not Republican identifiers and a majority of women are not Democratic identifiers, consistent with the figure above. The means are close – women a bit lower than 4, so leaning Democratic while men are a bit higher than 4 so leaning Republican.</p>
-<p>Both groups are spread out across the seven categories, rather than concentrated in a few categories near the mean. The smaller number is men, so men may be slightly more likely to be in the categories closest to the mean: 3, 4 or 5.</p>
+<p>The output below reproduces the frequencies and descriptive statistics for men and women.</p>
 <div id="women-2020" class="section level3 unnumbered">
 <h3>Women, 2020<a class="anchor" aria-label="anchor" href="#women-2020"><i class="fas fa-link"></i></a>
 </h3>
-<p>Table 5. Party identification, women</p>
-<div class="inline-figure"><img src="02-desc_stats_files/figure-html/women-1.png" width="672"></div>
+<p><strong>Table <a href="#fig:fig25"><strong>??</strong></a></strong> Party identification, women, 2020
+<img src="02-desc_stats_files/figure-html/fig25-1.png" width="672"></p>
+<p><strong>Table <a href="#tab:table27"><strong>??</strong></a></strong> Distribution of party identification, women, 2020
+# Table</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">kable</span><span class="op">(</span><span class="va">table</span>, 
+      digits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span>,
+      align <span class="op">=</span> <span class="st">"lc"</span>,
+      col.names<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Frequencies (weighted, percentages)"</span>, <span class="st">"%"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
-<caption>
-<span id="tab:women"> </span>Descriptive statistics</caption>
 <thead><tr class="header">
 <th align="left">Frequencies (weighted, percentages)</th>
 <th align="center">%</th>
@@ -426,7 +430,21 @@ The variance is, in words, the average sum of the squared distances from each ob
 </tr>
 </tbody>
 </table></div>
-<div class="inline-table"><table class="table table-sm"><tbody>
+<p><strong>Table <a href="descriptive-statistics.html#tab:table28">2.5</a></strong> Descriptive statistics, party identification, women, 2020</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># all of these need to be weighted</span>
+<span class="va">stats</span><span class="op">&lt;-</span> <span class="va">test</span> <span class="op">%&gt;%</span> 
+  <span class="fu">summarise</span><span class="op">(</span>
+    Mean <span class="op">=</span> <span class="fu">wtd.mean</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">partyid</span><span class="op">)</span>, w<span class="op">=</span><span class="va">weight</span><span class="op">)</span>,
+    Median <span class="op">=</span> <span class="fu">matrixStats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/matrixStats/man/weightedMedian.html">weightedMedian</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">partyid</span><span class="op">)</span>, w<span class="op">=</span><span class="va">weight</span><span class="op">)</span>,
+    Mode <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="fu">wtd.table</span><span class="op">(</span><span class="va">partyid</span><span class="op">)</span><span class="op">)</span>,
+    Variance <span class="op">=</span> <span class="fu">matrixStats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/matrixStats/man/weightedVar.html">weightedVar</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">partyid</span><span class="op">)</span>, w<span class="op">=</span><span class="va">weight</span><span class="op">)</span>,
+    `Standard deviation`<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">Variance</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">kable</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">2</span>, align <span class="op">=</span> <span class="st">"lc"</span>, caption<span class="op">=</span><span class="st">"Descriptive statistics"</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:table28"> </span>Descriptive statistics</caption>
+<tbody>
 <tr class="odd">
 <td align="left">Mean</td>
 <td align="left">3.74</td>
@@ -444,10 +462,11 @@ The variance is, in words, the average sum of the squared distances from each ob
 <td align="left">5.04</td>
 </tr>
 <tr class="odd">
-<td align="left">Standard_deviation</td>
+<td align="left">Standard deviation</td>
 <td align="left">2.25</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 </div>
 <div id="men-2020" class="section level3 unnumbered">
 <h3>Men, 2020<a class="anchor" aria-label="anchor" href="#men-2020"><i class="fas fa-link"></i></a>
@@ -513,12 +532,14 @@ The variance is, in words, the average sum of the squared distances from each ob
 <td align="left">4.68</td>
 </tr>
 <tr class="odd">
-<td align="left">Standard_deviation</td>
+<td align="left">Standard deviation</td>
 <td align="left">2.16</td>
 </tr>
 </tbody>
 </table></div>
 <p>Notice that while the mean for both groups is between 3 and 5, these responses are in no way typical – the most common responses are 1 and 7. So average doesn’t mean typical when you are looking at distribution that has two peaks, known as a <em>bimodal</em> distribution.</p>
+<p>The statistics reveal some important differences: men have a different mode (Strong Republican) than women (Strong Democrat). But the median is 4 for both, so a majority of men are not Republican identifiers and a majority of women are not Democratic identifiers, consistent with the figure above. The means are close – women a bit lower than 4, so leaning Democratic while men are a bit higher than 4 so leaning Republican.</p>
+<p>Both groups are spread out across the seven categories, rather than concentrated in a few categories near the mean. The smaller number is men, so men may be slightly more likely to be in the categories closest to the mean: 3, 4 or 5.</p>
 <p>To fully describe the party identification of each group, we used the descriptive statistics and the percentages. We can be much more precise in our comparisons using these numbers, rather than simply describing distributions and whether they are skewed or lean or indicate one party has more support than other.</p>
 </div>
 </div>

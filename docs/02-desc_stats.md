@@ -2,7 +2,7 @@
 
 # Descriptive statistics
 
-Before we learn about statistical tests or statistical models, we will cover some basic measures that are used to describe data. The basic measures fall into two categories – measures of central tendency and measures of dispersion. What is the typical value for some variable? How are the observations spread out or dispersed around that value? This chapter also introduces you to party identification, at least how it is measured. The final part of the chapter focuses on interpreting and explaining statistical output that describes the distribution of party identification in the electorate today.  For a background on the meaning and importance of party identification, see the reading assigned in class: @ucw2.
+Before we learn about statistical tests or statistical models, we will cover some basic measures that are used to describe data. The basic measures fall into two categories – measures of central tendency and measures of dispersion. What is the typical value for some variable? How are the observations spread out or dispersed around that value? This chapter also introduces you to party identification, at least how it is measured. The final part of the chapter focuses on interpreting and explaining statistical output that describes the distribution of party identification in the electorate today.  For a background on the meaning and importance of party identification, take a look at "Americans Hate to Love Their Party, but They Do!" @ucw2.
 
 ## Measures of central tendency
 
@@ -18,7 +18,7 @@ $$\sum_{i=1}^n$$
 
 To calculate the mean, you simply sum up all of the values of a variable for the observations in your dataset and divide by the total number of observations. In symbols, for any variable X:
 
-$$\mu=(\sum_{i=1}^nX) / n $$
+$$\mu=(\sum_{i=1}^nX_i) / n $$
 
 ### Median {-}
 
@@ -175,13 +175,14 @@ It is clear from the figure that the mode is Strong Democrat, and it appears tha
 
 ### How has this distribution changed over time?{-}
 
-You might be curious about the proportion of the electorate that identifies with Democrats or Republicans today, compared to what we saw during the Bush administration or Obama administation.   A long view of the balance between Republican and Democrats is reproduced as Figure \@ref(figure24) , below.  This is from the ANES and based on the 7-point scale we used above.  The figure shows you the the total percentage of women and men who identified as some type of Democrat (1,2, or 3)  You can see the Democrats enjoyed a substantial, even overwhelming advantage in the early 1960s, with nearly 2/3 of all American identifying with the party.  But that advantage has been decaying for 70 years and support for Democrats continued to erode under President Trump.  We may, soon, have an election cycle where more people identify as Republican than Democratic, which will come as a surprise to the many people who think that the Republican brand is a demographic corner, doomed to decline as American becomes more diverse and more secular. Also, notice that the support for Democrats decayed more rapidly for men than women, the basis for the contemporary gender gap in presidential voting.
+You might be curious about the proportion of the electorate that identifies with Democrats or Republicans today, compared to what we saw during the Bush administration or Obama administration.   A long view of the balance between Republican and Democrats is reproduced as Figure \@ref(figure24) , below.  This is from the ANES and based on the 7-point scale we used above.  The figure shows you the the total percentage of women and men who identified as some type of Democrat (1,2, or 3)  You can see the Democrats enjoyed a substantial, even overwhelming advantage in the early 1960s, with nearly 2/3 of all American identifying with the party.  But that advantage has been decaying for 70 years and support for Democrats continued to erode under President Trump.  We may, soon, have an election cycle where more people identify as Republican than Democratic, which will come as a surprise to the many people who think that the Republican brand is a demographic corner, doomed to decline as American becomes more diverse and more secular. Also, notice that the support for Democrats decayed more rapidly for men than women, the basis for the contemporary gender gap in presidential voting.
 
 **Figure \@ref(fig:figure24)** Identification with Democrats over time, women compared to men.**
 <div class="figure" style="text-align: center">
-<img src="02-desc_stats_files/figure-html/figure24-1.png" alt="\label{fig:figure24}" width="95%" />
-<p class="caption">(\#fig:figure24)\label{fig:figure24}</p>
+<img src="02-desc_stats_files/figure-html/figure24-1.png" alt="\label{fig:figure24}Source: @anes2019" width="95%" />
+<p class="caption">(\#fig:figure24)\label{fig:figure24}Source: @anes2019</p>
 </div>
+
 
 ## What can we learn about party identification from measures of central tendency and measures of dispersion?
 
@@ -214,15 +215,24 @@ In many cases we are less interested in the electorate as a whole and more inter
 
 Most media coverage you hear suggests that women have distinct political preferences and vote Democratic, while men are more likely to be Republicans. Much of the coverage immediately after the 2016 election suggested that White women voting for Donald Trump was a surprise, especially given that his opponent was Hillary Clinton. In fact, White women have voted for the Republican presidential candidate in every election since 1980, with the exception of 1996 and 1992. So exactly how different is the party identification of men and women?
 
-Tables 5 and 6 reproduce the frequencies and descriptive statistics for men and women. The table reveals some important differences: men have a different mode (Strong Republican) than women (Strong Democrat).  But the median is 4 for both, so a majority of men are not Republican identifiers and a majority of women are not Democratic identifiers, consistent with the figure above. The means are close  – women a bit lower than 4, so leaning Democratic while men are a bit higher than 4 so leaning Republican.
-
-Both groups are spread out across the seven categories, rather than concentrated in a few categories near the mean. The smaller number is men, so men may be slightly more likely to be in the categories closest to the mean: 3, 4 or 5.
+The output below reproduces the frequencies and descriptive statistics for men and women. 
 
 ### Women, 2020{-}
 
-Table 5. Party identification, women
+**Table \@ref(fig:fig25)**  Party identification, women, 2020
+<img src="02-desc_stats_files/figure-html/fig25-1.png" width="672" />
 
-<img src="02-desc_stats_files/figure-html/women-1.png" width="672" />
+**Table \@ref(tab:table27)**  Distribution of party identification, women, 2020
+# Table 
+
+```r
+kable(table, 
+      digits = c(2,2),
+      align = "lc",
+      col.names=c("Frequencies (weighted, percentages)", "%"))
+```
+
+
 
 |Frequencies (weighted, percentages) |   %   |
 |:-----------------------------------|:-----:|
@@ -234,9 +244,23 @@ Table 5. Party identification, women
 |Not very strong Republican          | 9.85  |
 |Strong Republican                   | 19.10 |
 
+**Table \@ref(tab:table28)**  Descriptive statistics, party identification, women, 2020
+
+```r
+# all of these need to be weighted
+stats<- test %>% 
+  summarise(
+    Mean = wtd.mean(as.numeric(partyid), w=weight),
+    Median = matrixStats::weightedMedian(as.numeric(partyid), w=weight),
+    Mode =which.max(wtd.table(partyid)),
+    Variance = matrixStats::weightedVar(as.numeric(partyid), w=weight),
+    `Standard deviation`=sqrt(Variance))
+kable(t(stats), digits=2, align = "lc", caption="Descriptive statistics")
+```
 
 
-Table: (\#tab:women)Descriptive statistics
+
+Table: (\#tab:table28)Descriptive statistics
 
 |                   |     |
 |:------------------|:----|
@@ -244,7 +268,7 @@ Table: (\#tab:women)Descriptive statistics
 |Median             |4.00 |
 |Mode               |1.00 |
 |Variance           |5.04 |
-|Standard_deviation |2.25 |
+|Standard deviation |2.25 |
 
 ### Men, 2020{-}
 
@@ -274,9 +298,13 @@ Table: (\#tab:men)Descriptive statistics
 |Median             |4.00 |
 |Mode               |7.00 |
 |Variance           |4.68 |
-|Standard_deviation |2.16 |
+|Standard deviation |2.16 |
 
 Notice that while the mean for both groups is between 3 and 5, these responses are in no way typical – the most common responses are 1 and 7.  So average doesn't mean typical when you are looking at distribution that has two peaks, known as a *bimodal* distribution.
+
+The statistics reveal some important differences: men have a different mode (Strong Republican) than women (Strong Democrat).  But the median is 4 for both, so a majority of men are not Republican identifiers and a majority of women are not Democratic identifiers, consistent with the figure above. The means are close  – women a bit lower than 4, so leaning Democratic while men are a bit higher than 4 so leaning Republican.
+
+Both groups are spread out across the seven categories, rather than concentrated in a few categories near the mean. The smaller number is men, so men may be slightly more likely to be in the categories closest to the mean: 3, 4 or 5.
 
 To fully describe the party identification of each group, we used the descriptive statistics and the percentages. We can be much more precise in our comparisons using these numbers, rather than simply describing distributions and whether they are skewed or lean or indicate one party has more support than other.
 
