@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>4 Using interaction terms | Political Science and Applied Statistics using R</title>
+<meta name="author" content="J.K. Corder">
+<meta name="description" content="To simplify this introduction to interaction terms, we will rely on a model that includes one ordinal and one dummy variable. You know that, in many cases, we may be interested in variables that...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="4 Using interaction terms | Political Science and Applied Statistics using R">
+<meta property="og:type" content="book">
+<meta property="og:description" content="To simplify this introduction to interaction terms, we will rely on a model that includes one ordinal and one dummy variable. You know that, in many cases, we may be interested in variables that...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="4 Using interaction terms | Political Science and Applied Statistics using R">
+<meta name="twitter:description" content="To simplify this introduction to interaction terms, we will rely on a model that includes one ordinal and one dummy variable. You know that, in many cases, we may be interested in variables that...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Political Science and Applied Statistics using R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li><a class="" href="why-math-why-r.html"><span class="header-section-number">1</span> Why math? Why R?</a></li>
+<li><a class="" href="regression-review-and-assumptions.html"><span class="header-section-number">2</span> Regression: review and assumptions</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">3</span> Logistic regression</a></li>
+<li><a class="active" href="using-interaction-terms.html"><span class="header-section-number">4</span> Using interaction terms</a></li>
+<li><a class="" href="working-with-time-series.html"><span class="header-section-number">5</span> Working with time series</a></li>
+<li><a class="" href="dynamic-models-1.html"><span class="header-section-number">6</span> Dynamic Models</a></li>
+<li><a class="" href="working-with-panel-data.html"><span class="header-section-number">7</span> Working with panel data</a></li>
+<li><a class="" href="dynamics-panel-models---a-brief-introduction.html"><span class="header-section-number">8</span> Dynamics panel models - a brief introduction</a></li>
+<li><a class="" href="counts.html"><span class="header-section-number">9</span> Counts</a></li>
+<li><a class="" href="duration-models.html"><span class="header-section-number">10</span> Duration models</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">11</span> References</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="quasi-experiements.html"><span class="header-section-number">A</span> Quasi-experiements</a></li>
+<li><a class="" href="matching.html"><span class="header-section-number">B</span> Matching</a></li>
+<li><a class="" href="bayesian-data-analysis.html"><span class="header-section-number">C</span> Bayesian data analysis</a></li>
+<li><a class="" href="multi-level-models.html"><span class="header-section-number">D</span> Multi-level models</a></li>
+<li><a class="" href="using-the-american-national-election-study.html"><span class="header-section-number">E</span> Using the American National Election Study</a></li>
+<li><a class="" href="using-the-current-population-survey.html"><span class="header-section-number">F</span> Using the Current Population Survey</a></li>
+<li><a class="" href="evidence-based-policymaking.html"><span class="header-section-number">G</span> Evidence-based policymaking</a></li>
+<li><a class="" href="tidyverse-r.html"><span class="header-section-number">H</span> Tidyverse R</a></li>
+<li><a class="" href="the-harvard-dataverse.html"><span class="header-section-number">I</span> The Harvard Dataverse</a></li>
+<li><a class="" href="about-the-author.html">About the author</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="using-interaction-terms" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> Using interaction terms<a class="anchor" aria-label="anchor" href="#using-interaction-terms"><i class="fas fa-link"></i></a>
+</h1>
+<p>To simplify this introduction to interaction terms, we will rely on a model that includes one ordinal and one dummy variable. You know that, in many cases, we may be interested in variables that are qualitative. We call those types of variables <em>dummy</em> variables. More specifically a dummy variable is dichotomous and typically represents the presence or absence of a quality or attributes. The convention or practice is to code dummy variables as 1=presence of attribute and 0=not.</p>
+<div id="political-participation-as-a-function-of-gender" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Political participation as a function of gender<a class="anchor" aria-label="anchor" href="#political-participation-as-a-function-of-gender"><i class="fas fa-link"></i></a>
+</h2>
+<p>We will start with a simple example: the level of campaign activity as a function of gender. The ANES includes several questions that ask what type of campaign activity you are involved in: trying to persuade, displaying preferences, going to meetings, giving money, or political work. The recoded campaign activity measure is a scale from 0 (no persuading, attending meeting or rallies, wearing buttons or stickers, giving money to a campaign, or working for the candidate) to 5 (all of those things). The data are extracted from the cumulative ANES and the election year in this example is 1960. You could test if this effect is stable over time by swapping in a different election year in the RMD file.</p>
+<div id="comparing-ols-and-a-t-test" class="section level3 unnumbered">
+<h3>Comparing OLS and a t-test<a class="anchor" aria-label="anchor" href="#comparing-ols-and-a-t-test"><i class="fas fa-link"></i></a>
+</h3>
+<div id="political-activity-of-women-and-men" class="section level4 unnumbered">
+<h4>Political activity of women and men<a class="anchor" aria-label="anchor" href="#political-activity-of-women-and-men"><i class="fas fa-link"></i></a>
+</h4>
+<p>We will take at a look at a simple table first, the distribution of activity for men and women. Table 1 summarizes the distribution for men and women: the rows of the table are the percentage of in each category. The sample data tell us that the most common response for men and women is no activity, but men are more likely engage in some type of activity. While the count could go as high as five, the most activity observed in 1960 was three.</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># This table draws on multiple functions:</span>
+<span class="co"># round, prop.table, table, and kable</span>
+<span class="fu">kable</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">100</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">anes</span><span class="op">$</span><span class="va">female_c</span>, <span class="va">anes</span><span class="op">$</span><span class="va">activity</span><span class="op">)</span>, margin<span class="op">=</span><span class="fl">1</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">1</span><span class="op">)</span>, caption<span class="op">=</span><span class="st">"**Table 1.  Political Activity and gender**"</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:table41"></span><strong>Table 1. Political Activity and gender</strong>
+</caption>
+<thead><tr class="header">
+<th align="left"></th>
+<th align="right">0</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Men</td>
+<td align="right">57.1</td>
+<td align="right">32.9</td>
+<td align="right">7.3</td>
+<td align="right">2.8</td>
+</tr>
+<tr class="even">
+<td align="left">Women</td>
+<td align="right">67.1</td>
+<td align="right">25.1</td>
+<td align="right">6.0</td>
+<td align="right">1.8</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="a-t-test" class="section level4 unnumbered">
+<h4>A t-test<a class="anchor" aria-label="anchor" href="#a-t-test"><i class="fas fa-link"></i></a>
+</h4>
+<p>Our first step to is to determine the effect of gender using a t-test to evaluate the difference in the mean between men and women.</p>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># t.test is a base R function</span>
+<span class="co"># tidy is a function from the broom package. tidy converts test output to a data frame so we can use ggplot and kable to display and plot the results.</span>
+
+<span class="va">table2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">activity</span> <span class="op">~</span> <span class="va">female</span>, data <span class="op">=</span> <span class="va">anes</span>, var.equal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>
+ <span class="fu">tidy</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+ <span class="fu">select</span><span class="op">(</span><span class="va">estimate1</span>, <span class="va">estimate2</span>, <span class="va">statistic</span>, <span class="va">p.value</span><span class="op">)</span>
+ <span class="fu">kable</span><span class="op">(</span><span class="va">table2</span>, caption<span class="op">=</span><span class="st">"**Table 2.  Difference in mean activity, men compared to women**"</span>, digit<span class="op">=</span><span class="fl">3</span>, col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Men"</span>, <span class="st">"Women"</span>, <span class="st">"t-test"</span>, <span class="st">"p-value"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:table42"></span><strong>Table 2. Difference in mean activity, men compared to women</strong>
+</caption>
+<thead><tr class="header">
+<th align="right">Men</th>
+<th align="right">Women</th>
+<th align="right">t-test</th>
+<th align="right">p-value</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="right">0.557</td>
+<td align="right">0.426</td>
+<td align="right">3.037</td>
+<td align="right">0.002</td>
+</tr></tbody>
+</table></div>
+</div>
+<div id="ols" class="section level4 unnumbered">
+<h4>OLS<a class="anchor" aria-label="anchor" href="#ols"><i class="fas fa-link"></i></a>
+</h4>
+<p>A second and identical strategy is to estimate the parameters of a simple model with a dummy variable indicating female or male as a predictor for campaign activity. This is a linear model, estimated via OLS. It is equivalent to ANOVA since all of the variables that we use as predictors are categories. The coefficients are reported in Table 3.</p>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># estimate activity as a function of gender</span>
+<span class="va">model1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">activity</span><span class="op">~</span><span class="va">female</span>, data<span class="op">=</span><span class="va">anes</span>, na.action<span class="op">=</span><span class="va">na.exclude</span><span class="op">)</span>
+
+<span class="co"># view the model info</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">model1</span>,style<span class="op">=</span><span class="st">"apsr"</span>, type <span class="op">=</span> <span class="st">'html'</span>, digits<span class="op">=</span><span class="fl">3</span>,
+          title<span class="op">=</span><span class="st">"**Table 3. Modeling campaign activity as a function of gender**"</span>, notes<span class="op">=</span> <span class="st">"p&lt;.01*** ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>, dep.var.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Political Activity Scale"</span><span class="op">)</span>, covariate.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Constant"</span><span class="op">)</span>, omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 3. Modeling campaign activity as a function of gender</strong></strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Political Activity Scale
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Female
+</td>
+<td>
+-0.131<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.043)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+0.557<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.032)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+1,109
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.008
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.007
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:left">
+p&lt;.01*** ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<p><br>
+Since the coefficient on female is statistically significant, we can conclude that gender is related to the level of political activity. More specifically, we can say that women are less politically active then men and the difference in mean activity is -0.131. Review the R Markdown file and notice that this text is dynamic: I called in the result from model 1 in the previous sentence.</p>
+<p>In the case of dummy variables, the constant can be substantively useful. As you know, the constant is the value of Y when the independent variable (X) is equal to zero. In our past examples (when we were not using dummy variables), the independent variables often had no substantive meaning when set to zero, so our constant had no substantive meaning. With only dummy variables, on the other hand, our independent variable does have substantive meaning, In this case, an X o zero means the respondent is male. So,</p>
+<ul>
+<li>Mean activity level of men:</li>
+</ul>
+<p><span class="math display">\[E(Y_i | X_i = 0)=\beta_0+\beta_1*0\]</span></p>
+<p><span class="math display">\[ E(Y_i | X_i = 0) = \beta_0  \]</span></p>
+<p><span class="math display">\[E(Y_i | X_i = 0) = 0.557\]</span></p>
+<ul>
+<li>Mean activity level of women:</li>
+</ul>
+<p><span class="math display">\[E(Y_i | D_i = 1)=\beta_0+\beta_1*1\]</span></p>
+<p><span class="math display">\[E(Y_i | D_i = 1) = \beta_0 +\beta_1\]</span></p>
+<p><span class="math display">\[E(Y_i | D_i = 0) = 0.557+ -0.131 = 0.426\]</span></p>
+<p>The constant gives us the average or mean value of the dependent variable (here, level of political activity) for men, and the slope (<span class="math inline">\(\beta_1\)</span>) measures how much the mean value of the dependent value for women differs from that of men, Notice that the numbers from this regression and the t-test are identical - same test.</p>
+</div>
+</div>
+</div>
+<div id="controlling-for-education" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> Controlling for education<a class="anchor" aria-label="anchor" href="#controlling-for-education"><i class="fas fa-link"></i></a>
+</h2>
+<p>What about the impact of education? We saw with our turnout examples that education is a good predictor of whether or not some votes. Is the effect of education similar for men and women? Is the effect of gender similar for respondents with similar levels of education?</p>
+<div id="the-logic-of-controllled-comparison" class="section level3 unnumbered">
+<h3>The logic of controllled comparison<a class="anchor" aria-label="anchor" href="#the-logic-of-controllled-comparison"><i class="fas fa-link"></i></a>
+</h3>
+<p>Before turning to the focus of this class, let’s talk about the logic of controlled comparison, specifically leveraging this example.</p>
+<p>The intuition of controlled comparison is that while we are primarily interested in the effect of gender (X) on activity (Y), we know that there are other variables (Z) that are related to both X and Y. In this case the idea is that there might be some correlation between education and gender, and some correlation between education and activity - it that is the case, then our estimate of the effect of gender, above, could be distorted if we exclude education. This would be a form of <em>omitted variable bias</em>.</p>
+</div>
+<div id="a-simple-example" class="section level3" number="4.2.1">
+<h3>
+<span class="header-section-number">4.2.1</span> A simple example<a class="anchor" aria-label="anchor" href="#a-simple-example"><i class="fas fa-link"></i></a>
+</h3>
+<p>To keep things simple, start by considering the impact of education. If we control for gender, will the marginal effect of education remain consistent, the same for men and women?</p>
+<p>The simplest way to approach controlled comparison is to look at the marginal effects - the way X impacts Y - for each level of the control variable (Z).</p>
+<p>Since we only have two categories for gender, We could control for gender by estimating the effect of education separately for men and women – this is the same logic or the answer to the same question: is the marginal effect of education in the sample the same if we compare men and women? The estimates in Table 4 explore this possibility.</p>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">women</span> <span class="op">&lt;-</span> <span class="va">anes</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">female_c</span><span class="op">==</span><span class="st">"Women"</span><span class="op">)</span>
+<span class="va">men</span>   <span class="op">&lt;-</span> <span class="va">anes</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">female_c</span><span class="op">==</span><span class="st">"Men"</span><span class="op">)</span>
+<span class="va">model2a</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">activity</span><span class="op">~</span><span class="va">education</span>, data<span class="op">=</span><span class="va">women</span>, na.action<span class="op">=</span><span class="va">na.exclude</span><span class="op">)</span>
+<span class="va">model2b</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">activity</span><span class="op">~</span><span class="va">education</span>, data<span class="op">=</span><span class="va">men</span>, na.action<span class="op">=</span><span class="va">na.exclude</span><span class="op">)</span>
+<span class="co"># view the model info</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">model2a</span>, <span class="va">model2b</span>, style<span class="op">=</span><span class="st">"apsr"</span>, type <span class="op">=</span> <span class="st">'html'</span>, digits<span class="op">=</span><span class="fl">3</span>, title<span class="op">=</span><span class="st">"**Table 4. Modeling campaign activity as a function of education, by gender**"</span>, notes<span class="op">=</span> <span class="st">"p&lt;.01*** ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>, dep.var.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Political Activity Scale"</span><span class="op">)</span>, covariate.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Education"</span>, <span class="st">"Constant"</span><span class="op">)</span>, omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>, column.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Women"</span>, <span class="st">"Men"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 4. Modeling campaign activity as a function of education, by gender</strong></strong>
+</caption>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+Political Activity Scale
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Women
+</td>
+<td>
+Men
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Education
+</td>
+<td>
+0.108<sup>***</sup>
+</td>
+<td>
+0.054<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.016)
+</td>
+<td>
+(0.018)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+0.112<sup>**</sup>
+</td>
+<td>
+0.408<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.055)
+</td>
+<td>
+(0.061)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+600
+</td>
+<td>
+507
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.067
+</td>
+<td>
+0.017
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.066
+</td>
+<td>
+0.015
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="3" style="text-align:left">
+p&lt;.01*** ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<p><br>
+The table above suggests, that, yes, we see a positive effect of education for men and positive effect of education for women. Education does influence the level of campaign activity and the effect is similar.</p>
+</div>
+<div id="exactly-how-does-the-effect-of-education-differ-for-men-and-women" class="section level3 unnumbered">
+<h3>Exactly how does the effect of education differ for men and women?<a class="anchor" aria-label="anchor" href="#exactly-how-does-the-effect-of-education-differ-for-men-and-women"><i class="fas fa-link"></i></a>
+</h3>
+<p>Figure 1 summarizes the estimates from each model in Table 4. The red line is the link between education and activity for women. The blue line is the link between education and activity for men. You can see that the the differences in predicted campaign activity are smaller, in 1960, for highly-educated men and women, but larger for the group with the lowest levels of education. Think about what this means substantively - having a low level of education decreases activity a lot for women, but less so for men.</p>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">women</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">education</span>, y <span class="op">=</span> <span class="va">activity</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">geom_smooth</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, method<span class="op">=</span><span class="va">lm</span>, color<span class="op">=</span> <span class="st">"red"</span>, se<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_smooth</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data<span class="op">=</span><span class="va">men</span>, method<span class="op">=</span><span class="va">lm</span>, color<span class="op">=</span> <span class="st">"blue"</span>, se<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">scale_x_continuous</span><span class="op">(</span>name<span class="op">=</span><span class="st">"Education"</span>, limits<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">7</span><span class="op">)</span>,
+                     breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span> y<span class="op">=</span><span class="st">"Predicted activity"</span><span class="op">)</span> <span class="op">+</span>
+<span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Figure 1. Campaign activity as a function of education, \n for men (blue) and women (red)"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">theme</span><span class="op">(</span>plot.title.position <span class="op">=</span> <span class="st">"plot"</span>, plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face<span class="op">=</span><span class="st">"bold"</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
+<div class="inline-figure"><img src="04-interactions_files/figure-html/figure3-1.png" width="95%" style="display: block; margin: auto;"></div>
+</div>
+<div id="a-controlled-comparison" class="section level3" number="4.2.2">
+<h3>
+<span class="header-section-number">4.2.2</span> A controlled comparison<a class="anchor" aria-label="anchor" href="#a-controlled-comparison"><i class="fas fa-link"></i></a>
+</h3>
+<p>An easier way to executve the same type of comparison is to simply include both variables in one multivariate model.</p>
+<p>When you introduce a control variable, one of three things can happen:</p>
+<ul>
+<li><p>your control variable and primary variable are significant. (The effects are <em>additive</em>).</p></li>
+<li><p>your primary variable shifts from significant to not. (So the original result was <em>spurious</em>.)</p></li>
+<li><p>your primary variable shifts from not significant to significant. (You original model was <em>confounding</em>.)</p></li>
+</ul>
+<p>Important note: if there is no correlation between X and Z then there will be absolutely no change in the model results. The correlation between the primary and control variables enters the calculation of <span class="math inline">\(\beta_1\)</span>, and a zero correlation means no difference in the coefficient if an uncorrelated control is added.</p>
+</div>
+</div>
+<div id="a-multivariate-model-of-campaign-activity" class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> A multivariate model of campaign activity<a class="anchor" aria-label="anchor" href="#a-multivariate-model-of-campaign-activity"><i class="fas fa-link"></i></a>
+</h2>
+<p>The model below estimates political activity as a function of education and then combines education and female. Remember this data is from 1960 - so we need to be sensitive to what that means in terms of the role of gender and education and how gender and education are related.</p>
+<p>Column 1 in the table below reports the impact of gender alone, replicating the result above. Column 2 reports the impact of education alone. Column 3 includes both variables, so in that model we are estimating the effect of education controlling for gender and, at the same, gender controlling for the effect of education.</p>
+<p>Since we are working across models, it is helpful to differentiate between a couple of phrases:</p>
+<ul>
+<li><p><em>full effect</em>: this the effect of X on Y with no controls</p></li>
+<li><p><em>partial effect</em>: this is the effect of X on Y in the presence of controls on the scale of <span class="math inline">\(X\beta\)</span>. This is also labeled the <em>marginal effect</em>, where we think how a specific chang in X generates a change in Y holding all other variables constant at the mean (or some substantively meaningful level)</p></li>
+<li><p><em>conditional marginal effects</em>: marginal effects of X may be conditional on the value of Z (or, in nonlinear models, on the value of X)</p></li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># estimate activity as a function of gender and education</span>
+<span class="va">model2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">activity</span><span class="op">~</span><span class="va">education</span>, data<span class="op">=</span><span class="va">anes</span>, na.action<span class="op">=</span><span class="va">na.exclude</span><span class="op">)</span>
+<span class="va">model3</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">activity</span><span class="op">~</span><span class="va">female</span><span class="op">+</span><span class="va">education</span>, data<span class="op">=</span><span class="va">anes</span>, na.action<span class="op">=</span><span class="va">na.exclude</span><span class="op">)</span>
+
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">model1</span>, <span class="va">model2</span>, <span class="va">model3</span>, style<span class="op">=</span><span class="st">"apsr"</span>, type <span class="op">=</span> <span class="st">'html'</span>, title<span class="op">=</span><span class="st">"**Table 5. Modeling campaign activity as a function of gender and education**"</span>,  notes<span class="op">=</span> <span class="st">"p&lt;.01*** ; p&lt;.05**"</span>, notes.append <span class="op">=</span> <span class="cn">FALSE</span>, dep.var.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Political Activity Scale"</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span>, covariate.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Education"</span><span class="op">)</span>, omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 5. Modeling campaign activity as a function of gender and education</strong></strong>
+</caption>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+Political Activity Scale
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Female
+</td>
+<td>
+-0.131<sup>***</sup>
+</td>
+<td>
+</td>
+<td>
+-0.144<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.043)
+</td>
+<td>
+</td>
+<td>
+(0.042)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Education
+</td>
+<td>
+</td>
+<td>
+0.079<sup>***</sup>
+</td>
+<td>
+0.081<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.012)
+</td>
+<td>
+(0.012)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+0.557<sup>***</sup>
+</td>
+<td>
+0.261<sup>***</sup>
+</td>
+<td>
+0.333<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.032)
+</td>
+<td>
+(0.041)
+</td>
+<td>
+(0.046)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+1,109
+</td>
+<td>
+1,107
+</td>
+<td>
+1,107
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.008
+</td>
+<td>
+0.036
+</td>
+<td>
+0.046
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.007
+</td>
+<td>
+0.035
+</td>
+<td>
+0.044
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="4" style="text-align:left">
+p&lt;.01*** ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<p><br>
+In the example above, the effects of gender persist when we control for education and the effects of education persist when we control for gender - so the effects of education and gender are additive. They both operate independently - women are less active than men, people with high education are more active than people with low levels of education.</p>
+<p>Keep in mind: the way we have constructed this model assumes that education has a similar impact on both male and female levels of activity. Said another way, we are assuming (and our estimates conform to the assumption) that the mean level of activity for men is different than the mean level of activity for women, but also assuming (implicitly) that the rate of change in activity based on educational attainment is the same for men and women. This is the <em>unit homogeneity assumption</em> - you may also see this described as treatment homogeneity</p>
+<p>Since we know the electorate is about 50 percent women and 50 percent men, it makes sense that the average or typical marginal effect of education, which we estimated and reported in Table 6, is 0.08. This is the coefficient on education, controlling for gender (0.08), the average of the effect on men (0.05) and women (0.11) from Table 5.</p>
+<p>In general, you can think about the coefficient reported in a table as the weighted average of the marginal effect of X across all categories or combinations of the other variables.</p>
+</div>
+<div id="using-interaction-terms-1" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> Using interaction terms<a class="anchor" aria-label="anchor" href="#using-interaction-terms-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>We noticed something curious about the results in Table 4 and Figure 1- the effect of education is positive for both men and women, but seems to be larger for women. We can test if this difference is statistically significant by relying on what is known as an interaction term. This introduction of this term, which is simply the product of education and gender (X times Z) permits us to relax the <em>unit homogeneity assumption.</em> (X and Z are multiplied together to generate the interaction terms and the individual variables are referred to as the <em>constitutive variables</em>.)</p>
+<blockquote>
+<p>Introduction of an interaction term is typically explicitly theoretically motivated, rather than triggered by some type of empirical test.</p>
+</blockquote>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># If you are using the lm function, then you don't need to actually create the interaction term by multiplying, you simply indicate that you want an interaction and R automatically includes both variables and their product in the model.</span>
+
+<span class="co"># estimate model with interaction term</span>
+<span class="va">model5</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">activity</span><span class="op">~</span><span class="va">female</span><span class="op">*</span><span class="va">education</span>, data<span class="op">=</span><span class="va">anes</span>, na.action<span class="op">=</span><span class="va">na.exclude</span><span class="op">)</span>
+
+<span class="co"># view the model info</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">model1</span>, <span class="va">model2</span>, <span class="va">model5</span>, style<span class="op">=</span><span class="st">"apsr"</span>, type <span class="op">=</span> <span class="st">'html'</span>, digits<span class="op">=</span><span class="fl">3</span>,
+          title<span class="op">=</span><span class="st">"**Table 6. Modeling campaign activity as a function of gender, education and an interaction term**"</span>,
+          notes<span class="op">=</span> <span class="st">"p&lt;.01*** ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>,
+          dep.var.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Political Activity Scale"</span><span class="op">)</span>, 
+          covariate.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Education"</span>, <span class="st">"Interaction term"</span><span class="op">)</span>,
+          omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>, column.sep.width<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"120pt"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 6. Modeling campaign activity as a function of gender, education and an interaction term</strong></strong>
+</caption>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+Political Activity Scale
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Female
+</td>
+<td>
+-0.131<sup>***</sup>
+</td>
+<td>
+</td>
+<td>
+-0.296<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.043)
+</td>
+<td>
+</td>
+<td>
+(0.082)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Education
+</td>
+<td>
+</td>
+<td>
+0.079<sup>***</sup>
+</td>
+<td>
+0.054<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.012)
+</td>
+<td>
+(0.017)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Interaction term
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+0.054<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.025)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+0.557<sup>***</sup>
+</td>
+<td>
+0.261<sup>***</sup>
+</td>
+<td>
+0.408<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.032)
+</td>
+<td>
+(0.041)
+</td>
+<td>
+(0.057)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+1,109
+</td>
+<td>
+1,107
+</td>
+<td>
+1,107
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.008
+</td>
+<td>
+0.036
+</td>
+<td>
+0.050
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.007
+</td>
+<td>
+0.035
+</td>
+<td>
+0.048
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="4" style="text-align:left">
+p&lt;.01*** ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<p><br>
+The interaction term is statistically significant, which confirms our suspicion that the effects of eduction are different for men and women. But exactly how much?</p>
+<div id="using-model-coefficients-to-clarify-the-size-of-effects." class="section level3" number="4.4.1">
+<h3>
+<span class="header-section-number">4.4.1</span> Using model coefficients to clarify the size of effects.<a class="anchor" aria-label="anchor" href="#using-model-coefficients-to-clarify-the-size-of-effects."><i class="fas fa-link"></i></a>
+</h3>
+<p>The basic model with one dummy, one ordinal variable and an interaction term is:</p>
+<p><span class="math display">\[Y=\beta_0+\beta_1D_1+\beta_2X_1+\beta_3(D_1X_1)\]</span></p>
+<p>We can use the coefficients from the sample to calculate the expected mean activity level of men:</p>
+<p><span class="math display">\[E(Y_i | X_i = 0) = \beta_0 + \beta_1*(0) + \beta_2*(education) + \beta_3*(0)*(education)\]</span></p>
+<p><span class="math display">\[E(Y_i | X_i = 0) = 0.408 + 0.0543*(education)\]</span></p>
+<p>And expected mean activity level for women:</p>
+<p><span class="math display">\[ E(Y_i | X_i = 1) = \beta_0 +\beta_1*(1) + \beta_2*(education) + \beta_3*(1)*(education) \]</span></p>
+<p><span class="math display">\[ E(Y_i | X_i = 1) = (\beta_0 +\beta_1) + (\beta_2+\beta_3)*(education) \]</span></p>
+<p><span class="math display">\[ E(Y_i | X_i = 1) =0.112 + 0.108*education \]</span></p>
+<p>Compare the results from the interaction term model with the results where we estimated the model for men and women separately - exactly the same.</p>
+<p>So the use of an interaction term with a dummy variable is equivalent to testing if the effect of X is is on Z but running two separate regressions.</p>
+<p>We would conclude here that the marginal effect of education on activity is conditional on gender. The conditional marginal effect for men is <span class="math inline">\(\beta_2\)</span> and the conditional marginal effect on women is <span class="math inline">\(\beta_2+\beta_3\)</span>.</p>
+</div>
+<div id="summarizing-marginal-effects-with-figures" class="section level3" number="4.4.2">
+<h3>
+<span class="header-section-number">4.4.2</span> Summarizing marginal effects with figures<a class="anchor" aria-label="anchor" href="#summarizing-marginal-effects-with-figures"><i class="fas fa-link"></i></a>
+</h3>
+<p>It is relatively easy to calculate the conditional marginal effects with the <strong>margins</strong> package, consistent with the prescriptions outlined in <span class="citation"><a href="references.html#ref-brambor2006" role="doc-biblioref">Brambor, Clark, and Golder</a> (<a href="references.html#ref-brambor2006" role="doc-biblioref">2006</a>)</span>, discussed in more detail below.</p>
+<p>I use the <code>cplot</code> function to generate the data for the figures, but `ggplot’ to produce the figures. The red dashed line shows the marginal effect at the average level of education. The solid dashed line is zero marginal effect.</p>
+<p>The first figure summarizes the conditional marginal effect of gender, by education. The second figure summarizes the conditional marginal effect of education, by gender. Notice how these figures are different from Figure 1: the y-axis is the marginal effect, not the predicted outcome.</p>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Use cplot to generate the data and refine the figure with ggplot</span>
+<span class="va">cplotdata1</span> <span class="op">&lt;-</span> <span class="fu">cplot</span><span class="op">(</span><span class="va">model5</span>, x <span class="op">=</span> <span class="st">"education"</span>, dx <span class="op">=</span> <span class="st">"female"</span>, what<span class="op">=</span><span class="st">"effect"</span>, n<span class="op">=</span><span class="fl">7</span>, draw<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
+<span class="co"># Figure 2</span>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">cplotdata1</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">xvals</span>, y <span class="op">=</span> <span class="va">yvals</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">upper</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">lower</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Figure 2. Marginal effect of gender, by level of education"</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu">theme</span><span class="op">(</span>plot.title.position <span class="op">=</span> <span class="st">"plot"</span>, plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face<span class="op">=</span><span class="st">"bold"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Education"</span>, y<span class="op">=</span><span class="st">"Marginal effect of gender"</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">geom_hline</span><span class="op">(</span>yintercept<span class="op">=</span><span class="fl">0.00</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_vline</span><span class="op">(</span>xintercept<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">anes</span><span class="op">$</span><span class="va">education</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>, color<span class="op">=</span><span class="st">"red"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">scale_x_continuous</span><span class="op">(</span>name<span class="op">=</span><span class="st">"Education"</span>, limits<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">7</span><span class="op">)</span>, breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
+<div class="inline-figure"><img src="04-interactions_files/figure-html/figure48-1.png" width="95%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Use cplot to generate the data and refine the figure with ggplot</span>
+<span class="va">cplotdata2</span> <span class="op">&lt;-</span> <span class="fu">cplot</span><span class="op">(</span><span class="va">model5</span>, x <span class="op">=</span> <span class="st">"female"</span>, dx <span class="op">=</span> <span class="st">"education"</span>, what<span class="op">=</span><span class="st">"effect"</span>, n<span class="op">=</span><span class="fl">2</span>, draw<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">cplotdata2</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">xvals</span>, y <span class="op">=</span> <span class="va">yvals</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_errorbar</span><span class="op">(</span>data<span class="op">=</span><span class="va">cplotdata2</span>, mapping<span class="op">=</span><span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">xvals</span>, ymin<span class="op">=</span><span class="va">upper</span>, ymax<span class="op">=</span><span class="va">lower</span><span class="op">)</span>, width<span class="op">=</span><span class="fl">0.1</span>, size<span class="op">=</span><span class="fl">1</span>, color<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Figure 3. Marginal effect of education, by gender"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">theme</span><span class="op">(</span>plot.title.position <span class="op">=</span> <span class="st">"plot"</span>, plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face<span class="op">=</span><span class="st">"bold"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">theme</span><span class="op">(</span>axis.title.x<span class="op">=</span><span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>, axis.ticks.x<span class="op">=</span><span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="cn">NULL</span>, y<span class="op">=</span><span class="st">"Marginal effect of education"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">scale_x_continuous</span><span class="op">(</span>breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, limits<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span>,<span class="fl">1.5</span><span class="op">)</span>, labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Men"</span>, <span class="st">"Women"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="04-interactions_files/figure-html/figure49-1.png" width="95%" style="display: block; margin: auto;"></div>
+<p>The first figure reveals that gender only matters for women with a lower than average level of education. For higher levels of education, the effect is zero. (The red dotted line indicates the average level educationr - so, on average, the diffrence between men and women is about -0.13, matching up with the output from the models (Table 3)).</p>
+<p>The second figure suggests that the marginal effect of education is somewhat higher for women than men, so gaps in activity between men and women will diminish as education increases. But the confidence intervals suggest we really can’t make the claim that the effect is much larger for women. We can be more confident about what we learn from the Figure 5.</p>
+</div>
+</div>
+<div id="readings-and-notes" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Readings and notes<a class="anchor" aria-label="anchor" href="#readings-and-notes"><i class="fas fa-link"></i></a>
+</h2>
+<p><span class="citation"><a href="references.html#ref-brambor2006" role="doc-biblioref">Brambor, Clark, and Golder</a> (<a href="references.html#ref-brambor2006" role="doc-biblioref">2006</a>)</span>, a widely cited piece on interaction terms, gives some basic and useful guidance about how to handle interactions in statistical models.</p>
+<div id="include-interaction-terms" class="section level4 unnumbered">
+<h4>Include interaction terms<a class="anchor" aria-label="anchor" href="#include-interaction-terms"><i class="fas fa-link"></i></a>
+</h4>
+<p>If there are compelling reasons to think that marginal effects will vary across observations - due to individual-level differences, institutional or social contexts- then include those terms. Otherwise you risk a model specification error. The only possible downside of adding interaction terms is if you interacted all variables with all variables, then you have a very complex and inefficient model.</p>
+</div>
+<div id="include-all-constitutive-terms-and-dont-worry-about-collinearity" class="section level4 unnumbered">
+<h4>Include all constitutive terms (and don’t worry about collinearity)<a class="anchor" aria-label="anchor" href="#include-all-constitutive-terms-and-dont-worry-about-collinearity"><i class="fas fa-link"></i></a>
+</h4>
+<p>Review: what is <em>collinearity</em>? You can imagine that if introduce a variable X and three dummy variables, and then proceed to test for conditional marginal effects with three interaction terms, you might have a strong correlation between X and all of the interaction terms (X*D<sub>i</sub>). This form of collinearity could reduce efficiency, increasing the likelihood of Type II error. The temptation is to economize by dropping variables - either just leaving in the interaction terms or excluding variables that are not significant. (This is a shorcut that is not a good idea in any case). Brambor et al demonstrate that results are biased if interaction terms are included but one of the constitutive terms is dropped. If you combine the imperative to include interaction terms and include all constitutive terns, then we anticipate that inefficiency may be price we pay for accurate specification. (This is a special case of a classic trade-off – more variables means more inefficiency but too few variables risks omitted variable bias).</p>
+</div>
+<div id="do-not-interpret-constitutive-terms-as-unconditional-marginal-effects" class="section level4 unnumbered">
+<h4>Do not interpret constitutive terms as unconditional marginal effects<a class="anchor" aria-label="anchor" href="#do-not-interpret-constitutive-terms-as-unconditional-marginal-effects"><i class="fas fa-link"></i></a>
+</h4>
+<p>When we use interaction terms, the coefficient on on X is no longer the unconditional marginal effect of X on Y. If you must know the unconditional marginal effect, just plot the marginal effect and check what that number is at the typical or average value of X (as above).</p>
+</div>
+<div id="calculate-substantively-meaningful-marginal-effects-and-measures-of-uncertainty" class="section level4 unnumbered">
+<h4>Calculate substantively meaningful marginal effects and measures of uncertainty<a class="anchor" aria-label="anchor" href="#calculate-substantively-meaningful-marginal-effects-and-measures-of-uncertainty"><i class="fas fa-link"></i></a>
+</h4>
+<p>Brambor et al highlight the fact that we can’t simply think about standard errors as additive - and that we can to be careful to clarify exactly which differences - in marginal effects or outcomes - are statistically significant. Figure 2 communicates all of the information we need - the unconditional marginal effect, the conditional marginal effects, and measures of uncertainty for each effect.</p>
+
+<!-- Run common_r before code chunks -->
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="logistic-regression.html"><span class="header-section-number">3</span> Logistic regression</a></div>
+<div class="next"><a href="working-with-time-series.html"><span class="header-section-number">5</span> Working with time series</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#using-interaction-terms"><span class="header-section-number">4</span> Using interaction terms</a></li>
+<li>
+<a class="nav-link" href="#political-participation-as-a-function-of-gender"><span class="header-section-number">4.1</span> Political participation as a function of gender</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#comparing-ols-and-a-t-test">Comparing OLS and a t-test</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#controlling-for-education"><span class="header-section-number">4.2</span> Controlling for education</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-logic-of-controllled-comparison">The logic of controllled comparison</a></li>
+<li><a class="nav-link" href="#a-simple-example"><span class="header-section-number">4.2.1</span> A simple example</a></li>
+<li><a class="nav-link" href="#exactly-how-does-the-effect-of-education-differ-for-men-and-women">Exactly how does the effect of education differ for men and women?</a></li>
+<li><a class="nav-link" href="#a-controlled-comparison"><span class="header-section-number">4.2.2</span> A controlled comparison</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#a-multivariate-model-of-campaign-activity"><span class="header-section-number">4.3</span> A multivariate model of campaign activity</a></li>
+<li>
+<a class="nav-link" href="#using-interaction-terms-1"><span class="header-section-number">4.4</span> Using interaction terms</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#using-model-coefficients-to-clarify-the-size-of-effects."><span class="header-section-number">4.4.1</span> Using model coefficients to clarify the size of effects.</a></li>
+<li><a class="nav-link" href="#summarizing-marginal-effects-with-figures"><span class="header-section-number">4.4.2</span> Summarizing marginal effects with figures</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#readings-and-notes"><span class="header-section-number">4.5</span> Readings and notes</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Political Science and Applied Statistics using R</strong>" was written by J.K. Corder. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

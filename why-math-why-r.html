@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>1 Why math? Why R? | Political Science and Applied Statistics using R</title>
+<meta name="author" content="J.K. Corder">
+<meta name="description" content="1.1 Math in social science Social scientists have exploited advances in applied mathematics for 100 years - much of the early quantitative work in Political Science and Sociology relied on...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="1 Why math? Why R? | Political Science and Applied Statistics using R">
+<meta property="og:type" content="book">
+<meta property="og:description" content="1.1 Math in social science Social scientists have exploited advances in applied mathematics for 100 years - much of the early quantitative work in Political Science and Sociology relied on...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1 Why math? Why R? | Political Science and Applied Statistics using R">
+<meta name="twitter:description" content="1.1 Math in social science Social scientists have exploited advances in applied mathematics for 100 years - much of the early quantitative work in Political Science and Sociology relied on...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Political Science and Applied Statistics using R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li><a class="active" href="why-math-why-r.html"><span class="header-section-number">1</span> Why math? Why R?</a></li>
+<li><a class="" href="regression-review-and-assumptions.html"><span class="header-section-number">2</span> Regression: review and assumptions</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">3</span> Logistic regression</a></li>
+<li><a class="" href="using-interaction-terms.html"><span class="header-section-number">4</span> Using interaction terms</a></li>
+<li><a class="" href="working-with-time-series.html"><span class="header-section-number">5</span> Working with time series</a></li>
+<li><a class="" href="dynamic-models-1.html"><span class="header-section-number">6</span> Dynamic Models</a></li>
+<li><a class="" href="working-with-panel-data.html"><span class="header-section-number">7</span> Working with panel data</a></li>
+<li><a class="" href="dynamics-panel-models---a-brief-introduction.html"><span class="header-section-number">8</span> Dynamics panel models - a brief introduction</a></li>
+<li><a class="" href="counts.html"><span class="header-section-number">9</span> Counts</a></li>
+<li><a class="" href="duration-models.html"><span class="header-section-number">10</span> Duration models</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">11</span> References</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="quasi-experiements.html"><span class="header-section-number">A</span> Quasi-experiements</a></li>
+<li><a class="" href="matching.html"><span class="header-section-number">B</span> Matching</a></li>
+<li><a class="" href="bayesian-data-analysis.html"><span class="header-section-number">C</span> Bayesian data analysis</a></li>
+<li><a class="" href="multi-level-models.html"><span class="header-section-number">D</span> Multi-level models</a></li>
+<li><a class="" href="using-the-american-national-election-study.html"><span class="header-section-number">E</span> Using the American National Election Study</a></li>
+<li><a class="" href="using-the-current-population-survey.html"><span class="header-section-number">F</span> Using the Current Population Survey</a></li>
+<li><a class="" href="evidence-based-policymaking.html"><span class="header-section-number">G</span> Evidence-based policymaking</a></li>
+<li><a class="" href="tidyverse-r.html"><span class="header-section-number">H</span> Tidyverse R</a></li>
+<li><a class="" href="the-harvard-dataverse.html"><span class="header-section-number">I</span> The Harvard Dataverse</a></li>
+<li><a class="" href="about-the-author.html">About the author</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="why-math-why-r" class="section level1" number="1">
+<h1>
+<span class="header-section-number">1</span> Why math? Why R?<a class="anchor" aria-label="anchor" href="#why-math-why-r"><i class="fas fa-link"></i></a>
+</h1>
+<div id="math-in-social-science" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> Math in social science<a class="anchor" aria-label="anchor" href="#math-in-social-science"><i class="fas fa-link"></i></a>
+</h2>
+<p>Social scientists have exploited advances in applied mathematics for 100 years - much of the early quantitative work in Political Science and Sociology relied on analysis of census and other aggregate data collected by federal, state and local government (election returns, for instance). Advances in survey research in the 1940s triggered an explosion of work on political behavior. International relations drew heavily on game theory in the Cold War era. Computers permitted rapid aggregation of data and complex statistical applications. This integration of math, technology, and social science has a long history. CBS News relied on a team of Columbia University social scientists to employ the latest technology to predict the outcome of the 1952 election on live TV based on early election returns.</p>
+<p>In a broad sense, there are two distinct types of ways that mathematics underpins social sciences research: (1) mechanistic or formal models and (2) empirical models or statistical models. The most ambitious (and controversial) social science combines both. For a lively and sobering account of the origins and use of these tools check out <em>IF THEN: How the Simulmatics Corporation Invented the Future</em> <span class="citation">(<a href="references.html#ref-lepore2020" role="doc-biblioref">Lepore 2020</a>)</span>. I learned the details about the 1952 election night coverage from that book.</p>
+<p>We should sort out the distinction between formal models and empirical models before we talk about simulations and what this course does and does not cover.</p>
+<div id="mechanistic-models-aka-formal-models" class="section level3 unnumbered">
+<h3>Mechanistic models (aka formal models)<a class="anchor" aria-label="anchor" href="#mechanistic-models-aka-formal-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are a number of formal models that you may be familiar with. From your coursework on American politics, work on voting by Anthony Downs. From a course on international relations, maybe the prisoner’s dilemma. From social choice theory, Condorcet’s paradox. These models do not draw in data - they are strictly theoretical. We don’t measure or estimate any parameters of these models. We might use mathematical or computational strategies to come up with solutions.</p>
+<div id="the-paradox-of-voting" class="section level4 unnumbered">
+<h4>The paradox of voting<a class="anchor" aria-label="anchor" href="#the-paradox-of-voting"><i class="fas fa-link"></i></a>
+</h4>
+<p>Anthony Downs pioneered the idea that the <em>party differential</em> (B) is what motivates someone to vote in an election <span class="citation">(<a href="references.html#ref-downs1957" role="doc-biblioref">Downs 1957</a>)</span>. If the difference between the two competing parties is large, you are much better off if your preferred party wins, so you have an incentive to vote. But the benefit you gain is only a function of how much your voter matters (p). If your vote has no probability of impacting the outcome, then your expected gain from voting is zero. Later work building on this insight added considerations of costs associated with voting (C) and the benefits of voting - related to your sense of civic duty (D). The benefit of voting (R) can be summarized in a simple formula:</p>
+<p><span class="math display">\[R = (B \times p) - C + D\]</span>
+If R is a positive number, we vote. If less than zero, we don’t. We don’t estimate the parameters of the model - the values for p, B, C or D. But there are nevertheless some specific empirical implications that we can test. For instance, if one area has lower costs associated with voting, then all else equal, turnout should be higher. And if elections are competitive, meaning your vote has a higher probability of impacting the outcome, turnout should be higher. The model is useful for thinking about turnout, even if we do not start with a measure of anything.</p>
+</div>
+<div id="the-prisoners-dilemma" class="section level4 unnumbered">
+<h4>The prisoner’s dilemma<a class="anchor" aria-label="anchor" href="#the-prisoners-dilemma"><i class="fas fa-link"></i></a>
+</h4>
+<p>The prisoner’s dilemma is a simple one-step, one-shot game that models the interaction between two prisoners who have the option to confess or stay silent. The game is strategic since the payoffs for each prisoner depend on the actions of the other. The game is widely used to demonstrate how individually rational choices can produce outcomes that are collectively sub-optimal.<br><img src="images/PD.jpg" width="90%"></p>
+<p><strong>Figure 1. The prisoner’s dilemma</strong></p>
+<p>The Nash equilibrium - the solution - to this game is that both prisoners confess - neither player would have an incentive to change her choice even if she knew the choices of the other. The collectively optimal solution is for both prisoners to stay silent (combined prison time sums to two years). (Criminal organizations overcome this dilemma by what are euphemistically called <em>side payments</em> or making confessions costly once you leave prison.)</p>
+</div>
+</div>
+<div id="empirical-models-aka-statistical-models" class="section level3 unnumbered">
+<h3>Empirical models (aka statistical models)<a class="anchor" aria-label="anchor" href="#empirical-models-aka-statistical-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>Empirical models are grounded in data. They are gross simplifications of reality, designed to help us understand causality and, in my view, most useful to determine which of a number of potentially relevant variables might help us understand what we observe. Is voting behavior in the US more a function of race, or gender, or education levels? Does church attendance matter? What was the relative weight of political and other factors in determining the length of time between the appearance of confirmed cases of COVID-19 and the implementation of Shelter-in-Place orders in the US states? What explains a judge’s decision to declare a search to be unreasonable? How much does the judge’s ideology matter compared to other (case-specific) factors?</p>
+<blockquote>
+<p>What types of questions are posed this way in your sub-field?</p>
+</blockquote>
+<p>Two specific examples might clarify how these models are used. Note that the theorizing is informal - we are not using a mathematical approach to generate specific empirical features of a model. We are simply claiming that we think X influences Y.</p>
+<div id="what-helps-us-understand-the-choices-of-a-judge" class="section level4 unnumbered">
+<h4>What helps us understand the choices of a judge?<a class="anchor" aria-label="anchor" href="#what-helps-us-understand-the-choices-of-a-judge"><i class="fas fa-link"></i></a>
+</h4>
+<p>This example is from <span class="citation"><a href="references.html#ref-songer1994" role="doc-biblioref">Songer, Segal, and Cameron</a> (<a href="references.html#ref-songer1994" role="doc-biblioref">1994</a>)</span>. This example might not quite align with the description above since they do invoke a formal model as they develop the statistical model, but they don’t present or manipulate the formal model in any explicit way. The model treats a judge’s decision to permit the use of a evidence from a contested police search – positive coefficients in this context mean the judge was more likely to keep the evidence, negative coefficients mean that factor made it less likely.</p>
+<div class="inline-figure"><img src="images/songer.png" width="95%"></div>
+<p><strong>Figure 2. Screenshot from <span class="citation"><a href="references.html#ref-songer1994" role="doc-biblioref">Songer, Segal, and Cameron</a> (<a href="references.html#ref-songer1994" role="doc-biblioref">1994</a>)</span></strong></p>
+<p>You can see from the table that case-specific factors matter - if the search is conducted in your home or business, the judge is less likely to permit the evidence to be introduced. But if the search was incident to an arrest or executed after obtaining a search warrant, then the judge is more likely to permit the evidence. The impact column suggests that judicial ideology exerts a powerful independent effect on the outcome of cases decided in US Circuit Courts. A more conservative panel is more likely to permit the evidence to be introduced.</p>
+</div>
+<div id="what-helps-us-predict-how-long-it-tooks-states-to-adopt-shelter-in-place-orders" class="section level4 unnumbered">
+<h4>What helps us predict how long it tooks states to adopt shelter-in-place orders?<a class="anchor" aria-label="anchor" href="#what-helps-us-predict-how-long-it-tooks-states-to-adopt-shelter-in-place-orders"><i class="fas fa-link"></i></a>
+</h4>
+<p>In a recent co-authored piece in <em>Policy Design and Practice</em>, I used a statistical to test how different features of US states may have led to more rapid or slower adoption of Shelter-in-Place orders <span class="citation">(<a href="references.html#ref-corder2020" role="doc-biblioref">J. Kevin Corder, Mingus, and Blinova 2020</a>)</span>. We don’t offer any type of formal treatment specifying the utility function of the governor, but simply employ a statistical model to see what types of state acted quickly. In this model, negative coefficients mean a shorter (smaller) number of days between observation of confirmed cases and executive action.</p>
+<div class="inline-figure"><img src="images/corder.png" width="95%"></div>
+<p><strong>Figure 3. Screenshot from <span class="citation"><a href="references.html#ref-corder2020" role="doc-biblioref">J. Kevin Corder, Mingus, and Blinova</a> (<a href="references.html#ref-corder2020" role="doc-biblioref">2020</a>)</span></strong></p>
+<p>We found that political factors (specifically, Republican party control of the state senate and a Republican governor) translate into long delays, but differences between urban and rural states are close to zero and differences between high population and low population states are relatively small.</p>
+</div>
+<div id="use-and-mis-use-of-statistical-models" class="section level4 unnumbered">
+<h4>Use and mis-use of statistical models<a class="anchor" aria-label="anchor" href="#use-and-mis-use-of-statistical-models"><i class="fas fa-link"></i></a>
+</h4>
+<p>While the use of statistical models is commonplace, there is some anxiety about the use of these models - particularly if we learn how manipulating information or attitudes can lead to actions in the moment. These reservations did not stop technology entrepreneurs from going down this road - collecting massive amounts of behavioral data, using that data to influence your choice about what to buy or where to live or what to read. There are some indications that the combination of better models and better data is effective. Companies like Cambridge Analytica claimed they were able to make these types of interventions in 2016 US presidential election, precisely targeting messages and advertising to influence the immediate decisions of small subsets of persuadable voters. (In this case, data was collected via Facebook in violation of multiple privacy and data-sharing regulations). In other contexts, if you want to learn about behavioral psychologists are leveraging these insights to improve (or least change) public policy, read about <em>nudges</em> <span class="citation">(<a href="references.html#ref-ThalerSunstein08" role="doc-biblioref">Thaler and Sunstein 2008</a>)</span></p>
+</div>
+</div>
+<div id="simulations---drawing-on-mechanistic-and-empirical-components" class="section level3 unnumbered">
+<h3>Simulations - drawing on mechanistic and empirical components<a class="anchor" aria-label="anchor" href="#simulations---drawing-on-mechanistic-and-empirical-components"><i class="fas fa-link"></i></a>
+</h3>
+<p>There is a broad class of modeling approaches that draw on both mechanistic and empirical models - using parameters estimated from observation to simulate some behavior or outcome of interest. In some cases the models are somewhat atheoretical, leveraging the insights from observation. In other cases, only a limited amount of data inform the model and the insights are from the mechanics. Macroeconomists use a complex simulation (“FRB/US”) to forecast the path of the economy when the Federal Reserve sets interest rates. Actuaries in the Social Security Administration use demographic and actuarial approaches to simulate the value of the Social Security trust fund over time. How do these approaches work? Two examples are on the news: the weather (every day) and the growth of COVID-19 cases (from 2020-2).</p>
+<div id="weather-forecasts" class="section level4 unnumbered">
+<h4>Weather forecasts<a class="anchor" aria-label="anchor" href="#weather-forecasts"><i class="fas fa-link"></i></a>
+</h4>
+<p>This short description of how weather forecasters use models was published by the <em>Washington Post</em> in May, 2018. Notice the two distinct components - mathematical models and extensive data collection.</p>
+<blockquote>
+<p>Weather forecasters often discuss the models they use to help predict the weather. But what are these models? How do they work? And what are their strengths and weaknesses?</p>
+</blockquote>
+<blockquote>
+<p>The foundation for models are mathematical equations based on physics that characterize how the air moves and heat and moisture are exchanged in the atmosphere. Weather observations (pressure, wind, temperature and moisture) obtained from ground sensors and weather satellites are fed into these equations. The observations are brought into the models in a process known as data assimilation.</p>
+</blockquote>
+<blockquote>
+<p>In a model, the atmosphere is divided into a three-dimensional grid and each grid point is given the assimilated data. These are called initial conditions. Then at each grid point, the mathematical equations are applied and stepped forward in time. The outputs over many time steps specify future weather at all grid points.</p>
+</blockquote>
+<blockquote>
+<p><span class="citation"><a href="references.html#ref-wapo2018" role="doc-biblioref">Capital Weather Gang</a> (<a href="references.html#ref-wapo2018" role="doc-biblioref">2018</a>)</span></p>
+</blockquote>
+<p>The key thing to recognize here is the implication of “stepped forward in time” - there are a set of equations that translate initital conditions at time <em>t</em> to expected conditions at time <em>t+1</em>, those expected conditions at time <em>t+1</em> are translated into expected conditions at time <em>t+2</em>. So while we are observing actual things at <em>t</em> anything after that is strictly a function of the underlying equations. You can imagine that equations for movement of moisture and heat are fairly precise, but we still know that weather forecasts beyond a couple of days are not very reliable.</p>
+</div>
+<div id="modeling-covid-19" class="section level4 unnumbered">
+<h4>Modeling COVID 19<a class="anchor" aria-label="anchor" href="#modeling-covid-19"><i class="fas fa-link"></i></a>
+</h4>
+<p>Weather forecasting helps you understand the modeling process, but is strictly a natural phenomena. It would seem to be the same for understanding the spread of a virus. The virus has some properties related to how easy it moves from one person to another and how quickly they show symptoms. But there are also social components - how closely do people live to each other, are people likely to wear masks? Or limit contact with others outside of their households? Epidemiologists use all of these considerations to model the number of expected cases of COVID-19. Here is an example of this type of projection from the CDC. The bold path is the ensemble model - an estimate based on 22 different models generated by a variety of academic and government teams.</p>
+<div class="inline-figure"><img src="images/cdc.png" width="80%"></div>
+<p><strong>Figure 4. Centers for Disease Control and Prevention projections for January 2021 Covid cases</strong></p>
+<p>You can see the wide variation as we move out one month in to the future - anywhere from 1.2 million cases to 2 million cases per week by January 16, 2021. At the time, even the lower range of this projection seemed almost unfathomable. But the number ultimately ended up at about 1.7 million, exactly as predicted.</p>
+</div>
+<div id="social-security-administration-office-of-chief-actuary" class="section level4 unnumbered">
+<h4>Social Security Administration Office of Chief Actuary<a class="anchor" aria-label="anchor" href="#social-security-administration-office-of-chief-actuary"><i class="fas fa-link"></i></a>
+</h4>
+<p>The SSA produces an annual estimate of the balance in the OASDI trust funds - the money available to make up the shortfall between Social Security revenues (FICA tax collections) and Social Security expenditures (payments to elderly or disabled recipients). These estimates factor in demographic and economic assumptions about mortality, fertility, immigration, economic growth, inflation, interest rates and other data that might impact future claims and future revenue. The estimates are summarized for three different scenarios - media coverage typically focuses on the intermediate assumptions (II). I is the “low-cost” scenario and III is the “high-cost” scenario.</p>
+<div class="inline-figure"><img src="images/ssa.png" width="80%"></div>
+<p><strong>Figure 5. Screenshot from <span class="citation"><a href="references.html#ref-SSA2020" role="doc-biblioref">Social Security Board of Trustees</a> (<a href="references.html#ref-SSA2020" role="doc-biblioref">2020</a>)</span></strong></p>
+<p>You can see that combined Trust Funds are likely to be exhausted by 2035.</p>
+</div>
+<div id="why-dont-we-see-many-or-any-of-these-types-of-simulations-in-political-science-journals" class="section level4 unnumbered">
+<h4>Why don’t we see many (or any) of these types of simulations in Political Science journals?<a class="anchor" aria-label="anchor" href="#why-dont-we-see-many-or-any-of-these-types-of-simulations-in-political-science-journals"><i class="fas fa-link"></i></a>
+</h4>
+<p>Imagine an approach to modeling human behavior that is analogous to the weather forecasting approach. Why not? For one, the underlying mechanical models are just not as mature as physics, and may never be. In addition, the data collection is also less extensive and subject to error, but that may be changing. So today the technology just doesn’t seem up to the task of iterating over many periods to see what the effects are of a particular message or exposure to information or action would be over the long-run, for instance.</p>
+<p>Second, the use of simulations of this form has a sordid and depressing history in Political Science. Think about the ethical implications if this actually worked. If you understand a system of human or social and political behavior and you could manipulate the initial conditions, then you could bring about the outcomes you desire. This kind of thinking and ambitions led to some disastrous applications of this technology in the 1960s - from counterinsurgency efforts in Vietnam, to efforts to prevent urban unrest in American cities. This was work carried out by political scientists, funded by the federal government, that was at best fraudulent and at worst harmful (again, see <span class="citation"><a href="references.html#ref-lepore2020" role="doc-biblioref">Lepore</a> (<a href="references.html#ref-lepore2020" role="doc-biblioref">2020</a>)</span>). I can come up with some positive or useful examples - modeling an arms race, for example, or modeling how parties may moderate a message in order to attract allies. For the latter, check out the book <em>Paper Stones</em> <span class="citation">(<a href="references.html#ref-sprague88" role="doc-biblioref">Przeworski and Sprague 1988</a>)</span>. There is an entire discipline formed around these efforts (<em>Cliodynamics</em>) but not much of this research seeps in to Political Science journals.</p>
+<p>Notice the important difference between the statistical model and these longer-term simulations. The statistical models are helping us understand how messages influence your choices in the next period - the next minute - or the next choice you make - and don’t feed in to a larger multi-period simulation or even anticipate or really care about long-run effects.</p>
+</div>
+</div>
+</div>
+<div id="the-narrow-focus-of-this-course" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> The narrow focus of this course<a class="anchor" aria-label="anchor" href="#the-narrow-focus-of-this-course"><i class="fas fa-link"></i></a>
+</h2>
+<p>Simply put, the focus of this course is the statistical model. We won’t be looking at formal models or simulations. We will start with a simple, linear model and advance to more complex models that widen the range of things we can predict (to binary choices, counts, durations, or data observed over time). The place of all of this in the broader research enterprise can be difficult to understand. Think of all of the ways that you could learn by observation - a statistical model is just one approach among many and is most useful only if a number of assumptions or conditions are satisfied. The graphic below places this effort in the broader context of our research enterprise, differentiating what we do in this class from qualitative work and from theory-building work. My approach to statistical modeling centers on theory-testing with large (or at least not small) samples, sometimes randomly generated. Note that a <em>comparative case study</em>, for instance, might employ any of these tools - theory-building and theory-testing, quantitative or qualitative, text or numbers as data - so labeling something a comparative case study doesn’t tell you what type of approach you are taking.</p>
+<div class="inline-figure"><img src="images/rd_fig.png" width="80%"></div>
+<p><strong>Figure 6. How does regression fit in?</strong></p>
+<p>The works cited in the figure are representative and you have probably run across them in other courses.</p>
+</div>
+<div id="why-use-r" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> Why use R?<a class="anchor" aria-label="anchor" href="#why-use-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>In order to build your understanding of statistical modeling, we will use the statistical software R. Why?</p>
+<ul>
+<li><p>R is free</p></li>
+<li><p>R is flexible</p></li>
+<li><p>R is supported a user community dedicated to the idea of open source</p></li>
+<li><p>R is transportable – you can easily take what you learn for one project and apply it to another</p></li>
+<li><p>R is reproducible – this is key</p></li>
+</ul>
+</div>
+<div id="how-r-works" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> How R works<a class="anchor" aria-label="anchor" href="#how-r-works"><i class="fas fa-link"></i></a>
+</h2>
+<p>Commands in R create and use what are known as <em>objects</em>. An object could be a single number, a column of numbers (a vector), a matrix, or a matrix that is identified as data (a <em>data frame</em> sometimes abbreviated df). Objects are named by you when they are created.</p>
+<p>Commands in R use <code>functions</code> to take input and produce output. There are many functions packed in the base R installation, but we are some specialized functions that we need to add. These specialized function are published in <strong>packages</strong> that you can install on your PC. When you use a function from a package, you must first make that package visible to R with the <code>library</code> function</p>
+<p>The typical structure of an R command is</p>
+<pre><code>object &lt;- function()</code></pre>
+<p>You can chain together several functions with a pipe, <code>%&gt;%</code>, so you might see many lines of commands linking together to generate one new object.</p>
+</div>
+<div id="three-examples" class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> Three examples<a class="anchor" aria-label="anchor" href="#three-examples"><i class="fas fa-link"></i></a>
+</h2>
+<div id="comparing-groups.-turnout-in-the-2016-presidential-election" class="section level3 unnumbered">
+<h3>Comparing groups. Turnout in the 2016 presidential election<a class="anchor" aria-label="anchor" href="#comparing-groups.-turnout-in-the-2016-presidential-election"><i class="fas fa-link"></i></a>
+</h3>
+<p>The Current Population Survey is a US Census product that is based on a monthly survey of ~60,000 people living in the United States. The primary use of the CPS is to measure the monthly unemployment rate. In 1960 the Census began to include a supplement each November that recorded whether not someone voted. Since the survey is so large, we can use it to generate reliable estimates of turnout for small groups.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Any lines that start with a # are just comments, notes to myself so I can recall why I made particular choices.  I use comments liberally.</span>
+
+<span class="co"># Use the read_fwf function from the read_r library</span>
+<span class="co"># Read the data from the CPS raw data file</span>
+<span class="co"># I used the codebook to identify the variables and column numbers</span>
+<span class="co"># We can take a look at the codebook in class.</span>
+<span class="co"># This is really tedious work, and potentially introduces errors</span>
+<span class="va">cps16</span><span class="op">&lt;-</span> <span class="fu">read_fwf</span><span class="op">(</span><span class="st">"data/nov16pub.dat"</span>, <span class="fu">fwf_cols</span><span class="op">(</span>
+  hrinsta<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">57</span>,<span class="fl">58</span><span class="op">)</span>,
+  prtage<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">122</span>,<span class="fl">123</span><span class="op">)</span>,
+  pemaritl<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">125</span>,<span class="fl">126</span><span class="op">)</span>,
+  sex<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">129</span>,<span class="fl">130</span><span class="op">)</span>,
+  ptdtrace<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">139</span>,<span class="fl">140</span><span class="op">)</span>,
+  pehspnon<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">157</span>,<span class="fl">159</span><span class="op">)</span>,
+  prpertyp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">161</span>,<span class="fl">162</span><span class="op">)</span>,
+  penatvty<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">163</span>,<span class="fl">165</span><span class="op">)</span>,
+  pemntvty<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">166</span>,<span class="fl">168</span><span class="op">)</span>,
+  pefntvty<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">169</span>,<span class="fl">171</span><span class="op">)</span>,
+  prcitshp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">172</span>,<span class="fl">173</span><span class="op">)</span>,
+  prinusyr<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">176</span>,<span class="fl">177</span><span class="op">)</span>,
+  weight<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">613</span>,<span class="fl">622</span><span class="op">)</span>,
+  prnmchld<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">635</span>,<span class="fl">636</span><span class="op">)</span>,
+  vote<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">951</span>,<span class="fl">952</span><span class="op">)</span><span class="op">)</span>,
+  col_types <span class="op">=</span> <span class="fu">cols</span><span class="op">(</span><span class="op">)</span>
+<span class="op">)</span>
+
+<span class="co"># Filter to include only citizens 18 and older</span>
+<span class="co"># The filter function just keeps a subset of observations in the new object</span>
+<span class="co"># Notice th use of a pipe %&gt;%</span>
+<span class="co"># This requires the dyplr library</span>
+<span class="va">cps_valid</span><span class="op">&lt;-</span> <span class="va">cps16</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">hrinsta</span><span class="op">==</span><span class="fl">1</span> <span class="op">&amp;</span> <span class="va">prtage</span><span class="op">&gt;=</span><span class="fl">18</span> <span class="op">&amp;</span> <span class="va">prpertyp</span><span class="op">==</span><span class="fl">2</span> <span class="op">&amp;</span> <span class="va">prcitshp</span><span class="op">!=</span><span class="fl">5</span><span class="op">)</span>
+
+<span class="co"># Recode to treat people who refused or did not answer as not voting</span>
+<span class="co"># This is the dplyr recode function  </span>
+<span class="va">cps_valid</span><span class="op">$</span><span class="va">turnout</span><span class="op">&lt;-</span><span class="fu">recode</span><span class="op">(</span><span class="va">cps_valid</span><span class="op">$</span><span class="va">vote</span>, <span class="st">'-9'</span> <span class="op">=</span> <span class="fl">0</span>, <span class="st">'-3'</span> <span class="op">=</span> <span class="fl">0</span>, <span class="st">'-2'</span> <span class="op">=</span> <span class="fl">0</span>, <span class="st">'2'</span> <span class="op">=</span> <span class="fl">0</span>, <span class="st">'1'</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+
+<span class="co"># Create new variable race and make it a character (a categorical variable)</span>
+<span class="co"># Notice that I am reading from and writing to the same data frame</span>
+<span class="co"># murate is the function to create a new variable from an existing variable</span>
+<span class="va">cps_valid</span><span class="op">&lt;-</span> <span class="va">cps_valid</span> <span class="op">%&gt;%</span>
+  <span class="fu">mutate</span><span class="op">(</span>
+    race <span class="op">=</span> <span class="fu">case_when</span><span class="op">(</span>
+      <span class="va">ptdtrace</span><span class="op">==</span><span class="fl">1</span> <span class="op">&amp;</span> <span class="va">pehspnon</span><span class="op">!=</span><span class="fl">1</span> <span class="op">~</span> <span class="st">"White, not Hispanic"</span>,
+      <span class="va">ptdtrace</span><span class="op">==</span><span class="fl">2</span> <span class="op">~</span> <span class="st">"African American"</span>,
+      <span class="va">ptdtrace</span><span class="op">==</span><span class="fl">4</span> <span class="op">~</span> <span class="st">"Asian"</span>,
+      <span class="va">ptdtrace</span><span class="op">==</span><span class="fl">1</span> <span class="op">&amp;</span> <span class="va">pehspnon</span><span class="op">==</span><span class="fl">1</span> <span class="op">~</span> <span class="st">"Hispanic"</span>,
+      <span class="cn">TRUE</span> <span class="op">~</span>  <span class="st">"Other"</span>
+    <span class="op">)</span>
+  <span class="op">)</span>
+
+<span class="co"># Create an R object  that summarizes turnout by race</span>
+<span class="co"># the .groups option, included here, suppresses a warning message that doesn't apply with a single grouping variable</span>
+<span class="co"># group_by is a function</span>
+<span class="co"># summarize is a function</span>
+<span class="va">d</span><span class="op">&lt;-</span> <span class="va">cps_valid</span> <span class="op">%&gt;%</span>
+  <span class="fu">group_by</span><span class="op">(</span><span class="va">race</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">summarize</span><span class="op">(</span>turnout <span class="op">=</span> <span class="fl">100</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/weighted.mean.html">weighted.mean</a></span><span class="op">(</span><span class="va">turnout</span>, <span class="va">weight</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, count<span class="op">=</span><span class="fu">n</span><span class="op">(</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">'drop'</span><span class="op">)</span>
+
+<span class="co"># Produce a table with the kable function and include options to customize column names, add a title, limit to two digits after the decimal point.</span>
+<span class="fu">kable</span><span class="op">(</span><span class="va">d</span>, digits <span class="op">=</span> <span class="fl">2</span>, caption <span class="op">=</span> <span class="st">"**Table 1.  Turnout, by race, 2016 US presidential election**"</span>, col.names<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Race"</span>, <span class="st">"Turnout"</span>, <span class="st">"Count"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:cps"></span><strong>Table 1. Turnout, by race, 2016 US presidential election</strong>
+</caption>
+<thead><tr class="header">
+<th align="left">Race</th>
+<th align="right">Turnout</th>
+<th align="right">Count</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">African American</td>
+<td align="right">59.42</td>
+<td align="right">9834</td>
+</tr>
+<tr class="even">
+<td align="left">Asian</td>
+<td align="right">49.04</td>
+<td align="right">3794</td>
+</tr>
+<tr class="odd">
+<td align="left">Hispanic</td>
+<td align="right">47.16</td>
+<td align="right">7899</td>
+</tr>
+<tr class="even">
+<td align="left">Other</td>
+<td align="right">49.05</td>
+<td align="right">3103</td>
+</tr>
+<tr class="odd">
+<td align="left">White, not Hispanic</td>
+<td align="right">65.30</td>
+<td align="right">69164</td>
+</tr>
+</tbody>
+</table></div>
+<p>You can see the turnout among White voters was much higher than any racial or ethnic minorities, one component of Donald Trump’s victory and something that would change in 2020.</p>
+</div>
+<div id="creating-figures.-ideological-polarization-in-the-u.s.-house-of-representatives" class="section level3 unnumbered">
+<h3>Creating figures. Ideological polarization in the U.S. House of Representatives<a class="anchor" aria-label="anchor" href="#creating-figures.-ideological-polarization-in-the-u.s.-house-of-representatives"><i class="fas fa-link"></i></a>
+</h3>
+<p>You may have encountered Poole-Rosenthal scores (also known as D-NOMINATE scores) in your reading on the US Congress. The scores use roll-call votes to measure the ideological position of members of Congress relative to other members. We can use these scores to track the ideological polarization in Congress. The figure below summarizes the mean Republican and Democratic member of the House of Representatives in each 2-year session.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># This code is from  https://voteview.com/articles/party_polarization</span>
+
+<span class="co"># Note that I am reading the data from a website - you can run this chunk to replicate the figure</span>
+<span class="va">nom_dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://voteview.com/static/data/out/members/HSall_members.csv"</span>, show_col_types<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
+<span class="va">south</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">40</span><span class="op">:</span><span class="fl">49</span>,<span class="fl">51</span>,<span class="fl">53</span><span class="op">)</span>
+
+<span class="co"># Added this to suppress a warning message</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>dplyr.summarise.inform <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+
+<span class="va">polar_dat</span> <span class="op">&lt;-</span> <span class="va">nom_dat</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">congress</span><span class="op">&gt;</span><span class="fl">45</span> <span class="op">&amp;</span> <span class="va">chamber</span> <span class="op">!=</span> <span class="st">"President"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu">mutate</span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2</span><span class="op">*</span><span class="op">(</span><span class="va">congress</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1789</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu">group_by</span><span class="op">(</span><span class="va">chamber</span>,<span class="va">congress</span>,<span class="va">year</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">summarise</span><span class="op">(</span>
+      party.mean.diff.d1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">200</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span> <span class="op">-</span> 
+                           <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">100</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,
+      prop.moderate.d1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">)</span><span class="op">&lt;</span><span class="fl">0.25</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,
+      prop.moderate.dem.d1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">100</span><span class="op">]</span><span class="op">)</span><span class="op">&lt;</span><span class="fl">0.25</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,
+      prop.moderate.rep.d1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">200</span><span class="op">]</span><span class="op">)</span><span class="op">&lt;</span><span class="fl">0.25</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,
+      overlap <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">200</span><span class="op">]</span> <span class="op">&lt;</span>
+                       <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">100</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>  <span class="op">+</span>
+                 <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">100</span><span class="op">]</span> <span class="op">&gt;</span>
+                       <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">200</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">)</span><span class="op">/</span>
+                 <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">100</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+                  <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">200</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,
+      chamber.mean.d1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim1</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,
+      chamber.mean.d2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim2</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,
+      dem.mean.d1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">100</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,
+      dem.mean.d2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim2</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">100</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,
+      rep.mean.d1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">200</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,
+      rep.mean.d2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim2</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">200</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,
+      north.rep.mean.d1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">200</span> <span class="op">&amp;</span> 
+                                             <span class="op">!</span><span class="op">(</span><span class="va">state_icpsr</span> <span class="op">%in%</span> <span class="va">south</span><span class="op">)</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,    
+      north.rep.mean.d2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim2</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">200</span> <span class="op">&amp;</span> 
+                                             <span class="op">!</span><span class="op">(</span><span class="va">state_icpsr</span> <span class="op">%in%</span> <span class="va">south</span><span class="op">)</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,    
+      south.rep.mean.d1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">200</span> <span class="op">&amp;</span> 
+                                              <span class="op">(</span><span class="va">state_icpsr</span> <span class="op">%in%</span> <span class="va">south</span><span class="op">)</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,    
+      south.rep.mean.d2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim2</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">200</span> <span class="op">&amp;</span> 
+                                             <span class="op">(</span><span class="va">state_icpsr</span> <span class="op">%in%</span> <span class="va">south</span><span class="op">)</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,    
+      north.dem.mean.d1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">100</span> <span class="op">&amp;</span> 
+                                              <span class="op">!</span><span class="op">(</span><span class="va">state_icpsr</span> <span class="op">%in%</span> <span class="va">south</span><span class="op">)</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,    
+      north.dem.mean.d2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim2</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">100</span> <span class="op">&amp;</span> 
+                                              <span class="op">!</span><span class="op">(</span><span class="va">state_icpsr</span> <span class="op">%in%</span> <span class="va">south</span><span class="op">)</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,    
+      south.dem.mean.d1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim1</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">100</span> <span class="op">&amp;</span> 
+                                              <span class="op">(</span><span class="va">state_icpsr</span> <span class="op">%in%</span> <span class="va">south</span><span class="op">)</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,    
+      south.dem.mean.d2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">nominate_dim2</span><span class="op">[</span><span class="va">party_code</span><span class="op">==</span><span class="fl">100</span> <span class="op">&amp;</span> 
+                                              <span class="op">(</span><span class="va">state_icpsr</span> <span class="op">%in%</span> <span class="va">south</span><span class="op">)</span><span class="op">]</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>,    
+    <span class="op">)</span> 
+
+<span class="va">polar_dat_long</span> <span class="op">&lt;-</span> <span class="va">polar_dat</span> <span class="op">%&gt;%</span> <span class="fu">gather</span><span class="op">(</span><span class="va">score</span>,<span class="va">value</span>,<span class="op">-</span><span class="va">chamber</span>,<span class="op">-</span><span class="va">year</span>,<span class="op">-</span><span class="va">congress</span><span class="op">)</span>
+<span class="va">labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"dem.mean.d1"</span><span class="op">=</span><span class="st">"Democrat"</span>,
+            <span class="st">"rep.mean.d1"</span><span class="op">=</span><span class="st">"Republican"</span>,
+            <span class="st">"north.dem.mean.d1"</span><span class="op">=</span><span class="st">"Northern Democrats"</span>,
+            <span class="st">"south.dem.mean.d1"</span><span class="op">=</span><span class="st">"Southern Democrats"</span><span class="op">)</span>
+
+<span class="co"># This is based on the voteview RMD but modified so that it does not use ggrepel and is not a function</span>
+
+<span class="va">pdatl</span> <span class="op">&lt;-</span> <span class="va">polar_dat_long</span> <span class="op">%&gt;%</span> 
+              <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">chamber</span><span class="op">==</span><span class="st">"House"</span>,
+                       <span class="va">score</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"dem.mean.d1"</span>,<span class="st">"rep.mean.d1"</span>,
+                                    <span class="st">"north.dem.mean.d1"</span>,<span class="st">"south.dem.mean.d1"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+                <span class="fu">mutate</span><span class="op">(</span>Party<span class="op">=</span><span class="va">labels</span><span class="op">[</span><span class="va">score</span><span class="op">]</span><span class="op">)</span> <span class="op">%&gt;%</span>
+                <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span>
+  
+<span class="fu">ggplot</span><span class="op">(</span>data<span class="op">=</span><span class="va">pdatl</span>,
+               <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">year</span>,y<span class="op">=</span><span class="va">value</span>,group<span class="op">=</span><span class="va">Party</span>,col<span class="op">=</span><span class="va">Party</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+               <span class="fu">scale_x_continuous</span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.15</span>, <span class="fl">0</span><span class="op">)</span>, 
+                                 breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1880</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">pdatl</span><span class="op">$</span><span class="va">year</span><span class="op">)</span>, by<span class="op">=</span><span class="fl">8</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+              <span class="fu">geom_line</span><span class="op">(</span>size<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_point</span><span class="op">(</span>size<span class="op">=</span><span class="fl">1.2</span><span class="op">)</span> <span class="op">+</span> 
+              <span class="fu">xlab</span><span class="op">(</span><span class="st">"Year"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">ylab</span><span class="op">(</span><span class="st">"Liberal-Conservative"</span><span class="op">)</span> <span class="op">+</span> 
+              <span class="fu">theme</span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">45</span>, hjust <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+              <span class="fu">scale_color_manual</span><span class="op">(</span>values<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Republican"</span><span class="op">=</span><span class="st">"#c70828"</span>,
+                                          <span class="st">"Democrat"</span><span class="op">=</span><span class="st">"#1372ad"</span>,
+                                          <span class="st">"Northern Democrats"</span><span class="op">=</span><span class="st">"#6194F4"</span>,
+                                          <span class="st">"Southern Democrats"</span><span class="op">=</span><span class="st">"#81c4e4"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="01-why-r_files/figure-html/d-nominate-1.png" width="672"></div>
+<p><strong>Figure 7. Polarization in the US House of Representatives</strong></p>
+<p>You can see how the medians have diverged over time - Republicans become much more conservative and Democrats somewhat more liberal as the differences between Southern and Northern Democrats diminish. The data and R code are from the voteview website <span class="citation">(<a href="references.html#ref-voteview22" role="doc-biblioref">Lewis et al. 2022</a>)</span></p>
+</div>
+<div id="estimating-a-model---anova-with-one-variable" class="section level3" number="1.5.1">
+<h3>
+<span class="header-section-number">1.5.1</span> Estimating a model - ANOVA with one variable<a class="anchor" aria-label="anchor" href="#estimating-a-model---anova-with-one-variable"><i class="fas fa-link"></i></a>
+</h3>
+<p>This is just an example using <code>lm</code> function (short for linear model). This is a linear probability model and we will learn alternative (and better) modeling strategies for this situation in week 4 (logistic regression). But I just wanted you to see that we can use <code>lm</code> to perform ANOVA (a regression with a categorical variable).</p>
+<p>R recognizes race as a categorical variable and automatically creates a dummy variable with the baseline category as the first factor and compares that group to every other group.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># First I am using the factor function to make sure that white voters (the largest racial group) are the baseline category.</span>
+<span class="va">cps_valid</span><span class="op">$</span><span class="va">race2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">cps_valid</span><span class="op">$</span><span class="va">race</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"White, not Hispanic"</span>, <span class="st">"African American"</span>, <span class="st">"Hispanic"</span>, <span class="st">"Asian"</span>, <span class="st">"Other"</span><span class="op">)</span><span class="op">)</span>
+<span class="co"># In this case I just produce the table and don't retain the model info</span>
+<span class="fu">kable</span><span class="op">(</span><span class="fu">tidy</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">turnout</span><span class="op">~</span><span class="va">race2</span>, weight<span class="op">=</span><span class="va">weight</span>, data<span class="op">=</span><span class="va">cps_valid</span><span class="op">)</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span>, caption <span class="op">=</span> <span class="st">"**Table 2. Race and turnount, 2016, ANOVA**"</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>(#tab:cps_model)<strong>Table 2. Race and turnount, 2016, ANOVA</strong>
+</caption>
+<thead><tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">0.653</td>
+<td align="right">0.002</td>
+<td align="right">344.216</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">race2African American</td>
+<td align="right">-0.059</td>
+<td align="right">0.005</td>
+<td align="right">-12.272</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">race2Hispanic</td>
+<td align="right">-0.181</td>
+<td align="right">0.005</td>
+<td align="right">-34.693</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">race2Asian</td>
+<td align="right">-0.163</td>
+<td align="right">0.008</td>
+<td align="right">-21.412</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">race2Other</td>
+<td align="right">-0.162</td>
+<td align="right">0.009</td>
+<td align="right">-17.959</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table></div>
+<p>We learn that White voters turnout at a bit higher rates than African Americans, but those two groups have substantially higher turnout than other racial and ethnic minorities. Note how the predicted values correspond to (match) the levels reportedin Table 1.</p>
+<p>In future classes we will work with the <strong>stargazer</strong> package to produce regression tables that are publication-ready.</p>
+</div>
+</div>
+<div id="reproducing-results---why-is-that-important" class="section level2" number="1.6">
+<h2>
+<span class="header-section-number">1.6</span> Reproducing results - why is that important?<a class="anchor" aria-label="anchor" href="#reproducing-results---why-is-that-important"><i class="fas fa-link"></i></a>
+</h2>
+<p>One the features of R that is powerful is the ability to share your research for replication. No one needs to have a proprietary or expensive piece of software or access to specialized resources to reproduce your work. Moreover, anyone with a working knowledge of R can inspect your programming to see exactly how you transformed or manipulated data, exactly the modeling choices you made, and how to you evaluated the robustness of your choices. Other researchers can experiment with different approaches and improve the work over time. We will talk more about replication later in the term, but it is a good idea to cultivate a habit of meticulous recording of your work. I use comments and Rmarkdown files to do that.</p>
+<div id="why-cant-i-use-excel" class="section level3 unnumbered">
+<h3>Why can’t I use EXCEL?<a class="anchor" aria-label="anchor" href="#why-cant-i-use-excel"><i class="fas fa-link"></i></a>
+</h3>
+<p>EXCEL is very useful for data entry. But there are two major drawbacks to EXCEL for research. First if you share data in EXCEL, then many people without access to that software can’t review your work. And As Microsoft changes EXCEL over time, your data may become unreadable to people with newer versions. We would like to avoid this software dependence. R markdown files are simply text files, so anyone can look at them. And most replication archives encourage you to submit and store your data in the same form - as a text file anyone can read. You will learn how this works as we learn about the Harvard Dataverse in future classes.</p>
+<p>Another drawback of EXCEL is the potential for errors. You can’t see how a cell value is calculated without inspecting each cell, so it would be tedious to do that and a corrupted cell or typo could lead to an error. There is also the potential for mismatching records when you merge data from different sources. And cut-and-paste errors. And you really can’t do any of the analysis in EXCEL to you will end up reading the data into statistical software anyway.</p>
+<p>Think this sounds far-fetched? There was a very recent and very public error by a pair of influential economists. One short account <em>The Reinhart-Rogoff error – or how not to Excel at economics</em> describes the error and implications. What happened?</p>
+<blockquote>
+<p>Reinhart and Rogoff’s work showed average real economic growth slows (a 0.1% decline) when a country’s debt rises to more than 90% of gross domestic product (GDP) – and this 90% figure was employed repeatedly in political arguments over high-profile austerity measures….in their Excel spreadsheet, Reinhart and Rogoff had not selected the entire row when averaging growth figures: they omitted data from Australia, Austria, Belgium, Canada and Denmark. In other words, they had accidentally only included 15 of the 20 countries under analysis in their key calculation. When that error was corrected, the “0.1% decline” data became a 2.2% average increase in economic growth.</p>
+</blockquote>
+<blockquote>
+<p><span class="citation"><a href="references.html#ref-borweinbailey2018" role="doc-biblioref">Borwein and Bailey</a> (<a href="references.html#ref-borweinbailey2018" role="doc-biblioref">2013</a>)</span></p>
+</blockquote>
+<p>So it is fine to use EXCEL to record information, but once you have a snapshot of the raw data preserved as a text file, all of the manipulations, transformation, and modeling should be done in a way that is transparent and reproducible - and R works for that purpose.</p>
+</div>
+</div>
+<div id="next-week" class="section level2" number="1.7">
+<h2>
+<span class="header-section-number">1.7</span> Next week<a class="anchor" aria-label="anchor" href="#next-week"><i class="fas fa-link"></i></a>
+</h2>
+<p>One common misconception about statistical models is that they are only really useful for applications to political behavior, particularly analysis of survey data. This doesn’t describe the way the models have been applied in Political Science and, in particular, ignores the recent proliferation of statistical and experimental work in public policy evaluation. We will spend a week talking about learning from data, with a particular focus on learning about how government programs perform. The assignment due before class is loosely structured, designed to get you to think about the potential for this work, practical and ethical challenges, and some of the reasons why evidence-based policy-making has emerged as a powerful tool, particularly in the last decade.</p>
+
+<!-- Run common_r first if using as a Notebook -->
+<!-- Needs ANES common data file at line 20 -->
+<!-- Generate first pair of figures -->
+<!-- Make sure all figure titles are in as:  labs(caption="-->
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html">About</a></div>
+<div class="next"><a href="regression-review-and-assumptions.html"><span class="header-section-number">2</span> Regression: review and assumptions</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#why-math-why-r"><span class="header-section-number">1</span> Why math? Why R?</a></li>
+<li>
+<a class="nav-link" href="#math-in-social-science"><span class="header-section-number">1.1</span> Math in social science</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#mechanistic-models-aka-formal-models">Mechanistic models (aka formal models)</a></li>
+<li><a class="nav-link" href="#empirical-models-aka-statistical-models">Empirical models (aka statistical models)</a></li>
+<li><a class="nav-link" href="#simulations---drawing-on-mechanistic-and-empirical-components">Simulations - drawing on mechanistic and empirical components</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#the-narrow-focus-of-this-course"><span class="header-section-number">1.2</span> The narrow focus of this course</a></li>
+<li><a class="nav-link" href="#why-use-r"><span class="header-section-number">1.3</span> Why use R?</a></li>
+<li><a class="nav-link" href="#how-r-works"><span class="header-section-number">1.4</span> How R works</a></li>
+<li>
+<a class="nav-link" href="#three-examples"><span class="header-section-number">1.5</span> Three examples</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#comparing-groups.-turnout-in-the-2016-presidential-election">Comparing groups. Turnout in the 2016 presidential election</a></li>
+<li><a class="nav-link" href="#creating-figures.-ideological-polarization-in-the-u.s.-house-of-representatives">Creating figures. Ideological polarization in the U.S. House of Representatives</a></li>
+<li><a class="nav-link" href="#estimating-a-model---anova-with-one-variable"><span class="header-section-number">1.5.1</span> Estimating a model - ANOVA with one variable</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#reproducing-results---why-is-that-important"><span class="header-section-number">1.6</span> Reproducing results - why is that important?</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#why-cant-i-use-excel">Why can’t I use EXCEL?</a></li></ul>
+</li>
+<li><a class="nav-link" href="#next-week"><span class="header-section-number">1.7</span> Next week</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Political Science and Applied Statistics using R</strong>" was written by J.K. Corder. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
