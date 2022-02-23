@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>2 Regression: review and assumptions | PSCI 6920</title>
+<title>2 Regression: review and assumptions | Political Science and Applied Statistics using R</title>
 <meta name="author" content="J.K. Corder">
 <meta name="description" content="2.1 Why we care We estimate the parameters of a statistical model for a couple of reasons. First, we want to know the influence of each variable on the outcome we are interested in. This is what...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="2 Regression: review and assumptions | PSCI 6920">
+<meta property="og:title" content="2 Regression: review and assumptions | Political Science and Applied Statistics using R">
 <meta property="og:type" content="book">
 <meta property="og:description" content="2.1 Why we care We estimate the parameters of a statistical model for a couple of reasons. First, we want to know the influence of each variable on the outcome we are interested in. This is what...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2 Regression: review and assumptions | PSCI 6920">
+<meta name="twitter:title" content="2 Regression: review and assumptions | Political Science and Applied Statistics using R">
 <meta name="twitter:description" content="2.1 Why we care We estimate the parameters of a statistical model for a couple of reasons. First, we want to know the influence of each variable on the outcome we are interested in. This is what...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -27,7 +27,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">PSCI 6920</a>
+        <a href="index.html" title="">Political Science and Applied Statistics using R</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -83,7 +83,7 @@
 </h3>
 <p>In repeated samples and if certain assumptions are satisfied, the OLS estimator for <span class="math inline">\(\beta_i\)</span> is unbiased and efficient.</p>
 <ul>
-<li><p><em>Unbiased</em> means that the average <span class="math inline">\(\beta_1\)</span> across the repeated samples is <span class="math inline">\(\beta_i\)</span>.</p></li>
+<li><p><em>Unbiased</em> means that the average <span class="math inline">\(\beta_i\)</span> across the repeated samples is <span class="math inline">\(\beta_i\)</span>.</p></li>
 <li><p><em>Efficient</em> means that the OLS estimator has the lowest variance for <span class="math inline">\(\beta_i\)</span>.</p></li>
 </ul>
 <p>So the sampling distribution for <span class="math inline">\(\beta_i\)</span> has a mean of <span class="math inline">\(\beta_i\)</span> and variance of <span class="math inline">\(\sigma^2\)</span>. The standard error of <span class="math inline">\(\beta_i\)</span> is <span class="math inline">\(\sqrt{\sigma^2}\)</span></p>
@@ -91,12 +91,19 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">stat_function</span><span class="op">(</span>fun <span class="op">=</span> <span class="va">dnorm</span>, color<span class="op">=</span><span class="st">"blue"</span>, args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">stat_function</span><span class="op">(</span>fun <span class="op">=</span> <span class="va">dnorm</span>, color<span class="op">=</span><span class="st">"red"</span>, args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">beta</span><span class="op">)</span>, y<span class="op">=</span><span class="st">" "</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Figure 1.  Efficient and inefficient estimators"</span><span class="op">)</span> <span class="op">+</span>   <span class="fu">theme</span><span class="op">(</span>plot.title.position <span class="op">=</span> <span class="st">"plot"</span>, plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face<span class="op">=</span><span class="st">"bold"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme</span><span class="op">(</span>axis.text.x<span class="op">=</span><span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>, axis.text.y<span class="op">=</span><span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+  <span class="fu">stat_function</span><span class="op">(</span>fun <span class="op">=</span> <span class="va">dnorm</span>, color<span class="op">=</span><span class="st">"red"</span>,  args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">beta</span><span class="op">)</span>, y<span class="op">=</span><span class="st">" "</span>, caption<span class="op">=</span><span class="st">"Figure 1. Efficient and inefficient estimators"</span> <span class="op">)</span> <span class="op">+</span>   
+  <span class="fu">theme</span><span class="op">(</span>plot.caption.position <span class="op">=</span> <span class="st">"plot"</span>, plot.caption <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust<span class="op">=</span><span class="fl">0</span>, face<span class="op">=</span><span class="st">"bold"</span>, size<span class="op">=</span><span class="fu">rel</span><span class="op">(</span><span class="fl">1.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="02-ols_files/figure-html/unnamed-chunk-1-1.png" width="672"></div>
-<!-- OLS is the Best Linear Unbiased Estimator (BLUE). -->
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="regression-review-and-assumptions.html#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_blank</span>(), <span class="at">axis.text.y=</span><span class="fu">element_blank</span>())</span>
+<span id="cb6-2"><a href="regression-review-and-assumptions.html#cb6-2" aria-hidden="true" tabindex="-1"></a>List of <span class="dv">2</span></span>
+<span id="cb6-3"><a href="regression-review-and-assumptions.html#cb6-3" aria-hidden="true" tabindex="-1"></a> <span class="sc">$</span> axis.text.x<span class="sc">:</span> <span class="fu">list</span>()</span>
+<span id="cb6-4"><a href="regression-review-and-assumptions.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"class"</span>)<span class="ot">=</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"element_blank"</span> <span class="st">"element"</span></span>
+<span id="cb6-5"><a href="regression-review-and-assumptions.html#cb6-5" aria-hidden="true" tabindex="-1"></a> <span class="sc">$</span> axis.text.y<span class="sc">:</span> <span class="fu">list</span>()</span>
+<span id="cb6-6"><a href="regression-review-and-assumptions.html#cb6-6" aria-hidden="true" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"class"</span>)<span class="ot">=</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"element_blank"</span> <span class="st">"element"</span></span>
+<span id="cb6-7"><a href="regression-review-and-assumptions.html#cb6-7" aria-hidden="true" tabindex="-1"></a> <span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"class"</span>)<span class="ot">=</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"theme"</span> <span class="st">"gg"</span></span>
+<span id="cb6-8"><a href="regression-review-and-assumptions.html#cb6-8" aria-hidden="true" tabindex="-1"></a> <span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"complete"</span>)<span class="ot">=</span> logi <span class="cn">FALSE</span></span>
+<span id="cb6-9"><a href="regression-review-and-assumptions.html#cb6-9" aria-hidden="true" tabindex="-1"></a> <span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"validate"</span>)<span class="ot">=</span> logi <span class="cn">TRUE</span></span></code></pre></div>
 </div>
 <div id="type-ii-errors-with-ols" class="section level3 unnumbered">
 <h3>Type II errors with OLS<a class="anchor" aria-label="anchor" href="#type-ii-errors-with-ols"><i class="fas fa-link"></i></a>
@@ -104,8 +111,8 @@
 <p>Recall that we use t-tests to evaluate whether or not an estimated coefficient is <em>statistically significant</em>.</p>
 <p>The t-test is the ratio of the estimated coefficient to the standard error of the coefficient:</p>
 <p><span class="math display">\[t =\beta_i / \sqrt{\sigma^2}\]</span></p>
-<p>We use the arbitrary standard of <span class="math inline">\(p&lt;.05\)</span> to designate a result as significant and we reach typically reach this threshold if the absolute value of t is greater than 2 ( <span class="math inline">\(\left\lvert{t}\right\rvert&gt;2.00\)</span>).</p>
-<p>If the standard error of <span class="math inline">\(\beta_1\)</span> is high then the values of the t-test will be low and this will drive down the value of the t-test and we will be unlikely to observe statistically significant coefficients. This is a <em>Type II error</em></p>
+<p>We use the arbitrary standard of p&lt;.05 to designate a result as significant and we reach typically reach this threshold if the absolute value of t is greater than 2 ( <span class="math inline">\(\left\lvert{t}\right\rvert&gt;2.00\)</span>).</p>
+<p>If the standard error of <span class="math inline">\(\beta_i\)</span> is high then the values of the t-test will be low and this will drive down the value of the t-test and we will be unlikely to observe statistically significant coefficients. This is a <em>Type II error</em></p>
 <blockquote>
 <p>For an interesting discussion of the origins of the t-test check out <em>Guinnessometrics: The Economic Foundation of “Student’s t</em> <span class="citation">(<a href="references.html#ref-ziliak2008" role="doc-biblioref">Ziliak 2008</a>)</span></p>
 </blockquote>
@@ -178,46 +185,46 @@
 <div id="an-example-us-public-school-expenditures-and-state-income" class="section level3 unnumbered">
 <h3>An example: US public school expenditures and state income<a class="anchor" aria-label="anchor" href="#an-example-us-public-school-expenditures-and-state-income"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="regression-review-and-assumptions.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The data function indicates that we want to have access to this example dataset included in the sandwich package. The sandwick package is loaded in the common.r file</span></span>
-<span id="cb6-2"><a href="regression-review-and-assumptions.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"PublicSchools"</span>)</span>
-<span id="cb6-3"><a href="regression-review-and-assumptions.html#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="regression-review-and-assumptions.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># We uses pipes and the filter function from the dplyr package to filter out any observations with missing data for expenditures or per capita income.  You can see in the data window that we dropped one observation (51 obs goes to 50 obs).  </span></span>
-<span id="cb6-5"><a href="regression-review-and-assumptions.html#cb6-5" aria-hidden="true" tabindex="-1"></a>ps <span class="ot">&lt;-</span> PublicSchools<span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Expenditure), <span class="sc">!</span><span class="fu">is.na</span>(Income))</span>
-<span id="cb6-6"><a href="regression-review-and-assumptions.html#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="regression-review-and-assumptions.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># This line just changes Income from dollars to thousands of dollars</span></span>
-<span id="cb6-8"><a href="regression-review-and-assumptions.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># So 1,000 becomes 1</span></span>
-<span id="cb6-9"><a href="regression-review-and-assumptions.html#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This makes it easier to read and interpret the output</span></span>
-<span id="cb6-10"><a href="regression-review-and-assumptions.html#cb6-10" aria-hidden="true" tabindex="-1"></a>ps<span class="sc">$</span>Income <span class="ot">&lt;-</span> ps<span class="sc">$</span>Income <span class="sc">*</span> <span class="fl">0.001</span></span>
-<span id="cb6-11"><a href="regression-review-and-assumptions.html#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="regression-review-and-assumptions.html#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># We use the lm function from base R to estimate the relationship between per capita income and school expenditures at the state level.  The results are stored in an object called fit.  We are going to fit a line rather than the quadratic described in the vignette</span></span>
-<span id="cb6-13"><a href="regression-review-and-assumptions.html#cb6-13" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Expenditure <span class="sc">~</span> Income, <span class="at">data =</span> ps)</span>
-<span id="cb6-14"><a href="regression-review-and-assumptions.html#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="regression-review-and-assumptions.html#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># The summary command prints the output</span></span>
-<span id="cb6-16"><a href="regression-review-and-assumptions.html#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
-<span id="cb6-17"><a href="regression-review-and-assumptions.html#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="regression-review-and-assumptions.html#cb6-18" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb6-19"><a href="regression-review-and-assumptions.html#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> Expenditure <span class="sc">~</span> Income, <span class="at">data =</span> ps)</span>
-<span id="cb6-20"><a href="regression-review-and-assumptions.html#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-21"><a href="regression-review-and-assumptions.html#cb6-21" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
-<span id="cb6-22"><a href="regression-review-and-assumptions.html#cb6-22" aria-hidden="true" tabindex="-1"></a>     Min       1Q   Median       3Q      Max </span>
-<span id="cb6-23"><a href="regression-review-and-assumptions.html#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">112.390</span>  <span class="sc">-</span><span class="fl">42.146</span>   <span class="sc">-</span><span class="fl">6.162</span>   <span class="fl">30.630</span>  <span class="fl">224.210</span> </span>
-<span id="cb6-24"><a href="regression-review-and-assumptions.html#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-25"><a href="regression-review-and-assumptions.html#cb6-25" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb6-26"><a href="regression-review-and-assumptions.html#cb6-26" aria-hidden="true" tabindex="-1"></a>            Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
-<span id="cb6-27"><a href="regression-review-and-assumptions.html#cb6-27" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="sc">-</span><span class="fl">151.26</span>      <span class="fl">64.12</span>  <span class="sc">-</span><span class="fl">2.359</span>   <span class="fl">0.0224</span> <span class="sc">*</span>  </span>
-<span id="cb6-28"><a href="regression-review-and-assumptions.html#cb6-28" aria-hidden="true" tabindex="-1"></a>Income         <span class="fl">68.94</span>       <span class="fl">8.35</span>   <span class="fl">8.256</span> <span class="fl">9.05e-11</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb6-29"><a href="regression-review-and-assumptions.html#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb6-30"><a href="regression-review-and-assumptions.html#cb6-30" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
-<span id="cb6-31"><a href="regression-review-and-assumptions.html#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-32"><a href="regression-review-and-assumptions.html#cb6-32" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">61.41</span> on <span class="dv">48</span> degrees of freedom</span>
-<span id="cb6-33"><a href="regression-review-and-assumptions.html#cb6-33" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.5868</span>,    Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.5782</span> </span>
-<span id="cb6-34"><a href="regression-review-and-assumptions.html#cb6-34" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">68.16</span> on <span class="dv">1</span> and <span class="dv">48</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">9.055e-11</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="regression-review-and-assumptions.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The data function indicates that we want to have access to this example dataset included in the sandwich package. The sandwick package is loaded in the common.r file</span></span>
+<span id="cb7-2"><a href="regression-review-and-assumptions.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"PublicSchools"</span>)</span>
+<span id="cb7-3"><a href="regression-review-and-assumptions.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="regression-review-and-assumptions.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># We uses pipes and the filter function from the dplyr package to filter out any observations with missing data for expenditures or per capita income.  You can see in the data window that we dropped one observation (51 obs goes to 50 obs).  </span></span>
+<span id="cb7-5"><a href="regression-review-and-assumptions.html#cb7-5" aria-hidden="true" tabindex="-1"></a>ps <span class="ot">&lt;-</span> PublicSchools<span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Expenditure), <span class="sc">!</span><span class="fu">is.na</span>(Income))</span>
+<span id="cb7-6"><a href="regression-review-and-assumptions.html#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="regression-review-and-assumptions.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># This line just changes Income from dollars to thousands of dollars</span></span>
+<span id="cb7-8"><a href="regression-review-and-assumptions.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># So 1,000 becomes 1</span></span>
+<span id="cb7-9"><a href="regression-review-and-assumptions.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This makes it easier to read and interpret the output</span></span>
+<span id="cb7-10"><a href="regression-review-and-assumptions.html#cb7-10" aria-hidden="true" tabindex="-1"></a>ps<span class="sc">$</span>Income <span class="ot">&lt;-</span> ps<span class="sc">$</span>Income <span class="sc">*</span> <span class="fl">0.001</span></span>
+<span id="cb7-11"><a href="regression-review-and-assumptions.html#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="regression-review-and-assumptions.html#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># We use the lm function from base R to estimate the relationship between per capita income and school expenditures at the state level.  The results are stored in an object called fit.  We are going to fit a line rather than the quadratic described in the vignette</span></span>
+<span id="cb7-13"><a href="regression-review-and-assumptions.html#cb7-13" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Expenditure <span class="sc">~</span> Income, <span class="at">data =</span> ps)</span>
+<span id="cb7-14"><a href="regression-review-and-assumptions.html#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="regression-review-and-assumptions.html#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># The summary command prints the output</span></span>
+<span id="cb7-16"><a href="regression-review-and-assumptions.html#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
+<span id="cb7-17"><a href="regression-review-and-assumptions.html#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="regression-review-and-assumptions.html#cb7-18" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb7-19"><a href="regression-review-and-assumptions.html#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> Expenditure <span class="sc">~</span> Income, <span class="at">data =</span> ps)</span>
+<span id="cb7-20"><a href="regression-review-and-assumptions.html#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="regression-review-and-assumptions.html#cb7-21" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
+<span id="cb7-22"><a href="regression-review-and-assumptions.html#cb7-22" aria-hidden="true" tabindex="-1"></a>     Min       1Q   Median       3Q      Max </span>
+<span id="cb7-23"><a href="regression-review-and-assumptions.html#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">112.390</span>  <span class="sc">-</span><span class="fl">42.146</span>   <span class="sc">-</span><span class="fl">6.162</span>   <span class="fl">30.630</span>  <span class="fl">224.210</span> </span>
+<span id="cb7-24"><a href="regression-review-and-assumptions.html#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="regression-review-and-assumptions.html#cb7-25" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb7-26"><a href="regression-review-and-assumptions.html#cb7-26" aria-hidden="true" tabindex="-1"></a>            Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb7-27"><a href="regression-review-and-assumptions.html#cb7-27" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="sc">-</span><span class="fl">151.26</span>      <span class="fl">64.12</span>  <span class="sc">-</span><span class="fl">2.359</span>   <span class="fl">0.0224</span> <span class="sc">*</span>  </span>
+<span id="cb7-28"><a href="regression-review-and-assumptions.html#cb7-28" aria-hidden="true" tabindex="-1"></a>Income         <span class="fl">68.94</span>       <span class="fl">8.35</span>   <span class="fl">8.256</span> <span class="fl">9.05e-11</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb7-29"><a href="regression-review-and-assumptions.html#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb7-30"><a href="regression-review-and-assumptions.html#cb7-30" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb7-31"><a href="regression-review-and-assumptions.html#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="regression-review-and-assumptions.html#cb7-32" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">61.41</span> on <span class="dv">48</span> degrees of freedom</span>
+<span id="cb7-33"><a href="regression-review-and-assumptions.html#cb7-33" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.5868</span>,    Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.5782</span> </span>
+<span id="cb7-34"><a href="regression-review-and-assumptions.html#cb7-34" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">68.16</span> on <span class="dv">1</span> and <span class="dv">48</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">9.055e-11</span></span></code></pre></div>
 </div>
 <div id="a-better-table" class="section level3 unnumbered">
 <h3>A better table<a class="anchor" aria-label="anchor" href="#a-better-table"><i class="fas fa-link"></i></a>
 </h3>
 <p>Since the <code>summary</code> function doesn’t produce a nicely formatted html table, we will employ <code>stargazer</code> from the <strong>stargazer</strong> package to present the results. I added a few options to produce the type of table that I like.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">stargazer</span><span class="op">(</span><span class="va">fit</span>,  type<span class="op">=</span><span class="st">"html"</span>,
           model.names<span class="op">=</span><span class="cn">FALSE</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>, style<span class="op">=</span><span class="st">"apsr"</span>, digits<span class="op">=</span><span class="fl">2</span>,
           dep.var.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Public school expenditures per capita"</span><span class="op">)</span>,
@@ -326,11 +333,11 @@ p&lt;.10* ; p&lt;.05**
 </table></div>
 <p><br>
 What do the residuals looks like from this regression? We can use a simple histogram to get a quick look at how or if these errors conform to our key assumptions.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span>data<span class="op">=</span><span class="va">ps</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">fit</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
 <span class="fu">geom_histogram</span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">20</span>, color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op">+</span>
-<span class="fu">theme</span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span>, axis.line.x<span class="op">=</span><span class="fu">element_line</span><span class="op">(</span><span class="op">)</span>, axis.line.y<span class="op">=</span><span class="fu">element_line</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">scale_y_continuous</span><span class="op">(</span>breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">3</span>,<span class="fl">6</span>,<span class="fl">9</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-<span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Figure 2.  Residuals from the public schools model"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">theme</span><span class="op">(</span>plot.title.position <span class="op">=</span> <span class="st">"plot"</span>, plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face<span class="op">=</span><span class="st">"bold"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span><span class="st">"Residual"</span> , y<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span> </code></pre></div>
+<span class="fu">theme</span><span class="op">(</span>panel.background <span class="op">=</span> <span class="fu">element_rect</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span>, axis.line.x<span class="op">=</span><span class="fu">element_line</span><span class="op">(</span><span class="op">)</span>, axis.line.y<span class="op">=</span><span class="fu">element_line</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">scale_y_continuous</span><span class="op">(</span>breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">3</span>,<span class="fl">6</span>,<span class="fl">9</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">theme</span><span class="op">(</span>plot.caption.position <span class="op">=</span> <span class="st">"plot"</span>, plot.caption <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust<span class="op">=</span><span class="fl">0</span>, face<span class="op">=</span><span class="st">"bold"</span>, size<span class="op">=</span><span class="fu">rel</span><span class="op">(</span><span class="fl">1.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+<span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span><span class="st">"Residual"</span> , y<span class="op">=</span><span class="cn">NULL</span>, caption<span class="op">=</span><span class="st">"Figure 2.  Residuals from the public schools model"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="02-ols_files/figure-html/model_demofig-1.png" width="672"></div>
 <p>A typical econometrics text motivates discussion of problems of heteroskedasticity and autocorrelation by describing a “variance-covariance matrix of the disturbance vector.”</p>
 <p>By disturbance, they are simply referring to nx1 vector that contains each unobserved error term (<span class="math inline">\(u_i\)</span>). So a vector would like this:</p>
@@ -348,7 +355,7 @@ u_{1}u_{3} &amp; u_{2}u_{3} &amp; u_{3}^2 &amp; ... &amp; u_{n}u_{3}\\
 ... &amp; ... &amp; ... &amp; ... &amp; ... \\
 u_{1}u_{n} &amp; u_{2}u_{n} &amp; u_{3}u_{n} &amp; ... &amp; u_{n}^2  
 \end{bmatrix}\]</span></p>
-<p>Homoskedasticity is observed when the elements on the diagonal - the expected value of the square of each distrubance term - are identical across values of x. No serial correlation is present when each covariance term is zero.</p>
+<p>Homoskedasticity is observed when the elements on the diagonal - the expected value of the square of each disturbance term - are identical across values of x. No serial correlation is present when the error terms don’t covary. If the series of terms above the main diagonal summed to a positive number, this would indicate we had serial correlation, a positive covariance between each error term and the observation tat preceded it)</p>
 <p>We use these assumptions to simplify our approximation of the variance of the slope coefficient. If these assumptions are not satisfied, then the our calculation or approximation of the standard error of <span class="math inline">\(\beta_1\)</span> is not accurate.</p>
 </div>
 </div>
@@ -363,8 +370,8 @@ u_{1}u_{n} &amp; u_{2}u_{n} &amp; u_{3}u_{n} &amp; ... &amp; u_{n}^2
 <ul>
 <li><p>state-level or country-level observations: accuracy of data may be a function of level of development. We expect that highly developed economies will record and report more accurate data on economic performance</p></li>
 <li><p>individual-level observations: some types of people may give more accurate (or less accurate) response in surveys. Highly educated respondents are likely to misrepresent voting behavior (knowing that they are expected to turn out and vote)</p></li>
-<li><p>data collected over tie: if the quality of data collected and reported improves over time- less measurement error - then the model errors will be lower today than in the past.</p></li>
-<li><p>the true functional form of the model is not linear. (Many texts, consistent with the King and Robert piece I linked for you, note that this is the most likely culprit if you observe heteroskedastic errors. Maybe we should fix this underlying cause rather than adjust standard errors?)</p></li>
+<li><p>data collected over time: if the quality of data collected and reported improves over time- less measurement error - then the model errors will be lower today than in the past.</p></li>
+<li><p>the true functional form of the model is not linear. (Many texts, consistent with the King and Roberts piece I linked for you below, note that this is the most likely culprit if you observe heteroskedastic errors. Maybe we should fix this underlying cause rather than adjust standard errors?)</p></li>
 </ul>
 </div>
 <div id="consequences-of-heteroskedasticity" class="section level3 unnumbered">
@@ -384,22 +391,22 @@ u_{1}u_{n} &amp; u_{2}u_{n} &amp; u_{3}u_{n} &amp; ... &amp; u_{n}^2
 <div id="breusch-pagan-test-statistic-bp" class="section level3 unnumbered">
 <h3>Breusch Pagan test statistic (BP)<a class="anchor" aria-label="anchor" href="#breusch-pagan-test-statistic-bp"><i class="fas fa-link"></i></a>
 </h3>
-<p>The basic test for heteroskedasticity is the Breusch Pagan test statistic (BP). The test statistic is a positive function of the explained sum of squares from a regression of the squared OLS residuals on the independent variables. If the variance of the error term is a function of the level of the independent variables then the test statistic will be statistically significant.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="regression-review-and-assumptions.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bptest</span>(fit)</span>
-<span id="cb9-2"><a href="regression-review-and-assumptions.html#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="regression-review-and-assumptions.html#cb9-3" aria-hidden="true" tabindex="-1"></a>    studentized Breusch<span class="sc">-</span>Pagan test</span>
-<span id="cb9-4"><a href="regression-review-and-assumptions.html#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="regression-review-and-assumptions.html#cb9-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  fit</span>
-<span id="cb9-6"><a href="regression-review-and-assumptions.html#cb9-6" aria-hidden="true" tabindex="-1"></a>BP <span class="ot">=</span> <span class="fl">11.729</span>, df <span class="ot">=</span> <span class="dv">1</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.0006153</span></span></code></pre></div>
+<p>The basic test for heteroskedasticity is the Breusch Pagan test statistic (BP). The test statistic is a positive function of the explained sum of squares from a regression of the squared OLS residuals on the independent variables. If the variance of the error term is a function of the level of the independent variables then the test statistic will be statistically significant. Table 3 reports output from the <code>bptest</code> function, evaluating heteroskedasticity for the model we have estimated.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="regression-review-and-assumptions.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bptest</span>(fit)</span>
+<span id="cb10-2"><a href="regression-review-and-assumptions.html#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="regression-review-and-assumptions.html#cb10-3" aria-hidden="true" tabindex="-1"></a>    studentized Breusch<span class="sc">-</span>Pagan test</span>
+<span id="cb10-4"><a href="regression-review-and-assumptions.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="regression-review-and-assumptions.html#cb10-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  fit</span>
+<span id="cb10-6"><a href="regression-review-and-assumptions.html#cb10-6" aria-hidden="true" tabindex="-1"></a>BP <span class="ot">=</span> <span class="fl">11.729</span>, df <span class="ot">=</span> <span class="dv">1</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.0006153</span></span></code></pre></div>
+<p><strong>Table 3. Heteroskedasticity diagnostics.</strong></p>
 <p>Since the null hypothesis is rejected (p~0.00), the error term in this case is heteroskedastic.. You can perform this test manually - regressing each X on the squared error or you can confirm the test statistic by plotting the squared error versus each independent variable. The plot below confirms the existence of a relationship between the squared error and the predictor <em>Income</em>. And this makes sense all poor states will not have many resources to spend on education, while rich states will have some discretion over how to allocate resources and some will spend more than others. It appears that one outlier drives most of this but you still see the upward sloping regression line.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fit</span><span class="op">$</span><span class="va">ressq</span><span class="op">&lt;-</span><span class="va">fit</span><span class="op">$</span><span class="va">residuals</span><span class="op">^</span><span class="fl">2</span>
 <span class="fu">ggplot</span><span class="op">(</span>data<span class="op">=</span><span class="va">ps</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">fit</span><span class="op">$</span><span class="va">ressq</span>, x<span class="op">=</span><span class="va">Income</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_smooth</span><span class="op">(</span>formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>y <span class="op">=</span><span class="st">"Squared residual"</span> , x<span class="op">=</span><span class="st">"Per capita income, in thousands"</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">" Figure 3.  Squared error as a function of per capita income"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme</span><span class="op">(</span>plot.title.position <span class="op">=</span> <span class="st">"plot"</span>, plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face<span class="op">=</span><span class="st">"bold"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>y <span class="op">=</span><span class="st">"Squared residual"</span> , x<span class="op">=</span><span class="st">"Per capita income, in thousands"</span> , caption<span class="op">=</span><span class="st">"Figure 3.  Squared error as a function of per capita income"</span><span class="op">)</span> <span class="op">+</span>   
+  <span class="fu">theme</span><span class="op">(</span>plot.caption.position <span class="op">=</span> <span class="st">"plot"</span>, plot.caption <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust<span class="op">=</span><span class="fl">0</span>, face<span class="op">=</span><span class="st">"bold"</span>, size<span class="op">=</span><span class="fu">rel</span><span class="op">(</span><span class="fl">1.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span><span class="st">"Residual"</span> , y<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span> </code></pre></div>
 <div class="inline-figure"><img src="02-ols_files/figure-html/model_demofig1-1.png" width="672"></div>
 </div>
@@ -408,7 +415,7 @@ u_{1}u_{n} &amp; u_{2}u_{n} &amp; u_{3}u_{n} &amp; ... &amp; u_{n}^2
 <h2>
 <span class="header-section-number">2.7</span> Solutions<a class="anchor" aria-label="anchor" href="#solutions"><i class="fas fa-link"></i></a>
 </h2>
-<p>What if we do find that our error term is heteroskedastic? There are two types of solutions commonly used. For large samples, we calculate robust standard errors. For small samples, we rely on a “bootstrapped” estimate of the error. In R it is straightforward to implement both of these with the <em>sandwich</em> package. For both strategies, we use different approaches to calculate the “variance-covariance” matrix for the model coefficients. We can then use <code>stargazer</code> to compare the results.</p>
+<p>What if we do find that our error term is heteroskedastic? There are two types of solutions commonly used. For large samples, we calculate robust standard errors. For small samples, we rely on a <em>bootstrapped</em> estimate of the error. In R it is straightforward to implement both of these with the <strong>sandwich</strong> package. For both strategies, we use different approaches to calculate the “variance-covariance” matrix for the model coefficients. We can then use <code>stargazer</code> to compare the results.</p>
 <div id="robust-standard-errors-large-samples" class="section level3 unnumbered">
 <h3>Robust standard errors (large samples)<a class="anchor" aria-label="anchor" href="#robust-standard-errors-large-samples"><i class="fas fa-link"></i></a>
 </h3>
@@ -431,40 +438,41 @@ u_{1}u_{n} &amp; u_{2}u_{n} &amp; u_{3}u_{n} &amp; ... &amp; u_{n}^2
 \beta_{1}\beta_{0} &amp; \beta_{1}^2\\
 \end{bmatrix}\]</span></p>
 <p>We will focus on the elements on the main diagonal (<span class="math inline">\(\beta_0^2\)</span>, <span class="math inline">\(\beta_1^2\)</span>), but the other elements (the covariance between the parameters) will be important later in the semester.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="regression-review-and-assumptions.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The sandwich package contains the vcovHC functions and vcovBS</span></span>
-<span id="cb11-2"><a href="regression-review-and-assumptions.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="regression-review-and-assumptions.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The key here is the type: const is regular standard errors, HC0 gives you what are known as White's adjust standard errors, HC3 replicates robust standard errors in STATA.  All of this is documented in the sandwich package documentation. </span></span>
-<span id="cb11-4"><a href="regression-review-and-assumptions.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="regression-review-and-assumptions.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#cov1 is the variance covariance matrix calculated with an adjustment that compensates for the presence of heteroskedasticity</span></span>
-<span id="cb11-6"><a href="regression-review-and-assumptions.html#cb11-6" aria-hidden="true" tabindex="-1"></a>cov1         <span class="ot">&lt;-</span> <span class="fu">vcovHC</span>(fit, <span class="at">type =</span> <span class="st">"HC3"</span>)</span>
-<span id="cb11-7"><a href="regression-review-and-assumptions.html#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="regression-review-and-assumptions.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># this shows you what the matrix produced above looks like</span></span>
-<span id="cb11-9"><a href="regression-review-and-assumptions.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># You don't need this step to produce the table below</span></span>
-<span id="cb11-10"><a href="regression-review-and-assumptions.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cov1)</span>
-<span id="cb11-11"><a href="regression-review-and-assumptions.html#cb11-11" aria-hidden="true" tabindex="-1"></a>            (Intercept)     Income</span>
-<span id="cb11-12"><a href="regression-review-and-assumptions.html#cb11-12" aria-hidden="true" tabindex="-1"></a>(Intercept)   <span class="fl">19217.444</span> <span class="sc">-</span><span class="fl">2624.6180</span></span>
-<span id="cb11-13"><a href="regression-review-and-assumptions.html#cb11-13" aria-hidden="true" tabindex="-1"></a>Income        <span class="sc">-</span><span class="fl">2624.618</span>   <span class="fl">359.5008</span></span>
-<span id="cb11-14"><a href="regression-review-and-assumptions.html#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="regression-review-and-assumptions.html#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co"># this step takes the square root of the terms on the main diagonal.</span></span>
-<span id="cb11-16"><a href="regression-review-and-assumptions.html#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co"># So we have the standard error of both parameters: intercept and slope</span></span>
-<span id="cb11-17"><a href="regression-review-and-assumptions.html#cb11-17" aria-hidden="true" tabindex="-1"></a>robust_se    <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(cov1))</span>
-<span id="cb11-18"><a href="regression-review-and-assumptions.html#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-19"><a href="regression-review-and-assumptions.html#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># this just shows the standard errors as we will import them into the table</span></span>
-<span id="cb11-20"><a href="regression-review-and-assumptions.html#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co"># You don't need this step to produce the table below.</span></span>
-<span id="cb11-21"><a href="regression-review-and-assumptions.html#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(robust_se)</span>
-<span id="cb11-22"><a href="regression-review-and-assumptions.html#cb11-22" aria-hidden="true" tabindex="-1"></a>(Intercept)      Income </span>
-<span id="cb11-23"><a href="regression-review-and-assumptions.html#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="fl">138.62700</span>    <span class="fl">18.96051</span> </span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="regression-review-and-assumptions.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The sandwich package contains the vcovHC functions and vcovBS</span></span>
+<span id="cb12-2"><a href="regression-review-and-assumptions.html#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="regression-review-and-assumptions.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The key here is the type: const is regular standard errors, HC0 gives you what are known as White's adjust standard errors, HC3 replicates robust standard errors in STATA.  All of this is documented in the sandwich package documentation. </span></span>
+<span id="cb12-4"><a href="regression-review-and-assumptions.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="regression-review-and-assumptions.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#cov1 is the variance covariance matrix calculated with an adjustment that compensates for the presence of heteroskedasticity</span></span>
+<span id="cb12-6"><a href="regression-review-and-assumptions.html#cb12-6" aria-hidden="true" tabindex="-1"></a>cov1         <span class="ot">&lt;-</span> <span class="fu">vcovHC</span>(fit, <span class="at">type =</span> <span class="st">"HC3"</span>)</span>
+<span id="cb12-7"><a href="regression-review-and-assumptions.html#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="regression-review-and-assumptions.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># this shows you what the matrix produced above looks like</span></span>
+<span id="cb12-9"><a href="regression-review-and-assumptions.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># You don't need this step to produce the table below</span></span>
+<span id="cb12-10"><a href="regression-review-and-assumptions.html#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cov1)</span>
+<span id="cb12-11"><a href="regression-review-and-assumptions.html#cb12-11" aria-hidden="true" tabindex="-1"></a>            (Intercept)     Income</span>
+<span id="cb12-12"><a href="regression-review-and-assumptions.html#cb12-12" aria-hidden="true" tabindex="-1"></a>(Intercept)   <span class="fl">19217.444</span> <span class="sc">-</span><span class="fl">2624.6180</span></span>
+<span id="cb12-13"><a href="regression-review-and-assumptions.html#cb12-13" aria-hidden="true" tabindex="-1"></a>Income        <span class="sc">-</span><span class="fl">2624.618</span>   <span class="fl">359.5008</span></span>
+<span id="cb12-14"><a href="regression-review-and-assumptions.html#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="regression-review-and-assumptions.html#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co"># this step takes the square root of the terms on the main diagonal.</span></span>
+<span id="cb12-16"><a href="regression-review-and-assumptions.html#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co"># So we have the standard error of both parameters: intercept and slope</span></span>
+<span id="cb12-17"><a href="regression-review-and-assumptions.html#cb12-17" aria-hidden="true" tabindex="-1"></a>robust_se    <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(cov1))</span>
+<span id="cb12-18"><a href="regression-review-and-assumptions.html#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="regression-review-and-assumptions.html#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># this just shows the standard errors as we will import them into the table</span></span>
+<span id="cb12-20"><a href="regression-review-and-assumptions.html#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co"># You don't need this step to produce the table below.</span></span>
+<span id="cb12-21"><a href="regression-review-and-assumptions.html#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(robust_se)</span>
+<span id="cb12-22"><a href="regression-review-and-assumptions.html#cb12-22" aria-hidden="true" tabindex="-1"></a>(Intercept)      Income </span>
+<span id="cb12-23"><a href="regression-review-and-assumptions.html#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="fl">138.62700</span>    <span class="fl">18.96051</span> </span></code></pre></div>
 <p>The chunk below calculates the bootstrapped standard errors.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Calculate standard errors via the bootstrap</span>
 <span class="va">cov2</span>  <span class="op">&lt;-</span> <span class="fu">vcovBS</span><span class="op">(</span><span class="va">fit</span>, cluster<span class="op">=</span><span class="cn">NULL</span>, use <span class="op">=</span> <span class="st">"pairwise.complete.obs"</span>, type<span class="op">=</span><span class="st">"xy"</span>, R<span class="op">=</span><span class="fl">100</span> <span class="op">)</span>
 <span class="va">bootstrap_se</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">cov2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>The table below includes the point estimates and standard errors calculate din three different ways. The point estimates are the same, but the last set of options in the <code>stargazer</code> function are key: NULL shows the original standard errors, column 2 is robust standard errors and column 3 is bootstrapped standard errors.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu">stargazer</span><span class="op">(</span><span class="va">fit</span>, <span class="va">fit</span>, <span class="va">fit</span>, type <span class="op">=</span> <span class="st">"html"</span>, digits<span class="op">=</span><span class="fl">2</span>, style<span class="op">=</span><span class="st">"apsr"</span>,
           notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>,
           star.cutoffs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span>,
+          column.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Standard"</span>, <span class="st">"Robust"</span>, <span class="st">"Bootstrapped"</span><span class="op">)</span>,
           dep.var.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Public school expenditures per capita"</span><span class="op">)</span>,
           covariate.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Per capita income, in thousands"</span><span class="op">)</span>,
           omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>,
@@ -526,7 +534,7 @@ Per capita income, in thousands
 (18.96)
 </td>
 <td>
-(14.31)
+(16.44)
 </td>
 </tr>
 <tr>
@@ -553,7 +561,7 @@ Constant
 (138.63)
 </td>
 <td>
-(104.87)
+(120.35)
 </td>
 </tr>
 <tr>
@@ -608,6 +616,35 @@ p&lt;.10* ; p&lt;.05**
 </td>
 </tr>
 </table></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong>Table 3. Three different calculations of the standard error</strong>
+</caption>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Standard
+</td>
+<td>
+Robust
+</td>
+<td>
+Bootstrapped
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="3" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
 <p><br></p>
 <p>Recall our rule of thumb for statistical significance - if the coefficient is more than twice as large as the standard error, our result likely significant. In this case, <span class="math inline">\(\beta_1\)</span> is 68.94 and the standard error is 18.96 at most, clearly significant since <span class="math inline">\(\beta_1\)</span> is more than 3 times the standard error.</p>
 <p>In this case, the bootstrapped standard errors and the robust standard errors are very close. Since the sample is small, I could use the bootstrapped standard errors and also report that the the primary result is statistically significant whether you use generic standard errors, robust standard errors or bootstrapped standard errors</p>
@@ -617,18 +654,16 @@ p&lt;.10* ; p&lt;.05**
 <h2>
 <span class="header-section-number">2.8</span> Notes about the readings<a class="anchor" aria-label="anchor" href="#notes-about-the-readings"><i class="fas fa-link"></i></a>
 </h2>
-<div id="a-different-perspective-on-adjusted-standard-errors" class="section level3" number="2.8.1">
-<h3>
-<span class="header-section-number">2.8.1</span> A different perspective on adjusted standard errors<a class="anchor" aria-label="anchor" href="#a-different-perspective-on-adjusted-standard-errors"><i class="fas fa-link"></i></a>
+<div id="a-different-perspective-on-adjusted-standard-errors" class="section level3 unnumbered">
+<h3>A different perspective on adjusted standard errors<a class="anchor" aria-label="anchor" href="#a-different-perspective-on-adjusted-standard-errors"><i class="fas fa-link"></i></a>
 </h3>
 <p><span class="citation"><a href="references.html#ref-kingroberts2015" role="doc-biblioref">King and Roberts</a> (<a href="references.html#ref-kingroberts2015" role="doc-biblioref">2015</a>)</span> highlight the fact that heteroskedasticity is a symptom of some other problems - so it might be more productive to fix the underlying problem, rather than adjusted standard errors:</p>
 <blockquote>
 <p>In fact, robust and classical standard errors that differ need to be seen as bright red flags that signal compelling evidence of uncorrected model misspecification. They highlight statistical analyses begging to be replicated, respecified, and reanalyzed, and conclusions that may need serious revision.</p>
 </blockquote>
 </div>
-<div id="the-sandwich-package" class="section level3" number="2.8.2">
-<h3>
-<span class="header-section-number">2.8.2</span> The <strong>sandwich</strong> package<a class="anchor" aria-label="anchor" href="#the-sandwich-package"><i class="fas fa-link"></i></a>
+<div id="the-sandwich-package" class="section level3 unnumbered">
+<h3>The <strong>sandwich</strong> package<a class="anchor" aria-label="anchor" href="#the-sandwich-package"><i class="fas fa-link"></i></a>
 </h3>
 <p>Alternative approaches to estimating the standard errors of the parameters are described in detail in the sandwich package vignette. The authors explain that using type=CONST reproduces classical standard errors and…</p>
 <blockquote>
@@ -685,8 +720,8 @@ p&lt;.10* ; p&lt;.05**
 </li>
 <li>
 <a class="nav-link" href="#notes-about-the-readings"><span class="header-section-number">2.8</span> Notes about the readings</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#a-different-perspective-on-adjusted-standard-errors"><span class="header-section-number">2.8.1</span> A different perspective on adjusted standard errors</a></li>
-<li><a class="nav-link" href="#the-sandwich-package"><span class="header-section-number">2.8.2</span> The sandwich package</a></li>
+<li><a class="nav-link" href="#a-different-perspective-on-adjusted-standard-errors">A different perspective on adjusted standard errors</a></li>
+<li><a class="nav-link" href="#the-sandwich-package">The sandwich package</a></li>
 </ul>
 </li>
 </ul>
@@ -705,7 +740,7 @@ p&lt;.10* ; p&lt;.05**
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>PSCI 6920</strong>" was written by J.K. Corder. </p>
+    <p>"<strong>Political Science and Applied Statistics using R</strong>" was written by J.K. Corder. </p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
