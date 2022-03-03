@@ -1,3 +1,11 @@
 # JKCorder.github.io
 
-This is a landing page to link to the book folders for Introduction to Applied Statistics and Applied Statistics using R
+This is a landing page to link to the book folders for my open source texts
+
+The site was updated and refreshed in March, 2022
+
+The site was construced using the distill R package
+
+
+
+

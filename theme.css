@@ -1,0 +1,24 @@
+.distill-site-header {
+  --title-size:       18px;    
+  --text-color:       white; 
+  --text-size:        15px;
+  --hover-color:  tan; 
+  --bkgd-color:       #30849e; 
+}
+.thumbnail {
+    padding: 0px!important;
+    margin: 0px!important;
+    max-width: 20%!important;
+    height: auto!important;
+    vertical-align: text-top!important;
+}
+.sidebar-section.categories > ul > li:first-child {
+  display: none;
+}
+.distill-site-footer {
+ --title-size:       18px;    
+  --text-color:       white; 
+  --text-size:        12px;
+  --hover-color:  tan; 
+  --bkgd-color:       #30849e; 
+}

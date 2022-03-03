@@ -1,0 +1,226 @@
+[
+  {
+    "path": "posts/texts/",
+    "title": "Open source textbooks",
+    "description": "Two textbooks for data analysis",
+    "author": [],
+    "date": "2022-03-01",
+    "categories": [
+      "Textbooks"
+    ],
+    "contents": "\r\nI have developed two open source textbooks using the R bookdown package. Both are linked below. The graduate text is the companion for PSCI 6920, Political Analysis II. The undergraduate text is the companion for PSCI 3590, Data for Politics and Policy.\r\nUndergraduate course: https://jkcorder.github.io/docs/\r\nGraduate course: https://jkcorder.github.io/docs/books/\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.github.io/docs/cover.png",
+    "last_modified": "2022-03-02T13:14:36-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/foreign/",
+    "title": "Regulating foreign banks",
+    "description": "Working Paper",
+    "author": [],
+    "date": "2020-09-01",
+    "categories": [
+      "Banking"
+    ],
+    "contents": "\r\nThe role of foreign banks in the U.S. economy has been a point of practical concern historically (Do foreign banks have a competitive advantage over U.S. banks?) and recently (Do foreign banks expose U.S. taxpayers to risks originating in foreign economies?) While the role of foreign banks in emerging and developing economies has attracted the attention of policymakers and academics, reports that the Federal Reserve channeled billions in loans to foreign banks generated national news headlines in 2011 and triggered a (brief) push for greater scrutiny of foreign banks in the United States. What accounts for major changes in U.S. regulation of foreign banks? How have these rules changed as anxiety about financial crisis has been replaced with an appetite for global capital? What can the US case tell us more generally how internationally active banks impact and are impacted by domestic politics? The only conditions that seem to favor regulatory scrutiny are a rare combination of crisis or scandal (high public attention), outflows of capital from US markets, and a broader government commitment to regulatory reform.\r\nClick here to read the paper.\r\n\r\n\r\n\r\n",
+    "preview": "https://cdn.pixabay.com/photo/2020/03/18/20/01/frankfurt-4945405_960_720.jpg",
+    "last_modified": "2022-03-02T15:49:11-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/sipo/",
+    "title": "The timing of COVID-19 shelter in place orders by U.S. governors",
+    "description": "Policy Design and Practice. 2020.",
+    "author": [],
+    "date": "2020-09-01",
+    "categories": [
+      "Other public policy"
+    ],
+    "contents": "\r\nMatthew Mingus, Daria Blinova and I isolate and estimate the impact of political party control of state government on the length of time it took U.S. states to issue shelter-in-place orders (SIPOs) in an effort to control the spread of COVID-19. We adopt a two-step process to isolate the effect of politics. First, we measure the number of days between the date that state-level cases first exceeded one case per 100,000 population and state issuance of a SIPO. This permits us to compare governor’s choices in similar contexts – when the disease is known to be present in the community. Second, we use a statistical tool – survival analysis – to differentiate between state characteristics that might be associated with higher risks of uncontrolled spread and the impact of political party control. We find that the timing of disease progression was remarkably similar across states, suggesting that many states reached the 1:100,000 benchmark at about the same time. By contrast, we find that, even after controlling for a variety of factors, a Republican governor coupled with a Republican majority in the state senate predicts delays in the implementation of SIPOs – delays on the order of two days for Republican states that did act, but no action by more than one-third of those states after more than two months above 1:100,000. In contrast, potentially important decision-making factors such as urbanization, elderly population, hospital beds, extent of chronic diseases, and budget capacity of the state government serve, at best, as poor predictors of SIPO timing.\r\nClick here to read the article.\r\nClick here for replication data and details\r\n\r\n\r\n\r\n",
+    "preview": "https://www.tandfonline.com/action/showCoverImage?doi=10.1080/rpdp20.v003.i03",
+    "last_modified": "2022-03-02T10:41:09-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/misfaction/",
+    "title": "The Impact of the 19th Amendment",
+    "description": "Mischiefs of Faction",
+    "author": [],
+    "date": "2020-08-26",
+    "categories": [
+      "Women and politics"
+    ],
+    "contents": "\r\n…no sooner had women began entering polling places in 1920 than observers began declaring women’s suffrage a “failure.” In what we might think of as a historical version of a Twitter hot-take, outlets ranging from Good Housekeeping (“Is Woman’s Suffrage a Failure?”) to Harper’s Magazine (“Is Woman-Suffrage a Failure?”) and The Century (“Are Women a Failure in Politics?”) addressed this claim in the early 1920s. In the words of journalist Frederick Lew Allen in 1931: “[The American woman] won the suffrage in 1920. She seemed, it is true, to be very little interested in it once she had it; she voted, but mostly as the unregenerate men about her did.”\r\nAllen had the facts right: Women did not initially take up their right to vote in the same numbers as men. When women did vote, their choices were little different from those of long-enfranchised men, a pattern many attributed to husbands telling their wives how to vote. Most of the more ambitious promises and warnings about women’s suffrage—both utopia and apocalypse—never materialized.\r\nOne hundred years later, we know a lot more about how women actually vote. Women are now more likely to turn out to vote than men. While husbands and wives still generally vote for the same candidates, few assume women take direction from their husbands. In fact, the most popular and persistent media narrative is that women are different; in particular, more likely than to favor Democratic candidates. Given these (new) facts and the longer view, how should we evaluate the impact of the 19th Amendment? What did the 19th Amendment do?\r\nClick here to read the essay.\r\n\r\n\r\n\r\n",
+    "preview": "https://static.wixstatic.com/media/848e88_117a3464504f445587f26ed6ba4cd2c3~mv2.jpg/v1/fill/w_120,h_120,al_c,q_80,usm_0.66_1.00_0.01/WmJ7XgZW_400x400.webp",
+    "last_modified": "2022-03-03T11:31:22-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/ps/",
+    "title": "Turning Rights into Ballots: The Uneven Integration of Women into Electoral Politics after Suffrage",
+    "description": "PS Political Science and Politics",
+    "author": [],
+    "date": "2020-07-10",
+    "categories": [
+      "Women and politics"
+    ],
+    "contents": "\r\nAfter a more than seven-decade battle, American women secured the right to vote in August 1920. The struggle for women to have a voice in elections was not over, however. The Nineteenth Amendment states that “The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex.” The amendment gives Congress the power to enforce the law by appropriate legislation. It does not, however, empower or charge any government office or actor with ensuring that women can and do cast ballots. This article argues that this reality, often taken for granted, has serious implications for both the incorporation of women into the electorate and the representation of their political interests.\r\nClick here to check out the article.\r\n\r\n\r\n\r\n",
+    "preview": "https://static.cambridge.org/covers/PSC_0_0_0/ps-political-science-and-politics.jpg",
+    "last_modified": "2022-03-02T15:17:27-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/cwv/",
+    "title": "A Century of Votes for Women",
+    "description": "Cambridge University Press.  2020.",
+    "author": [],
+    "date": "2020-03-01",
+    "categories": [
+      "Women and politics"
+    ],
+    "contents": "\r\nHow have American women voted in the first 100 years since the ratification of the Nineteenth Amendment? How have popular understandings of women as voters both persisted and changed over time? In A Century of Votes for Women, Christina Wolbrecht and J. Kevin Corder offer an unprecedented account of women voters in American politics over the last ten decades. Bringing together new and existing data, the book provides unique insight into women’s (and men’s) voting behavior, and traces how women’s turnout and vote choice evolved across a century of enormous transformation overall and for women in particular. Wolbrecht and Corder show that there is no such thing as ‘the woman voter’; instead they reveal considerable variation in how different groups of women voted in response to changing political, social, and economic realities. The book also demonstrates how assumptions about women as voters influenced politicians, the press, and scholars.\r\nClick here for details…\r\n\r\n\r\n\r\n",
+    "preview": "https://assets.cambridge.org/97813166/38071/cover/9781316638071.jpg",
+    "last_modified": "2022-03-02T10:31:33-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/aba/",
+    "title": "Did Women Vote Once they had the Opportunity?",
+    "description": "ABA Insights on Law and Society|",
+    "author": [],
+    "date": "2019-10-01",
+    "categories": [
+      "Women and politics"
+    ],
+    "contents": "\r\nThe initial verdict and much of the early scholarship concluded that woman suffrage was a failure, as turnout was low and the addition of women voters failed to shake up the two-party balance of power. While the observers were right in important ways—women’s turnout was indeed lower than men’s—we now know that there were a host of legal and organizational factors that conspired to block or slow the mobilization of women. The incorporation of women as full equals in the electoral process would take decades, and understanding why this is the case helps us better understand the challenges facing efforts to make voting rights a reality for traditionally marginalized groups.\r\nClick here to check out the essay.\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.files.wordpress.com/2019/11/aba-cover.png",
+    "last_modified": "2022-03-02T11:07:34-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/newsweek/",
+    "title": " Predicting How Women Will Vote Requires Looking Beyond Gender Alone",
+    "description": "Newsweek",
+    "author": [],
+    "date": "2019-09-01",
+    "categories": [
+      "Women and politics"
+    ],
+    "contents": "\r\nHeading into the 2020 presidential election, campaign strategists would do almost anything for a crystal ball to predict voting patterns and give them the key to lock up a large voting bloc. Securing the “women’s vote” would be a major coup, yet in this adaptation from their recently published book, A Century of Votes for Women, political science professors Christina Wolbrecht and J. Kevin Corder explain why this is easier said than done.\r\nClick here to read the essay.\r\n\r\n\r\n\r\n",
+    "preview": "https://d.newsweek.com/en/full/1563266/per-womenvoters-banner.webp?w=1280&f=981aadd683d410e7ee641d94b3365a25",
+    "last_modified": "2022-03-02T11:05:27-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/wmuk/",
+    "title": "Is Now The Right Time To Scale Back Financial Regulations?",
+    "description": "WMUK",
+    "author": [],
+    "date": "2017-03-11",
+    "categories": [
+      "Banking"
+    ],
+    "contents": "\r\nClick here to listen my interview on financial regulation on West by Southwest with Gordon Evans of WMUK.\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.files.wordpress.com/2017/03/pexels-photo-200749.jpeg",
+    "last_modified": "2022-03-02T15:03:19-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/mcage/",
+    "title": "Was Women's Suffrage a Failure?",
+    "description": "The Monkeycage",
+    "author": [],
+    "date": "2016-08-26",
+    "categories": [
+      "Women and politics"
+    ],
+    "contents": "\r\nCheck out a short summary of my work with Christina Wolbrecht on women’s voting in the 1920s and 1930s (Washington Post, August 26, 2016). Reposted August 26, 2017\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.files.wordpress.com/2017/01/imrs-php.jpg",
+    "last_modified": "2022-03-03T13:00:54-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/cwb/",
+    "title": "Counting Women's Ballots",
+    "description": "Cambridge University Press.  2016.",
+    "author": [],
+    "date": "2016-07-01",
+    "categories": [
+      "Women and politics"
+    ],
+    "contents": "\r\nCheck out my book with Christina Wolbrecht. We examine the voting behavior of newly enfranchised women in the first five presidential elections after the 1920 ratification of the 19th amendment. While new women voters don’t change the overall or national relative strength of the two major parties, we find that women enter the electorate as local partisans, making one party GOP states more Republican and one party Democratic states more Democratic. New women voters contribute to the diminishing vote share of third party alternatives after 1924.\r\nClick here for details..\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.files.wordpress.com/2017/01/9781316505878.jpg",
+    "last_modified": "2022-03-01T12:54:18-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/basel3/",
+    "title": "Capital requirements and Basel III",
+    "description": "Working paper",
+    "author": [],
+    "date": "2016-04-01",
+    "categories": [
+      "Banking"
+    ],
+    "contents": "\r\nThe global financial crisis inspired a radical overhaul of international conventions for capital and liquidity requirements applied to banks. Did the reforms lead to a broad convergence in national approaches to bank regulation, or did the crisis experience lead national authorities to seek broader discretion to reign in risky lending and contain potential crises?\r\nClick here to see the paper\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.files.wordpress.com/2017/05/tower2.jpg",
+    "last_modified": "2022-03-02T13:21:36-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/brr/",
+    "title": "Bank recovery and resolution",
+    "description": "Working paper",
+    "author": [],
+    "date": "2016-04-01",
+    "categories": [
+      "Banking"
+    ],
+    "contents": "\r\nThe global financial crisis drew attention to the costs of bank failure - taxpayer-funded bailouts of large financial institutions were an unpopular but common solution. How have different countries adapted tools for bank recovery and resolution to avoid bailouts in the future? I look at the experience of Eurozone nations, the US and the UK to determine how or if national approaches converged or diverged as the crisis unfolded.\r\nClick herea> for a copy of the working paper.\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.files.wordpress.com/2017/05/pexels-photo-351264.jpeg",
+    "last_modified": "2022-03-02T13:25:02-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/otherwork/",
+    "title": "Working papers and published work on public policy",
+    "description": {},
+    "author": [],
+    "date": "2016-01-01",
+    "categories": [
+      "Other public policy"
+    ],
+    "contents": "\r\nMonetary policy and the Federal Reserve System\r\nThe Fed and the Credit Crisis(Lynne Rienner Publishers. 2012)\r\nPolitics of Central Bank Independence(Working paper)\r\nThe Federal Reserve System and the Credit Crisis(Updated version published in the Public Administration Review)\r\nWhat can the Taylor rule tell us about monetary politics?(MPSA conference paper 2006)\r\nForecasting and projections\r\nExplaining Bureaucratic Optimism: Theory and Evidence from U.S. Federal Executive Agency Macroeconomic Forecasts. With George Krause(Updated version published in the American Political Science Review)\r\nManaging Uncertainty: The Bias and Efficiency of Federal Macroeconomic Forecasts(Updated version published in the Journal of Public Administration Research and Theory)\r\nHigher Education\r\nCollege financing and persistence to the second year. With Kathyrn Corder and Tracey Pattok(Association for Institutional Research Forum Paper 2005)\r\nHousing Finance\r\nFannie Mae and Freddie Mac: Where are they? How did they get there? With Susan M. Hoffmann(Policy History conference paper, 2012)\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2022-03-02T15:28:56-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/fed/",
+    "title": "The Fed and the Credit Crisi",
+    "description": "Lynne Rienner Publishers",
+    "author": [],
+    "date": "2012-10-01",
+    "categories": [
+      "Banking"
+    ],
+    "contents": "\r\nWhat was the role of the Federal Reserve System in the 2008 financial crisis—as a cause of the crisis, as the most important government agency to respond, and as the center of federal efforts to prevent another crisis?\r\nClick here to read a sample chapter from my 2012 book on the Fed’s response and the novel technical and political challenges the Fed is likely to face as the crisis unwinds.\r\n\r\n\r\n\r\n",
+    "preview": "https://www.rienner.com/uploads/4f50f39c561d0.jpg",
+    "last_modified": "2022-03-03T16:55:39-05:00",
+    "input_file": "fed.knit.md"
+  },
+  {
+    "path": "posts/jop/",
+    "title": "Political Context and the Turnout of New Women Voters after Suffrage",
+    "description": "Journal of Politics. With Christina Wolbrecht",
+    "author": [],
+    "date": "2006-09-01",
+    "categories": [
+      "Women and politics"
+    ],
+    "contents": "\r\nMany observers expected new women voters to respond to their political context in distinctive ways. Some scholars anticipated that newly-enfranchised women—lacking political interest and experience—would be volatile and highly responsive to context. Others expected political isolation and norms proscribing political activity would insulate women from political stimuli. We test these competing predictions with a Bayesian approach to ecological inference and a unique set of aggregate data. We find that the responsiveness of women’s turnout is strikingly similar to that of men. However, the lesser impact of electoral competition, and the greater effect of electoral laws and prior suffrage activism, suggest that the experience of and response to disenfranchisement shaped women’s turnout after the vote was won.\r\nClick here to read the paper.\r\n\r\n\r\n\r\n",
+    "preview": "https://www.journals.uchicago.edu/na101/home/literatum/publisher/uchicago/journals/content/jop/2006/jpolitics.68.issue-1/jpolitics.68.issue-1/production/jpolitics.68.issue-1.cover.gif",
+    "last_modified": "2022-03-03T16:43:39-05:00",
+    "input_file": {}
+  }
+]
