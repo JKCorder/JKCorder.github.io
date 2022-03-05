@@ -198,7 +198,7 @@
   {
     "path": "posts/fnma/",
     "title": "Fannie Mae and Freddie Mac - Where Are They? How Did They Get There?",
-    "description": "Working paper",
+    "description": "Working paper. With Susan Hoffmann",
     "author": [],
     "date": "2012-07-01",
     "categories": [
@@ -206,8 +206,8 @@
     ],
     "contents": "\r\nSusan Hoffmann and I co-authored a paper on the history and evolution of the housing Government-Sponsored Enterprises - Fannie Mae and Freddie Mac. We trace how the intersection of affordable housing policy, deregulation, and privatization ultimately caused the GSEs to fail.\r\nClick here to read the paper.\r\n\r\n\r\n\r\n",
     "preview": "https://jkcorder.files.wordpress.com/2016/11/13972_150px11.jpg",
-    "last_modified": "2022-03-04T17:57:31-05:00",
-    "input_file": {}
+    "last_modified": "2022-03-05T12:03:54-05:00",
+    "input_file": "fnma.knit.md"
   },
   {
     "path": "posts/par/",
