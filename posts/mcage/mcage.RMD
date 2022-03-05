@@ -1,6 +1,6 @@
 ---
 title: "Was Women's Suffrage a Failure?"
-description: The Monkeycage
+description: The Monkeycage. With Christina Wolbrecht
 date: 08/26/2016
 preview: https://jkcorder.files.wordpress.com/2017/01/imrs-php.jpg
 output: distill::distill_article

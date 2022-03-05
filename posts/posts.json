@@ -30,7 +30,7 @@
   {
     "path": "posts/sipo/",
     "title": "The timing of COVID-19 shelter in place orders by U.S. governors",
-    "description": "Policy Design and Practice. 2020.",
+    "description": "Policy Design and Practice. With Matthew Mingus and Daria Blinova",
     "author": [],
     "date": "2020-09-01",
     "categories": [
@@ -38,13 +38,13 @@
     ],
     "contents": "\r\nMatthew Mingus, Daria Blinova and I isolate and estimate the impact of political party control of state government on the length of time it took U.S. states to issue shelter-in-place orders (SIPOs) in an effort to control the spread of COVID-19. We adopt a two-step process to isolate the effect of politics. First, we measure the number of days between the date that state-level cases first exceeded one case per 100,000 population and state issuance of a SIPO. This permits us to compare governor’s choices in similar contexts – when the disease is known to be present in the community. Second, we use a statistical tool – survival analysis – to differentiate between state characteristics that might be associated with higher risks of uncontrolled spread and the impact of political party control. We find that the timing of disease progression was remarkably similar across states, suggesting that many states reached the 1:100,000 benchmark at about the same time. By contrast, we find that, even after controlling for a variety of factors, a Republican governor coupled with a Republican majority in the state senate predicts delays in the implementation of SIPOs – delays on the order of two days for Republican states that did act, but no action by more than one-third of those states after more than two months above 1:100,000. In contrast, potentially important decision-making factors such as urbanization, elderly population, hospital beds, extent of chronic diseases, and budget capacity of the state government serve, at best, as poor predictors of SIPO timing.\r\nClick here to read the article.\r\nClick here for replication data and details\r\n\r\n\r\n\r\n",
     "preview": "https://www.tandfonline.com/action/showCoverImage?doi=10.1080/rpdp20.v003.i03",
-    "last_modified": "2022-03-02T10:41:09-05:00",
+    "last_modified": "2022-03-05T11:48:10-05:00",
     "input_file": {}
   },
   {
     "path": "posts/misfaction/",
     "title": "The Impact of the 19th Amendment",
-    "description": "Mischiefs of Faction",
+    "description": "Mischiefs of Faction.  With Christina Wolbrecht",
     "author": [],
     "date": "2020-08-26",
     "categories": [
@@ -52,13 +52,13 @@
     ],
     "contents": "\r\n…no sooner had women began entering polling places in 1920 than observers began declaring women’s suffrage a “failure.” In what we might think of as a historical version of a Twitter hot-take, outlets ranging from Good Housekeeping (“Is Woman’s Suffrage a Failure?”) to Harper’s Magazine (“Is Woman-Suffrage a Failure?”) and The Century (“Are Women a Failure in Politics?”) addressed this claim in the early 1920s. In the words of journalist Frederick Lew Allen in 1931: “[The American woman] won the suffrage in 1920. She seemed, it is true, to be very little interested in it once she had it; she voted, but mostly as the unregenerate men about her did.”\r\nAllen had the facts right: Women did not initially take up their right to vote in the same numbers as men. When women did vote, their choices were little different from those of long-enfranchised men, a pattern many attributed to husbands telling their wives how to vote. Most of the more ambitious promises and warnings about women’s suffrage—both utopia and apocalypse—never materialized.\r\nOne hundred years later, we know a lot more about how women actually vote. Women are now more likely to turn out to vote than men. While husbands and wives still generally vote for the same candidates, few assume women take direction from their husbands. In fact, the most popular and persistent media narrative is that women are different; in particular, more likely than to favor Democratic candidates. Given these (new) facts and the longer view, how should we evaluate the impact of the 19th Amendment? What did the 19th Amendment do?\r\nClick here to read the essay.\r\n\r\n\r\n\r\n",
     "preview": "https://static.wixstatic.com/media/848e88_117a3464504f445587f26ed6ba4cd2c3~mv2.jpg/v1/fill/w_120,h_120,al_c,q_80,usm_0.66_1.00_0.01/WmJ7XgZW_400x400.webp",
-    "last_modified": "2022-03-03T11:31:22-05:00",
+    "last_modified": "2022-03-05T11:45:11-05:00",
     "input_file": {}
   },
   {
     "path": "posts/ps/",
     "title": "Turning Rights into Ballots: The Uneven Integration of Women into Electoral Politics after Suffrage",
-    "description": "PS Political Science and Politics",
+    "description": "PS Political Science and Politics. With Christina Wolbrecht",
     "author": [],
     "date": "2020-07-10",
     "categories": [
@@ -66,27 +66,41 @@
     ],
     "contents": "\r\nAfter a more than seven-decade battle, American women secured the right to vote in August 1920. The struggle for women to have a voice in elections was not over, however. The Nineteenth Amendment states that “The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex.” The amendment gives Congress the power to enforce the law by appropriate legislation. It does not, however, empower or charge any government office or actor with ensuring that women can and do cast ballots. This article argues that this reality, often taken for granted, has serious implications for both the incorporation of women into the electorate and the representation of their political interests.\r\nClick here to check out the article.\r\n\r\n\r\n\r\n",
     "preview": "https://static.cambridge.org/covers/PSC_0_0_0/ps-political-science-and-politics.jpg",
-    "last_modified": "2022-03-02T15:17:27-05:00",
+    "last_modified": "2022-03-05T11:46:58-05:00",
     "input_file": {}
   },
   {
     "path": "posts/cwv/",
     "title": "A Century of Votes for Women",
-    "description": "Cambridge University Press.  2020.",
+    "description": "Cambridge University Press.  2020. With Christina Wolbrecht",
     "author": [],
     "date": "2020-03-01",
     "categories": [
       "Women and politics"
     ],
-    "contents": "\r\nHow have American women voted in the first 100 years since the ratification of the Nineteenth Amendment? How have popular understandings of women as voters both persisted and changed over time? In A Century of Votes for Women, Christina Wolbrecht and J. Kevin Corder offer an unprecedented account of women voters in American politics over the last ten decades. Bringing together new and existing data, the book provides unique insight into women’s (and men’s) voting behavior, and traces how women’s turnout and vote choice evolved across a century of enormous transformation overall and for women in particular. Wolbrecht and Corder show that there is no such thing as ‘the woman voter’; instead they reveal considerable variation in how different groups of women voted in response to changing political, social, and economic realities. The book also demonstrates how assumptions about women as voters influenced politicians, the press, and scholars.\r\nClick here for details…\r\n\r\n\r\n\r\n",
+    "contents": "\r\nFrom the publisher:\r\nHow have American women voted in the first 100 years since the ratification of the Nineteenth Amendment? How have popular understandings of women as voters both persisted and changed over time? In A Century of Votes for Women, Christina Wolbrecht and J. Kevin Corder offer an unprecedented account of women voters in American politics over the last ten decades. Bringing together new and existing data, the book provides unique insight into women’s (and men’s) voting behavior, and traces how women’s turnout and vote choice evolved across a century of enormous transformation overall and for women in particular. Wolbrecht and Corder show that there is no such thing as ‘the woman voter’; instead they reveal considerable variation in how different groups of women voted in response to changing political, social, and economic realities. The book also demonstrates how assumptions about women as voters influenced politicians, the press, and scholars.\r\nClick here for details…\r\nChristina created a site for the book that includes links to several reviews….Perspectives on Politics, American Historical Review, MS Magazine, Kirkus and others\r\n\r\n\r\n\r\n",
     "preview": "https://assets.cambridge.org/97813166/38071/cover/9781316638071.jpg",
-    "last_modified": "2022-03-02T10:31:33-05:00",
+    "last_modified": "2022-03-05T11:54:21-05:00",
+    "input_file": "cvw.knit.md"
+  },
+  {
+    "path": "posts/newsweek/",
+    "title": " Predicting How Women Will Vote Requires Looking Beyond Gender Alone",
+    "description": "Newsweek. With Christina Wolbrecht",
+    "author": [],
+    "date": "2020-01-30",
+    "categories": [
+      "Women and politics"
+    ],
+    "contents": "\r\nHeading into the 2020 presidential election, campaign strategists would do almost anything for a crystal ball to predict voting patterns and give them the key to lock up a large voting bloc. Securing the “women’s vote” would be a major coup, yet in this adaptation from their recently published book, A Century of Votes for Women, political science professors Christina Wolbrecht and J. Kevin Corder explain why this is easier said than done.\r\nClick here to read the essay.\r\n\r\n\r\n\r\n",
+    "preview": "https://d.newsweek.com/en/full/1563266/per-womenvoters-banner.webp?w=1280&f=981aadd683d410e7ee641d94b3365a25",
+    "last_modified": "2022-03-05T11:45:39-05:00",
     "input_file": {}
   },
   {
     "path": "posts/aba/",
     "title": "Did Women Vote Once they had the Opportunity?",
-    "description": "ABA Insights on Law and Society|",
+    "description": "ABA Insights on Law and Society. With Christina Wolbrecht",
     "author": [],
     "date": "2019-10-01",
     "categories": [
@@ -94,21 +108,7 @@
     ],
     "contents": "\r\nThe initial verdict and much of the early scholarship concluded that woman suffrage was a failure, as turnout was low and the addition of women voters failed to shake up the two-party balance of power. While the observers were right in important ways—women’s turnout was indeed lower than men’s—we now know that there were a host of legal and organizational factors that conspired to block or slow the mobilization of women. The incorporation of women as full equals in the electoral process would take decades, and understanding why this is the case helps us better understand the challenges facing efforts to make voting rights a reality for traditionally marginalized groups.\r\nClick here to check out the essay.\r\n\r\n\r\n\r\n",
     "preview": "https://jkcorder.files.wordpress.com/2019/11/aba-cover.png",
-    "last_modified": "2022-03-02T11:07:34-05:00",
-    "input_file": {}
-  },
-  {
-    "path": "posts/newsweek/",
-    "title": " Predicting How Women Will Vote Requires Looking Beyond Gender Alone",
-    "description": "Newsweek",
-    "author": [],
-    "date": "2019-09-01",
-    "categories": [
-      "Women and politics"
-    ],
-    "contents": "\r\nHeading into the 2020 presidential election, campaign strategists would do almost anything for a crystal ball to predict voting patterns and give them the key to lock up a large voting bloc. Securing the “women’s vote” would be a major coup, yet in this adaptation from their recently published book, A Century of Votes for Women, political science professors Christina Wolbrecht and J. Kevin Corder explain why this is easier said than done.\r\nClick here to read the essay.\r\n\r\n\r\n\r\n",
-    "preview": "https://d.newsweek.com/en/full/1563266/per-womenvoters-banner.webp?w=1280&f=981aadd683d410e7ee641d94b3365a25",
-    "last_modified": "2022-03-02T11:05:27-05:00",
+    "last_modified": "2022-03-05T11:46:28-05:00",
     "input_file": {}
   },
   {
@@ -128,7 +128,7 @@
   {
     "path": "posts/mcage/",
     "title": "Was Women's Suffrage a Failure?",
-    "description": "The Monkeycage",
+    "description": "The Monkeycage. With Christina Wolbrecht",
     "author": [],
     "date": "2016-08-26",
     "categories": [
@@ -136,13 +136,13 @@
     ],
     "contents": "\r\nCheck out a short summary of my work with Christina Wolbrecht on women’s voting in the 1920s and 1930s (Washington Post, August 26, 2016). Reposted August 26, 2017\r\n\r\n\r\n\r\n",
     "preview": "https://jkcorder.files.wordpress.com/2017/01/imrs-php.jpg",
-    "last_modified": "2022-03-03T13:00:54-05:00",
+    "last_modified": "2022-03-05T11:43:24-05:00",
     "input_file": {}
   },
   {
     "path": "posts/cwb/",
     "title": "Counting Women's Ballots",
-    "description": "Cambridge University Press.  2016.",
+    "description": "Cambridge University Press.  2016. With Christina Wolbrecht",
     "author": [],
     "date": "2016-07-01",
     "categories": [
@@ -150,7 +150,7 @@
     ],
     "contents": "\r\nCheck out my book with Christina Wolbrecht. We examine the voting behavior of newly enfranchised women in the first five presidential elections after the 1920 ratification of the 19th amendment. While new women voters don’t change the overall or national relative strength of the two major parties, we find that women enter the electorate as local partisans, making one party GOP states more Republican and one party Democratic states more Democratic. New women voters contribute to the diminishing vote share of third party alternatives after 1924.\r\nClick here for details..\r\n\r\n\r\n\r\n",
     "preview": "https://jkcorder.files.wordpress.com/2017/01/9781316505878.jpg",
-    "last_modified": "2022-03-01T12:54:18-05:00",
+    "last_modified": "2022-03-05T11:43:59-05:00",
     "input_file": {}
   },
   {
@@ -182,20 +182,6 @@
     "input_file": {}
   },
   {
-    "path": "posts/otherwork/",
-    "title": "Working papers and published work on public policy",
-    "description": {},
-    "author": [],
-    "date": "2016-01-01",
-    "categories": [
-      "Other public policy"
-    ],
-    "contents": "\r\nMonetary policy and the Federal Reserve System\r\nThe Fed and the Credit Crisis(Lynne Rienner Publishers. 2012)\r\nPolitics of Central Bank Independence(Working paper)\r\nThe Federal Reserve System and the Credit Crisis(Updated version published in the Public Administration Review)\r\nWhat can the Taylor rule tell us about monetary politics?(MPSA conference paper 2006)\r\nForecasting and projections\r\nExplaining Bureaucratic Optimism: Theory and Evidence from U.S. Federal Executive Agency Macroeconomic Forecasts. With George Krause(Updated version published in the American Political Science Review)\r\nManaging Uncertainty: The Bias and Efficiency of Federal Macroeconomic Forecasts(Updated version published in the Journal of Public Administration Research and Theory)\r\nHigher Education\r\nCollege financing and persistence to the second year. With Kathyrn Corder and Tracey Pattok(Association for Institutional Research Forum Paper 2005)\r\nHousing Finance\r\nFannie Mae and Freddie Mac: Where are they? How did they get there? With Susan M. Hoffmann(Policy History conference paper, 2012)\r\n\r\n\r\n\r\n",
-    "preview": {},
-    "last_modified": "2022-03-02T15:28:56-05:00",
-    "input_file": {}
-  },
-  {
     "path": "posts/fed/",
     "title": "The Fed and the Credit Crisis",
     "description": "Lynne Rienner Publishers",
@@ -210,17 +196,60 @@
     "input_file": {}
   },
   {
-    "path": "posts/jop/",
-    "title": "Political Context and the Turnout of New Women Voters after Suffrage",
-    "description": "Journal of Politics. With Christina Wolbrecht",
+    "path": "posts/fnma/",
+    "title": "Fannie Mae and Freddie Mac - Where Are They? How Did They Get There?",
+    "description": "Working paper",
     "author": [],
-    "date": "2006-09-01",
+    "date": "2012-07-01",
     "categories": [
-      "Women and politics"
+      "Other public policy"
     ],
-    "contents": "\r\nMany observers expected new women voters to respond to their political context in distinctive ways. Some scholars anticipated that newly-enfranchised women—lacking political interest and experience—would be volatile and highly responsive to context. Others expected political isolation and norms proscribing political activity would insulate women from political stimuli. We test these competing predictions with a Bayesian approach to ecological inference and a unique set of aggregate data. We find that the responsiveness of women’s turnout is strikingly similar to that of men. However, the lesser impact of electoral competition, and the greater effect of electoral laws and prior suffrage activism, suggest that the experience of and response to disenfranchisement shaped women’s turnout after the vote was won.\r\nClick here to read the paper.\r\n\r\n\r\n\r\n",
-    "preview": "https://www.journals.uchicago.edu/na101/home/literatum/publisher/uchicago/journals/content/jop/2006/jpolitics.68.issue-1/jpolitics.68.issue-1/production/jpolitics.68.issue-1.cover.gif",
-    "last_modified": "2022-03-03T16:43:39-05:00",
+    "contents": "\r\nSusan Hoffmann and I co-authored a paper on the history and evolution of the housing Government-Sponsored Enterprises - Fannie Mae and Freddie Mac. We trace how the intersection of affordable housing policy, deregulation, and privatization ultimately caused the GSEs to fail.\r\nClick here to read the paper.\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.files.wordpress.com/2016/11/13972_150px11.jpg",
+    "last_modified": "2022-03-04T17:57:31-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/par/",
+    "title": "The Federal Reserve System and the Credit Crisis",
+    "description": "Public Administration Review",
+    "author": [],
+    "date": "2009-07-01",
+    "categories": [
+      "Banking",
+      "Other public policy"
+    ],
+    "contents": "\r\nThe Federal Reserve System struggled to maintain order in U.S. credit markets as rapid declines in home prices led to huge write-downs in the value of mortgage-backed securities held by financial institutions. The Fed could have taken a number of steps—in the mortgage market or through broader regulatory actions—to either preempt or mitigate the impact of this market disruption. Broader regulatory actions—in the mortgage market, of risk taking by financial institutions, or in the form of actions to limit the contagion of crisis—imply fundamental changes at the Fed. The network of actors with a stake in broader regulatory action is powerful and highly resistant to regulatory scrutiny. The statutory mission of the Fed—especially its commitment to stable prices—could be jeopardized by a broad and explicit mandate to provide liquidity to a wide range of vulnerable financial institutions.\r\nClick here to read the paper at PAR.\r\n\r\n\r\n\r\n",
+    "preview": "https://onlinelibrary.wiley.com/cms/asset/0b07bc3d-020b-47ac-b1d1-d19f7c58ebef/puar.2009.69.issue-4.cover.gif",
+    "last_modified": "2022-03-05T11:18:58-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/taylor/",
+    "title": "Partisan politics and Fed policy choices: A Taylor rule approach",
+    "description": "Working Paper",
+    "author": [],
+    "date": "2006-04-01",
+    "categories": [
+      "Banking"
+    ],
+    "contents": "\r\nI got distracted from this work in 2006 but the conference paper has a few citations and some interesting resutls. Not as relevant today since the federal funds rate has been at or near the lower bound for years…\r\nHow do the President and the Congress affect the policy choices of the Federal Reserve System? I draw on a commonly used tool for estimating the sensitivity of Fed responses to output and inflation - the Taylor rule - to learn about the politics of monetary policy. The Taylor rule provides a convenient way to determine if Fed choices can be explained by the partisan makeup of Congress and the White House. Does the Fed respond more aggressively to inflation under a Republican President or if a Republican majority controls Congress? Does the Fed respond to recession sooner and with lower interest rates if the President is a Democrat? The results indicate changes in the pivotal legislator– as described by Morris (2000) - influence monetary policy choices, rather than the President alone, appointment to the Board, or the Board chairman. Congress and the President jointly influence the policy choices of the Fed in ways that benefit the core constituencies of the major parties. The Fed is systematically more responsive to inflation when a Republicans control the White House and the Congress.\r\nOne insight of the paper is that congressional majorities matter, not just the party of the president. The key result is captured in Figure 3 in the paper. Republican majorities lead to a higher federal funds rate in the presence of growing inflation.\r\n\r\n\r\n\r\nClick here to download the paper.\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.github.io/images/mpsa2006.png",
+    "last_modified": "2022-03-05T11:39:30-05:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/highered/",
+    "title": "College financing and persistence to the second year",
+    "description": "Working paper. With Kathyrn Corder and Tracy Pattok",
+    "author": [],
+    "date": "2005-07-01",
+    "categories": [
+      "Other public policy"
+    ],
+    "contents": "\r\nThis paper examines second year persistence rates of students receiving various types of financial assistance. We use aggregate data and new methods of ecological inference to uncover individual-level relationships between financial aid and student persistence. We combine data on the proportion of students receiving various types of aid reported in the Integrated Post Secondary Education Data System [IPEDS] with second year persistence rates reported to the Consortium for Student Retention Data Exchange [CSRDE].\r\nWe find that links between aid received and persistence vary across both forms of aid and type of institution. At highly selective institutions, students with federal aid persist at a much lower rate than other students, but students with loans, institutional aid, and state aid persist at similar rates. At less selective institutions, students with institutional aid or state aid persist at a lower rate than other students, but students with loans or federal aid persist at similar rates. The varying effects observed across institutions explain some of the weak or contradictory findings that are reported in existing research.\r\nThe paper was originally presented at the 2005 Annual Forum of the Association for Institutional Research, San Diego, CA. June, 2005. It is cited occasionally in the literature on persistence and graduation. Click here to read the paper.\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.github.io/images/air.png",
+    "last_modified": "2022-03-05T11:25:15-05:00",
     "input_file": {}
   }
 ]
