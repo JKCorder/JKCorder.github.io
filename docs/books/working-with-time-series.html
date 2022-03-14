@@ -14,7 +14,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5 Working with time series | Political Science and Applied Statistics using R">
 <meta name="twitter:description" content="5.1 Modeling presidential approval For the assignment due in two weeks you will model or predict approval of US presidents as a function of economic conditions and war. The dependent variable is...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
@@ -52,15 +52,13 @@
 <li><a class="" href="duration-models.html"><span class="header-section-number">10</span> Duration models</a></li>
 <li><a class="" href="references.html"><span class="header-section-number">11</span> References</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="" href="quasi-experiements.html"><span class="header-section-number">A</span> Quasi-experiements</a></li>
-<li><a class="" href="matching.html"><span class="header-section-number">B</span> Matching</a></li>
-<li><a class="" href="bayesian-data-analysis.html"><span class="header-section-number">C</span> Bayesian data analysis</a></li>
-<li><a class="" href="multi-level-models.html"><span class="header-section-number">D</span> Multi-level models</a></li>
-<li><a class="" href="using-the-american-national-election-study.html"><span class="header-section-number">E</span> Using the American National Election Study</a></li>
-<li><a class="" href="using-the-current-population-survey.html"><span class="header-section-number">F</span> Using the Current Population Survey</a></li>
-<li><a class="" href="evidence-based-policymaking.html"><span class="header-section-number">G</span> Evidence-based policymaking</a></li>
-<li><a class="" href="tidyverse-r.html"><span class="header-section-number">H</span> Tidyverse R</a></li>
-<li><a class="" href="the-harvard-dataverse.html"><span class="header-section-number">I</span> The Harvard Dataverse</a></li>
+<li><a class="" href="using-the-american-national-election-study.html">Using the American National Election Study</a></li>
+<li><a class="" href="the-harvard-dataverse.html">The Harvard Dataverse</a></li>
+<li><a class="" href="replicating-when-do-politicians-grandstand.html">Replicating “When do politicians grandstand?”</a></li>
+<li><a class="" href="data-models-and-evidence-based-policymaking.html"><span class="header-section-number">A</span> Data, models and evidence-based policymaking</a></li>
+<li><a class="" href="quasi--and-natural-experiments.html"><span class="header-section-number">B</span> Quasi- and natural experiments</a></li>
+<li><a class="" href="matching.html"><span class="header-section-number">C</span> Matching</a></li>
+<li><a class="" href="multilevel-and-hierarchical-models.html"><span class="header-section-number">D</span> Multilevel and hierarchical models</a></li>
 <li><a class="" href="about-the-author.html">About the author</a></li>
 </ul>
 
@@ -79,7 +77,7 @@
 </h2>
 <p>For the assignment due in two weeks you will model or predict approval of US presidents as a function of economic conditions and war. The dependent variable is presidential approval, measured using the Gallup poll. In a 2010 article in <em>Public Opinion Quarterly</em>, Benny Geys concludes that presidential approval is influenced by US spending in foreign conflicts <span class="citation">(<a href="references.html#ref-geys2010" role="doc-biblioref">Geys 2010</a>)</span>. He relied on data from 1948 to 2008, capturing the experience of 11 US Presidents and four long-term foreign conflicts (Korea, Vietnam, and Iraq and Afghanistan after 9/11). The data are organized by quarter, starting 1948 Q2 and ending 2008 Q3. The Gallup Poll, administered dozens of times every year (in some years, several times a month), often includes the question “Do you approve or disapprove of the way [president’s name] is handling his job as president?” The approval rating is simply the percentage of the population that answers “approve.” The data are summarized below and you can see the long-run average is probably around 50%. Work by political scientists has linked the level of this approval rating to the state of the economy and highlighted the fact that approval ratings immediately following election are typically higher than average (the “honeymoon” period). Other work has linked increasing casualties in war to declining presidential approval and Geys starts his piece with the claim that we should consider fiscal as well as human costs.</p>
 <p>The quarterly level of presidential approval is summarized in the figure below.</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Use the haven package read_dta function to read the STATA dataset</span>
 <span class="va">poq</span><span class="op">&lt;-</span> <span class="fu">read_dta</span><span class="op">(</span><span class="st">"data/poq_guys.dta"</span><span class="op">)</span>
@@ -130,7 +128,7 @@
 <h3>Some examples<a class="anchor" aria-label="anchor" href="#some-examples"><i class="fas fa-link"></i></a>
 </h3>
 <p>To give you a sense of the difference between a stationary series and one that is not stationary, I will create several series with random numbers, one entirely random, three with <span class="math inline">\(\rho=0.7\)</span> and three with a unit root or <span class="math inline">\(\rho=1\)</span>, and one that is explosive.</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Adapted from Principles of  Econometrics with R</span>
 <span class="co"># https://bookdown.org/ccolonescu/RPoE4/</span>
@@ -151,7 +149,7 @@
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y4</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Random or white noise"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/POE-1.png" width="480"></div>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># AR(1)</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
@@ -161,7 +159,7 @@
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"AR(1)"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/POE-2.png" width="480"></div>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># AR(1) with drift</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
@@ -171,7 +169,7 @@
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"AR(1) with drift"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/POE-3.png" width="480"></div>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># AR(1) with drift and trend</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
@@ -181,7 +179,7 @@
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"AR(1) with trend and drift"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/POE-4.png" width="480"></div>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Random walk</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
@@ -191,7 +189,7 @@
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Random walk"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/POE-5.png" width="480"></div>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Random Walk with drift</span>
 <span class="va">y3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
@@ -201,7 +199,7 @@
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y3</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Random walk with drift"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/POE-6.png" width="480"></div>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Random walk with trend and drift"</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
@@ -211,7 +209,7 @@
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Random walk with trend and drift"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/POE-7.png" width="480"></div>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 
 <span class="co"># explosive</span>
@@ -237,7 +235,7 @@
 <p>Subtract Y<sub>t-1</sub> from each side of the equation above:</p>
 <p><span class="math display">\[Y_t-Y_{t-1}=(\rho-1) Y_{t-1}+\mu+\beta t +\epsilon_t\]</span></p>
 <p>We can use OLS to estimate the parameters of this equation. The output below is for the presidential approval variable.</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Create some new variables and identify the variables retained for the assignment.</span>
 
 <span class="co"># WAR VARIABLES</span>
@@ -267,37 +265,37 @@
 
 <span class="va">poq</span><span class="op">&lt;-</span><span class="va">poq</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">date</span>, <span class="va">approval</span>, <span class="va">unempl</span>, <span class="va">Infl_new</span>, <span class="va">growth</span>, <span class="va">mics</span>, <span class="va">weary</span>, <span class="va">casualty</span>, <span class="va">wardummy</span>, <span class="va">cumulative</span>, <span class="va">honeymoon</span>, <span class="va">water</span>, <span class="va">elyear</span>, <span class="va">dg</span>, <span class="va">DoDspend</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">date</span><span class="op">&lt;</span><span class="st">"2009-01-01"</span><span class="op">)</span></code></pre></div>
 <p>The output above is known as the Dickey-Fuller test.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="working-with-time-series.html#cb47-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-2"><a href="working-with-time-series.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create lag and difference</span></span>
-<span id="cb47-3"><a href="working-with-time-series.html#cb47-3" aria-hidden="true" tabindex="-1"></a>poq<span class="sc">$</span>l.approval<span class="ot">&lt;-</span><span class="fu">lag</span>(poq<span class="sc">$</span>approval, <span class="dv">1</span>, <span class="at">na.pad=</span><span class="cn">TRUE</span>)</span>
-<span id="cb47-4"><a href="working-with-time-series.html#cb47-4" aria-hidden="true" tabindex="-1"></a>poq<span class="sc">$</span>d.approval<span class="ot">&lt;-</span>poq<span class="sc">$</span>approval<span class="sc">-</span>poq<span class="sc">$</span>l.approval</span>
-<span id="cb47-5"><a href="working-with-time-series.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a counter</span></span>
-<span id="cb47-6"><a href="working-with-time-series.html#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-7"><a href="working-with-time-series.html#cb47-7" aria-hidden="true" tabindex="-1"></a>poq<span class="sc">$</span>count<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(poq))</span>
-<span id="cb47-8"><a href="working-with-time-series.html#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-9"><a href="working-with-time-series.html#cb47-9" aria-hidden="true" tabindex="-1"></a>df_example<span class="ot">&lt;-</span><span class="fu">lm</span>(d.approval<span class="sc">~</span>l.approval<span class="sc">+</span>count, <span class="at">data=</span>poq)</span>
-<span id="cb47-10"><a href="working-with-time-series.html#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co"># I am using summary() rather than stargazer since I want to show the t-values</span></span>
-<span id="cb47-11"><a href="working-with-time-series.html#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df_example) </span>
-<span id="cb47-12"><a href="working-with-time-series.html#cb47-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-13"><a href="working-with-time-series.html#cb47-13" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb47-14"><a href="working-with-time-series.html#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> d.approval <span class="sc">~</span> l.approval <span class="sc">+</span> count, <span class="at">data =</span> poq)</span>
-<span id="cb47-15"><a href="working-with-time-series.html#cb47-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-16"><a href="working-with-time-series.html#cb47-16" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
-<span id="cb47-17"><a href="working-with-time-series.html#cb47-17" aria-hidden="true" tabindex="-1"></a>    Min      1Q  Median      3Q     Max </span>
-<span id="cb47-18"><a href="working-with-time-series.html#cb47-18" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">14.724</span>  <span class="sc">-</span><span class="fl">3.869</span>  <span class="sc">-</span><span class="fl">0.609</span>   <span class="fl">2.625</span>  <span class="fl">33.667</span> </span>
-<span id="cb47-19"><a href="working-with-time-series.html#cb47-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-20"><a href="working-with-time-series.html#cb47-20" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb47-21"><a href="working-with-time-series.html#cb47-21" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
-<span id="cb47-22"><a href="working-with-time-series.html#cb47-22" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">8.291512</span>   <span class="fl">2.051907</span>   <span class="fl">4.041</span> <span class="fl">7.19e-05</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb47-23"><a href="working-with-time-series.html#cb47-23" aria-hidden="true" tabindex="-1"></a>l.approval  <span class="sc">-</span><span class="fl">0.139016</span>   <span class="fl">0.033121</span>  <span class="sc">-</span><span class="fl">4.197</span> <span class="fl">3.82e-05</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb47-24"><a href="working-with-time-series.html#cb47-24" aria-hidden="true" tabindex="-1"></a>count       <span class="sc">-</span><span class="fl">0.006526</span>   <span class="fl">0.006131</span>  <span class="sc">-</span><span class="fl">1.064</span>    <span class="fl">0.288</span>    </span>
-<span id="cb47-25"><a href="working-with-time-series.html#cb47-25" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb47-26"><a href="working-with-time-series.html#cb47-26" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
-<span id="cb47-27"><a href="working-with-time-series.html#cb47-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-28"><a href="working-with-time-series.html#cb47-28" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">6.592</span> on <span class="dv">238</span> degrees of freedom</span>
-<span id="cb47-29"><a href="working-with-time-series.html#cb47-29" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">1</span> observation deleted due to missingness)</span>
-<span id="cb47-30"><a href="working-with-time-series.html#cb47-30" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.07053</span>,   Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.06272</span> </span>
-<span id="cb47-31"><a href="working-with-time-series.html#cb47-31" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span>  <span class="fl">9.03</span> on <span class="dv">2</span> and <span class="dv">238</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.0001659</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="working-with-time-series.html#cb46-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-2"><a href="working-with-time-series.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create lag and difference</span></span>
+<span id="cb46-3"><a href="working-with-time-series.html#cb46-3" aria-hidden="true" tabindex="-1"></a>poq<span class="sc">$</span>l.approval<span class="ot">&lt;-</span><span class="fu">lag</span>(poq<span class="sc">$</span>approval, <span class="dv">1</span>, <span class="at">na.pad=</span><span class="cn">TRUE</span>)</span>
+<span id="cb46-4"><a href="working-with-time-series.html#cb46-4" aria-hidden="true" tabindex="-1"></a>poq<span class="sc">$</span>d.approval<span class="ot">&lt;-</span>poq<span class="sc">$</span>approval<span class="sc">-</span>poq<span class="sc">$</span>l.approval</span>
+<span id="cb46-5"><a href="working-with-time-series.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a counter</span></span>
+<span id="cb46-6"><a href="working-with-time-series.html#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="working-with-time-series.html#cb46-7" aria-hidden="true" tabindex="-1"></a>poq<span class="sc">$</span>count<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(poq))</span>
+<span id="cb46-8"><a href="working-with-time-series.html#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-9"><a href="working-with-time-series.html#cb46-9" aria-hidden="true" tabindex="-1"></a>df_example<span class="ot">&lt;-</span><span class="fu">lm</span>(d.approval<span class="sc">~</span>l.approval<span class="sc">+</span>count, <span class="at">data=</span>poq)</span>
+<span id="cb46-10"><a href="working-with-time-series.html#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="co"># I am using summary() rather than stargazer since I want to show the t-values</span></span>
+<span id="cb46-11"><a href="working-with-time-series.html#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df_example) </span>
+<span id="cb46-12"><a href="working-with-time-series.html#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-13"><a href="working-with-time-series.html#cb46-13" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb46-14"><a href="working-with-time-series.html#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> d.approval <span class="sc">~</span> l.approval <span class="sc">+</span> count, <span class="at">data =</span> poq)</span>
+<span id="cb46-15"><a href="working-with-time-series.html#cb46-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-16"><a href="working-with-time-series.html#cb46-16" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
+<span id="cb46-17"><a href="working-with-time-series.html#cb46-17" aria-hidden="true" tabindex="-1"></a>    Min      1Q  Median      3Q     Max </span>
+<span id="cb46-18"><a href="working-with-time-series.html#cb46-18" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">14.724</span>  <span class="sc">-</span><span class="fl">3.869</span>  <span class="sc">-</span><span class="fl">0.609</span>   <span class="fl">2.625</span>  <span class="fl">33.667</span> </span>
+<span id="cb46-19"><a href="working-with-time-series.html#cb46-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-20"><a href="working-with-time-series.html#cb46-20" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb46-21"><a href="working-with-time-series.html#cb46-21" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb46-22"><a href="working-with-time-series.html#cb46-22" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">8.291512</span>   <span class="fl">2.051907</span>   <span class="fl">4.041</span> <span class="fl">7.19e-05</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb46-23"><a href="working-with-time-series.html#cb46-23" aria-hidden="true" tabindex="-1"></a>l.approval  <span class="sc">-</span><span class="fl">0.139016</span>   <span class="fl">0.033121</span>  <span class="sc">-</span><span class="fl">4.197</span> <span class="fl">3.82e-05</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb46-24"><a href="working-with-time-series.html#cb46-24" aria-hidden="true" tabindex="-1"></a>count       <span class="sc">-</span><span class="fl">0.006526</span>   <span class="fl">0.006131</span>  <span class="sc">-</span><span class="fl">1.064</span>    <span class="fl">0.288</span>    </span>
+<span id="cb46-25"><a href="working-with-time-series.html#cb46-25" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb46-26"><a href="working-with-time-series.html#cb46-26" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb46-27"><a href="working-with-time-series.html#cb46-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-28"><a href="working-with-time-series.html#cb46-28" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">6.592</span> on <span class="dv">238</span> degrees of freedom</span>
+<span id="cb46-29"><a href="working-with-time-series.html#cb46-29" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">1</span> observation deleted due to missingness)</span>
+<span id="cb46-30"><a href="working-with-time-series.html#cb46-30" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.07053</span>,   Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.06272</span> </span>
+<span id="cb46-31"><a href="working-with-time-series.html#cb46-31" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span>  <span class="fl">9.03</span> on <span class="dv">2</span> and <span class="dv">238</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.0001659</span></span></code></pre></div>
 <p>Since the counter (<span class="math inline">\(t\)</span>) is not statistically significant, there is not trend. And since (<span class="math inline">\(\rho-1\)</span>) is different from zero, the series if stationary. The constant is not zero, so this is ar(1) with drift. We can reject the hypothesis that this series is not a random walk.</p>
 <p>If the coefficient on the lagged value of the series is zero, <span class="math inline">\((\rho - 1)=0\)</span> then the series is not stationary (the series contains what is called a <em>unit root</em>). In the example above, (<span class="math inline">\(\rho - 1) &lt; 0\)</span> (the coefficient is -0.139 and the coefficient is statistically significant). This means <span class="math inline">\(\rho&lt;1\)</span>. This is what you will typically see with a stationary series.</p>
 <p>If <span class="math inline">\(\beta&gt;0\)</span> then the series contains a trend. In the example above <span class="math inline">\(\beta=0\)</span>.</p>
@@ -311,52 +309,52 @@
 </h4>
 <p>We can create a random time series, <span class="math inline">\(Y_1\)</span>, and and random time series, <span class="math inline">\(X\)</span>. I will also create a third series, <span class="math inline">\(Y_2\)</span>, that is a linear function of <span class="math inline">\(X\)</span>.</p>
 <p>We should be able to use OLS to determine which <span class="math inline">\(Y_i\)</span> is unrelated (random) and which is related. The table below reports the coefficients from the regressions that evaluate those links.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="working-with-time-series.html#cb48-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-2"><a href="working-with-time-series.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Adapted from Principles of Econometrics with R</span></span>
-<span id="cb48-3"><a href="working-with-time-series.html#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-4"><a href="working-with-time-series.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">246810</span>)</span>
-<span id="cb48-5"><a href="working-with-time-series.html#cb48-5" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rnorm</span>(N,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb48-6"><a href="working-with-time-series.html#cb48-6" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rnorm</span>(N,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb48-7"><a href="working-with-time-series.html#cb48-7" aria-hidden="true" tabindex="-1"></a>v3<span class="ot">&lt;-</span>  <span class="fu">ts</span>(<span class="fu">rnorm</span>(N,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb48-8"><a href="working-with-time-series.html#cb48-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-9"><a href="working-with-time-series.html#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a series with a unit root for X and Y1</span></span>
-<span id="cb48-10"><a href="working-with-time-series.html#cb48-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-11"><a href="working-with-time-series.html#cb48-11" aria-hidden="true" tabindex="-1"></a>Y1 <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rep</span>(<span class="dv">0</span>,N))</span>
-<span id="cb48-12"><a href="working-with-time-series.html#cb48-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>N){</span>
-<span id="cb48-13"><a href="working-with-time-series.html#cb48-13" aria-hidden="true" tabindex="-1"></a>  Y1[t]<span class="ot">&lt;-</span> Y1[t<span class="dv">-1</span>]<span class="sc">+</span>v1[t]</span>
-<span id="cb48-14"><a href="working-with-time-series.html#cb48-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb48-15"><a href="working-with-time-series.html#cb48-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-16"><a href="working-with-time-series.html#cb48-16" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rep</span>(<span class="dv">0</span>,N))</span>
-<span id="cb48-17"><a href="working-with-time-series.html#cb48-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>N){</span>
-<span id="cb48-18"><a href="working-with-time-series.html#cb48-18" aria-hidden="true" tabindex="-1"></a>  X[t]<span class="ot">&lt;-</span> X[t<span class="dv">-1</span>]<span class="sc">+</span>v2[t]</span>
-<span id="cb48-19"><a href="working-with-time-series.html#cb48-19" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb48-20"><a href="working-with-time-series.html#cb48-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-21"><a href="working-with-time-series.html#cb48-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Y2 as a linear function of X plus an error</span></span>
-<span id="cb48-22"><a href="working-with-time-series.html#cb48-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-23"><a href="working-with-time-series.html#cb48-23" aria-hidden="true" tabindex="-1"></a>Y2 <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">+</span><span class="dv">5</span><span class="sc">*</span>X<span class="sc">+</span>v3</span>
-<span id="cb48-24"><a href="working-with-time-series.html#cb48-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-25"><a href="working-with-time-series.html#cb48-25" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">cbind</span>(Y1,Y2,X)</span>
-<span id="cb48-26"><a href="working-with-time-series.html#cb48-26" aria-hidden="true" tabindex="-1"></a>m1<span class="ot">&lt;-</span><span class="fu">lm</span>(Y1<span class="sc">~</span>X, <span class="at">data=</span>data)</span>
-<span id="cb48-27"><a href="working-with-time-series.html#cb48-27" aria-hidden="true" tabindex="-1"></a>m2<span class="ot">&lt;-</span><span class="fu">lm</span>(Y2<span class="sc">~</span>X, <span class="at">data=</span>data)</span>
-<span id="cb48-28"><a href="working-with-time-series.html#cb48-28" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(m1, m2, <span class="at">type =</span> <span class="st">'text'</span>,  <span class="at">model.numbers=</span><span class="cn">FALSE</span>, <span class="at">omit.stat=</span><span class="fu">c</span>(<span class="st">"ser"</span>,<span class="st">"f"</span>))</span>
-<span id="cb48-29"><a href="working-with-time-series.html#cb48-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-30"><a href="working-with-time-series.html#cb48-30" aria-hidden="true" tabindex="-1"></a><span class="sc">==</span><span class="er">=======================================</span></span>
-<span id="cb48-31"><a href="working-with-time-series.html#cb48-31" aria-hidden="true" tabindex="-1"></a>                 Dependent variable<span class="sc">:</span>     </span>
-<span id="cb48-32"><a href="working-with-time-series.html#cb48-32" aria-hidden="true" tabindex="-1"></a>             <span class="sc">----------------------------</span></span>
-<span id="cb48-33"><a href="working-with-time-series.html#cb48-33" aria-hidden="true" tabindex="-1"></a>                   Y1            Y2      </span>
-<span id="cb48-34"><a href="working-with-time-series.html#cb48-34" aria-hidden="true" tabindex="-1"></a><span class="sc">-----------------------------------------</span></span>
-<span id="cb48-35"><a href="working-with-time-series.html#cb48-35" aria-hidden="true" tabindex="-1"></a>X               <span class="fl">0.142</span><span class="sc">**</span><span class="er">*</span>      <span class="fl">5.000</span><span class="sc">**</span><span class="er">*</span>   </span>
-<span id="cb48-36"><a href="working-with-time-series.html#cb48-36" aria-hidden="true" tabindex="-1"></a>                (<span class="fl">0.038</span>)        (<span class="fl">0.006</span>)   </span>
-<span id="cb48-37"><a href="working-with-time-series.html#cb48-37" aria-hidden="true" tabindex="-1"></a>                                         </span>
-<span id="cb48-38"><a href="working-with-time-series.html#cb48-38" aria-hidden="true" tabindex="-1"></a>Constant       <span class="sc">-</span><span class="fl">3.966</span><span class="sc">**</span><span class="er">*</span>      <span class="fl">1.965</span><span class="sc">**</span><span class="er">*</span>   </span>
-<span id="cb48-39"><a href="working-with-time-series.html#cb48-39" aria-hidden="true" tabindex="-1"></a>                (<span class="fl">0.419</span>)        (<span class="fl">0.063</span>)   </span>
-<span id="cb48-40"><a href="working-with-time-series.html#cb48-40" aria-hidden="true" tabindex="-1"></a>                                         </span>
-<span id="cb48-41"><a href="working-with-time-series.html#cb48-41" aria-hidden="true" tabindex="-1"></a><span class="sc">-----------------------------------------</span></span>
-<span id="cb48-42"><a href="working-with-time-series.html#cb48-42" aria-hidden="true" tabindex="-1"></a>Observations      <span class="dv">500</span>            <span class="dv">500</span>     </span>
-<span id="cb48-43"><a href="working-with-time-series.html#cb48-43" aria-hidden="true" tabindex="-1"></a>R2               <span class="fl">0.027</span>          <span class="fl">0.999</span>    </span>
-<span id="cb48-44"><a href="working-with-time-series.html#cb48-44" aria-hidden="true" tabindex="-1"></a>Adjusted R2      <span class="fl">0.025</span>          <span class="fl">0.999</span>    </span>
-<span id="cb48-45"><a href="working-with-time-series.html#cb48-45" aria-hidden="true" tabindex="-1"></a><span class="sc">==</span><span class="er">=======================================</span></span>
-<span id="cb48-46"><a href="working-with-time-series.html#cb48-46" aria-hidden="true" tabindex="-1"></a>Note<span class="sc">:</span>         <span class="er">*</span>p<span class="sc">&lt;</span><span class="fl">0.1</span>; <span class="sc">**</span>p<span class="sc">&lt;</span><span class="fl">0.05</span>; <span class="sc">**</span><span class="er">*</span>p<span class="sc">&lt;</span><span class="fl">0.01</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="working-with-time-series.html#cb47-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-2"><a href="working-with-time-series.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Adapted from Principles of Econometrics with R</span></span>
+<span id="cb47-3"><a href="working-with-time-series.html#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="working-with-time-series.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">246810</span>)</span>
+<span id="cb47-5"><a href="working-with-time-series.html#cb47-5" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rnorm</span>(N,<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb47-6"><a href="working-with-time-series.html#cb47-6" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rnorm</span>(N,<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb47-7"><a href="working-with-time-series.html#cb47-7" aria-hidden="true" tabindex="-1"></a>v3<span class="ot">&lt;-</span>  <span class="fu">ts</span>(<span class="fu">rnorm</span>(N,<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb47-8"><a href="working-with-time-series.html#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-9"><a href="working-with-time-series.html#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a series with a unit root for X and Y1</span></span>
+<span id="cb47-10"><a href="working-with-time-series.html#cb47-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-11"><a href="working-with-time-series.html#cb47-11" aria-hidden="true" tabindex="-1"></a>Y1 <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rep</span>(<span class="dv">0</span>,N))</span>
+<span id="cb47-12"><a href="working-with-time-series.html#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>N){</span>
+<span id="cb47-13"><a href="working-with-time-series.html#cb47-13" aria-hidden="true" tabindex="-1"></a>  Y1[t]<span class="ot">&lt;-</span> Y1[t<span class="dv">-1</span>]<span class="sc">+</span>v1[t]</span>
+<span id="cb47-14"><a href="working-with-time-series.html#cb47-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb47-15"><a href="working-with-time-series.html#cb47-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-16"><a href="working-with-time-series.html#cb47-16" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rep</span>(<span class="dv">0</span>,N))</span>
+<span id="cb47-17"><a href="working-with-time-series.html#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>N){</span>
+<span id="cb47-18"><a href="working-with-time-series.html#cb47-18" aria-hidden="true" tabindex="-1"></a>  X[t]<span class="ot">&lt;-</span> X[t<span class="dv">-1</span>]<span class="sc">+</span>v2[t]</span>
+<span id="cb47-19"><a href="working-with-time-series.html#cb47-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb47-20"><a href="working-with-time-series.html#cb47-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-21"><a href="working-with-time-series.html#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Y2 as a linear function of X plus an error</span></span>
+<span id="cb47-22"><a href="working-with-time-series.html#cb47-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-23"><a href="working-with-time-series.html#cb47-23" aria-hidden="true" tabindex="-1"></a>Y2 <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">+</span><span class="dv">5</span><span class="sc">*</span>X<span class="sc">+</span>v3</span>
+<span id="cb47-24"><a href="working-with-time-series.html#cb47-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-25"><a href="working-with-time-series.html#cb47-25" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">cbind</span>(Y1,Y2,X)</span>
+<span id="cb47-26"><a href="working-with-time-series.html#cb47-26" aria-hidden="true" tabindex="-1"></a>m1<span class="ot">&lt;-</span><span class="fu">lm</span>(Y1<span class="sc">~</span>X, <span class="at">data=</span>data)</span>
+<span id="cb47-27"><a href="working-with-time-series.html#cb47-27" aria-hidden="true" tabindex="-1"></a>m2<span class="ot">&lt;-</span><span class="fu">lm</span>(Y2<span class="sc">~</span>X, <span class="at">data=</span>data)</span>
+<span id="cb47-28"><a href="working-with-time-series.html#cb47-28" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(m1, m2, <span class="at">type =</span> <span class="st">'text'</span>,  <span class="at">model.numbers=</span><span class="cn">FALSE</span>, <span class="at">omit.stat=</span><span class="fu">c</span>(<span class="st">"ser"</span>,<span class="st">"f"</span>))</span>
+<span id="cb47-29"><a href="working-with-time-series.html#cb47-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-30"><a href="working-with-time-series.html#cb47-30" aria-hidden="true" tabindex="-1"></a><span class="sc">==</span><span class="er">=======================================</span></span>
+<span id="cb47-31"><a href="working-with-time-series.html#cb47-31" aria-hidden="true" tabindex="-1"></a>                 Dependent variable<span class="sc">:</span>     </span>
+<span id="cb47-32"><a href="working-with-time-series.html#cb47-32" aria-hidden="true" tabindex="-1"></a>             <span class="sc">----------------------------</span></span>
+<span id="cb47-33"><a href="working-with-time-series.html#cb47-33" aria-hidden="true" tabindex="-1"></a>                   Y1            Y2      </span>
+<span id="cb47-34"><a href="working-with-time-series.html#cb47-34" aria-hidden="true" tabindex="-1"></a><span class="sc">-----------------------------------------</span></span>
+<span id="cb47-35"><a href="working-with-time-series.html#cb47-35" aria-hidden="true" tabindex="-1"></a>X               <span class="fl">0.142</span><span class="sc">**</span><span class="er">*</span>      <span class="fl">5.000</span><span class="sc">**</span><span class="er">*</span>   </span>
+<span id="cb47-36"><a href="working-with-time-series.html#cb47-36" aria-hidden="true" tabindex="-1"></a>                (<span class="fl">0.038</span>)        (<span class="fl">0.006</span>)   </span>
+<span id="cb47-37"><a href="working-with-time-series.html#cb47-37" aria-hidden="true" tabindex="-1"></a>                                         </span>
+<span id="cb47-38"><a href="working-with-time-series.html#cb47-38" aria-hidden="true" tabindex="-1"></a>Constant       <span class="sc">-</span><span class="fl">3.966</span><span class="sc">**</span><span class="er">*</span>      <span class="fl">1.965</span><span class="sc">**</span><span class="er">*</span>   </span>
+<span id="cb47-39"><a href="working-with-time-series.html#cb47-39" aria-hidden="true" tabindex="-1"></a>                (<span class="fl">0.419</span>)        (<span class="fl">0.063</span>)   </span>
+<span id="cb47-40"><a href="working-with-time-series.html#cb47-40" aria-hidden="true" tabindex="-1"></a>                                         </span>
+<span id="cb47-41"><a href="working-with-time-series.html#cb47-41" aria-hidden="true" tabindex="-1"></a><span class="sc">-----------------------------------------</span></span>
+<span id="cb47-42"><a href="working-with-time-series.html#cb47-42" aria-hidden="true" tabindex="-1"></a>Observations      <span class="dv">500</span>            <span class="dv">500</span>     </span>
+<span id="cb47-43"><a href="working-with-time-series.html#cb47-43" aria-hidden="true" tabindex="-1"></a>R2               <span class="fl">0.027</span>          <span class="fl">0.999</span>    </span>
+<span id="cb47-44"><a href="working-with-time-series.html#cb47-44" aria-hidden="true" tabindex="-1"></a>Adjusted R2      <span class="fl">0.025</span>          <span class="fl">0.999</span>    </span>
+<span id="cb47-45"><a href="working-with-time-series.html#cb47-45" aria-hidden="true" tabindex="-1"></a><span class="sc">==</span><span class="er">=======================================</span></span>
+<span id="cb47-46"><a href="working-with-time-series.html#cb47-46" aria-hidden="true" tabindex="-1"></a>Note<span class="sc">:</span>         <span class="er">*</span>p<span class="sc">&lt;</span><span class="fl">0.1</span>; <span class="sc">**</span>p<span class="sc">&lt;</span><span class="fl">0.05</span>; <span class="sc">**</span><span class="er">*</span>p<span class="sc">&lt;</span><span class="fl">0.01</span></span></code></pre></div>
 <p><br>
 Notice that there is a statistically significant link between <span class="math inline">\(Y_1\)</span> and X, even though they are totally random and unrelated. This is the spurious result we risk reporting if variables are not stationary.</p>
 </div>
@@ -366,117 +364,117 @@ Notice that there is a statistically significant link between <span class="math 
 <span class="header-section-number">5.2.2</span> Using the <strong>urca</strong> package and the <code>ur.test</code> function<a class="anchor" aria-label="anchor" href="#using-the-urca-package-and-the-ur.test-function"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can pursue a simple to test for stationarity using the <code>ur.test</code> function from the <strong>urca</strong> package. We remain focused on the test for a unit root, but we might use the regression to test for the presence of a trend. One other wrinkle: the standard p-value is not used to assess statistical significance, a critical value is reported at the end of the output and that is what we use to evaluate whether or not the series is significant (so the regression result may show p&lt;0.05 but you need to check the critical value)</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="working-with-time-series.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(<span class="at">y=</span>poq<span class="sc">$</span>approval, <span class="at">lags=</span><span class="dv">0</span>, <span class="at">type=</span><span class="st">'trend'</span>))</span>
-<span id="cb49-2"><a href="working-with-time-series.html#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-3"><a href="working-with-time-series.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
-<span id="cb49-4"><a href="working-with-time-series.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
-<span id="cb49-5"><a href="working-with-time-series.html#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
-<span id="cb49-6"><a href="working-with-time-series.html#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-7"><a href="working-with-time-series.html#cb49-7" aria-hidden="true" tabindex="-1"></a>Test regression trend </span>
-<span id="cb49-8"><a href="working-with-time-series.html#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-9"><a href="working-with-time-series.html#cb49-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-10"><a href="working-with-time-series.html#cb49-10" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb49-11"><a href="working-with-time-series.html#cb49-11" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> z.diff <span class="sc">~</span> z.lag<span class="fl">.1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> tt)</span>
-<span id="cb49-12"><a href="working-with-time-series.html#cb49-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-13"><a href="working-with-time-series.html#cb49-13" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
-<span id="cb49-14"><a href="working-with-time-series.html#cb49-14" aria-hidden="true" tabindex="-1"></a>    Min      1Q  Median      3Q     Max </span>
-<span id="cb49-15"><a href="working-with-time-series.html#cb49-15" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">14.724</span>  <span class="sc">-</span><span class="fl">3.869</span>  <span class="sc">-</span><span class="fl">0.609</span>   <span class="fl">2.625</span>  <span class="fl">33.667</span> </span>
-<span id="cb49-16"><a href="working-with-time-series.html#cb49-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-17"><a href="working-with-time-series.html#cb49-17" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb49-18"><a href="working-with-time-series.html#cb49-18" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
-<span id="cb49-19"><a href="working-with-time-series.html#cb49-19" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">8.284986</span>   <span class="fl">2.049168</span>   <span class="fl">4.043</span> <span class="fl">7.13e-05</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb49-20"><a href="working-with-time-series.html#cb49-20" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>     <span class="sc">-</span><span class="fl">0.139016</span>   <span class="fl">0.033121</span>  <span class="sc">-</span><span class="fl">4.197</span> <span class="fl">3.82e-05</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb49-21"><a href="working-with-time-series.html#cb49-21" aria-hidden="true" tabindex="-1"></a>tt          <span class="sc">-</span><span class="fl">0.006526</span>   <span class="fl">0.006131</span>  <span class="sc">-</span><span class="fl">1.064</span>    <span class="fl">0.288</span>    </span>
-<span id="cb49-22"><a href="working-with-time-series.html#cb49-22" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb49-23"><a href="working-with-time-series.html#cb49-23" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
-<span id="cb49-24"><a href="working-with-time-series.html#cb49-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-25"><a href="working-with-time-series.html#cb49-25" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">6.592</span> on <span class="dv">238</span> degrees of freedom</span>
-<span id="cb49-26"><a href="working-with-time-series.html#cb49-26" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.07053</span>,   Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.06272</span> </span>
-<span id="cb49-27"><a href="working-with-time-series.html#cb49-27" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span>  <span class="fl">9.03</span> on <span class="dv">2</span> and <span class="dv">238</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.0001659</span></span>
-<span id="cb49-28"><a href="working-with-time-series.html#cb49-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-29"><a href="working-with-time-series.html#cb49-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-30"><a href="working-with-time-series.html#cb49-30" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">4.1972</span> <span class="fl">6.0219</span> <span class="fl">9.0305</span> </span>
-<span id="cb49-31"><a href="working-with-time-series.html#cb49-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-32"><a href="working-with-time-series.html#cb49-32" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
-<span id="cb49-33"><a href="working-with-time-series.html#cb49-33" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
-<span id="cb49-34"><a href="working-with-time-series.html#cb49-34" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.99</span> <span class="sc">-</span><span class="fl">3.43</span> <span class="sc">-</span><span class="fl">3.13</span></span>
-<span id="cb49-35"><a href="working-with-time-series.html#cb49-35" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.22</span>  <span class="fl">4.75</span>  <span class="fl">4.07</span></span>
-<span id="cb49-36"><a href="working-with-time-series.html#cb49-36" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.43</span>  <span class="fl">6.49</span>  <span class="fl">5.47</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="working-with-time-series.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(<span class="at">y=</span>poq<span class="sc">$</span>approval, <span class="at">lags=</span><span class="dv">0</span>, <span class="at">type=</span><span class="st">'trend'</span>))</span>
+<span id="cb48-2"><a href="working-with-time-series.html#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="working-with-time-series.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
+<span id="cb48-4"><a href="working-with-time-series.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
+<span id="cb48-5"><a href="working-with-time-series.html#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
+<span id="cb48-6"><a href="working-with-time-series.html#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="working-with-time-series.html#cb48-7" aria-hidden="true" tabindex="-1"></a>Test regression trend </span>
+<span id="cb48-8"><a href="working-with-time-series.html#cb48-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-9"><a href="working-with-time-series.html#cb48-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-10"><a href="working-with-time-series.html#cb48-10" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb48-11"><a href="working-with-time-series.html#cb48-11" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> z.diff <span class="sc">~</span> z.lag<span class="fl">.1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> tt)</span>
+<span id="cb48-12"><a href="working-with-time-series.html#cb48-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-13"><a href="working-with-time-series.html#cb48-13" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
+<span id="cb48-14"><a href="working-with-time-series.html#cb48-14" aria-hidden="true" tabindex="-1"></a>    Min      1Q  Median      3Q     Max </span>
+<span id="cb48-15"><a href="working-with-time-series.html#cb48-15" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">14.724</span>  <span class="sc">-</span><span class="fl">3.869</span>  <span class="sc">-</span><span class="fl">0.609</span>   <span class="fl">2.625</span>  <span class="fl">33.667</span> </span>
+<span id="cb48-16"><a href="working-with-time-series.html#cb48-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-17"><a href="working-with-time-series.html#cb48-17" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb48-18"><a href="working-with-time-series.html#cb48-18" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb48-19"><a href="working-with-time-series.html#cb48-19" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">8.284986</span>   <span class="fl">2.049168</span>   <span class="fl">4.043</span> <span class="fl">7.13e-05</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb48-20"><a href="working-with-time-series.html#cb48-20" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>     <span class="sc">-</span><span class="fl">0.139016</span>   <span class="fl">0.033121</span>  <span class="sc">-</span><span class="fl">4.197</span> <span class="fl">3.82e-05</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb48-21"><a href="working-with-time-series.html#cb48-21" aria-hidden="true" tabindex="-1"></a>tt          <span class="sc">-</span><span class="fl">0.006526</span>   <span class="fl">0.006131</span>  <span class="sc">-</span><span class="fl">1.064</span>    <span class="fl">0.288</span>    </span>
+<span id="cb48-22"><a href="working-with-time-series.html#cb48-22" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb48-23"><a href="working-with-time-series.html#cb48-23" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb48-24"><a href="working-with-time-series.html#cb48-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-25"><a href="working-with-time-series.html#cb48-25" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">6.592</span> on <span class="dv">238</span> degrees of freedom</span>
+<span id="cb48-26"><a href="working-with-time-series.html#cb48-26" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.07053</span>,   Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.06272</span> </span>
+<span id="cb48-27"><a href="working-with-time-series.html#cb48-27" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span>  <span class="fl">9.03</span> on <span class="dv">2</span> and <span class="dv">238</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.0001659</span></span>
+<span id="cb48-28"><a href="working-with-time-series.html#cb48-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-29"><a href="working-with-time-series.html#cb48-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-30"><a href="working-with-time-series.html#cb48-30" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">4.1972</span> <span class="fl">6.0219</span> <span class="fl">9.0305</span> </span>
+<span id="cb48-31"><a href="working-with-time-series.html#cb48-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-32"><a href="working-with-time-series.html#cb48-32" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
+<span id="cb48-33"><a href="working-with-time-series.html#cb48-33" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
+<span id="cb48-34"><a href="working-with-time-series.html#cb48-34" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.99</span> <span class="sc">-</span><span class="fl">3.43</span> <span class="sc">-</span><span class="fl">3.13</span></span>
+<span id="cb48-35"><a href="working-with-time-series.html#cb48-35" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.22</span>  <span class="fl">4.75</span>  <span class="fl">4.07</span></span>
+<span id="cb48-36"><a href="working-with-time-series.html#cb48-36" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.43</span>  <span class="fl">6.49</span>  <span class="fl">5.47</span></span></code></pre></div>
 <p>Note that the key statistic <span class="math inline">\(tau3\)</span> is the t-value associated with the first lag of the sereis (<span class="math inline">\(z.lag1\)</span>) : significant means stationary.</p>
 <p>The output below just shows the results of this test for our simulated series - the random variable (y4) from the figures above and the unit root (y3) from the same set of figures.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="working-with-time-series.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This command instructs the function to omit missing values and include one lag of Y, as we did above.</span></span>
-<span id="cb50-2"><a href="working-with-time-series.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(y4,  <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))  </span>
-<span id="cb50-3"><a href="working-with-time-series.html#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-4"><a href="working-with-time-series.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
-<span id="cb50-5"><a href="working-with-time-series.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
-<span id="cb50-6"><a href="working-with-time-series.html#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
-<span id="cb50-7"><a href="working-with-time-series.html#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-8"><a href="working-with-time-series.html#cb50-8" aria-hidden="true" tabindex="-1"></a>Test regression trend </span>
-<span id="cb50-9"><a href="working-with-time-series.html#cb50-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-10"><a href="working-with-time-series.html#cb50-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-11"><a href="working-with-time-series.html#cb50-11" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb50-12"><a href="working-with-time-series.html#cb50-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> z.diff <span class="sc">~</span> z.lag<span class="fl">.1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> tt)</span>
-<span id="cb50-13"><a href="working-with-time-series.html#cb50-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-14"><a href="working-with-time-series.html#cb50-14" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
-<span id="cb50-15"><a href="working-with-time-series.html#cb50-15" aria-hidden="true" tabindex="-1"></a>     Min       1Q   Median       3Q      Max </span>
-<span id="cb50-16"><a href="working-with-time-series.html#cb50-16" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">2.75720</span> <span class="sc">-</span><span class="fl">0.71175</span> <span class="sc">-</span><span class="fl">0.00893</span>  <span class="fl">0.70039</span>  <span class="fl">3.04527</span> </span>
-<span id="cb50-17"><a href="working-with-time-series.html#cb50-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-18"><a href="working-with-time-series.html#cb50-18" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb50-19"><a href="working-with-time-series.html#cb50-19" aria-hidden="true" tabindex="-1"></a>              Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
-<span id="cb50-20"><a href="working-with-time-series.html#cb50-20" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">1.304e-03</span>  <span class="fl">9.104e-02</span>   <span class="fl">0.014</span>    <span class="fl">0.989</span>    </span>
-<span id="cb50-21"><a href="working-with-time-series.html#cb50-21" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>     <span class="sc">-</span><span class="fl">1.050e+00</span>  <span class="fl">4.507e-02</span> <span class="sc">-</span><span class="fl">23.306</span>   <span class="sc">&lt;</span><span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb50-22"><a href="working-with-time-series.html#cb50-22" aria-hidden="true" tabindex="-1"></a>tt          <span class="sc">-</span><span class="fl">8.131e-05</span>  <span class="fl">3.155e-04</span>  <span class="sc">-</span><span class="fl">0.258</span>    <span class="fl">0.797</span>    </span>
-<span id="cb50-23"><a href="working-with-time-series.html#cb50-23" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb50-24"><a href="working-with-time-series.html#cb50-24" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
-<span id="cb50-25"><a href="working-with-time-series.html#cb50-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-26"><a href="working-with-time-series.html#cb50-26" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">1.015</span> on <span class="dv">496</span> degrees of freedom</span>
-<span id="cb50-27"><a href="working-with-time-series.html#cb50-27" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.5227</span>,    Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.5208</span> </span>
-<span id="cb50-28"><a href="working-with-time-series.html#cb50-28" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">271.6</span> on <span class="dv">2</span> and <span class="dv">496</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="er">&lt;</span> <span class="fl">2.2e-16</span></span>
-<span id="cb50-29"><a href="working-with-time-series.html#cb50-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-30"><a href="working-with-time-series.html#cb50-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-31"><a href="working-with-time-series.html#cb50-31" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">23.3058</span> <span class="fl">181.0659</span> <span class="fl">271.5939</span> </span>
-<span id="cb50-32"><a href="working-with-time-series.html#cb50-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-33"><a href="working-with-time-series.html#cb50-33" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
-<span id="cb50-34"><a href="working-with-time-series.html#cb50-34" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
-<span id="cb50-35"><a href="working-with-time-series.html#cb50-35" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.98</span> <span class="sc">-</span><span class="fl">3.42</span> <span class="sc">-</span><span class="fl">3.13</span></span>
-<span id="cb50-36"><a href="working-with-time-series.html#cb50-36" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.15</span>  <span class="fl">4.71</span>  <span class="fl">4.05</span></span>
-<span id="cb50-37"><a href="working-with-time-series.html#cb50-37" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.34</span>  <span class="fl">6.30</span>  <span class="fl">5.36</span></span>
-<span id="cb50-38"><a href="working-with-time-series.html#cb50-38" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(y3, <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))</span>
-<span id="cb50-39"><a href="working-with-time-series.html#cb50-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-40"><a href="working-with-time-series.html#cb50-40" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
-<span id="cb50-41"><a href="working-with-time-series.html#cb50-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
-<span id="cb50-42"><a href="working-with-time-series.html#cb50-42" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
-<span id="cb50-43"><a href="working-with-time-series.html#cb50-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-44"><a href="working-with-time-series.html#cb50-44" aria-hidden="true" tabindex="-1"></a>Test regression trend </span>
-<span id="cb50-45"><a href="working-with-time-series.html#cb50-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-46"><a href="working-with-time-series.html#cb50-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-47"><a href="working-with-time-series.html#cb50-47" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb50-48"><a href="working-with-time-series.html#cb50-48" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> z.diff <span class="sc">~</span> z.lag<span class="fl">.1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> tt)</span>
-<span id="cb50-49"><a href="working-with-time-series.html#cb50-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-50"><a href="working-with-time-series.html#cb50-50" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
-<span id="cb50-51"><a href="working-with-time-series.html#cb50-51" aria-hidden="true" tabindex="-1"></a>     Min       1Q   Median       3Q      Max </span>
-<span id="cb50-52"><a href="working-with-time-series.html#cb50-52" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">2.65403</span> <span class="sc">-</span><span class="fl">0.71415</span>  <span class="fl">0.03071</span>  <span class="fl">0.70711</span>  <span class="fl">3.07356</span> </span>
-<span id="cb50-53"><a href="working-with-time-series.html#cb50-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-54"><a href="working-with-time-series.html#cb50-54" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb50-55"><a href="working-with-time-series.html#cb50-55" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
-<span id="cb50-56"><a href="working-with-time-series.html#cb50-56" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">0.471046</span>   <span class="fl">0.093106</span>   <span class="fl">5.059</span> <span class="fl">5.94e-07</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb50-57"><a href="working-with-time-series.html#cb50-57" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>     <span class="sc">-</span><span class="fl">0.009994</span>   <span class="fl">0.006514</span>  <span class="sc">-</span><span class="fl">1.534</span>    <span class="fl">0.126</span>    </span>
-<span id="cb50-58"><a href="working-with-time-series.html#cb50-58" aria-hidden="true" tabindex="-1"></a>tt           <span class="fl">0.004904</span>   <span class="fl">0.003263</span>   <span class="fl">1.503</span>    <span class="fl">0.134</span>    </span>
-<span id="cb50-59"><a href="working-with-time-series.html#cb50-59" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb50-60"><a href="working-with-time-series.html#cb50-60" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
-<span id="cb50-61"><a href="working-with-time-series.html#cb50-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-62"><a href="working-with-time-series.html#cb50-62" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">1.014</span> on <span class="dv">496</span> degrees of freedom</span>
-<span id="cb50-63"><a href="working-with-time-series.html#cb50-63" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.004852</span>,  Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.0008397</span> </span>
-<span id="cb50-64"><a href="working-with-time-series.html#cb50-64" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">1.209</span> on <span class="dv">2</span> and <span class="dv">496</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.2993</span></span>
-<span id="cb50-65"><a href="working-with-time-series.html#cb50-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-66"><a href="working-with-time-series.html#cb50-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-67"><a href="working-with-time-series.html#cb50-67" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">1.5343</span> <span class="fl">38.322</span> <span class="fl">1.2093</span> </span>
-<span id="cb50-68"><a href="working-with-time-series.html#cb50-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-69"><a href="working-with-time-series.html#cb50-69" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
-<span id="cb50-70"><a href="working-with-time-series.html#cb50-70" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
-<span id="cb50-71"><a href="working-with-time-series.html#cb50-71" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.98</span> <span class="sc">-</span><span class="fl">3.42</span> <span class="sc">-</span><span class="fl">3.13</span></span>
-<span id="cb50-72"><a href="working-with-time-series.html#cb50-72" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.15</span>  <span class="fl">4.71</span>  <span class="fl">4.05</span></span>
-<span id="cb50-73"><a href="working-with-time-series.html#cb50-73" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.34</span>  <span class="fl">6.30</span>  <span class="fl">5.36</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="working-with-time-series.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This command instructs the function to omit missing values and include one lag of Y, as we did above.</span></span>
+<span id="cb49-2"><a href="working-with-time-series.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(y4,  <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))  </span>
+<span id="cb49-3"><a href="working-with-time-series.html#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="working-with-time-series.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
+<span id="cb49-5"><a href="working-with-time-series.html#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
+<span id="cb49-6"><a href="working-with-time-series.html#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
+<span id="cb49-7"><a href="working-with-time-series.html#cb49-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-8"><a href="working-with-time-series.html#cb49-8" aria-hidden="true" tabindex="-1"></a>Test regression trend </span>
+<span id="cb49-9"><a href="working-with-time-series.html#cb49-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-10"><a href="working-with-time-series.html#cb49-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-11"><a href="working-with-time-series.html#cb49-11" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb49-12"><a href="working-with-time-series.html#cb49-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> z.diff <span class="sc">~</span> z.lag<span class="fl">.1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> tt)</span>
+<span id="cb49-13"><a href="working-with-time-series.html#cb49-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-14"><a href="working-with-time-series.html#cb49-14" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
+<span id="cb49-15"><a href="working-with-time-series.html#cb49-15" aria-hidden="true" tabindex="-1"></a>     Min       1Q   Median       3Q      Max </span>
+<span id="cb49-16"><a href="working-with-time-series.html#cb49-16" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">2.75720</span> <span class="sc">-</span><span class="fl">0.71175</span> <span class="sc">-</span><span class="fl">0.00893</span>  <span class="fl">0.70039</span>  <span class="fl">3.04527</span> </span>
+<span id="cb49-17"><a href="working-with-time-series.html#cb49-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-18"><a href="working-with-time-series.html#cb49-18" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb49-19"><a href="working-with-time-series.html#cb49-19" aria-hidden="true" tabindex="-1"></a>              Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb49-20"><a href="working-with-time-series.html#cb49-20" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">1.304e-03</span>  <span class="fl">9.104e-02</span>   <span class="fl">0.014</span>    <span class="fl">0.989</span>    </span>
+<span id="cb49-21"><a href="working-with-time-series.html#cb49-21" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>     <span class="sc">-</span><span class="fl">1.050e+00</span>  <span class="fl">4.507e-02</span> <span class="sc">-</span><span class="fl">23.306</span>   <span class="sc">&lt;</span><span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb49-22"><a href="working-with-time-series.html#cb49-22" aria-hidden="true" tabindex="-1"></a>tt          <span class="sc">-</span><span class="fl">8.131e-05</span>  <span class="fl">3.155e-04</span>  <span class="sc">-</span><span class="fl">0.258</span>    <span class="fl">0.797</span>    </span>
+<span id="cb49-23"><a href="working-with-time-series.html#cb49-23" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb49-24"><a href="working-with-time-series.html#cb49-24" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb49-25"><a href="working-with-time-series.html#cb49-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-26"><a href="working-with-time-series.html#cb49-26" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">1.015</span> on <span class="dv">496</span> degrees of freedom</span>
+<span id="cb49-27"><a href="working-with-time-series.html#cb49-27" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.5227</span>,    Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.5208</span> </span>
+<span id="cb49-28"><a href="working-with-time-series.html#cb49-28" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">271.6</span> on <span class="dv">2</span> and <span class="dv">496</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="er">&lt;</span> <span class="fl">2.2e-16</span></span>
+<span id="cb49-29"><a href="working-with-time-series.html#cb49-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-30"><a href="working-with-time-series.html#cb49-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-31"><a href="working-with-time-series.html#cb49-31" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">23.3058</span> <span class="fl">181.0659</span> <span class="fl">271.5939</span> </span>
+<span id="cb49-32"><a href="working-with-time-series.html#cb49-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-33"><a href="working-with-time-series.html#cb49-33" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
+<span id="cb49-34"><a href="working-with-time-series.html#cb49-34" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
+<span id="cb49-35"><a href="working-with-time-series.html#cb49-35" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.98</span> <span class="sc">-</span><span class="fl">3.42</span> <span class="sc">-</span><span class="fl">3.13</span></span>
+<span id="cb49-36"><a href="working-with-time-series.html#cb49-36" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.15</span>  <span class="fl">4.71</span>  <span class="fl">4.05</span></span>
+<span id="cb49-37"><a href="working-with-time-series.html#cb49-37" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.34</span>  <span class="fl">6.30</span>  <span class="fl">5.36</span></span>
+<span id="cb49-38"><a href="working-with-time-series.html#cb49-38" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(y3, <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))</span>
+<span id="cb49-39"><a href="working-with-time-series.html#cb49-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-40"><a href="working-with-time-series.html#cb49-40" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
+<span id="cb49-41"><a href="working-with-time-series.html#cb49-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
+<span id="cb49-42"><a href="working-with-time-series.html#cb49-42" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
+<span id="cb49-43"><a href="working-with-time-series.html#cb49-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-44"><a href="working-with-time-series.html#cb49-44" aria-hidden="true" tabindex="-1"></a>Test regression trend </span>
+<span id="cb49-45"><a href="working-with-time-series.html#cb49-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-46"><a href="working-with-time-series.html#cb49-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-47"><a href="working-with-time-series.html#cb49-47" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb49-48"><a href="working-with-time-series.html#cb49-48" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> z.diff <span class="sc">~</span> z.lag<span class="fl">.1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> tt)</span>
+<span id="cb49-49"><a href="working-with-time-series.html#cb49-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-50"><a href="working-with-time-series.html#cb49-50" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
+<span id="cb49-51"><a href="working-with-time-series.html#cb49-51" aria-hidden="true" tabindex="-1"></a>     Min       1Q   Median       3Q      Max </span>
+<span id="cb49-52"><a href="working-with-time-series.html#cb49-52" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">2.65403</span> <span class="sc">-</span><span class="fl">0.71415</span>  <span class="fl">0.03071</span>  <span class="fl">0.70711</span>  <span class="fl">3.07356</span> </span>
+<span id="cb49-53"><a href="working-with-time-series.html#cb49-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-54"><a href="working-with-time-series.html#cb49-54" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb49-55"><a href="working-with-time-series.html#cb49-55" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb49-56"><a href="working-with-time-series.html#cb49-56" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">0.471046</span>   <span class="fl">0.093106</span>   <span class="fl">5.059</span> <span class="fl">5.94e-07</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb49-57"><a href="working-with-time-series.html#cb49-57" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>     <span class="sc">-</span><span class="fl">0.009994</span>   <span class="fl">0.006514</span>  <span class="sc">-</span><span class="fl">1.534</span>    <span class="fl">0.126</span>    </span>
+<span id="cb49-58"><a href="working-with-time-series.html#cb49-58" aria-hidden="true" tabindex="-1"></a>tt           <span class="fl">0.004904</span>   <span class="fl">0.003263</span>   <span class="fl">1.503</span>    <span class="fl">0.134</span>    </span>
+<span id="cb49-59"><a href="working-with-time-series.html#cb49-59" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb49-60"><a href="working-with-time-series.html#cb49-60" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb49-61"><a href="working-with-time-series.html#cb49-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-62"><a href="working-with-time-series.html#cb49-62" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">1.014</span> on <span class="dv">496</span> degrees of freedom</span>
+<span id="cb49-63"><a href="working-with-time-series.html#cb49-63" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.004852</span>,  Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.0008397</span> </span>
+<span id="cb49-64"><a href="working-with-time-series.html#cb49-64" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">1.209</span> on <span class="dv">2</span> and <span class="dv">496</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.2993</span></span>
+<span id="cb49-65"><a href="working-with-time-series.html#cb49-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-66"><a href="working-with-time-series.html#cb49-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-67"><a href="working-with-time-series.html#cb49-67" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">1.5343</span> <span class="fl">38.322</span> <span class="fl">1.2093</span> </span>
+<span id="cb49-68"><a href="working-with-time-series.html#cb49-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-69"><a href="working-with-time-series.html#cb49-69" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
+<span id="cb49-70"><a href="working-with-time-series.html#cb49-70" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
+<span id="cb49-71"><a href="working-with-time-series.html#cb49-71" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.98</span> <span class="sc">-</span><span class="fl">3.42</span> <span class="sc">-</span><span class="fl">3.13</span></span>
+<span id="cb49-72"><a href="working-with-time-series.html#cb49-72" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.15</span>  <span class="fl">4.71</span>  <span class="fl">4.05</span></span>
+<span id="cb49-73"><a href="working-with-time-series.html#cb49-73" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.34</span>  <span class="fl">6.30</span>  <span class="fl">5.36</span></span></code></pre></div>
 <p>You can see that the test with the stationary series rejects the null- the series is identified as stationary.</p>
 <p>But the test on the unit root we created does not reject the null - that series is not stationary.</p>
 <p>Use of these tests to determine if time series are stationary is well-established in practice.</p>
@@ -489,116 +487,116 @@ Notice that there is a statistically significant link between <span class="math 
 <p>You have several variables to choose from as you specify a model of presidential approval for the assignment. Some of these variables are stationary, but others are not. We need to figure out what types of transformations might be appropriate for these variables and the implications of these transformations.</p>
 <p>I would like to use three variables in the running example: casualties, the index of consumer sentiment (a subjective perception about how the economy is doing, and the honeymoon period. I expect presidential approval to decrease when there are casualties, increase when people believe the economy is doing well, and be higher during the first quarter of any term.</p>
 <p>I need to test each of these variables for stationarity, just like I tested the <span class="math inline">\(Y\)</span> variable.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="working-with-time-series.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(poq<span class="sc">$</span>honeymoon,  <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))  </span>
-<span id="cb51-2"><a href="working-with-time-series.html#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-3"><a href="working-with-time-series.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
-<span id="cb51-4"><a href="working-with-time-series.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
-<span id="cb51-5"><a href="working-with-time-series.html#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
-<span id="cb51-6"><a href="working-with-time-series.html#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-7"><a href="working-with-time-series.html#cb51-7" aria-hidden="true" tabindex="-1"></a>Test regression trend </span>
-<span id="cb51-8"><a href="working-with-time-series.html#cb51-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-9"><a href="working-with-time-series.html#cb51-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-10"><a href="working-with-time-series.html#cb51-10" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb51-11"><a href="working-with-time-series.html#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> z.diff <span class="sc">~</span> z.lag<span class="fl">.1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> tt)</span>
-<span id="cb51-12"><a href="working-with-time-series.html#cb51-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-13"><a href="working-with-time-series.html#cb51-13" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
-<span id="cb51-14"><a href="working-with-time-series.html#cb51-14" aria-hidden="true" tabindex="-1"></a>    Min      1Q  Median      3Q     Max </span>
-<span id="cb51-15"><a href="working-with-time-series.html#cb51-15" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">0.8044</span> <span class="sc">-</span><span class="fl">0.1848</span> <span class="sc">-</span><span class="fl">0.1561</span> <span class="sc">-</span><span class="fl">0.1338</span>  <span class="fl">3.8678</span> </span>
-<span id="cb51-16"><a href="working-with-time-series.html#cb51-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-17"><a href="working-with-time-series.html#cb51-17" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb51-18"><a href="working-with-time-series.html#cb51-18" aria-hidden="true" tabindex="-1"></a>              Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
-<span id="cb51-19"><a href="working-with-time-series.html#cb51-19" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">0.1993973</span>  <span class="fl">0.1092503</span>   <span class="fl">1.825</span>   <span class="fl">0.0692</span> .  </span>
-<span id="cb51-20"><a href="working-with-time-series.html#cb51-20" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>     <span class="sc">-</span><span class="fl">0.3877001</span>  <span class="fl">0.0512282</span>  <span class="sc">-</span><span class="fl">7.568</span> <span class="fl">8.27e-13</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb51-21"><a href="working-with-time-series.html#cb51-21" aria-hidden="true" tabindex="-1"></a>tt          <span class="sc">-</span><span class="fl">0.0003184</span>  <span class="fl">0.0007626</span>  <span class="sc">-</span><span class="fl">0.417</span>   <span class="fl">0.6767</span>    </span>
-<span id="cb51-22"><a href="working-with-time-series.html#cb51-22" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb51-23"><a href="working-with-time-series.html#cb51-23" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
-<span id="cb51-24"><a href="working-with-time-series.html#cb51-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-25"><a href="working-with-time-series.html#cb51-25" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">0.823</span> on <span class="dv">238</span> degrees of freedom</span>
-<span id="cb51-26"><a href="working-with-time-series.html#cb51-26" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.194</span>, Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.1872</span> </span>
-<span id="cb51-27"><a href="working-with-time-series.html#cb51-27" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">28.64</span> on <span class="dv">2</span> and <span class="dv">238</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">7.133e-12</span></span>
-<span id="cb51-28"><a href="working-with-time-series.html#cb51-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-29"><a href="working-with-time-series.html#cb51-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-30"><a href="working-with-time-series.html#cb51-30" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">7.5681</span> <span class="fl">19.0962</span> <span class="fl">28.6444</span> </span>
-<span id="cb51-31"><a href="working-with-time-series.html#cb51-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-32"><a href="working-with-time-series.html#cb51-32" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
-<span id="cb51-33"><a href="working-with-time-series.html#cb51-33" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
-<span id="cb51-34"><a href="working-with-time-series.html#cb51-34" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.99</span> <span class="sc">-</span><span class="fl">3.43</span> <span class="sc">-</span><span class="fl">3.13</span></span>
-<span id="cb51-35"><a href="working-with-time-series.html#cb51-35" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.22</span>  <span class="fl">4.75</span>  <span class="fl">4.07</span></span>
-<span id="cb51-36"><a href="working-with-time-series.html#cb51-36" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.43</span>  <span class="fl">6.49</span>  <span class="fl">5.47</span></span>
-<span id="cb51-37"><a href="working-with-time-series.html#cb51-37" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(poq<span class="sc">$</span>casualty,  <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))  </span>
-<span id="cb51-38"><a href="working-with-time-series.html#cb51-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-39"><a href="working-with-time-series.html#cb51-39" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
-<span id="cb51-40"><a href="working-with-time-series.html#cb51-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
-<span id="cb51-41"><a href="working-with-time-series.html#cb51-41" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
-<span id="cb51-42"><a href="working-with-time-series.html#cb51-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-43"><a href="working-with-time-series.html#cb51-43" aria-hidden="true" tabindex="-1"></a>Test regression trend </span>
-<span id="cb51-44"><a href="working-with-time-series.html#cb51-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-45"><a href="working-with-time-series.html#cb51-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-46"><a href="working-with-time-series.html#cb51-46" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb51-47"><a href="working-with-time-series.html#cb51-47" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> z.diff <span class="sc">~</span> z.lag<span class="fl">.1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> tt)</span>
-<span id="cb51-48"><a href="working-with-time-series.html#cb51-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-49"><a href="working-with-time-series.html#cb51-49" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
-<span id="cb51-50"><a href="working-with-time-series.html#cb51-50" aria-hidden="true" tabindex="-1"></a>    Min      1Q  Median      3Q     Max </span>
-<span id="cb51-51"><a href="working-with-time-series.html#cb51-51" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">1879.7</span>  <span class="sc">-</span><span class="fl">137.8</span>   <span class="sc">-</span><span class="fl">52.9</span>     <span class="fl">7.8</span>  <span class="fl">6918.1</span> </span>
-<span id="cb51-52"><a href="working-with-time-series.html#cb51-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-53"><a href="working-with-time-series.html#cb51-53" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb51-54"><a href="working-with-time-series.html#cb51-54" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
-<span id="cb51-55"><a href="working-with-time-series.html#cb51-55" aria-hidden="true" tabindex="-1"></a>(Intercept) <span class="fl">215.43037</span>   <span class="fl">86.18242</span>    <span class="fl">2.50</span>   <span class="fl">0.0131</span> <span class="sc">*</span>  </span>
-<span id="cb51-56"><a href="working-with-time-series.html#cb51-56" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>      <span class="sc">-</span><span class="fl">0.20696</span>    <span class="fl">0.03927</span>   <span class="sc">-</span><span class="fl">5.27</span> <span class="fl">3.05e-07</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb51-57"><a href="working-with-time-series.html#cb51-57" aria-hidden="true" tabindex="-1"></a>tt           <span class="sc">-</span><span class="fl">1.08346</span>    <span class="fl">0.58260</span>   <span class="sc">-</span><span class="fl">1.86</span>   <span class="fl">0.0642</span> .  </span>
-<span id="cb51-58"><a href="working-with-time-series.html#cb51-58" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb51-59"><a href="working-with-time-series.html#cb51-59" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
-<span id="cb51-60"><a href="working-with-time-series.html#cb51-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-61"><a href="working-with-time-series.html#cb51-61" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">594.5</span> on <span class="dv">238</span> degrees of freedom</span>
-<span id="cb51-62"><a href="working-with-time-series.html#cb51-62" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.1046</span>,    Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.09705</span> </span>
-<span id="cb51-63"><a href="working-with-time-series.html#cb51-63" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span>  <span class="fl">13.9</span> on <span class="dv">2</span> and <span class="dv">238</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">1.957e-06</span></span>
-<span id="cb51-64"><a href="working-with-time-series.html#cb51-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-65"><a href="working-with-time-series.html#cb51-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-66"><a href="working-with-time-series.html#cb51-66" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">5.2702</span> <span class="fl">9.265</span> <span class="fl">13.8975</span> </span>
-<span id="cb51-67"><a href="working-with-time-series.html#cb51-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-68"><a href="working-with-time-series.html#cb51-68" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
-<span id="cb51-69"><a href="working-with-time-series.html#cb51-69" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
-<span id="cb51-70"><a href="working-with-time-series.html#cb51-70" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.99</span> <span class="sc">-</span><span class="fl">3.43</span> <span class="sc">-</span><span class="fl">3.13</span></span>
-<span id="cb51-71"><a href="working-with-time-series.html#cb51-71" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.22</span>  <span class="fl">4.75</span>  <span class="fl">4.07</span></span>
-<span id="cb51-72"><a href="working-with-time-series.html#cb51-72" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.43</span>  <span class="fl">6.49</span>  <span class="fl">5.47</span></span>
-<span id="cb51-73"><a href="working-with-time-series.html#cb51-73" aria-hidden="true" tabindex="-1"></a><span class="co"># I had to filter to get rid of the quarters without mics</span></span>
-<span id="cb51-74"><a href="working-with-time-series.html#cb51-74" aria-hidden="true" tabindex="-1"></a>test<span class="ot">&lt;-</span> poq <span class="sc">%&gt;%</span> <span class="fu">filter</span>(date<span class="sc">&gt;</span><span class="st">"1952-10-01"</span>)</span>
-<span id="cb51-75"><a href="working-with-time-series.html#cb51-75" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(test<span class="sc">$</span>mics,  <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))</span>
-<span id="cb51-76"><a href="working-with-time-series.html#cb51-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-77"><a href="working-with-time-series.html#cb51-77" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
-<span id="cb51-78"><a href="working-with-time-series.html#cb51-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
-<span id="cb51-79"><a href="working-with-time-series.html#cb51-79" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
-<span id="cb51-80"><a href="working-with-time-series.html#cb51-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-81"><a href="working-with-time-series.html#cb51-81" aria-hidden="true" tabindex="-1"></a>Test regression trend </span>
-<span id="cb51-82"><a href="working-with-time-series.html#cb51-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-83"><a href="working-with-time-series.html#cb51-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-84"><a href="working-with-time-series.html#cb51-84" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb51-85"><a href="working-with-time-series.html#cb51-85" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> z.diff <span class="sc">~</span> z.lag<span class="fl">.1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> tt)</span>
-<span id="cb51-86"><a href="working-with-time-series.html#cb51-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-87"><a href="working-with-time-series.html#cb51-87" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
-<span id="cb51-88"><a href="working-with-time-series.html#cb51-88" aria-hidden="true" tabindex="-1"></a>     Min       1Q   Median       3Q      Max </span>
-<span id="cb51-89"><a href="working-with-time-series.html#cb51-89" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">15.6974</span>  <span class="sc">-</span><span class="fl">3.2255</span>   <span class="fl">0.1581</span>   <span class="fl">3.0782</span>  <span class="fl">15.1889</span> </span>
-<span id="cb51-90"><a href="working-with-time-series.html#cb51-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-91"><a href="working-with-time-series.html#cb51-91" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb51-92"><a href="working-with-time-series.html#cb51-92" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)   </span>
-<span id="cb51-93"><a href="working-with-time-series.html#cb51-93" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">8.026702</span>   <span class="fl">2.677881</span>   <span class="fl">2.997</span>  <span class="fl">0.00304</span> <span class="sc">**</span></span>
-<span id="cb51-94"><a href="working-with-time-series.html#cb51-94" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>     <span class="sc">-</span><span class="fl">0.089116</span>   <span class="fl">0.029427</span>  <span class="sc">-</span><span class="fl">3.028</span>  <span class="fl">0.00275</span> <span class="sc">**</span></span>
-<span id="cb51-95"><a href="working-with-time-series.html#cb51-95" aria-hidden="true" tabindex="-1"></a>tt          <span class="sc">-</span><span class="fl">0.002522</span>   <span class="fl">0.005122</span>  <span class="sc">-</span><span class="fl">0.492</span>  <span class="fl">0.62287</span>   </span>
-<span id="cb51-96"><a href="working-with-time-series.html#cb51-96" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb51-97"><a href="working-with-time-series.html#cb51-97" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
-<span id="cb51-98"><a href="working-with-time-series.html#cb51-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-99"><a href="working-with-time-series.html#cb51-99" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">4.89</span> on <span class="dv">219</span> degrees of freedom</span>
-<span id="cb51-100"><a href="working-with-time-series.html#cb51-100" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.04123</span>,   Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.03247</span> </span>
-<span id="cb51-101"><a href="working-with-time-series.html#cb51-101" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">4.708</span> on <span class="dv">2</span> and <span class="dv">219</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.009953</span></span>
-<span id="cb51-102"><a href="working-with-time-series.html#cb51-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-103"><a href="working-with-time-series.html#cb51-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-104"><a href="working-with-time-series.html#cb51-104" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">3.0284</span> <span class="fl">3.1809</span> <span class="fl">4.7083</span> </span>
-<span id="cb51-105"><a href="working-with-time-series.html#cb51-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-106"><a href="working-with-time-series.html#cb51-106" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
-<span id="cb51-107"><a href="working-with-time-series.html#cb51-107" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
-<span id="cb51-108"><a href="working-with-time-series.html#cb51-108" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.99</span> <span class="sc">-</span><span class="fl">3.43</span> <span class="sc">-</span><span class="fl">3.13</span></span>
-<span id="cb51-109"><a href="working-with-time-series.html#cb51-109" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.22</span>  <span class="fl">4.75</span>  <span class="fl">4.07</span></span>
-<span id="cb51-110"><a href="working-with-time-series.html#cb51-110" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.43</span>  <span class="fl">6.49</span>  <span class="fl">5.47</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="working-with-time-series.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(poq<span class="sc">$</span>honeymoon,  <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))  </span>
+<span id="cb50-2"><a href="working-with-time-series.html#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="working-with-time-series.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
+<span id="cb50-4"><a href="working-with-time-series.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
+<span id="cb50-5"><a href="working-with-time-series.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
+<span id="cb50-6"><a href="working-with-time-series.html#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="working-with-time-series.html#cb50-7" aria-hidden="true" tabindex="-1"></a>Test regression trend </span>
+<span id="cb50-8"><a href="working-with-time-series.html#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="working-with-time-series.html#cb50-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-10"><a href="working-with-time-series.html#cb50-10" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb50-11"><a href="working-with-time-series.html#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> z.diff <span class="sc">~</span> z.lag<span class="fl">.1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> tt)</span>
+<span id="cb50-12"><a href="working-with-time-series.html#cb50-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-13"><a href="working-with-time-series.html#cb50-13" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
+<span id="cb50-14"><a href="working-with-time-series.html#cb50-14" aria-hidden="true" tabindex="-1"></a>    Min      1Q  Median      3Q     Max </span>
+<span id="cb50-15"><a href="working-with-time-series.html#cb50-15" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">0.8044</span> <span class="sc">-</span><span class="fl">0.1848</span> <span class="sc">-</span><span class="fl">0.1561</span> <span class="sc">-</span><span class="fl">0.1338</span>  <span class="fl">3.8678</span> </span>
+<span id="cb50-16"><a href="working-with-time-series.html#cb50-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-17"><a href="working-with-time-series.html#cb50-17" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb50-18"><a href="working-with-time-series.html#cb50-18" aria-hidden="true" tabindex="-1"></a>              Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb50-19"><a href="working-with-time-series.html#cb50-19" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">0.1993973</span>  <span class="fl">0.1092503</span>   <span class="fl">1.825</span>   <span class="fl">0.0692</span> .  </span>
+<span id="cb50-20"><a href="working-with-time-series.html#cb50-20" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>     <span class="sc">-</span><span class="fl">0.3877001</span>  <span class="fl">0.0512282</span>  <span class="sc">-</span><span class="fl">7.568</span> <span class="fl">8.27e-13</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb50-21"><a href="working-with-time-series.html#cb50-21" aria-hidden="true" tabindex="-1"></a>tt          <span class="sc">-</span><span class="fl">0.0003184</span>  <span class="fl">0.0007626</span>  <span class="sc">-</span><span class="fl">0.417</span>   <span class="fl">0.6767</span>    </span>
+<span id="cb50-22"><a href="working-with-time-series.html#cb50-22" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb50-23"><a href="working-with-time-series.html#cb50-23" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb50-24"><a href="working-with-time-series.html#cb50-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-25"><a href="working-with-time-series.html#cb50-25" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">0.823</span> on <span class="dv">238</span> degrees of freedom</span>
+<span id="cb50-26"><a href="working-with-time-series.html#cb50-26" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.194</span>, Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.1872</span> </span>
+<span id="cb50-27"><a href="working-with-time-series.html#cb50-27" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">28.64</span> on <span class="dv">2</span> and <span class="dv">238</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">7.133e-12</span></span>
+<span id="cb50-28"><a href="working-with-time-series.html#cb50-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-29"><a href="working-with-time-series.html#cb50-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-30"><a href="working-with-time-series.html#cb50-30" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">7.5681</span> <span class="fl">19.0962</span> <span class="fl">28.6444</span> </span>
+<span id="cb50-31"><a href="working-with-time-series.html#cb50-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-32"><a href="working-with-time-series.html#cb50-32" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
+<span id="cb50-33"><a href="working-with-time-series.html#cb50-33" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
+<span id="cb50-34"><a href="working-with-time-series.html#cb50-34" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.99</span> <span class="sc">-</span><span class="fl">3.43</span> <span class="sc">-</span><span class="fl">3.13</span></span>
+<span id="cb50-35"><a href="working-with-time-series.html#cb50-35" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.22</span>  <span class="fl">4.75</span>  <span class="fl">4.07</span></span>
+<span id="cb50-36"><a href="working-with-time-series.html#cb50-36" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.43</span>  <span class="fl">6.49</span>  <span class="fl">5.47</span></span>
+<span id="cb50-37"><a href="working-with-time-series.html#cb50-37" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(poq<span class="sc">$</span>casualty,  <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))  </span>
+<span id="cb50-38"><a href="working-with-time-series.html#cb50-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-39"><a href="working-with-time-series.html#cb50-39" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
+<span id="cb50-40"><a href="working-with-time-series.html#cb50-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
+<span id="cb50-41"><a href="working-with-time-series.html#cb50-41" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
+<span id="cb50-42"><a href="working-with-time-series.html#cb50-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-43"><a href="working-with-time-series.html#cb50-43" aria-hidden="true" tabindex="-1"></a>Test regression trend </span>
+<span id="cb50-44"><a href="working-with-time-series.html#cb50-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-45"><a href="working-with-time-series.html#cb50-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-46"><a href="working-with-time-series.html#cb50-46" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb50-47"><a href="working-with-time-series.html#cb50-47" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> z.diff <span class="sc">~</span> z.lag<span class="fl">.1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> tt)</span>
+<span id="cb50-48"><a href="working-with-time-series.html#cb50-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-49"><a href="working-with-time-series.html#cb50-49" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
+<span id="cb50-50"><a href="working-with-time-series.html#cb50-50" aria-hidden="true" tabindex="-1"></a>    Min      1Q  Median      3Q     Max </span>
+<span id="cb50-51"><a href="working-with-time-series.html#cb50-51" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">1879.7</span>  <span class="sc">-</span><span class="fl">137.8</span>   <span class="sc">-</span><span class="fl">52.9</span>     <span class="fl">7.8</span>  <span class="fl">6918.1</span> </span>
+<span id="cb50-52"><a href="working-with-time-series.html#cb50-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-53"><a href="working-with-time-series.html#cb50-53" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb50-54"><a href="working-with-time-series.html#cb50-54" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb50-55"><a href="working-with-time-series.html#cb50-55" aria-hidden="true" tabindex="-1"></a>(Intercept) <span class="fl">215.43037</span>   <span class="fl">86.18242</span>    <span class="fl">2.50</span>   <span class="fl">0.0131</span> <span class="sc">*</span>  </span>
+<span id="cb50-56"><a href="working-with-time-series.html#cb50-56" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>      <span class="sc">-</span><span class="fl">0.20696</span>    <span class="fl">0.03927</span>   <span class="sc">-</span><span class="fl">5.27</span> <span class="fl">3.05e-07</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb50-57"><a href="working-with-time-series.html#cb50-57" aria-hidden="true" tabindex="-1"></a>tt           <span class="sc">-</span><span class="fl">1.08346</span>    <span class="fl">0.58260</span>   <span class="sc">-</span><span class="fl">1.86</span>   <span class="fl">0.0642</span> .  </span>
+<span id="cb50-58"><a href="working-with-time-series.html#cb50-58" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb50-59"><a href="working-with-time-series.html#cb50-59" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb50-60"><a href="working-with-time-series.html#cb50-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-61"><a href="working-with-time-series.html#cb50-61" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">594.5</span> on <span class="dv">238</span> degrees of freedom</span>
+<span id="cb50-62"><a href="working-with-time-series.html#cb50-62" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.1046</span>,    Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.09705</span> </span>
+<span id="cb50-63"><a href="working-with-time-series.html#cb50-63" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span>  <span class="fl">13.9</span> on <span class="dv">2</span> and <span class="dv">238</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">1.957e-06</span></span>
+<span id="cb50-64"><a href="working-with-time-series.html#cb50-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-65"><a href="working-with-time-series.html#cb50-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-66"><a href="working-with-time-series.html#cb50-66" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">5.2702</span> <span class="fl">9.265</span> <span class="fl">13.8975</span> </span>
+<span id="cb50-67"><a href="working-with-time-series.html#cb50-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-68"><a href="working-with-time-series.html#cb50-68" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
+<span id="cb50-69"><a href="working-with-time-series.html#cb50-69" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
+<span id="cb50-70"><a href="working-with-time-series.html#cb50-70" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.99</span> <span class="sc">-</span><span class="fl">3.43</span> <span class="sc">-</span><span class="fl">3.13</span></span>
+<span id="cb50-71"><a href="working-with-time-series.html#cb50-71" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.22</span>  <span class="fl">4.75</span>  <span class="fl">4.07</span></span>
+<span id="cb50-72"><a href="working-with-time-series.html#cb50-72" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.43</span>  <span class="fl">6.49</span>  <span class="fl">5.47</span></span>
+<span id="cb50-73"><a href="working-with-time-series.html#cb50-73" aria-hidden="true" tabindex="-1"></a><span class="co"># I had to filter to get rid of the quarters without mics</span></span>
+<span id="cb50-74"><a href="working-with-time-series.html#cb50-74" aria-hidden="true" tabindex="-1"></a>test<span class="ot">&lt;-</span> poq <span class="sc">%&gt;%</span> <span class="fu">filter</span>(date<span class="sc">&gt;</span><span class="st">"1952-10-01"</span>)</span>
+<span id="cb50-75"><a href="working-with-time-series.html#cb50-75" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(test<span class="sc">$</span>mics,  <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))</span>
+<span id="cb50-76"><a href="working-with-time-series.html#cb50-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-77"><a href="working-with-time-series.html#cb50-77" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
+<span id="cb50-78"><a href="working-with-time-series.html#cb50-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
+<span id="cb50-79"><a href="working-with-time-series.html#cb50-79" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
+<span id="cb50-80"><a href="working-with-time-series.html#cb50-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-81"><a href="working-with-time-series.html#cb50-81" aria-hidden="true" tabindex="-1"></a>Test regression trend </span>
+<span id="cb50-82"><a href="working-with-time-series.html#cb50-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-83"><a href="working-with-time-series.html#cb50-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-84"><a href="working-with-time-series.html#cb50-84" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb50-85"><a href="working-with-time-series.html#cb50-85" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> z.diff <span class="sc">~</span> z.lag<span class="fl">.1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> tt)</span>
+<span id="cb50-86"><a href="working-with-time-series.html#cb50-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-87"><a href="working-with-time-series.html#cb50-87" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
+<span id="cb50-88"><a href="working-with-time-series.html#cb50-88" aria-hidden="true" tabindex="-1"></a>     Min       1Q   Median       3Q      Max </span>
+<span id="cb50-89"><a href="working-with-time-series.html#cb50-89" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">15.6974</span>  <span class="sc">-</span><span class="fl">3.2255</span>   <span class="fl">0.1581</span>   <span class="fl">3.0782</span>  <span class="fl">15.1889</span> </span>
+<span id="cb50-90"><a href="working-with-time-series.html#cb50-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-91"><a href="working-with-time-series.html#cb50-91" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb50-92"><a href="working-with-time-series.html#cb50-92" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)   </span>
+<span id="cb50-93"><a href="working-with-time-series.html#cb50-93" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">8.026702</span>   <span class="fl">2.677881</span>   <span class="fl">2.997</span>  <span class="fl">0.00304</span> <span class="sc">**</span></span>
+<span id="cb50-94"><a href="working-with-time-series.html#cb50-94" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>     <span class="sc">-</span><span class="fl">0.089116</span>   <span class="fl">0.029427</span>  <span class="sc">-</span><span class="fl">3.028</span>  <span class="fl">0.00275</span> <span class="sc">**</span></span>
+<span id="cb50-95"><a href="working-with-time-series.html#cb50-95" aria-hidden="true" tabindex="-1"></a>tt          <span class="sc">-</span><span class="fl">0.002522</span>   <span class="fl">0.005122</span>  <span class="sc">-</span><span class="fl">0.492</span>  <span class="fl">0.62287</span>   </span>
+<span id="cb50-96"><a href="working-with-time-series.html#cb50-96" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb50-97"><a href="working-with-time-series.html#cb50-97" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb50-98"><a href="working-with-time-series.html#cb50-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-99"><a href="working-with-time-series.html#cb50-99" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">4.89</span> on <span class="dv">219</span> degrees of freedom</span>
+<span id="cb50-100"><a href="working-with-time-series.html#cb50-100" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.04123</span>,   Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.03247</span> </span>
+<span id="cb50-101"><a href="working-with-time-series.html#cb50-101" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">4.708</span> on <span class="dv">2</span> and <span class="dv">219</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.009953</span></span>
+<span id="cb50-102"><a href="working-with-time-series.html#cb50-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-103"><a href="working-with-time-series.html#cb50-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-104"><a href="working-with-time-series.html#cb50-104" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">3.0284</span> <span class="fl">3.1809</span> <span class="fl">4.7083</span> </span>
+<span id="cb50-105"><a href="working-with-time-series.html#cb50-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-106"><a href="working-with-time-series.html#cb50-106" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
+<span id="cb50-107"><a href="working-with-time-series.html#cb50-107" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
+<span id="cb50-108"><a href="working-with-time-series.html#cb50-108" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.99</span> <span class="sc">-</span><span class="fl">3.43</span> <span class="sc">-</span><span class="fl">3.13</span></span>
+<span id="cb50-109"><a href="working-with-time-series.html#cb50-109" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.22</span>  <span class="fl">4.75</span>  <span class="fl">4.07</span></span>
+<span id="cb50-110"><a href="working-with-time-series.html#cb50-110" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.43</span>  <span class="fl">6.49</span>  <span class="fl">5.47</span></span></code></pre></div>
 <p>The tests reveal a couple of things - casualties and the honeymoon variable are both stationary, but the index of consumer sentiment, the first test, is not. This series is not stationary.</p>
 </div>
 <div id="we-have-options" class="section level3 unnumbered">
@@ -629,7 +627,7 @@ If the trend variable was significant, we could detrend – remove a linear tren
 <span class="header-section-number">5.2.4</span> What the transformed series look like<a class="anchor" aria-label="anchor" href="#what-the-transformed-series-look-like"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can compare the plots of the MICS data using these transformations. (Note that we would need to check that these new, transformed series are stationary too.) This is just to show you how these transformations work.</p>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Create the first differnce</span>
 <span class="va">poq</span><span class="op">$</span><span class="va">d.mics</span><span class="op">&lt;-</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">)</span>
 
@@ -648,15 +646,15 @@ If the trend variable was significant, we could detrend – remove a linear tren
 
 <span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">mics</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Index of Consumer Sentiment"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span> <span class="op">+</span> <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"MICS"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/compare-1.png" width="672"></div>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">log.mics</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Log, Index of Consumer Sentiment"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span> <span class="op">+</span> <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"Log, MICS"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/compare-2.png" width="672"></div>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">pct.mics</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Percent change, Index of Consumer Sentiment"</span><span class="op">)</span> <span class="op">+</span>  <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span> <span class="op">+</span> <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"Percent change from previous quarter"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/compare-3.png" width="672"></div>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">d.mics</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"First difference, Index of Consumer Sentiment"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span> <span class="op">+</span> <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"First difference"</span><span class="op">)</span></code></pre></div>
@@ -688,7 +686,7 @@ In order to determine if autocorrelation exists, we again rely on our estimate o
 </h3>
 <p>Start, as always, with a model, most likely a model involving time series data. In this case the dependent variable is presidential approval and the predictors are the Michigan Index of Consumer Sentiment and an indicator for the honeymoon period (4 in the first quarter of any presidential term, 3,2,1 and 0 by the first quarter of the second year). the index of consumer sentiment (MICS) is a subjective measure of how people perceive the state of the econonmy. The idea is that if the economy is good, then presidential approval will be higher. There is also a dummy variable for the honeymoon period - the first quarter of any presidential term. We expect approval to be higher earlier in the term, rather than later in the term. I will use the first differnce of MICS.</p>
 <p><span class="math display">\[Presidential.approval_t = \beta_0 + \beta_1(d.mics_t)+ \beta_2(honeymoon) + u_t\]</span></p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">poq</span><span class="op">$</span><span class="va">d.mics</span><span class="op">=</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">)</span>
 
 <span class="va">model1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">approval</span><span class="op">~</span><span class="va">d.mics</span><span class="op">+</span><span class="va">casualty</span><span class="op">+</span><span class="va">honeymoon</span>, data<span class="op">=</span><span class="va">poq</span><span class="op">)</span>
@@ -818,7 +816,7 @@ p&lt;.10* ; p&lt;.05**
 <span class="header-section-number">5.3.4</span> Using the residuals to diagnose problems<a class="anchor" aria-label="anchor" href="#using-the-residuals-to-diagnose-problems"><i class="fas fa-link"></i></a>
 </h3>
 <p>Again, like heteroskedasticity, the first thing to do is to actually look at your residuals, to determine whether or not they appear to follow some sort of a pattern. The first figure just plots the residuals over time and they look fairly random. But the second figure shows that the residuals are clearly related - error today is a positive function of error in the previous quarter.</p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">model1</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span>,<span class="va">model1</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/next-1.png" width="672"></div>
 </div>
@@ -846,13 +844,13 @@ The form of this equation should be familiar. <span class="math inline">\(\rho\)
 <p>A d closer to 0 means positive autocorrelation, a d closer to 4 means negative autocorrelation</p>
 <p>In order to determine how close to 0 or 4 is close enough to determine that the model has either positive or negative autocorrelation, there are both upper and lower critical values for d, which depend on the number of observations (N) and the number of explanatory variables (k).</p>
 <p>The null hypothesis is: No autocorrelation. In the ouput below, the test is not ambiguous. We clearly must reject the null and accept the alternative hypothesis - there is autocorrelation.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="working-with-time-series.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dwtest</span>(model1)</span>
-<span id="cb58-2"><a href="working-with-time-series.html#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-3"><a href="working-with-time-series.html#cb58-3" aria-hidden="true" tabindex="-1"></a>    Durbin<span class="sc">-</span>Watson test</span>
-<span id="cb58-4"><a href="working-with-time-series.html#cb58-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-5"><a href="working-with-time-series.html#cb58-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  model1</span>
-<span id="cb58-6"><a href="working-with-time-series.html#cb58-6" aria-hidden="true" tabindex="-1"></a>DW <span class="ot">=</span> <span class="fl">0.24122</span>, p<span class="sc">-</span>value <span class="sc">&lt;</span> <span class="fl">2.2e-16</span></span>
-<span id="cb58-7"><a href="working-with-time-series.html#cb58-7" aria-hidden="true" tabindex="-1"></a>alternative hypothesis<span class="sc">:</span> true autocorrelation is greater than <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="working-with-time-series.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dwtest</span>(model1)</span>
+<span id="cb57-2"><a href="working-with-time-series.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="working-with-time-series.html#cb57-3" aria-hidden="true" tabindex="-1"></a>    Durbin<span class="sc">-</span>Watson test</span>
+<span id="cb57-4"><a href="working-with-time-series.html#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="working-with-time-series.html#cb57-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  model1</span>
+<span id="cb57-6"><a href="working-with-time-series.html#cb57-6" aria-hidden="true" tabindex="-1"></a>DW <span class="ot">=</span> <span class="fl">0.24122</span>, p<span class="sc">-</span>value <span class="sc">&lt;</span> <span class="fl">2.2e-16</span></span>
+<span id="cb57-7"><a href="working-with-time-series.html#cb57-7" aria-hidden="true" tabindex="-1"></a>alternative hypothesis<span class="sc">:</span> true autocorrelation is greater than <span class="dv">0</span></span></code></pre></div>
 </div>
 <div id="a-more-contemporary-test-breusch-godfrey-bg" class="section level3" number="5.4.2">
 <h3>
@@ -865,10 +863,10 @@ The form of this equation should be familiar. <span class="math inline">\(\rho\)
 <p>If there is no serial correlation – at lag 1 or other lags – in our model, then the error term should appear to be white noise. There are formal tests for this implemented in many statistical packages. The Breusch Godfrey (BG) test statistic is a function of the R^2 of a regression of the error at t against the errors at lags 1 to k. This should be zero or close to zero if the errors are uncorrelated. Specifically:</p>
 <p><span class="math display">\[BG =(T-k)*R^2\]</span></p>
 <p>T is the number of time periods, k is the number of lags tested, and R<sup>2</sup> is the goodness of fit test statistic from a regression of the error on its lags. The <code>bgtest</code> function reports if the test is statistically significant. If the test is significant, then the residuals are correlated. Below, I calculate the test statistic manually for 1 lag and call the test for up to lag 4. The first number is just to show you where the test statistic comes from. The second set of output is what we will use for the assignment.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="working-with-time-series.html#cb59-1" aria-hidden="true" tabindex="-1"></a>model4<span class="ot">&lt;-</span><span class="fu">lm</span>(model1<span class="sc">$</span>residual<span class="sc">~</span><span class="fu">lag</span>(model1<span class="sc">$</span>residual))</span>
-<span id="cb59-2"><a href="working-with-time-series.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model4)<span class="sc">$</span>r.squared<span class="sc">*</span>(<span class="dv">222-1</span>)</span>
-<span id="cb59-3"><a href="working-with-time-series.html#cb59-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">170.4665</span></span>
-<span id="cb59-4"><a href="working-with-time-series.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">tidy</span>(<span class="fu">bgtest</span>(model1, <span class="at">order=</span><span class="dv">1</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"Chisq"</span>))))</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="working-with-time-series.html#cb58-1" aria-hidden="true" tabindex="-1"></a>model4<span class="ot">&lt;-</span><span class="fu">lm</span>(model1<span class="sc">$</span>residual<span class="sc">~</span><span class="fu">lag</span>(model1<span class="sc">$</span>residual))</span>
+<span id="cb58-2"><a href="working-with-time-series.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model4)<span class="sc">$</span>r.squared<span class="sc">*</span>(<span class="dv">222-1</span>)</span>
+<span id="cb58-3"><a href="working-with-time-series.html#cb58-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">170.4665</span></span>
+<span id="cb58-4"><a href="working-with-time-series.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">tidy</span>(<span class="fu">bgtest</span>(model1, <span class="at">order=</span><span class="dv">1</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"Chisq"</span>))))</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="right">statistic</th>
@@ -883,12 +881,12 @@ The form of this equation should be familiar. <span class="math inline">\(\rho\)
 <td align="left">Breusch-Godfrey test for serial correlation of order up to 1</td>
 </tr></tbody>
 </table></div>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="working-with-time-series.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bgtest</span>(model1, <span class="at">order=</span><span class="dv">4</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"Chisq"</span>))</span>
-<span id="cb60-2"><a href="working-with-time-series.html#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-3"><a href="working-with-time-series.html#cb60-3" aria-hidden="true" tabindex="-1"></a>    Breusch<span class="sc">-</span>Godfrey test <span class="cf">for</span> serial correlation of order up to <span class="dv">4</span></span>
-<span id="cb60-4"><a href="working-with-time-series.html#cb60-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-5"><a href="working-with-time-series.html#cb60-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  model1</span>
-<span id="cb60-6"><a href="working-with-time-series.html#cb60-6" aria-hidden="true" tabindex="-1"></a>LM test <span class="ot">=</span> <span class="fl">175.62</span>, df <span class="ot">=</span> <span class="dv">4</span>, p<span class="sc">-</span>value <span class="sc">&lt;</span> <span class="fl">2.2e-16</span></span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="working-with-time-series.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bgtest</span>(model1, <span class="at">order=</span><span class="dv">4</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"Chisq"</span>))</span>
+<span id="cb59-2"><a href="working-with-time-series.html#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="working-with-time-series.html#cb59-3" aria-hidden="true" tabindex="-1"></a>    Breusch<span class="sc">-</span>Godfrey test <span class="cf">for</span> serial correlation of order up to <span class="dv">4</span></span>
+<span id="cb59-4"><a href="working-with-time-series.html#cb59-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-5"><a href="working-with-time-series.html#cb59-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  model1</span>
+<span id="cb59-6"><a href="working-with-time-series.html#cb59-6" aria-hidden="true" tabindex="-1"></a>LM test <span class="ot">=</span> <span class="fl">175.62</span>, df <span class="ot">=</span> <span class="dv">4</span>, p<span class="sc">-</span>value <span class="sc">&lt;</span> <span class="fl">2.2e-16</span></span></code></pre></div>
 </div>
 </div>
 <div id="next-week-1" class="section level2" number="5.5">

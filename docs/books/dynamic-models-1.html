@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>6 Dynamic Models | Political Science and Applied Statistics using R</title>
+<meta name="author" content="J.K. Corder">
+<meta name="description" content="6.1 Modeling presidential approval with dynamics At the end of class last week, we knew a couple of things about modeling presidential approval: presidential approval is stationary, but our...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="6 Dynamic Models | Political Science and Applied Statistics using R">
+<meta property="og:type" content="book">
+<meta property="og:description" content="6.1 Modeling presidential approval with dynamics At the end of class last week, we knew a couple of things about modeling presidential approval: presidential approval is stationary, but our...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="6 Dynamic Models | Political Science and Applied Statistics using R">
+<meta name="twitter:description" content="6.1 Modeling presidential approval with dynamics At the end of class last week, we knew a couple of things about modeling presidential approval: presidential approval is stationary, but our...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Political Science and Applied Statistics using R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li><a class="" href="why-math-why-r.html"><span class="header-section-number">1</span> Why math? Why R?</a></li>
+<li><a class="" href="regression-review-and-assumptions.html"><span class="header-section-number">2</span> Regression: review and assumptions</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">3</span> Logistic regression</a></li>
+<li><a class="" href="using-interaction-terms.html"><span class="header-section-number">4</span> Using interaction terms</a></li>
+<li><a class="" href="working-with-time-series.html"><span class="header-section-number">5</span> Working with time series</a></li>
+<li><a class="active" href="dynamic-models-1.html"><span class="header-section-number">6</span> Dynamic Models</a></li>
+<li><a class="" href="working-with-panel-data.html"><span class="header-section-number">7</span> Working with panel data</a></li>
+<li><a class="" href="dynamics-panel-models---a-brief-introduction.html"><span class="header-section-number">8</span> Dynamics panel models - a brief introduction</a></li>
+<li><a class="" href="counts.html"><span class="header-section-number">9</span> Counts</a></li>
+<li><a class="" href="duration-models.html"><span class="header-section-number">10</span> Duration models</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">11</span> References</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="using-the-american-national-election-study.html">Using the American National Election Study</a></li>
+<li><a class="" href="the-harvard-dataverse.html">The Harvard Dataverse</a></li>
+<li><a class="" href="replicating-when-do-politicians-grandstand.html">Replicating “When do politicians grandstand?”</a></li>
+<li><a class="" href="data-models-and-evidence-based-policymaking.html"><span class="header-section-number">A</span> Data, models and evidence-based policymaking</a></li>
+<li><a class="" href="quasi--and-natural-experiments.html"><span class="header-section-number">B</span> Quasi- and natural experiments</a></li>
+<li><a class="" href="matching.html"><span class="header-section-number">C</span> Matching</a></li>
+<li><a class="" href="multilevel-and-hierarchical-models.html"><span class="header-section-number">D</span> Multilevel and hierarchical models</a></li>
+<li><a class="" href="about-the-author.html">About the author</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="dynamic-models-1" class="section level1" number="6">
+<h1>
+<span class="header-section-number">6</span> Dynamic Models<a class="anchor" aria-label="anchor" href="#dynamic-models-1"><i class="fas fa-link"></i></a>
+</h1>
+<div id="modeling-presidential-approval-with-dynamics" class="section level2" number="6.1">
+<h2>
+<span class="header-section-number">6.1</span> Modeling presidential approval with dynamics<a class="anchor" aria-label="anchor" href="#modeling-presidential-approval-with-dynamics"><i class="fas fa-link"></i></a>
+</h2>
+<p>At the end of class last week, we knew a couple of things about modeling presidential approval:</p>
+<ul>
+<li><p>presidential approval is stationary, but our measure of consumer sentiment is not. We have to use the first difference if we want to include economic sentiment in a model of approval</p></li>
+<li><p>if we use OLS to estimate the relative importance of casualties in war, economic sentiment, and the honeymoon period, the residuals are correlated with each other, violating one of the key assumptions behind OLS.</p></li>
+</ul>
+<p>To address the problem of serial correlation, we will use two categories of solutions:</p>
+<ul>
+<li><p>we will incorporate some dynamics in the error term in what is known as an <em>ARIMA model</em></p></li>
+<li><p>we will introduce lagged values of the dependent and independent variables in what are known as a <em>dynamic models</em>.</p></li>
+</ul>
+<p>We are going to use two basic approaches to estimate model parameters - the functions in the <strong>dyn</strong> package and the <code>arima</code> function that is part of base R.</p>
+</div>
+<div id="the-arima-model---the-special-case" class="section level2" number="6.2">
+<h2>
+<span class="header-section-number">6.2</span> The ARIMA model - the special case<a class="anchor" aria-label="anchor" href="#the-arima-model---the-special-case"><i class="fas fa-link"></i></a>
+</h2>
+<p>The autoregressive integrated moving average (ARIMA) modeling strategy permits us to remedy the problem of serial correlation of the error term. It is then possible to estimate the effect of X on Y in period <span class="math inline">\(t\)</span>. One way to think about this modeling strategy is that all the dynamics - the influence of the past on current observations - is introduced via the error term. This an assumption implicit in model estimated for the last week: the effects of X on Y are <em>contemporaneous</em>. There is no way (technically or substantively) in this modeling framework that past values of X cause current values of Y or that past values of Y influence current values of Y. This suggests that ARIMA strategy may be a special case and a more general strategy for handling dynamics may be appropriate.</p>
+<p>The model summarized below treats presidential approval as a function of the first difference in current economic conditions (the Michigan Index of Consumer Sentiment. MICS), total casualties in war during the quarter, and a counter to indicate the honeymoon period (4 in the first quarter of the first year falling to 0 in the first quarter of the second year). Since I know the MICS variable is not stationary, I use the first difference in MICS.</p>
+<p>Our remedy relies on some knowledge of the nature of the interdependence of our disturbance terms (<span class="math inline">\(u\)</span>). Recall, our basic model is:</p>
+<p><span class="math display">\[Approval_t = \beta_0 + \beta_1(diff(MICS_t))+ \beta_2(Honeymoon_t) +\beta_3(Casualty_t)+ u_{t}\]</span></p>
+<p>and in order to use the Durbin-Watson test we have assumed that the error is generated by an AR(1) mechanism, where:</p>
+<p><span class="math display">\[ –1&lt;\rho&lt; 1 \]</span></p>
+<p><span class="math display">\[ u_t = \rho u_{t-1} + v_t\]</span></p>
+<p>Our goal is to somehow transform our model so that in the transformed model the error term is serially independent (no autocorrelation)</p>
+<p>If we can transform the model in that way, then our OLS estimates on the transformed model will be BLUE, assuming all other OLS assumptions are fulfilled. To do that we simply combine the equations above.</p>
+<p><span class="math display">\[Approval_t = \beta_0 + \beta_1(diff(MICS_t))+ \beta_2(Honeymoon_t) +\beta_3(Casualty_t)+ \rho u_{t-1} + v_t\]</span></p>
+<p>This transformation can be generalized to higher-order schemes, AR(2), etc., which we will not worry about here. Estimation of this model is simple in R using the <code>arima</code> function.</p>
+<p>R implements a nonlinear strategy for simultaneously estimating <span class="math inline">\(\rho\)</span> and the parameters of the model (<span class="math inline">\(\beta_i\)</span>). Note that this approach is a contemporary and superior alternative to two techniques that you might see in older journal articles – Prais-Winsten regression and Cochran-Orchutt estimation. Both of these use OLS to get at the same problem. They are two-step approaches - first estimating <span class="math inline">\(\rho\)</span> and then estimating the parameters given that estimate. These tests typically report the durbin-watson test statistic to evaluate the reduction in serial correlation. If you are reading literature published before, say, 2002, you might see this approach. The substantive and statistical findings should be nearly identical to the ARIMA approach below.</p>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># Use the haven package read_dta function to read the STATA dataset</span>
+<span class="va">poq</span><span class="op">&lt;-</span> <span class="fu">read_dta</span><span class="op">(</span><span class="st">"data/poq_guys.dta"</span><span class="op">)</span>
+
+<span class="co"># Use the lubridate make_date function to create a date</span>
+<span class="co"># Notice the trick to convert the quarter to the first month of the quarter</span>
+<span class="co"># be careful with merging data to make sure it is matched with the right period</span>
+<span class="va">poq</span> <span class="op">&lt;-</span> <span class="va">poq</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span><span class="op">(</span>date <span class="op">=</span> <span class="fu">make_date</span><span class="op">(</span><span class="va">year</span>, <span class="op">(</span><span class="fl">3</span><span class="op">*</span><span class="va">quarter</span><span class="op">-</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># WAR VARIABLES</span>
+<span class="co"># Create a duration counter including each conflict</span>
+<span class="va">poq</span><span class="op">$</span><span class="va">weary</span><span class="op">&lt;-</span><span class="va">poq</span><span class="op">$</span><span class="va">weary_kor</span><span class="op">+</span><span class="va">poq</span><span class="op">$</span><span class="va">weary_Viet</span><span class="op">+</span><span class="va">poq</span><span class="op">$</span><span class="va">weary_Afgh</span>
+<span class="co"># Create a single casualty variable</span>
+<span class="va">poq</span><span class="op">$</span><span class="va">casualty</span><span class="op">&lt;-</span><span class="va">poq</span><span class="op">$</span><span class="va">vietnam</span><span class="op">+</span><span class="va">poq</span><span class="op">$</span><span class="va">iraqcas</span><span class="op">+</span><span class="va">poq</span><span class="op">$</span><span class="va">koreacas</span>
+<span class="co"># Create a cumulative casualty variable</span>
+<span class="va">poq</span><span class="op">$</span><span class="va">cumulative</span><span class="op">&lt;-</span><span class="va">poq</span><span class="op">$</span><span class="va">koreacasCUM</span><span class="op">+</span><span class="va">poq</span><span class="op">$</span><span class="va">VietcasCUM</span><span class="op">+</span><span class="va">poq</span><span class="op">$</span><span class="va">iraqcasCUM</span>
+<span class="co"># Create a dummy variable for war</span>
+<span class="va">poq</span><span class="op">$</span><span class="va">wardummy</span><span class="op">&lt;-</span><span class="va">poq</span><span class="op">$</span><span class="va">Iraqdum</span><span class="op">+</span><span class="va">poq</span><span class="op">$</span><span class="va">Vietdum</span><span class="op">+</span><span class="va">poq</span><span class="op">$</span><span class="va">Koreadum</span>
+<span class="co"># Other costs of war</span>
+<span class="co"># The defense spending variable is DoDspend</span>
+
+<span class="co"># ECONOMIC VARIABLES</span>
+<span class="co"># Inflation is  Infl_new</span>
+<span class="co"># Unemployment is unempl</span>
+<span class="co"># Economic growth is growth</span>
+<span class="co"># Michigan Index of consumer sentiment is mics</span>
+
+<span class="co"># CONTROLS</span>
+<span class="co"># Honeymoon is honeymoon</span>
+<span class="co"># Divided government is dg</span>
+<span class="co"># Election year is elyear</span>
+<span class="co"># Watergate is water</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># While I use the dyn package below to estimate</span>
+<span class="co"># dynamic models, the arima function requires</span>
+<span class="co"># that I create the first difference variable</span>
+<span class="co"># and then bind all of the X variables together.</span>
+
+<span class="co"># Create the first difference variable dmics</span>
+<span class="co"># this syntax places the first calculated difference in the second row</span>
+<span class="co"># if you forget this, you will get an error message</span>
+<span class="va">poq</span><span class="op">$</span><span class="va">dmics</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">poq</span><span class="op">)</span><span class="op">]</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">)</span>
+
+
+<span class="va">xvar</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">dmics</span>, <span class="va">poq</span><span class="op">$</span><span class="va">honeymoon</span>, <span class="va">poq</span><span class="op">$</span><span class="va">casualty</span><span class="op">)</span>
+
+
+<span class="co"># estimate the arima model (requires nlme package)</span>
+<span class="va">arima</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/arima.html">arima</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">approval</span>, xreg<span class="op">=</span><span class="va">xvar</span>,  order<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># produce the table</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">arima</span>,  type<span class="op">=</span><span class="st">"html"</span>,
+          model.names<span class="op">=</span><span class="cn">FALSE</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>, style<span class="op">=</span><span class="st">"apsr"</span>, digits<span class="op">=</span><span class="fl">2</span>,
+          dep.var.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Presidential approval"</span><span class="op">)</span>,
+          covariate.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ar1"</span>, <span class="st">"Constant"</span>, <span class="st">"MICS, first difference"</span>,  <span class="st">"Honeymoon"</span>, <span class="st">"Casualities"</span><span class="op">)</span>,
+          title<span class="op">=</span><span class="st">"**Table 1. Presidential approval as a function of economy, war and the honeymoon, ARIMA**"</span>,
+          notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>,
+          omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>,
+          star.cutoffs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 1. Presidential approval as a function of economy, war and the honeymoon, ARIMA</strong></strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Presidential approval
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+ar1
+</td>
+<td>
+0.88<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.03)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+53.52<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.16)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+MICS, first difference
+</td>
+<td>
+0.10<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.05)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Honeymoon
+</td>
+<td>
+3.13<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.43)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Casualities
+</td>
+<td>
+-0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+223
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+-700.12
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+AIC
+</td>
+<td>
+1,412.23
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="dynamic-models-1.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># test for serial correlation up to lag 4</span></span>
+<span id="cb62-2"><a href="dynamic-models-1.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bgtest</span>(arima<span class="sc">$</span>residual<span class="sc">~</span><span class="dv">1</span>, <span class="at">order=</span><span class="dv">4</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"Chisq"</span>))</span>
+<span id="cb62-3"><a href="dynamic-models-1.html#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-4"><a href="dynamic-models-1.html#cb62-4" aria-hidden="true" tabindex="-1"></a>    Breusch<span class="sc">-</span>Godfrey test <span class="cf">for</span> serial correlation of order up to <span class="dv">4</span></span>
+<span id="cb62-5"><a href="dynamic-models-1.html#cb62-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-6"><a href="dynamic-models-1.html#cb62-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  arima<span class="sc">$</span>residual <span class="sc">~</span> <span class="dv">1</span></span>
+<span id="cb62-7"><a href="dynamic-models-1.html#cb62-7" aria-hidden="true" tabindex="-1"></a>LM test <span class="ot">=</span> <span class="fl">6.0617</span>, df <span class="ot">=</span> <span class="dv">4</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.1946</span></span></code></pre></div>
+<p>There are a couple of things to note about this output.</p>
+<p>First, notice we have an estimate for <span class="math inline">\(\rho\)</span>, our ar(1) parameter: 0.88. This indicates a lot of persistence. Closer to 1.0 means that this process - updating approval to new information - takes time - approval is <em>sticky</em>.</p>
+<p>Second, I will reproduce basic OLS below, but notice here that the honeymoon variable is significant (+3) and the economic sentiment variable is significant, but not casualties.</p>
+<p>Finally, notice that the B-G test is insignificant, there is no serial correlation up to lag 4.</p>
+</div>
+<div id="dynamic-models-using-the-dyn-package-dl-pa-adl-ecm---a-general-approach" class="section level2" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> Dynamic models using the dyn package (dl, pa, adl, ecm) - a general approach<a class="anchor" aria-label="anchor" href="#dynamic-models-using-the-dyn-package-dl-pa-adl-ecm---a-general-approach"><i class="fas fa-link"></i></a>
+</h2>
+<p>In order to use the <strong>dyn</strong> package functions I identify each variable as a time series. Notice that when I specify the model I just indicate diff(mics) - the first difference in MICS, rather than using the new variable created above.</p>
+<p>We will start with simple OLS and test for serial correlation using the Breusch-Godrey test, the final result from the last chapter.</p>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Since I only use this library for this chapter, I call it here rather than in _common.R</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">dyn</span><span class="op">)</span>
+<span class="co"># identify each variable as a time series</span>
+<span class="co"># this steps give us the ability to use differences and</span>
+<span class="co"># lags in the dny models below and to bind the columns for arima</span>
+<span class="va">mics</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">)</span>
+<span class="va">approval</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">approval</span><span class="op">)</span>
+<span class="va">honeymoon</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">honeymoon</span><span class="op">)</span>
+<span class="va">casualty</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">casualty</span><span class="op">)</span>
+<span class="va">DoDspend</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">DoDspend</span><span class="op">)</span>
+
+<span class="co"># estimate the static model with no correction for serial correlation</span>
+<span class="co"># approval as a function of the first difference in consumer sentiment, casualties, and the honeymoon period.</span>
+<span class="co"># This is where we left off last week.</span>
+<span class="va">static</span><span class="op">&lt;-</span><span class="va">dyn</span><span class="op">$</span><span class="fu">lm</span><span class="op">(</span><span class="va">approval</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span><span class="op">+</span><span class="va">casualty</span><span class="op">+</span><span class="va">honeymoon</span><span class="op">)</span>
+<span class="co"># view the model info</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">static</span>,  type<span class="op">=</span><span class="st">"html"</span>,
+          model.names<span class="op">=</span><span class="cn">FALSE</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>, style<span class="op">=</span><span class="st">"apsr"</span>, digits<span class="op">=</span><span class="fl">2</span>,
+          dep.var.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Presidential approval"</span><span class="op">)</span>,
+          title<span class="op">=</span><span class="st">"**Table 2. Presidential approval as a function of economy, war and the honeymoon, OLS**"</span>,
+          notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>,
+          covariate.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"MICS, first difference"</span>, <span class="st">"Casualities"</span>, <span class="st">"Honeymoon"</span><span class="op">)</span>, omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>,
+          star.cutoffs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 2. Presidential approval as a function of economy, war and the honeymoon, OLS</strong></strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Presidential approval
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+MICS, first difference
+</td>
+<td>
+0.14
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.16)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Casualities
+</td>
+<td>
+-0.002<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Honeymoon
+</td>
+<td>
+3.04<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.74)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+54.58<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.90)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+223
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.08
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.07
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="dynamic-models-1.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate the residuals and test for serial correlation</span></span>
+<span id="cb64-2"><a href="dynamic-models-1.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bgtest</span>(static, <span class="at">order=</span><span class="dv">4</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"Chisq"</span>))</span>
+<span id="cb64-3"><a href="dynamic-models-1.html#cb64-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-4"><a href="dynamic-models-1.html#cb64-4" aria-hidden="true" tabindex="-1"></a>    Breusch<span class="sc">-</span>Godfrey test <span class="cf">for</span> serial correlation of order up to <span class="dv">4</span></span>
+<span id="cb64-5"><a href="dynamic-models-1.html#cb64-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-6"><a href="dynamic-models-1.html#cb64-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  static</span>
+<span id="cb64-7"><a href="dynamic-models-1.html#cb64-7" aria-hidden="true" tabindex="-1"></a>LM test <span class="ot">=</span> <span class="fl">175.62</span>, df <span class="ot">=</span> <span class="dv">4</span>, p<span class="sc">-</span>value <span class="sc">&lt;</span> <span class="fl">2.2e-16</span></span></code></pre></div>
+<p>Could presidential approval depend on economic conditions in the previous quarter, rather than the current quarter? Isn’t it possible that sentiments may not immediately be updated as objective conditions change? Or, in our case, that those sentiments might not immediately affect our approval of the President? Should we assume this?</p>
+<p>To test for the presence of these longer-term effects, we introduce lagged values of the independent or dependent variables. Models that incorporate lagged variables are <em>dynamic models</em> - since effects of a change in X at time t have effects on later values of Y, at t+1 or t+2.</p>
+<div id="distributed-lag-models" class="section level3" number="6.3.1">
+<h3>
+<span class="header-section-number">6.3.1</span> Distributed lag models<a class="anchor" aria-label="anchor" href="#distributed-lag-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>If multiple lagged values of an independent variable are included, then the model is a <em>distributed lag model</em>. The effect of a change in X is distributed over future time periods.</p>
+<p>Example: suppose the true model for some outcome was</p>
+<p><span class="math display">\[y=1.0+0.6*x_{t-1}+0.4*x_{t-2}+0.2*x_{t-3}\]</span></p>
+<p>If X was stable at 1 for many periods, then Y would be equal to <span class="math display">\[1+0.6+0.4+0.2=2.2\]</span></p>
+<p>If X rose to 2 at period t, Y would be equal to:</p>
+<p>2.2 at period t (no effect)
+2.8 at period t+1
+3.2 at period t+2
+3.4 at period t+3 (and beyond)</p>
+<p>The difference between <span class="math inline">\(x=1\)</span> and <span class="math inline">\(x=2\)</span>, a one unit change in X, is. in the long-run. the SUM of the coefficients on the lagged value of <span class="math inline">\(x\)</span>:
+<span class="math display">\[(0.6+0.4+0.2=1.2)\]</span></p>
+<p>Why might lagged effects occur? psychology, intertia, technology, institutions. Think about all that is required for someone to update an attitude or belief. Would it ever be reasonable to think this happens instantly?</p>
+<p>The table below reports estimates for an autoregressive distributed lag model that includes 4 lags of the first difference in MICS.</p>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># estimate the distributed lag model (with four lags of the first difference of mics)</span>
+<span class="va">adl</span><span class="op">&lt;-</span><span class="va">dyn</span><span class="op">$</span><span class="fu">lm</span><span class="op">(</span><span class="va">approval</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span><span class="op">+</span>
+           <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+           <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span>, <span class="op">-</span><span class="fl">2</span><span class="op">)</span>
+           <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span>, <span class="op">-</span><span class="fl">3</span><span class="op">)</span>
+           <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span>, <span class="op">-</span><span class="fl">4</span><span class="op">)</span>
+           <span class="op">+</span><span class="va">casualty</span>
+           <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">casualty</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+           <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">casualty</span>, <span class="op">-</span><span class="fl">2</span><span class="op">)</span>
+           <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">casualty</span>, <span class="op">-</span><span class="fl">3</span><span class="op">)</span>
+           <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">casualty</span>, <span class="op">-</span><span class="fl">4</span><span class="op">)</span>
+           <span class="op">+</span><span class="va">honeymoon</span><span class="op">)</span>
+
+<span class="co"># view the model info</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">static</span>,  type<span class="op">=</span><span class="st">"html"</span>,
+          model.names<span class="op">=</span><span class="cn">FALSE</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>, style<span class="op">=</span><span class="st">"apsr"</span>, digits<span class="op">=</span><span class="fl">2</span>,
+          dep.var.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Presidential approval"</span><span class="op">)</span>,
+          title<span class="op">=</span><span class="st">"**Table 3. Presidential approval as a function of economy, war and the honeymoon, ADL(4)**"</span>,
+          notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>,
+          omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>,
+          star.cutoffs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 3. Presidential approval as a function of economy, war and the honeymoon, ADL(4)</strong></strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Presidential approval
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+diff(mics)
+</td>
+<td>
+0.14
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.16)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+casualty
+</td>
+<td>
+-0.002<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+honeymoon
+</td>
+<td>
+3.04<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.74)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+54.58<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.90)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+223
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.08
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.07
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="dynamic-models-1.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate the residuals and test for serial correlation</span></span>
+<span id="cb66-2"><a href="dynamic-models-1.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bgtest</span>(adl, <span class="at">order=</span><span class="dv">4</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"Chisq"</span>))</span>
+<span id="cb66-3"><a href="dynamic-models-1.html#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="dynamic-models-1.html#cb66-4" aria-hidden="true" tabindex="-1"></a>    Breusch<span class="sc">-</span>Godfrey test <span class="cf">for</span> serial correlation of order up to <span class="dv">4</span></span>
+<span id="cb66-5"><a href="dynamic-models-1.html#cb66-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-6"><a href="dynamic-models-1.html#cb66-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  adl</span>
+<span id="cb66-7"><a href="dynamic-models-1.html#cb66-7" aria-hidden="true" tabindex="-1"></a>LM test <span class="ot">=</span> <span class="fl">170.19</span>, df <span class="ot">=</span> <span class="dv">4</span>, p<span class="sc">-</span>value <span class="sc">&lt;</span> <span class="fl">2.2e-16</span></span></code></pre></div>
+<p>We should treat the coefficient on <span class="math inline">\(x_t\)</span> as the short-run impact.</p>
+<p>The sum of the coefficients on the x <em>and</em> its lags is the long-run impact (<em>LRI</em>) or total multiplier. In the example above, the short-run impact of economic sentiment is <span class="math inline">\(0.15\)</span> but the long-run multiplier is <span class="math inline">\(0.15+0.27+0.19+0.14+0.12 = 0.87\)</span></p>
+<p><span class="math display">\[LRI=\beta_{X_1}+\beta_{X_1,t-1}+\beta_{X_1,t-2}+...\beta_{X_1,t-n}\]</span></p>
+<p>This means that a 10 unit increases in the MICS would translate - over four quarters - into a 8.7 point increases in presidential approval.</p>
+<p>Note one practical problem with this approach. The values of <span class="math inline">\(x_t\)</span> could be highly correlated over time - so the index and the lags are highly correlated with each other. Remember that the effect of collinearity is to increase standard errors. Since we are using first differences for economic sentiment in this model, this is not a problem, but in can be problem in many applications, including our use of the raw series for casualties.</p>
+<p>We don’t have any correction for serial correlation here and the white noise test indicates that the serial correlation is still a problem even after we introduced the lagged values of X.</p>
+</div>
+<div id="partial-adjustment-models-lagged-value-of-approval" class="section level3" number="6.3.2">
+<h3>
+<span class="header-section-number">6.3.2</span> Partial adjustment models (lagged value of approval)<a class="anchor" aria-label="anchor" href="#partial-adjustment-models-lagged-value-of-approval"><i class="fas fa-link"></i></a>
+</h3>
+<p>If the lagged value of the dependent variable is included, then the model is a <em>partial adjustment model</em>. This model specification is designed to overcome the potential problem of collinearity in the distributed lag model. Using this model specification, the OLS estimator only performs well in large samples and in the absence of serial correlation - the data and the residuals must be stationary.</p>
+<p>(Note: you will see this next week - it is the strategy used for a panel model testing the link between settled borders and the polity2 score in <span class="citation"><a href="references.html#ref-owsiak2013" role="doc-biblioref">Owsiak</a> (<a href="references.html#ref-owsiak2013" role="doc-biblioref">2013</a>)</span>.</p>
+<p>For the approval data, the basic model is estimated via OLS:</p>
+<p><span class="math display">\[approval_t=\beta_0+\beta_1diff(mics)_t+\beta_2casualty_t+\beta_3honeymoon_t+ \beta_4approval_{t-1}\]</span></p>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pa</span><span class="op">&lt;-</span><span class="va">dyn</span><span class="op">$</span><span class="fu">lm</span><span class="op">(</span><span class="va">approval</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span>
+             <span class="op">+</span><span class="va">casualty</span>
+             <span class="op">+</span><span class="va">honeymoon</span>
+             <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">approval</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># view the model info</span>
+<span class="co">#stargazer (pa, style="qje", type="text" , omit="factor" , dep.var.labels = c("Presidential approval", "\n"), digits=2, title=c("Partial adjustment model"), omit.stat=c("ser","f"),column.sep.width=c("12pt"))</span>
+<span class="co"># produce the table</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">pa</span>,  type<span class="op">=</span><span class="st">"html"</span>,
+          model.names<span class="op">=</span><span class="cn">FALSE</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>, style<span class="op">=</span><span class="st">"apsr"</span>, digits<span class="op">=</span><span class="fl">2</span>,
+          dep.var.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Presidential approval"</span><span class="op">)</span>,
+          covariate.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"MICS, first difference"</span>, <span class="st">"Casualities"</span>, <span class="st">"Honeymoon"</span>, <span class="st">"Approval, first lag"</span>, <span class="st">"Constant"</span><span class="op">)</span>,
+          title<span class="op">=</span><span class="st">"**Table 4. Presidential approval as a function of economy, war and the honeymoon, Partial Adjustment**"</span>,
+          notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>,
+          omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>,
+          star.cutoffs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 4. Presidential approval as a function of economy, war and the honeymoon, Partial Adjustment</strong></strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Presidential approval
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+MICS, first difference
+</td>
+<td>
+0.33<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.08)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Casualities
+</td>
+<td>
+-0.0002
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.0005)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Honeymoon
+</td>
+<td>
+2.69<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.37)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Approval, first lag
+</td>
+<td>
+0.84<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.03)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+7.46<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.86)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+223
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.78
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.77
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="dynamic-models-1.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate the residuals and test for serial correlation</span></span>
+<span id="cb68-2"><a href="dynamic-models-1.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bgtest</span>(pa, <span class="at">order=</span><span class="dv">4</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"Chisq"</span>))</span>
+<span id="cb68-3"><a href="dynamic-models-1.html#cb68-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-4"><a href="dynamic-models-1.html#cb68-4" aria-hidden="true" tabindex="-1"></a>    Breusch<span class="sc">-</span>Godfrey test <span class="cf">for</span> serial correlation of order up to <span class="dv">4</span></span>
+<span id="cb68-5"><a href="dynamic-models-1.html#cb68-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-6"><a href="dynamic-models-1.html#cb68-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  pa</span>
+<span id="cb68-7"><a href="dynamic-models-1.html#cb68-7" aria-hidden="true" tabindex="-1"></a>LM test <span class="ot">=</span> <span class="fl">7.4025</span>, df <span class="ot">=</span> <span class="dv">4</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.1161</span></span></code></pre></div>
+<p>A couple of features of the output are noticeable - now we are introducing persistence in the outcome directly in the model. About 84% (0.84) of last quarter’s approval rating carries over. And the effect of consumer sentiment is large when you use this strategy.</p>
+<p>The coefficient on X can be interpreted as the short-run impact. The long run impact is calculated as <span class="math inline">\(\beta_1 / (1-\beta_4)\)</span>.</p>
+<p><span class="math display">\[LRI=\beta_{X1} / (1.0-\beta_{Y,t-1})\]</span></p>
+<p>These results suggest that the short-run impact is 0.33 and the long-run impact is 0.33/(1-0.840)=2.061.</p>
+<p>10 point jump in the Michigan Index of Consumer Sentiment will translate into a 20.6 point increase in presidential approval, all other things equal, in the long run.</p>
+<p>Note the slight difference between the two modeling approaches – in the ADL. the long run effect is about six times larger than the short-run effect. In example 4, the long run effect is about seven times larger. This is due to the fact that the long run effect plays out over larger number of lags. .33 at t, .33<em>.88 at t+1, ,33</em>.84*.84 at t+2….</p>
+</div>
+<div id="autoregressive-distributed-lag-lagged-value-of-approval-and-first-lag-of-difference-in-mics" class="section level3" number="6.3.3">
+<h3>
+<span class="header-section-number">6.3.3</span> Autoregressive distributed lag (lagged value of approval and first lag of difference in MICS)<a class="anchor" aria-label="anchor" href="#autoregressive-distributed-lag-lagged-value-of-approval-and-first-lag-of-difference-in-mics"><i class="fas fa-link"></i></a>
+</h3>
+<p>In an autoregressive distributed lag model, lagged values of both the independent variable and the dependent variable are included. The most common form of this model is the ADL (1,1) model:</p>
+<p><span class="math display">\[Y_t=\beta_0+\beta_1X1_t+\beta_2X1_{t-1} +\beta_3X2_t+\beta_4X2_{t-1}+\beta_5Y_{t-1}\]</span>
+Note how general this model is. If <span class="math inline">\(\beta_2=0\)</span> and <span class="math inline">\(\beta_4=0\)</span> then we have a partial adjustment model. If <span class="math inline">\(\beta_5=0\)</span>. then we have a distributed lag model.</p>
+<p>In the long-run, the effect of a one unit change in X1 would be calculated:</p>
+<p><span class="math display">\[LRI=(\beta_{X1,t}+\beta_{X1,t-1)}/(1-\beta_{Y,t-1})\]</span></p>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># estimate the distributed lag model (with four lags of the first difference of mics)</span>
+<span class="va">padl</span><span class="op">&lt;-</span><span class="va">dyn</span><span class="op">$</span><span class="fu">lm</span><span class="op">(</span><span class="va">approval</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span><span class="op">+</span>
+           <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+           <span class="op">+</span><span class="va">casualty</span>
+           <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">casualty</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+           <span class="op">+</span><span class="va">honeymoon</span>
+           <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">approval</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># produce the table</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">padl</span>,  type<span class="op">=</span><span class="st">"html"</span>,
+          model.names<span class="op">=</span><span class="cn">FALSE</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>, style<span class="op">=</span><span class="st">"apsr"</span>, digits<span class="op">=</span><span class="fl">2</span>,
+          dep.var.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Presidential approval"</span><span class="op">)</span>,
+          title<span class="op">=</span><span class="st">"**Table 6. Presidential approval as a function of economy, war and the honeymoon, PADL**"</span>,
+          notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>,
+          omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>,
+          star.cutoffs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 6. Presidential approval as a function of economy, war and the honeymoon, PADL</strong></strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Presidential approval
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+diff(mics)
+</td>
+<td>
+0.32<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.08)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+stats::lag(diff(mics), -1)
+</td>
+<td>
+0.17<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.08)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+casualty
+</td>
+<td>
+-0.0005
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+stats::lag(casualty, -1)
+</td>
+<td>
+0.0003
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+honeymoon
+</td>
+<td>
+2.36<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.36)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+stats::lag(approval, -1)
+</td>
+<td>
+0.86<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.03)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+6.77<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.79)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+222
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.80
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.79
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="dynamic-models-1.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate the residuals and test for serial correlation</span></span>
+<span id="cb70-2"><a href="dynamic-models-1.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bgtest</span>(padl, <span class="at">order=</span><span class="dv">4</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"Chisq"</span>))</span>
+<span id="cb70-3"><a href="dynamic-models-1.html#cb70-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-4"><a href="dynamic-models-1.html#cb70-4" aria-hidden="true" tabindex="-1"></a>    Breusch<span class="sc">-</span>Godfrey test <span class="cf">for</span> serial correlation of order up to <span class="dv">4</span></span>
+<span id="cb70-5"><a href="dynamic-models-1.html#cb70-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-6"><a href="dynamic-models-1.html#cb70-6" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  padl</span>
+<span id="cb70-7"><a href="dynamic-models-1.html#cb70-7" aria-hidden="true" tabindex="-1"></a>LM test <span class="ot">=</span> <span class="fl">5.7219</span>, df <span class="ot">=</span> <span class="dv">4</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.2209</span></span></code></pre></div>
+<p>In this case, the test for serial correlation indicates that there is no longer any serial correlation in the residuals.</p>
+<p>The coefficient on X can be interpreted as the short-run impact. The long run impact is calculated as</p>
+<p><span class="math display">\[LRI_{mics}=(\beta_{d.mics}+\beta_{lag(d.mics)}) / \beta_{Y_{t-1}} \]</span></p>
+<p>These results suggest that the short-run impact is 0.32 and the total long-run impact is <span class="math inline">\((0.32+0.17)/(1.0-0.86)=3.1\)</span>. Most of the effect is after the first period.</p>
+</div>
+<div id="error-correction-models" class="section level3" number="6.3.4">
+<h3>
+<span class="header-section-number">6.3.4</span> Error Correction Models<a class="anchor" aria-label="anchor" href="#error-correction-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>A variant of the model above is becoming more widely used in political science. Some recent work (mainly by Suzanne DeBoef [Linn]) focuses on the long run relationship between two times series - series that may in fact share a trend (nonstationary)- and proposes an error correction model (ECM). The logic of the error correction model is that there is a long run relationship between two series and it takes many periods for changes in X and Y to be incorporated. For this set of models, we will use the nonstationary raw MICS series.</p>
+<p>Initial versions of the ECM used a two-step process. Simple OLS was applied to the relationship between X and Y. We observe if the relationship is statistically significant and the residuals have no unit root - if so this is known as a <em>cointegrating regression</em>. We then include the lag of the residual in a regression of the difference in Y on the lag of X. But, since we know that the first stage may be biased and inefficient if X or Y contain unit roots, we estimate the parameters of both models jointly. The algebra for this transformation is outlined in <span class="citation"><a href="references.html#ref-deboefkeele2008" role="doc-biblioref">De Boef and Keele</a> (<a href="references.html#ref-deboefkeele2008" role="doc-biblioref">2008</a>)</span>. The general form of the model known as the single equation error correction model becomes:</p>
+<p><span class="math display">\[Y_t-Y_{t-1}=\beta_0 + \beta_1Y_{t-1}+\beta_2 X_{t-1}+ \beta_3(X_t-X_{t-1})+e_t\]</span></p>
+<p>In this case, <span class="math inline">\(\beta_2\)</span> is the short-run effect and the long run effect is:</p>
+<p><span class="math display">\[LRI=(\beta_3) / -(\beta_1)\]</span></p>
+<p>This approach has the considerable advantage that it can be applied to both stationary and nonstationary (unit root) processes. We overcome the serial correlation problem by directly modeling the dynamics in the model, not the error term. We overcome the nonstationary problem by getting the stationary error term worked into the model. There is also a compelling behavioral story - current period differences in Y are a function of the short-term impact of X and the extent to which Y was out of equilibrium with respect to X in the previous period. You could have a very nuanced empirical story explained and incorporated in this model - involving a mixture of short-term and long-term effects. Technically the model is uncomplicated.</p>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">ecm</span><span class="op">&lt;-</span><span class="va">dyn</span><span class="op">$</span><span class="fu">lm</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">approval</span><span class="op">)</span><span class="op">~</span>
+            <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">approval</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+            <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">mics</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+            <span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span>
+            <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">casualty</span>,<span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+            <span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">casualty</span><span class="op">)</span>
+            <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">honeymoon</span>,<span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+            <span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">honeymoon</span><span class="op">)</span><span class="op">)</span>
+
+
+<span class="co"># view the model info</span>
+<span class="co"># produce the table</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">ecm</span>,  type<span class="op">=</span><span class="st">"html"</span>,
+          model.names<span class="op">=</span><span class="cn">FALSE</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>, style<span class="op">=</span><span class="st">"apsr"</span>, digits<span class="op">=</span><span class="fl">2</span>,
+          dep.var.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Presidential approval"</span><span class="op">)</span>,
+          title<span class="op">=</span><span class="st">"**Table 7. Presidential approval as a function of economy, war and the honeymoon, ECM**"</span>,
+          notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>,
+          omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>,
+          star.cutoffs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span>, column.sep.width<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"12pt"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 7. Presidential approval as a function of economy, war and the honeymoon, ECM</strong></strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Presidential approval
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+stats::lag(approval, -1)
+</td>
+<td>
+-0.17<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.04)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+stats::lag(mics, -1)
+</td>
+<td>
+0.13<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.04)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+diff(mics)
+</td>
+<td>
+0.37<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.08)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+stats::lag(casualty, -1)
+</td>
+<td>
+-0.0002
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.0005)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+diff(casualty)
+</td>
+<td>
+-0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+stats::lag(honeymoon, -1)
+</td>
+<td>
+2.01<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.39)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+diff(honeymoon)
+</td>
+<td>
+3.99<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.43)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-2.62
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.00)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+223
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.40
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.39
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+
+<span class="co"># generate the residuals and test for serial correlation</span>
+<span class="fu">bgtest</span><span class="op">(</span><span class="va">ecm</span>, order<span class="op">=</span><span class="fl">4</span>, type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Chisq"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>Breusch-Godfrey test for serial correlation of order up to 4</code></pre>
+<p>data: ecm
+LM test = 7.1651, df = 4, p-value = 0.1274
+Thes short run effect is 0.13, but the long run effect estimated with ECM is:</p>
+<p><span class="math display">\[(0.37)/(-(-0.17))=2.17\]</span></p>
+<p>A 10 point increase in the MICS would generate a 21.7 point increases in approval.</p>
+<p>The ECM and DL(1) models are very similar except – and this is where the ECM has an advantage – the left hand side dependent variable is a first difference. To see these similarities, both models are side-by-side, below. To simplify the table, I just use MICS and defense spending as predictors. Notice that this is the level of MICS, not the difference as our <span class="math inline">\(X\)</span> variable.</p>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">ecmx</span><span class="op">&lt;-</span><span class="va">dyn</span><span class="op">$</span><span class="fu">lm</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">approval</span><span class="op">)</span><span class="op">~</span>
+            <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">approval</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+            <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">mics</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+            <span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span>
+
+            <span class="op">)</span>
+
+<span class="va">adl1x</span><span class="op">&lt;-</span><span class="va">dyn</span><span class="op">$</span><span class="fu">lm</span><span class="op">(</span><span class="va">approval</span><span class="op">~</span>
+           <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">approval</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+           <span class="op">+</span><span class="va">mics</span>
+           <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">mics</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+
+            <span class="op">)</span>
+
+
+<span class="co"># view the model info</span>
+<span class="co"># produce the table</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">ecmx</span>, <span class="va">adl1x</span>,  type<span class="op">=</span><span class="st">"html"</span>,
+          model.names<span class="op">=</span><span class="cn">FALSE</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>, style<span class="op">=</span><span class="st">"apsr"</span>, digits<span class="op">=</span><span class="fl">2</span>,
+          dep.var.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Presidential approval"</span><span class="op">)</span>,
+          title<span class="op">=</span><span class="st">"**Table 8. Presidential approval as a function of economy, war and the honeymoon, SSDPADL**"</span>,
+          notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>,
+          omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>,
+          star.cutoffs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 8. Presidential approval as a function of economy, war and the honeymoon, SSDPADL</strong></strong>
+</caption>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Presidential approval
+</td>
+<td>
+approval ~ stats::lag(approval, -1) + mics + stats::lag(mics, -1)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+stats::lag(approval, -1)
+</td>
+<td>
+-0.20<sup>**</sup>
+</td>
+<td>
+0.80<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.04)
+</td>
+<td>
+(0.04)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+mics
+</td>
+<td>
+</td>
+<td>
+0.35<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.09)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+stats::lag(mics, -1)
+</td>
+<td>
+0.13<sup>**</sup>
+</td>
+<td>
+-0.21<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.04)
+</td>
+<td>
+(0.09)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+diff(mics)
+</td>
+<td>
+0.35<sup>**</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.09)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-0.50
+</td>
+<td>
+-0.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.49)
+</td>
+<td>
+(3.49)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+223
+</td>
+<td>
+223
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.16
+</td>
+<td>
+0.73
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.15
+</td>
+<td>
+0.73
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="3" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># generate the residuals and test for serial correlation</span>
+<span class="fu">bgtest</span><span class="op">(</span><span class="va">ecmx</span>, order<span class="op">=</span><span class="fl">4</span>, type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Chisq"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>Breusch-Godfrey test for serial correlation of order up to 4</code></pre>
+<p>data: ecmx
+LM test = 6.9034, df = 4, p-value = 0.1411</p>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">bgtest</span><span class="op">(</span><span class="va">adl1x</span>, order<span class="op">=</span><span class="fl">4</span>, type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Chisq"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>Breusch-Godfrey test for serial correlation of order up to 4</code></pre>
+<p>data: adl1x
+LM test = 6.9034, df = 4, p-value = 0.1411</p>
+<p>In the table above, the long-run effect of the MICS in the ADL model is (0.347+-0.212)/(1-.0796) which is identical to the long-run effect in the ECM model, which is 0.134/(-(-0.204)).</p>
+</div>
+</div>
+<div id="a-couple-of-notes-about-other-models" class="section level2" number="6.4">
+<h2>
+<span class="header-section-number">6.4</span> A couple of notes about other models<a class="anchor" aria-label="anchor" href="#a-couple-of-notes-about-other-models"><i class="fas fa-link"></i></a>
+</h2>
+<div id="a-state-specific-dynamic-model" class="section level3" number="6.4.1">
+<h3>
+<span class="header-section-number">6.4.1</span> A state-specific dynamic model<a class="anchor" aria-label="anchor" href="#a-state-specific-dynamic-model"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can also deploy interaction terms.</p>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ssd</span><span class="op">&lt;-</span><span class="va">dyn</span><span class="op">$</span><span class="fu">lm</span><span class="op">(</span><span class="va">approval</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span><span class="op">+</span>
+            <span class="op">+</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">approval</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+            <span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mics</span><span class="op">)</span><span class="op">:</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">approval</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+            <span class="op">+</span><span class="va">casualty</span>
+            <span class="op">+</span><span class="va">honeymoon</span> <span class="op">)</span>
+
+<span class="co"># view the model info</span>
+<span class="co"># produce the table</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">padl</span>,  type<span class="op">=</span><span class="st">"html"</span>,
+          model.names<span class="op">=</span><span class="cn">FALSE</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>, style<span class="op">=</span><span class="st">"apsr"</span>, digits<span class="op">=</span><span class="fl">2</span>,
+          dep.var.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Presidential approval"</span><span class="op">)</span>,
+          title<span class="op">=</span><span class="st">"**Table 9. Presidential approval as a function of economy, war and the honeymoon, SSDM**"</span>,
+          notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>,
+          omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>,
+          star.cutoffs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span>, column.sep.width<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"12pt"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 9. Presidential approval as a function of economy, war and the honeymoon, SSDM</strong></strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Presidential approval
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+diff(mics)
+</td>
+<td>
+0.32<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.08)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+stats::lag(diff(mics), -1)
+</td>
+<td>
+0.17<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.08)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+casualty
+</td>
+<td>
+-0.0005
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+stats::lag(casualty, -1)
+</td>
+<td>
+0.0003
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+honeymoon
+</td>
+<td>
+2.36<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.36)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+stats::lag(approval, -1)
+</td>
+<td>
+0.86<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.03)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+6.77<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.79)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+222
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.80
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.79
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+
+<span class="co"># generate the residuals and test for serial correlation</span>
+<span class="fu">bgtest</span><span class="op">(</span><span class="va">ssd</span>, order<span class="op">=</span><span class="fl">4</span>, type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Chisq"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>Breusch-Godfrey test for serial correlation of order up to 4</code></pre>
+<p>data: ssd
+LM test = 7.2099, df = 4, p-value = 0.1252</p>
+<div id="graphing-conditional-marginal-effects-without-using-cplot." class="section level4" number="6.4.1.1">
+<h4>
+<span class="header-section-number">6.4.1.1</span> Graphing conditional marginal effects (without using <strong>cplot</strong>).<a class="anchor" aria-label="anchor" href="#graphing-conditional-marginal-effects-without-using-cplot."><i class="fas fa-link"></i></a>
+</h4>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Adapted from</span>
+<span class="co">## Two-variable interaction plots in R</span>
+<span class="co">## Anton Strezhnev </span>
+<span class="co">## 06/17/2013</span>
+
+<span class="co"># Extract Variance Covariance matrix</span>
+  <span class="va">covMat</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/vcov.html">vcov</a></span><span class="op">(</span><span class="va">ssd</span><span class="op">)</span>
+<span class="co"># Get coefficients of variables</span>
+  <span class="va">beta_1</span> <span class="op">=</span> <span class="va">ssd</span><span class="op">$</span><span class="va">coefficients</span><span class="op">[</span><span class="st">"diff(mics)"</span><span class="op">]</span>
+  <span class="va">beta_3</span> <span class="op">=</span> <span class="va">ssd</span><span class="op">$</span><span class="va">coefficients</span><span class="op">[</span><span class="st">"diff(mics):stats::lag(approval, -1)"</span><span class="op">]</span>
+<span class="co"># Create list of moderator values at which marginal effect is evaluated</span>
+  <span class="va">x_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">5</span>, to<span class="op">=</span><span class="fl">95</span>, by<span class="op">=</span><span class="fl">5</span><span class="op">)</span>
+  <span class="co"># Compute marginal effects</span>
+  <span class="va">delta_1</span> <span class="op">=</span> <span class="va">beta_1</span> <span class="op">+</span> <span class="va">beta_3</span><span class="op">*</span><span class="va">x_2</span>
+<span class="co"># Compute variances</span>
+  <span class="va">var_1</span> <span class="op">=</span> <span class="va">covMat</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">]</span> <span class="op">+</span> <span class="op">(</span><span class="va">x_2</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">*</span><span class="va">covMat</span><span class="op">[</span><span class="fl">6</span>,<span class="fl">6</span><span class="op">]</span> <span class="op">+</span> <span class="fl">2</span><span class="op">*</span><span class="va">x_2</span><span class="op">*</span><span class="va">covMat</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">6</span><span class="op">]</span>
+<span class="co"># Standard errors</span>
+  <span class="va">se_1</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">var_1</span><span class="op">)</span>
+<span class="co"># Upper and lower confidence bounds</span>
+  <span class="va">z_score</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="op">(</span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fl">0.95</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">upper_bound</span> <span class="op">=</span> <span class="va">delta_1</span> <span class="op">+</span> <span class="va">z_score</span><span class="op">*</span><span class="va">se_1</span>
+  <span class="va">lower_bound</span> <span class="op">=</span> <span class="va">delta_1</span> <span class="op">-</span> <span class="va">z_score</span><span class="op">*</span><span class="va">se_1</span>
+<span class="va">figure_data</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">x_2</span>,<span class="va">delta_1</span>,<span class="va">upper_bound</span>, <span class="va">lower_bound</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># Figure 2</span>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">figure_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x_2</span>, y <span class="op">=</span> <span class="va">delta_1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span>lwd <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">upper_bound</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">lower_bound</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Figure 2. Marginal effect of economic sentiment, by level of approval"</span><span class="op">)</span> <span class="op">+</span>
+   <span class="fu">theme</span><span class="op">(</span>plot.title.position <span class="op">=</span> <span class="st">"plot"</span>, plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face<span class="op">=</span><span class="st">"bold"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Approval"</span>, y<span class="op">=</span><span class="st">"Marginal effect of first difference in MICS"</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">geom_hline</span><span class="op">(</span>yintercept<span class="op">=</span><span class="fl">0.00</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">geom_vline</span><span class="op">(</span>xintercept<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">approval</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>, color<span class="op">=</span><span class="st">"red"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="06-dynamics_files/figure-html/conditional%20marginal%20effects-1.png" width="672"></div>
+<p>The figure suggests that improving economic sentiment can impact and increase presidential approval when approval is above average or high, but there is no effect (0.0) on approval when approval is low (at or below 40). This describes the experience of President Trump and the persistence of low approval ratings in the face of good economic performance.</p>
+</div>
+</div>
+<div id="vector-autoregression-or-var" class="section level3" number="6.4.2">
+<h3>
+<span class="header-section-number">6.4.2</span> Vector AutoRegression or VAR<a class="anchor" aria-label="anchor" href="#vector-autoregression-or-var"><i class="fas fa-link"></i></a>
+</h3>
+<p>Some time series analysts bridle at the restrictive nature of the family of models above – why don’t we let the impact of the lagged variables take a more general form – where perhaps the size and direction of the lagged effects varies in some way other than a simple distributed lag. In economics, the classic article is <span class="citation"><a href="references.html#ref-sims1980" role="doc-biblioref">Sims</a> (<a href="references.html#ref-sims1980" role="doc-biblioref">1980</a>)</span>.</p>
+<p>And why assume to X-&gt;Y – couldn’t it be the case that Y-&gt;X in many applications? These objections led to a modeling strategy labeled <em>Vector Autogression</em> or VAR.</p>
+<p>In this framework, theory dictates what variables are included in the model, but there is no theory that informs inclusion or exclusion of particular lag or the direction of causal effects. The modeling strategy is parameter- intensive – a lot of parameters are estimated from a modest amount of data. In fact, the number of estimated parameters is so large that often results are summarized in figures – known as impulse response functions.</p>
+<p>We won’t cover these models but you can recognize them in practice with the characteristic figures, rather than tables of coefficients. Just recognize that they are dynamic models, estimated with time series, with or no restriction imposed by theory.</p>
+
+<!-- requires jop2013.dta -->
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="working-with-time-series.html"><span class="header-section-number">5</span> Working with time series</a></div>
+<div class="next"><a href="working-with-panel-data.html"><span class="header-section-number">7</span> Working with panel data</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dynamic-models-1"><span class="header-section-number">6</span> Dynamic Models</a></li>
+<li><a class="nav-link" href="#modeling-presidential-approval-with-dynamics"><span class="header-section-number">6.1</span> Modeling presidential approval with dynamics</a></li>
+<li><a class="nav-link" href="#the-arima-model---the-special-case"><span class="header-section-number">6.2</span> The ARIMA model - the special case</a></li>
+<li>
+<a class="nav-link" href="#dynamic-models-using-the-dyn-package-dl-pa-adl-ecm---a-general-approach"><span class="header-section-number">6.3</span> Dynamic models using the dyn package (dl, pa, adl, ecm) - a general approach</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#distributed-lag-models"><span class="header-section-number">6.3.1</span> Distributed lag models</a></li>
+<li><a class="nav-link" href="#partial-adjustment-models-lagged-value-of-approval"><span class="header-section-number">6.3.2</span> Partial adjustment models (lagged value of approval)</a></li>
+<li><a class="nav-link" href="#autoregressive-distributed-lag-lagged-value-of-approval-and-first-lag-of-difference-in-mics"><span class="header-section-number">6.3.3</span> Autoregressive distributed lag (lagged value of approval and first lag of difference in MICS)</a></li>
+<li><a class="nav-link" href="#error-correction-models"><span class="header-section-number">6.3.4</span> Error Correction Models</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#a-couple-of-notes-about-other-models"><span class="header-section-number">6.4</span> A couple of notes about other models</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#a-state-specific-dynamic-model"><span class="header-section-number">6.4.1</span> A state-specific dynamic model</a></li>
+<li><a class="nav-link" href="#vector-autoregression-or-var"><span class="header-section-number">6.4.2</span> Vector AutoRegression or VAR</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Political Science and Applied Statistics using R</strong>" was written by J.K. Corder. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
