@@ -81,7 +81,21 @@
     "contents": "\r\nFrom the publisher:\r\nHow have American women voted in the first 100 years since the ratification of the Nineteenth Amendment? How have popular understandings of women as voters both persisted and changed over time? In A Century of Votes for Women, Christina Wolbrecht and J. Kevin Corder offer an unprecedented account of women voters in American politics over the last ten decades. Bringing together new and existing data, the book provides unique insight into women’s (and men’s) voting behavior, and traces how women’s turnout and vote choice evolved across a century of enormous transformation overall and for women in particular. Wolbrecht and Corder show that there is no such thing as ‘the woman voter’; instead they reveal considerable variation in how different groups of women voted in response to changing political, social, and economic realities. The book also demonstrates how assumptions about women as voters influenced politicians, the press, and scholars.\r\nClick here for details…\r\nChristina created a site for the book that includes links to several reviews….Perspectives on Politics, American Historical Review, MS Magazine, Kirkus and others\r\n\r\n\r\n\r\n",
     "preview": "https://assets.cambridge.org/97813166/38071/cover/9781316638071.jpg",
     "last_modified": "2022-03-05T11:54:21-05:00",
-    "input_file": "cvw.knit.md"
+    "input_file": {}
+  },
+  {
+    "path": "posts/allin/",
+    "title": "All IN",
+    "description": "WFYI",
+    "author": [],
+    "date": "2020-02-12",
+    "categories": [
+      "Women and politics"
+    ],
+    "contents": "\r\nCheck out a podcast from All IN - an interview with me and Christina Wolbrecht about our new book, Century of Votes for Women. Click here to listen.\r\n\r\n\r\n\r\n",
+    "preview": "https://www.wfyi.org/files/image/allin.png",
+    "last_modified": "2022-03-22T11:27:24-04:00",
+    "input_file": {}
   },
   {
     "path": "posts/newsweek/",
@@ -207,7 +221,21 @@
     "contents": "\r\nSusan Hoffmann and I co-authored a paper on the history and evolution of the housing Government-Sponsored Enterprises - Fannie Mae and Freddie Mac. We trace how the intersection of affordable housing policy, deregulation, and privatization ultimately caused the GSEs to fail.\r\nClick here to read the paper.\r\n\r\n\r\n\r\n",
     "preview": "https://jkcorder.files.wordpress.com/2016/11/13972_150px11.jpg",
     "last_modified": "2022-03-05T12:03:54-05:00",
-    "input_file": "fnma.knit.md"
+    "input_file": {}
+  },
+  {
+    "path": "posts/fsoc/",
+    "title": "Innovations in Information Sharing and Collaboration: Building the Financial Stability Oversight Council",
+    "description": "Working paper. With Susan Hoffmann",
+    "author": [],
+    "date": "2012-04-01",
+    "categories": [
+      "Other public policy"
+    ],
+    "contents": "\r\nSusan Hoffmann and I co-authored a paper on the structure and early performance of the FSOC. Created in the aftermath of the 2008 financial crisis, the FSOC is just one example of efforts by Congress to use interagency councils to improve or rationalize federal regulation. The Council is an important formal response to the 2008 financial crisis, focusing regulator attention on a new problem and providing a forum to coordinate and reconcile agency choices related to that problem. We use two earlier and related initiatives – the Federal Financial Institutions Examination Council and the Interagency Country Exposure Review Committee – to learn about the operation and performance of interagency councils in the domain of financial regulation. The paper draws on insights from an extensive literature on interagency collaboration and research on the performance and management of formal and informal networks. What structural features and other observable administrative choices are associated with successful collaborative efforts?\r\nClick here to read the paper.\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.github.io/images/fsoc.png",
+    "last_modified": "2022-03-05T15:01:06-05:00",
+    "input_file": {}
   },
   {
     "path": "posts/par/",
