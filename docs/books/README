@@ -1,1 +1,10 @@
-This directory will hold the graduate course text
+This is a draft of my notes and related output for PSCI 6920
+
+The chapters are in various stages of completion and the timetable for completion is:
+March, 2022: Chapters 1-4
+April, 2022: Chapters 5-8
+May, 2022: Chapters 9-10 and the Appendix
+
+Each completed chapter will use tidyverse programming (ggplot, dplyr) to create tables and figures
+
+
