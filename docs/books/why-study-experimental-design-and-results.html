@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>B Why study experimental design and results? | Political Science and Applied Statistics using R</title>
+<meta name="author" content="J.K. Corder">
+<meta name="description" content="This short introduction to quasi- and natural experiments is drawn from Stock and Watson (2015), Chapter 13, ” Experiments and Quasi-Experiments”. I also rely extensively on an R companion for...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="B Why study experimental design and results? | Political Science and Applied Statistics using R">
+<meta property="og:type" content="book">
+<meta property="og:description" content="This short introduction to quasi- and natural experiments is drawn from Stock and Watson (2015), Chapter 13, ” Experiments and Quasi-Experiments”. I also rely extensively on an R companion for...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="B Why study experimental design and results? | Political Science and Applied Statistics using R">
+<meta name="twitter:description" content="This short introduction to quasi- and natural experiments is drawn from Stock and Watson (2015), Chapter 13, ” Experiments and Quasi-Experiments”. I also rely extensively on an R companion for...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Political Science and Applied Statistics using R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li><a class="" href="why-math-why-r.html"><span class="header-section-number">1</span> Why math? Why R?</a></li>
+<li><a class="" href="regression-review-and-assumptions.html"><span class="header-section-number">2</span> Regression: review and assumptions</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">3</span> Logistic regression</a></li>
+<li><a class="" href="using-interaction-terms.html"><span class="header-section-number">4</span> Using interaction terms</a></li>
+<li><a class="" href="working-with-time-series.html"><span class="header-section-number">5</span> Working with time series</a></li>
+<li><a class="" href="dynamic-models-1.html"><span class="header-section-number">6</span> Dynamic Models</a></li>
+<li><a class="" href="working-with-panel-data.html"><span class="header-section-number">7</span> Working with panel data</a></li>
+<li><a class="" href="dynamics-panel-models---a-brief-introduction.html"><span class="header-section-number">8</span> Dynamics panel models - a brief introduction</a></li>
+<li><a class="" href="counts.html"><span class="header-section-number">9</span> Counts</a></li>
+<li><a class="" href="duration-models.html"><span class="header-section-number">10</span> Duration models</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">11</span> References</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="using-the-american-national-election-study.html">Using the American National Election Study</a></li>
+<li><a class="" href="the-harvard-dataverse.html">The Harvard Dataverse</a></li>
+<li><a class="" href="replicating-when-do-politicians-grandstand.html">Replicating “When do politicians grandstand?”</a></li>
+<li><a class="" href="data-models-and-evidence-based-policymaking.html"><span class="header-section-number">A</span> Data, models and evidence-based policymaking</a></li>
+<li><a class="active" href="why-study-experimental-design-and-results.html"><span class="header-section-number">B</span> Why study experimental design and results?</a></li>
+<li><a class="" href="matching.html"><span class="header-section-number">C</span> Matching</a></li>
+<li><a class="" href="multilevel-and-hierarchical-models.html"><span class="header-section-number">D</span> Multilevel and hierarchical models</a></li>
+<li><a class="" href="about-the-author.html">About the author</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="why-study-experimental-design-and-results" class="section level1" number="13">
+<h1>
+<span class="header-section-number">B</span> Why study experimental design and results?<a class="anchor" aria-label="anchor" href="#why-study-experimental-design-and-results"><i class="fas fa-link"></i></a>
+</h1>
+<p>This short introduction to quasi- and natural experiments is drawn from <span class="citation"><a href="references.html#ref-stockwatson2015" role="doc-biblioref">Stock and Watson</a> (<a href="references.html#ref-stockwatson2015" role="doc-biblioref">2015</a>)</span>, Chapter 13, ” Experiments and Quasi-Experiments”. I also rely extensively on an R companion for that text, <span class="citation"><a href="references.html#ref-hancketal2021" role="doc-biblioref">Christoph Hanck and Schmelzer</a> (<a href="references.html#ref-hancketal2021" role="doc-biblioref">2021</a>)</span>. This is a very useful resource.</p>
+<p>We should review the basics of experimental design and distinguish that work from the observational approaches that we typically adopt in Political Science. The experimental approach came up briefly when we looked at <strong>Moneyball for Government</strong> and the evaluation of federal programs. Experimental designs leverage randomization. We split subjects into two groups - one treatment and one control. Since the groups are identical in every respect, except for exposure to the treatment, we can be confident that any difference in outcomes is due to the treatment alone. Robust experimental work not only relies on randomization, but also blinds - in a double-blind experiment, neither the researcher administering the treatment nor the subject receiving the treatment knows whether they are working with the treatment or a placebo. The cuts down on several potential biases: individuals who they are given the treatment may work harder to succeed, physicans who know they are using a novel approach may wish to see their intervention work.</p>
+<p>While we can use true randomization in some contexts, in most experimental applications in Political Science, particularly public policy, the researcher is aware of who is receiving what treatment and participants may also recognize which group they are in.</p>
+<p><span class="citation"><a href="references.html#ref-stockwatson2015" role="doc-biblioref">Stock and Watson</a> (<a href="references.html#ref-stockwatson2015" role="doc-biblioref">2015</a>)</span> argue we can improve our understanding and design of observational research if we pay close attention to experimental design and practice. Specifically:</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>a randomized controlled experiment acts as a “benchmark for our observational approach” (so we can recognize the limits of our ability to make causal inferences)</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>“the results of [randomized controlled] experiments can be very influential,” so it is important to understand their limitations (this implies considerations of internal and external validity)</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>“external circumstances sometimes produce what appears to be randomization; that is, because of external events, the treatment of some individual occurs “as if” it is random, possibly conditional on some control variables. This “as if” randomness produces a <em>quasi-experiment</em> or <em>natural experiment</em>, and many of the methods developed for analyzing randomized experiments can be applied (with some modifications) to quasi-experiments.”</li>
+</ol>
+</blockquote>
+<div id="describing-treatment-effects" class="section level3" number="13.0.1">
+<h3>
+<span class="header-section-number">B.0.1</span> Describing treatment effects<a class="anchor" aria-label="anchor" href="#describing-treatment-effects"><i class="fas fa-link"></i></a>
+</h3>
+<p>Adapted from <span class="citation"><a href="references.html#ref-hancketal2021" role="doc-biblioref">Christoph Hanck and Schmelzer</a> (<a href="references.html#ref-hancketal2021" role="doc-biblioref">2021</a>)</span> 13.4 Regression Discontinuity Estimators</p>
+<p>In experiments, we are interested in observing and measuring some outcome in order to estimate a treatment effect. We are simply interested in the difference in the outcome variable Y<sub>i</sub> for people who did and did not receive the treatment. For the examples and equations below, T will represent the treatment. The average treatment effect is simply the difference between the expected value of the outcome for people who did receive the treatment and the expected value of the outcome for people who did not receive the treatment.</p>
+<p><span class="math display">\[\text{Average treatment effect} =  E(Y_i\vert T_i=1) -  E(Y_i\vert T_i=0)\]</span></p>
+<p>The average causal effect can be estimated using the <em>differences estimator</em>, which is nothing but the OLS estimator in the simple regression model.</p>
+<p><span class="math display">\[Y_i = \beta_0 + \beta_1 T_i + u_i \ \ , \ \ i=1,\dots,n \]</span></p>
+<p>where random assignment ensures that <span class="math inline">\(E(u_i|T_i)=0\)</span></p>
+<p>The OLS estimator in the regression model:</p>
+<p><span class="math display">\[Y_i = \beta_0 + \beta_1 X_i + \beta_2 W_{1i} + \dots + \beta_{1+r} W_{ri} + u_i \ \ , \ \ i=1,\dots,n\]</span>
+with additional regressors, <span class="math inline">\(W_1,…,W_r\)</span>, is called the <em>differences estimator with additional regressors</em>. It is assumed that treatment T~i is randomly assigned so that it is independent of the the pretreatment characteristic <span class="math inline">\(W_i\)</span>. This assumption is called conditional mean independence and implies:</p>
+<p><span class="math display">\[E(u_i|T_i,W_i)=E(u_i|W_i)=0\]</span></p>
+<p>so the conditional expectation of the error <span class="math inline">\(u_i\)</span> given the treatment indicator T~i and the pre-treatment characteristic <span class="math inline">\(W_i\)</span> does not depend on the T~i.</p>
+<p>The differences estimator with additional regressors is more efficient than the differences estimator if the additional regressors explain some of the variation in the Y~i.</p>
+</div>
+<div id="analyzing-experimental-data-the-star-project" class="section level2" number="13.1">
+<h2>
+<span class="header-section-number">B.1</span> Analyzing experimental data: the STAR project<a class="anchor" aria-label="anchor" href="#analyzing-experimental-data-the-star-project"><i class="fas fa-link"></i></a>
+</h2>
+<p><span class="citation"><a href="references.html#ref-stockwatson2015" role="doc-biblioref">Stock and Watson</a> (<a href="references.html#ref-stockwatson2015" role="doc-biblioref">2015</a>)</span> discuss a widely-cited example of experimental design. This description of the study is adapted from <span class="citation"><a href="references.html#ref-hancketal2021" role="doc-biblioref">Christoph Hanck and Schmelzer</a> (<a href="references.html#ref-hancketal2021" role="doc-biblioref">2021</a>)</span>.</p>
+<p>The Project Student-Teacher Achievement Ratio (STAR) was a large randomized controlled experiment designed to determine if small class size improves academic performance. Data was collected over four years in 80 elementary schools in Tennessee. About 6400 students were randomly assigned into one of three interventions: small class (13 to 17 students per teacher), regular class (22 to 25 students per teacher), and regular-with-aide class (22 to 25 students with a full-time teacher’s aide). Teachers were also randomly assigned to the classes they taught. The interventions were initiated as the students entered school in kindergarten and continued through to third grade.</p>
+<p>Each year, the students’ learning progress was assessed using the sum of the points scored on the math and reading parts of a standardized test (the Stanford Achievement Test). The STAR data set is part of the package <code>AER</code> - a package that includes over 100 datasets used in a variety of econometrics textbooks.</p>
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># load the package AER and the STAR dataset</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">AER</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">STAR</span><span class="op">)</span></code></pre></div>
+<p>To estimate the impact of class size - the average treatment effect - we use the differences estimator.</p>
+<p><span class="math display">\[Y_i = \beta_0 + \beta_1 SmallClass_i + \beta_2 RegAide_i + u_i\]</span></p>
+<p>The results are briefly summarized below. The “stark” prefix indicates we are looking at kindergarten classes. The impact of a small class is positive and significant, but the presence of a teacher’s aide does not seem to matter.</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="why-study-experimental-design-and-results.html#cb136-1" aria-hidden="true" tabindex="-1"></a>fmk <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">I</span>(readk <span class="sc">+</span> mathk) <span class="sc">~</span> stark, <span class="at">data =</span> STAR)</span>
+<span id="cb136-2"><a href="why-study-experimental-design-and-results.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(fmk, <span class="at">vcov =</span> vcovHC, <span class="at">type=</span> <span class="st">"HC1"</span>)</span>
+<span id="cb136-3"><a href="why-study-experimental-design-and-results.html#cb136-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-4"><a href="why-study-experimental-design-and-results.html#cb136-4" aria-hidden="true" tabindex="-1"></a>t test of coefficients<span class="sc">:</span></span>
+<span id="cb136-5"><a href="why-study-experimental-design-and-results.html#cb136-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-6"><a href="why-study-experimental-design-and-results.html#cb136-6" aria-hidden="true" tabindex="-1"></a>                   Estimate Std. Error  t value  <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb136-7"><a href="why-study-experimental-design-and-results.html#cb136-7" aria-hidden="true" tabindex="-1"></a>(Intercept)       <span class="fl">918.04289</span>    <span class="fl">1.63339</span> <span class="fl">562.0473</span> <span class="sc">&lt;</span> <span class="fl">2.2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb136-8"><a href="why-study-experimental-design-and-results.html#cb136-8" aria-hidden="true" tabindex="-1"></a>starksmall         <span class="fl">13.89899</span>    <span class="fl">2.45409</span>   <span class="fl">5.6636</span> <span class="fl">1.554e-08</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb136-9"><a href="why-study-experimental-design-and-results.html#cb136-9" aria-hidden="true" tabindex="-1"></a>starkregular<span class="sc">+</span>aide   <span class="fl">0.31394</span>    <span class="fl">2.27098</span>   <span class="fl">0.1382</span>    <span class="fl">0.8901</span>    </span>
+<span id="cb136-10"><a href="why-study-experimental-design-and-results.html#cb136-10" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb136-11"><a href="why-study-experimental-design-and-results.html#cb136-11" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code></pre></div>
+<p>We could also add regressors that we know to be associated with academic performance to improve the efficiency of the estimate. Recall that noisy models - lots of error - will decrease precision - higher standard errors for the coefficients. So if we can identify and add relevant variables, it might not change our point estimate, but the standard error should be lower (more efficient). The model below adds three covariates: years of teacher experience, whether the student is boy or girl, and whether the student qualifies for a free lunch (a proxy for low socioeconomic status).</p>
+<p><span class="math display">\[Y_i = \beta_0 + \beta_1 SmallClass_i + \beta_2 RegAide_i + \beta_3 gender +\beta_4 poor +\beta_5experience + u_i\]</span></p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="why-study-experimental-design-and-results.html#cb137-1" aria-hidden="true" tabindex="-1"></a>fmke <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">I</span>(readk <span class="sc">+</span> mathk) <span class="sc">~</span> stark<span class="sc">+</span>gender<span class="sc">+</span>lunchk<span class="sc">+</span>experiencek, <span class="at">data =</span> STAR)</span>
+<span id="cb137-2"><a href="why-study-experimental-design-and-results.html#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coeftest</span>(fmke, <span class="at">vcov =</span> vcovHC, <span class="at">type=</span> <span class="st">"HC1"</span>)</span>
+<span id="cb137-3"><a href="why-study-experimental-design-and-results.html#cb137-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-4"><a href="why-study-experimental-design-and-results.html#cb137-4" aria-hidden="true" tabindex="-1"></a>t test of coefficients<span class="sc">:</span></span>
+<span id="cb137-5"><a href="why-study-experimental-design-and-results.html#cb137-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-6"><a href="why-study-experimental-design-and-results.html#cb137-6" aria-hidden="true" tabindex="-1"></a>                   Estimate Std. Error  t value  <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb137-7"><a href="why-study-experimental-design-and-results.html#cb137-7" aria-hidden="true" tabindex="-1"></a>(Intercept)       <span class="fl">919.09404</span>    <span class="fl">2.49639</span> <span class="fl">368.1693</span> <span class="sc">&lt;</span> <span class="fl">2.2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb137-8"><a href="why-study-experimental-design-and-results.html#cb137-8" aria-hidden="true" tabindex="-1"></a>starksmall         <span class="fl">14.14339</span>    <span class="fl">2.35845</span>   <span class="fl">5.9969</span> <span class="fl">2.134e-09</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb137-9"><a href="why-study-experimental-design-and-results.html#cb137-9" aria-hidden="true" tabindex="-1"></a>starkregular<span class="sc">+</span>aide   <span class="fl">0.63946</span>    <span class="fl">2.16104</span>   <span class="fl">0.2959</span>    <span class="fl">0.7673</span>    </span>
+<span id="cb137-10"><a href="why-study-experimental-design-and-results.html#cb137-10" aria-hidden="true" tabindex="-1"></a>genderfemale       <span class="fl">13.80443</span>    <span class="fl">1.85516</span>   <span class="fl">7.4411</span> <span class="fl">1.146e-13</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb137-11"><a href="why-study-experimental-design-and-results.html#cb137-11" aria-hidden="true" tabindex="-1"></a>lunchkfree        <span class="sc">-</span><span class="fl">39.11061</span>    <span class="fl">1.85864</span> <span class="sc">-</span><span class="fl">21.0426</span> <span class="sc">&lt;</span> <span class="fl">2.2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb137-12"><a href="why-study-experimental-design-and-results.html#cb137-12" aria-hidden="true" tabindex="-1"></a>experiencek         <span class="fl">1.18034</span>    <span class="fl">0.16641</span>   <span class="fl">7.0931</span> <span class="fl">1.469e-12</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb137-13"><a href="why-study-experimental-design-and-results.html#cb137-13" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb137-14"><a href="why-study-experimental-design-and-results.html#cb137-14" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code></pre></div>
+<p>The estimates are more precise and the results are the same - small class size matters but the presence of an aide does not.</p>
+</div>
+<div id="validity-in-experiments" class="section level2" number="13.2">
+<h2>
+<span class="header-section-number">B.2</span> Validity in experiments<a class="anchor" aria-label="anchor" href="#validity-in-experiments"><i class="fas fa-link"></i></a>
+</h2>
+<p>Ensuring that inferences are valid is a central concern of experimental design. We distinguish between internal vaiidity and external validity.</p>
+<p>A statistical analysis has internal validity if a statistical inference made about causal effects is valid for the population - no Type I or Type II error.</p>
+<p>An analysis is said to have external validity if inferences and conclusion are valid for the studies’ population and can be generalized to other populations and settings.</p>
+<p>There are two conditions for internal validity to exist:</p>
+<ul>
+<li><p>The estimator of the causal effect, the coefficient(s) of interest, should be unbiased and consistent.</p></li>
+<li><p>statistical inference is valid, that is, hypothesis tests permit us to distinguish accurately between significant and insignificant effects.</p></li>
+</ul>
+<p>External validity might be jeopardized:</p>
+<ul>
+<li><p>if there are differences between the population studied and the population of interest.</p></li>
+<li><p>if there are differences in the settings of the considered populations, e.g., the legal framework or the time of the investigation.</p></li>
+</ul>
+<p>We should consider what these mean specifically in the context of experiments.</p>
+<p>This list and descriptions are drawn from <span class="citation">(<a href="#ref-stockwatson" role="doc-biblioref"><strong>stockwatson?</strong></a>)</span>.</p>
+<div id="internal-validity-in-experimental-settings" class="section level3" number="13.2.1">
+<h3>
+<span class="header-section-number">B.2.1</span> Internal validity in experimental settings<a class="anchor" aria-label="anchor" href="#internal-validity-in-experimental-settings"><i class="fas fa-link"></i></a>
+</h3>
+<div id="failure-to-randomize" class="section level4" number="13.2.1.1">
+<h4>
+<span class="header-section-number">B.2.1.1</span> Failure to Randomize<a class="anchor" aria-label="anchor" href="#failure-to-randomize"><i class="fas fa-link"></i></a>
+</h4>
+<p>If the subjects are not randomly assigned to the treatment group, then the outcomes will be contaminated with the effect of the subjects’ individual characteristics or preferences and it is not possible to obtain an unbiased estimate of the treatment effect. One can test for nonrandom assignment using a significance test (F-Test) on the coefficients in the regression model:</p>
+<p><span class="math display">\[T_i = \beta_0 + \beta_1 W_{1i} + \dots +\beta_r W_{ri} + u_i \ \ , \ \ i=1,\dots,n.\]</span>
+where <span class="math inline">\(W_i\)</span> are observable characteristics of the subject. If assignment is random, none of the covariates should be related to selection for the treatment.</p>
+</div>
+<div id="failure-to-follow-the-treatment-protocol" class="section level4" number="13.2.1.2">
+<h4>
+<span class="header-section-number">B.2.1.2</span> Failure to Follow the Treatment Protocol<a class="anchor" aria-label="anchor" href="#failure-to-follow-the-treatment-protocol"><i class="fas fa-link"></i></a>
+</h4>
+<p>If subjects do not follow the treatment protocol, i.e., some subjects in the treatment group manage to avoid receiving the treatment and/or some subjects in the control group manage to receive the treatment (partial compliance), there is correlation between <span class="math inline">\(T_i\)</span> und <span class="math inline">\(u_i\)</span> such that the OLS estimator of the average treatment effect will be biased.</p>
+</div>
+<div id="attrition" class="section level4" number="13.2.1.3">
+<h4>
+<span class="header-section-number">B.2.1.3</span> Attrition<a class="anchor" aria-label="anchor" href="#attrition"><i class="fas fa-link"></i></a>
+</h4>
+<p>Attrition may result in a non-randomly selected sample. If subjects systematically drop out of the study after being assigned to the control or the treatment group (systematic means that the reason of the dropout is related to the treatment) there will be correlation between <span class="math inline">\(T_i\)</span> und <span class="math inline">\(u_i\)</span>, biasing the OLS estimate of the treatment effect.</p>
+</div>
+<div id="experimental-effects" class="section level4" number="13.2.1.4">
+<h4>
+<span class="header-section-number">B.2.1.4</span> Experimental Effects<a class="anchor" aria-label="anchor" href="#experimental-effects"><i class="fas fa-link"></i></a>
+</h4>
+<p>If human subjects in treatment group and/or control group know that they are in an experiment, they might adapt their behavior in a way that prevents unbiased estimation of the treatment effect. This is widely known as the <strong>Hawthorne effect</strong>.</p>
+</div>
+<div id="small-sample-sizes" class="section level4" number="13.2.1.5">
+<h4>
+<span class="header-section-number">B.2.1.5</span> Small Sample Sizes<a class="anchor" aria-label="anchor" href="#small-sample-sizes"><i class="fas fa-link"></i></a>
+</h4>
+<p>Small sample sizes lead to imprecise estimation of the coefficients and thus imply imprecise estimation of the causal effect. Furthermore, confidence intervals and hypothesis test may result in Type II errors when the sample size is small.</p>
+</div>
+</div>
+<div id="threats-to-external-validity-in-experimental-settings" class="section level3" number="13.2.2">
+<h3>
+<span class="header-section-number">B.2.2</span> Threats to external validity in experimental settings<a class="anchor" aria-label="anchor" href="#threats-to-external-validity-in-experimental-settings"><i class="fas fa-link"></i></a>
+</h3>
+<div id="nonrepresentative-sample" class="section level4" number="13.2.2.1">
+<h4>
+<span class="header-section-number">B.2.2.1</span> Nonrepresentative Sample<a class="anchor" aria-label="anchor" href="#nonrepresentative-sample"><i class="fas fa-link"></i></a>
+</h4>
+<p>If the population studied and the population of interest are not sufficiently similar, there is no justification in generalizing the results. Is the experimental situation so different from the actual experience that the lessons of the experiment won’t translate?</p>
+</div>
+<div id="nonrepresentative-program-or-policy" class="section level4" number="13.2.2.2">
+<h4>
+<span class="header-section-number">B.2.2.2</span> Nonrepresentative Program or Policy<a class="anchor" aria-label="anchor" href="#nonrepresentative-program-or-policy"><i class="fas fa-link"></i></a>
+</h4>
+<p>If the program or policy for the population studied differs considerably from the program (to be) applied to population(s) of interest, the results cannot be generalized. For example, a small-scale program with low funding might have different effects than a widely available scaled-up program that is actually implemented. There are other factors like duration and the extent of monitoring that should be considered here.</p>
+</div>
+<div id="general-equilibrium-effects" class="section level4" number="13.2.2.3">
+<h4>
+<span class="header-section-number">B.2.2.3</span> General Equilibrium Effects<a class="anchor" aria-label="anchor" href="#general-equilibrium-effects"><i class="fas fa-link"></i></a>
+</h4>
+<p>If external or environmental conditions cannot be kept constant when an internally valid program is implemented broadly, external validity may be doubtful.</p>
+</div>
+</div>
+</div>
+<div id="so-what-is-a-quasi-experiment" class="section level2" number="13.3">
+<h2>
+<span class="header-section-number">B.3</span> So what is a quasi-experiment?<a class="anchor" aria-label="anchor" href="#so-what-is-a-quasi-experiment"><i class="fas fa-link"></i></a>
+</h2>
+<p>A quasi-experiment is a situation when nature (or someone else) assigns people to treatment and control groups in way that approximates a random selection. Assignment is “as-if” it were random.</p>
+<p>As in an experiment, we need to have observations of individual subjects prior to and after exposure to some treatment. So at least two observations per subject with some measure for both groups in both periods. We will clarify how this works by considering two techniques for analysis of quasi-experimental data - the difference-in-difference estimator and regression discontinuity designs.</p>
+<div id="difference-in-difference-estimators." class="section level3" number="13.3.1">
+<h3>
+<span class="header-section-number">B.3.1</span> Difference-in difference estimators.<a class="anchor" aria-label="anchor" href="#difference-in-difference-estimators."><i class="fas fa-link"></i></a>
+</h3>
+<p>This example (and this entire section) is almost directly from <span class="citation"><a href="references.html#ref-hancketal2021" role="doc-biblioref">Christoph Hanck and Schmelzer</a> (<a href="references.html#ref-hancketal2021" role="doc-biblioref">2021</a>)</span>.</p>
+<blockquote>
+<p>In quasi-experiments the source of “as if” randomness in treatment assignment can often not entirely prevent systematic differences between control and treatment groups. This problem was encountered by Card &amp; Krueger (1994) who use geography as the “as if” random treatment assignment to study the effect on employment in fast-food restaurants caused by an increase in the state minimum wage in New Jersey in 1992. Their idea was to use the fact that the increase in minimum wage applied to employees in New Jersey (treatment group) but not to those living in neighboring Pennsylvania (control group).</p>
+</blockquote>
+<blockquote>
+<p>It is quite conceivable that such a wage hike is not correlated with other determinants of employment. However, there still might be some state-specific differences and thus differences between control and treatment group. This would render the differences estimator biased and inconsistent. Card &amp; Krueger (1994) solved this by using a DID estimator: they collected data in February 1992 (before the treatment) and November 1992 (after the treatment) for the same restaurants and estimated the effect of the wage hike by analyzing differences in the differences in employment for New Jersey and Pennsylvania before and after the increase.</p>
+</blockquote>
+<p>The figure below sketches out the logic. If we have some outcome Y we acknowledge the the treatment and control group may start out at different levels so we focus on the change in that difference over time.</p>
+<div class="inline-figure"><img src="13-experiments_files/figure-html/figure1-1.png" width="672"></div>
+<p>The DID estimator can also be written in regression notation: <span class="math inline">\(\hat\beta^{DID}\)</span> is the OLS estimator of <span class="math inline">\(\beta_1\)</span> in</p>
+<p><span class="math display">\[\Delta Y_i = \beta_0 + \beta_1 T_i + u_i\]</span></p>
+</div>
+<div id="an-example-with-artificial-data" class="section level3" number="13.3.2">
+<h3>
+<span class="header-section-number">B.3.2</span> An example with artificial data<a class="anchor" aria-label="anchor" href="#an-example-with-artificial-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>The code chunk below creates an artificial dataset with a treatment and control group. The control group mean is 6.0 prior to treatment, and the treatment group has a mean of 8.0. After treatment, the control group mean increases to 7.0, but the treatment group means increases fo 13.0. So the treatment effect introduced (<span class="math inline">\(\hat\beta^{DID}\)</span>) is exactly 4.0.</p>
+<div class="inline-figure"><img src="13-experiments_files/figure-html/did-1.png" width="672"></div>
+<p>We can estimate the treatment effect in a couple of different ways: manually, with the DID estimator and with OLS using dummy variables for periods and treatment.</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="why-study-experimental-design-and-results.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 1: manually</span></span>
+<span id="cb138-2"><a href="why-study-experimental-design-and-results.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the DID estimator for the treatment effect 'by hand'</span></span>
+<span id="cb138-3"><a href="why-study-experimental-design-and-results.html#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(y_post[TDummy <span class="sc">==</span> <span class="dv">1</span>]) <span class="sc">-</span> <span class="fu">mean</span>(y_pre[TDummy <span class="sc">==</span> <span class="dv">1</span>]) <span class="sc">-</span> </span>
+<span id="cb138-4"><a href="why-study-experimental-design-and-results.html#cb138-4" aria-hidden="true" tabindex="-1"></a>(<span class="fu">mean</span>(y_post[TDummy <span class="sc">==</span> <span class="dv">0</span>]) <span class="sc">-</span> <span class="fu">mean</span>(y_pre[TDummy <span class="sc">==</span> <span class="dv">0</span>]))</span>
+<span id="cb138-5"><a href="why-study-experimental-design-and-results.html#cb138-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">3.871266</span></span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="why-study-experimental-design-and-results.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 1: DID</span></span>
+<span id="cb139-2"><a href="why-study-experimental-design-and-results.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the DID estimator using a linear model</span></span>
+<span id="cb139-3"><a href="why-study-experimental-design-and-results.html#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="fu">I</span>(y_post <span class="sc">-</span> y_pre) <span class="sc">~</span> TDummy)</span>
+<span id="cb139-4"><a href="why-study-experimental-design-and-results.html#cb139-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-5"><a href="why-study-experimental-design-and-results.html#cb139-5" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb139-6"><a href="why-study-experimental-design-and-results.html#cb139-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> <span class="fu">I</span>(y_post <span class="sc">-</span> y_pre) <span class="sc">~</span> TDummy)</span>
+<span id="cb139-7"><a href="why-study-experimental-design-and-results.html#cb139-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-8"><a href="why-study-experimental-design-and-results.html#cb139-8" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb139-9"><a href="why-study-experimental-design-and-results.html#cb139-9" aria-hidden="true" tabindex="-1"></a>(Intercept)       TDummy  </span>
+<span id="cb139-10"><a href="why-study-experimental-design-and-results.html#cb139-10" aria-hidden="true" tabindex="-1"></a>      <span class="fl">2.039</span>        <span class="fl">3.871</span>  </span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="why-study-experimental-design-and-results.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Method 1: OLS with dummies</span></span>
+<span id="cb140-2"><a href="why-study-experimental-design-and-results.html#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare data for DID regression using the interaction term </span></span>
+<span id="cb140-3"><a href="why-study-experimental-design-and-results.html#cb140-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">"Y"</span> <span class="ot">=</span> <span class="fu">c</span>(y_pre,y_post),</span>
+<span id="cb140-4"><a href="why-study-experimental-design-and-results.html#cb140-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Treatment"</span> <span class="ot">=</span> TDummy, </span>
+<span id="cb140-5"><a href="why-study-experimental-design-and-results.html#cb140-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Period"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"1"</span>, n), <span class="fu">rep</span>(<span class="st">"2"</span>, n)))</span>
+<span id="cb140-6"><a href="why-study-experimental-design-and-results.html#cb140-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-7"><a href="why-study-experimental-design-and-results.html#cb140-7" aria-hidden="true" tabindex="-1"></a><span class="co"># estimate the model</span></span>
+<span id="cb140-8"><a href="why-study-experimental-design-and-results.html#cb140-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(Y <span class="sc">~</span> Treatment <span class="sc">*</span> Period, <span class="at">data =</span> d)</span>
+<span id="cb140-9"><a href="why-study-experimental-design-and-results.html#cb140-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-10"><a href="why-study-experimental-design-and-results.html#cb140-10" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb140-11"><a href="why-study-experimental-design-and-results.html#cb140-11" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> Y <span class="sc">~</span> Treatment <span class="sc">*</span> Period, <span class="at">data =</span> d)</span>
+<span id="cb140-12"><a href="why-study-experimental-design-and-results.html#cb140-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-13"><a href="why-study-experimental-design-and-results.html#cb140-13" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb140-14"><a href="why-study-experimental-design-and-results.html#cb140-14" aria-hidden="true" tabindex="-1"></a>      (Intercept)          Treatment            Period2  Treatment<span class="sc">:</span>Period2  </span>
+<span id="cb140-15"><a href="why-study-experimental-design-and-results.html#cb140-15" aria-hidden="true" tabindex="-1"></a>            <span class="fl">5.977</span>              <span class="fl">1.073</span>              <span class="fl">2.039</span>              <span class="fl">3.871</span>  </span></code></pre></div>
+</div>
+<div id="regression-discontinuity-designs" class="section level3" number="13.3.3">
+<h3>
+<span class="header-section-number">B.3.3</span> Regression discontinuity designs<a class="anchor" aria-label="anchor" href="#regression-discontinuity-designs"><i class="fas fa-link"></i></a>
+</h3>
+<p>Regression discontinuity exploits empirical situations where subjects are selected for treatment based on some threshold or cutoff. The canonical example is compulsory summer school for students who are performing poorly. The idea is that we observe a group of students at the end of a school year and require summer school for students with grades below a certain cut-off, say 2.0. At the end of the next school year, we look at the grades of the same group of students. Did summer school improve the future performance of the students who were required to attend?</p>
+<p>Discontinuity designs exploit the fact that students very close to the threshold are quite similar. A group of students with a 2.1 GPA is probably quite similar to a group of students with a 1.9 GPA. The arbitrary administrative determination of the 2.0 threshold artificially splits this group, in a way that approximates a random assignment.</p>
+<p>When we discussed experimental design earlier in the term, I brought up the idea of exploiting wait-lists for services. If you have a large group of subjects seeking a small number of treatments, then you could randomly assign subjects to treatment (a lottery) or control and set up an experiment to measure the impact of treatment. This raises a host of problems - ethics of denying treatment to subjects in greatest need, possible exposure to harms if the treatment does not work. But someone has to use some criteria to figure out who gets what service - maybe geography - who lives close to a center or facility for treatment - or maybe some kind of need - based on income, for instance. Any kind of administrative determination of this form sets up the possibility of using a discontinuity design.</p>
+<p>To walk through the technical options, I create an artificial data set. In the first instance, everyone under 2.0 gets the treatment and no one under 2.0 (a strict cut-off). In the second instance, a small proportion of the eligible students do not attend and a small proportion of students above 2.0 opt to attend (so the cut-off is <em>fuzzy</em>).</p>
+<p>I left code visible so you could see how I did this.</p>
+<p>The true treatment effect is 0.50 units. The figure shows the predicted values for each group, and the break in the regression line is the impact of treatment.</p>
+<p>I use two approaches to estimate the size of the effect.</p>
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># generate sample data</span>
+<span class="co"># The mean GPA is the same in year and year 2</span>
+<span class="va">mu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.75</span>, <span class="fl">2.75</span><span class="op">)</span>
+
+<span class="co"># first and last term is variance - middle terms are covariance </span>
+<span class="co"># since the covariance is a larger proportion of the variance, performance is correlated.  I adjusted the variance to try to keep the numbers between 0 and 4</span>
+<span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+
+<span class="co">#I pulled 2000 observations from a multivariate normal distribution</span>
+<span class="co">#set.seed() makes sure that the random draw can be replicated.</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1266</span><span class="op">)</span>
+<span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu">mvrnorm</span><span class="op">(</span><span class="fl">2000</span>, <span class="va">mu</span>, <span class="va">sigma</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"W"</span>, <span class="st">"Y"</span><span class="op">)</span>
+
+<span class="co"># introduce fuzziness</span>
+<span class="co"># Probabilty of treatment is 95% if you are under 2.0 and 1% if you are over 2.0</span>
+<span class="va">d</span><span class="op">$</span><span class="va">treatProb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">W</span> <span class="op">&lt;</span> <span class="fl">2.0</span>, <span class="fl">0.95</span>, <span class="fl">0.01</span><span class="op">)</span>
+<span class="co"># Also have a strict treatment.</span>
+<span class="va">d</span><span class="op">$</span><span class="va">strict</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">W</span><span class="op">&lt;</span> <span class="fl">2.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span><span class="op">)</span>
+<span class="va">d</span><span class="op">$</span><span class="va">fuzz</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span>X <span class="op">=</span> <span class="va">d</span><span class="op">$</span><span class="va">treatProb</span>, FUN <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, prob <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># treatment effects = 0.50</span>
+<span class="va">d</span><span class="op">$</span><span class="va">Y_strict</span> <span class="op">&lt;-</span> <span class="va">d</span><span class="op">$</span><span class="va">Y</span><span class="op">+</span>  <span class="va">d</span><span class="op">$</span><span class="va">strict</span><span class="op">*</span><span class="fl">0.50</span>
+<span class="va">d</span><span class="op">$</span><span class="va">Y_fuzzy</span>  <span class="op">&lt;-</span> <span class="va">d</span><span class="op">$</span><span class="va">Y</span> <span class="op">+</span> <span class="va">d</span><span class="op">$</span><span class="va">fuzz</span><span class="op">*</span><span class="fl">0.50</span>
+
+<span class="co"># generate a colored plot of treatment and control group</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">W</span>, <span class="va">d</span><span class="op">$</span><span class="va">Y_fuzzy</span>,
+     col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"steelblue"</span>, <span class="st">"darkred"</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">d</span><span class="op">$</span><span class="va">fuzz</span><span class="op">)</span><span class="op">]</span>, 
+     pch<span class="op">=</span> <span class="fl">20</span>, 
+     cex <span class="op">=</span> <span class="fl">0.5</span>,
+     xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span>,
+     ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span>, <span class="fl">8</span><span class="op">)</span>,
+     xlab <span class="op">=</span> <span class="st">"W [treatment is fuzzy]"</span>,
+     ylab <span class="op">=</span> <span class="st">"Y"</span><span class="op">)</span>
+
+<span class="co"># add a dashed vertical line at cutoff</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v <span class="op">=</span> <span class="fl">2</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="co">## now predict 50 values spread evenly on range (-20, 0]</span>
+<span class="va">fit</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Y_strict</span><span class="op">~</span><span class="va">W</span><span class="op">+</span><span class="va">strict</span>, data<span class="op">=</span><span class="va">d</span><span class="op">)</span>
+
+<span class="va">newdat1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>W <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">2</span>, length <span class="op">=</span> <span class="fl">50</span><span class="op">)</span><span class="op">)</span>
+<span class="va">newdat1</span><span class="op">$</span><span class="va">strict</span><span class="op">&lt;-</span><span class="fl">1</span>
+<span class="va">newdat1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html">within</a></span><span class="op">(</span><span class="va">newdat1</span>, <span class="va">ypred1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">fit</span>, <span class="va">newdat1</span><span class="op">)</span><span class="op">)</span>
+<span class="va">newdat0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>W <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">5</span>, length <span class="op">=</span> <span class="fl">50</span><span class="op">)</span><span class="op">)</span>
+<span class="va">newdat0</span><span class="op">$</span><span class="va">strict</span><span class="op">&lt;-</span><span class="fl">0</span>
+<span class="va">newdat0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/with.html">within</a></span><span class="op">(</span><span class="va">newdat0</span>, <span class="va">ypred0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">fit</span>, <span class="va">newdat0</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">ypred0</span> <span class="op">~</span> <span class="va">W</span>, data <span class="op">=</span> <span class="va">newdat0</span>, col <span class="op">=</span> <span class="st">"blue"</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">ypred1</span> <span class="op">~</span> <span class="va">W</span>, data <span class="op">=</span> <span class="va">newdat1</span>, col <span class="op">=</span> <span class="st">"red"</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="13-experiments_files/figure-html/simulate-1.png" width="672"></div>
+<div id="estimating-the-size-of-the-effect---strict-assignment" class="section level4" number="13.3.3.1">
+<h4>
+<span class="header-section-number">B.3.3.1</span> Estimating the size of the effect - strict assignment<a class="anchor" aria-label="anchor" href="#estimating-the-size-of-the-effect---strict-assignment"><i class="fas fa-link"></i></a>
+</h4>
+<p>We have a couple of alternatives - we can use the entire sample, apply OLS, and permit the intercept to vary by treatment assignment. This is in the spirit of the figure above. Or we could just look at observations very close to the cut-off. To accomplish this I use the <code>RDD</code> package. Both estimates for the strict cutoff are below.</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="why-study-experimental-design-and-results.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the strict RDD using a subset of observations</span></span>
+<span id="cb142-2"><a href="why-study-experimental-design-and-results.html#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">RDestimate</span>(Y_strict<span class="sc">~</span>W, <span class="at">data=</span>d, <span class="at">cutpoint=</span><span class="dv">2</span>))</span>
+<span id="cb142-3"><a href="why-study-experimental-design-and-results.html#cb142-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-4"><a href="why-study-experimental-design-and-results.html#cb142-4" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb142-5"><a href="why-study-experimental-design-and-results.html#cb142-5" aria-hidden="true" tabindex="-1"></a><span class="fu">RDestimate</span>(<span class="at">formula =</span> Y_strict <span class="sc">~</span> W, <span class="at">data =</span> d, <span class="at">cutpoint =</span> <span class="dv">2</span>)</span>
+<span id="cb142-6"><a href="why-study-experimental-design-and-results.html#cb142-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-7"><a href="why-study-experimental-design-and-results.html#cb142-7" aria-hidden="true" tabindex="-1"></a>Type<span class="sc">:</span></span>
+<span id="cb142-8"><a href="why-study-experimental-design-and-results.html#cb142-8" aria-hidden="true" tabindex="-1"></a>sharp </span>
+<span id="cb142-9"><a href="why-study-experimental-design-and-results.html#cb142-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-10"><a href="why-study-experimental-design-and-results.html#cb142-10" aria-hidden="true" tabindex="-1"></a>Estimates<span class="sc">:</span></span>
+<span id="cb142-11"><a href="why-study-experimental-design-and-results.html#cb142-11" aria-hidden="true" tabindex="-1"></a>           Bandwidth  Observations  Estimate  Std. Error  z value  <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>) </span>
+<span id="cb142-12"><a href="why-study-experimental-design-and-results.html#cb142-12" aria-hidden="true" tabindex="-1"></a>LATE       <span class="fl">0.5122</span>      <span class="dv">672</span>          <span class="sc">-</span><span class="fl">0.4162</span>   <span class="fl">0.08021</span>     <span class="sc">-</span><span class="fl">5.189</span>   <span class="fl">2.120e-07</span></span>
+<span id="cb142-13"><a href="why-study-experimental-design-and-results.html#cb142-13" aria-hidden="true" tabindex="-1"></a>Half<span class="sc">-</span>BW    <span class="fl">0.2561</span>      <span class="dv">338</span>          <span class="sc">-</span><span class="fl">0.3706</span>   <span class="fl">0.11152</span>     <span class="sc">-</span><span class="fl">3.323</span>   <span class="fl">8.905e-04</span></span>
+<span id="cb142-14"><a href="why-study-experimental-design-and-results.html#cb142-14" aria-hidden="true" tabindex="-1"></a>Double<span class="sc">-</span>BW  <span class="fl">1.0243</span>     <span class="dv">1332</span>          <span class="sc">-</span><span class="fl">0.4693</span>   <span class="fl">0.05887</span>     <span class="sc">-</span><span class="fl">7.971</span>   <span class="fl">1.575e-15</span></span>
+<span id="cb142-15"><a href="why-study-experimental-design-and-results.html#cb142-15" aria-hidden="true" tabindex="-1"></a>              </span>
+<span id="cb142-16"><a href="why-study-experimental-design-and-results.html#cb142-16" aria-hidden="true" tabindex="-1"></a>LATE       <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb142-17"><a href="why-study-experimental-design-and-results.html#cb142-17" aria-hidden="true" tabindex="-1"></a>Half<span class="sc">-</span>BW    <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb142-18"><a href="why-study-experimental-design-and-results.html#cb142-18" aria-hidden="true" tabindex="-1"></a>Double<span class="sc">-</span>BW  <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb142-19"><a href="why-study-experimental-design-and-results.html#cb142-19" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb142-20"><a href="why-study-experimental-design-and-results.html#cb142-20" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb142-21"><a href="why-study-experimental-design-and-results.html#cb142-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-22"><a href="why-study-experimental-design-and-results.html#cb142-22" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistics<span class="sc">:</span></span>
+<span id="cb142-23"><a href="why-study-experimental-design-and-results.html#cb142-23" aria-hidden="true" tabindex="-1"></a>           F      Num. DoF  Denom. DoF  p        </span>
+<span id="cb142-24"><a href="why-study-experimental-design-and-results.html#cb142-24" aria-hidden="true" tabindex="-1"></a>LATE       <span class="fl">20.12</span>  <span class="dv">3</span>          <span class="dv">668</span>        <span class="fl">3.409e-12</span></span>
+<span id="cb142-25"><a href="why-study-experimental-design-and-results.html#cb142-25" aria-hidden="true" tabindex="-1"></a>Half<span class="sc">-</span>BW    <span class="fl">13.29</span>  <span class="dv">3</span>          <span class="dv">334</span>        <span class="fl">6.439e-08</span></span>
+<span id="cb142-26"><a href="why-study-experimental-design-and-results.html#cb142-26" aria-hidden="true" tabindex="-1"></a>Double<span class="sc">-</span>BW  <span class="fl">67.43</span>  <span class="dv">3</span>         <span class="dv">1328</span>        <span class="fl">0.000e+00</span></span></code></pre></div>
+<p>In the output above, LATE indicates the Local Area Treatment Effect” - the Bandwidth indicates how many observations total above and below the cutoff were used for the calculation. The estimate with 672 observations was -0.41.<br>
+This is close our known value 0.50. The sign is negative since the group above the cutoff did not get the treatment, so a lower outcome.</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="why-study-experimental-design-and-results.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the effect using all observations</span></span>
+<span id="cb143-2"><a href="why-study-experimental-design-and-results.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Y_strict<span class="sc">~</span>W<span class="sc">+</span>strict, <span class="at">data=</span>d))</span>
+<span id="cb143-3"><a href="why-study-experimental-design-and-results.html#cb143-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-4"><a href="why-study-experimental-design-and-results.html#cb143-4" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb143-5"><a href="why-study-experimental-design-and-results.html#cb143-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> Y_strict <span class="sc">~</span> W <span class="sc">+</span> strict, <span class="at">data =</span> d)</span>
+<span id="cb143-6"><a href="why-study-experimental-design-and-results.html#cb143-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-7"><a href="why-study-experimental-design-and-results.html#cb143-7" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
+<span id="cb143-8"><a href="why-study-experimental-design-and-results.html#cb143-8" aria-hidden="true" tabindex="-1"></a>     Min       1Q   Median       3Q      Max </span>
+<span id="cb143-9"><a href="why-study-experimental-design-and-results.html#cb143-9" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">1.28587</span> <span class="sc">-</span><span class="fl">0.28317</span>  <span class="fl">0.00286</span>  <span class="fl">0.29226</span>  <span class="fl">1.65117</span> </span>
+<span id="cb143-10"><a href="why-study-experimental-design-and-results.html#cb143-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-11"><a href="why-study-experimental-design-and-results.html#cb143-11" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb143-12"><a href="why-study-experimental-design-and-results.html#cb143-12" aria-hidden="true" tabindex="-1"></a>            Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb143-13"><a href="why-study-experimental-design-and-results.html#cb143-13" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">0.72096</span>    <span class="fl">0.05443</span>   <span class="fl">13.25</span>   <span class="sc">&lt;</span><span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb143-14"><a href="why-study-experimental-design-and-results.html#cb143-14" aria-hidden="true" tabindex="-1"></a>W            <span class="fl">0.73954</span>    <span class="fl">0.01847</span>   <span class="fl">40.03</span>   <span class="sc">&lt;</span><span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb143-15"><a href="why-study-experimental-design-and-results.html#cb143-15" aria-hidden="true" tabindex="-1"></a>strict       <span class="fl">0.47802</span>    <span class="fl">0.03607</span>   <span class="fl">13.25</span>   <span class="sc">&lt;</span><span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb143-16"><a href="why-study-experimental-design-and-results.html#cb143-16" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb143-17"><a href="why-study-experimental-design-and-results.html#cb143-17" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb143-18"><a href="why-study-experimental-design-and-results.html#cb143-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb143-19"><a href="why-study-experimental-design-and-results.html#cb143-19" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">0.4192</span> on <span class="dv">1997</span> degrees of freedom</span>
+<span id="cb143-20"><a href="why-study-experimental-design-and-results.html#cb143-20" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.476</span>, Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.4754</span> </span>
+<span id="cb143-21"><a href="why-study-experimental-design-and-results.html#cb143-21" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">906.9</span> on <span class="dv">2</span> and <span class="dv">1997</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="er">&lt;</span> <span class="fl">2.2e-16</span></span></code></pre></div>
+<p>OLS gives us similar results, but even closer to the true if we use all of the data. In my artificial data, the data-generating process is the same for all observations, so more observations is more efficient and more accurate. But in some circumstances it may make more sense to just concentrate on observations close to the threshold. Using both approaches lets you compare the implications of larger or smaller samples.</p>
+</div>
+<div id="fuzzy-assignment." class="section level4" number="13.3.3.2">
+<h4>
+<span class="header-section-number">B.3.3.2</span> Fuzzy assignment.<a class="anchor" aria-label="anchor" href="#fuzzy-assignment."><i class="fas fa-link"></i></a>
+</h4>
+<p>We can use the same strategy with fuzzy assignment. For the fuzzy assignment, we introduce the treatment probability variable directly. We can also do this with OLS, but a two-stage approach would be preferred here so this is just FYI.</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="why-study-experimental-design-and-results.html#cb144-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-2"><a href="why-study-experimental-design-and-results.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="co"># What if treatment is fuzzy?</span></span>
+<span id="cb144-3"><a href="why-study-experimental-design-and-results.html#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The default in RDestimate is to treat greater than W as treatment so treatprob needs to be .05 and .99 in order for signs to be comparable to above</span></span>
+<span id="cb144-4"><a href="why-study-experimental-design-and-results.html#cb144-4" aria-hidden="true" tabindex="-1"></a>d<span class="sc">$</span>treatProb2<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">-</span>d<span class="sc">$</span>treatProb</span>
+<span id="cb144-5"><a href="why-study-experimental-design-and-results.html#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">RDestimate</span>(Y_fuzzy<span class="sc">~</span>W<span class="sc">+</span>treatProb2, <span class="at">data=</span>d, <span class="at">cutpoint=</span><span class="dv">2</span>))</span>
+<span id="cb144-6"><a href="why-study-experimental-design-and-results.html#cb144-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-7"><a href="why-study-experimental-design-and-results.html#cb144-7" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb144-8"><a href="why-study-experimental-design-and-results.html#cb144-8" aria-hidden="true" tabindex="-1"></a><span class="fu">RDestimate</span>(<span class="at">formula =</span> Y_fuzzy <span class="sc">~</span> W <span class="sc">+</span> treatProb2, <span class="at">data =</span> d, <span class="at">cutpoint =</span> <span class="dv">2</span>)</span>
+<span id="cb144-9"><a href="why-study-experimental-design-and-results.html#cb144-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-10"><a href="why-study-experimental-design-and-results.html#cb144-10" aria-hidden="true" tabindex="-1"></a>Type<span class="sc">:</span></span>
+<span id="cb144-11"><a href="why-study-experimental-design-and-results.html#cb144-11" aria-hidden="true" tabindex="-1"></a>fuzzy </span>
+<span id="cb144-12"><a href="why-study-experimental-design-and-results.html#cb144-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-13"><a href="why-study-experimental-design-and-results.html#cb144-13" aria-hidden="true" tabindex="-1"></a>Estimates<span class="sc">:</span></span>
+<span id="cb144-14"><a href="why-study-experimental-design-and-results.html#cb144-14" aria-hidden="true" tabindex="-1"></a>           Bandwidth  Observations  Estimate  Std. Error  z value  <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>) </span>
+<span id="cb144-15"><a href="why-study-experimental-design-and-results.html#cb144-15" aria-hidden="true" tabindex="-1"></a>LATE       <span class="fl">0.5176</span>      <span class="dv">683</span>          <span class="sc">-</span><span class="fl">0.4311</span>   <span class="fl">0.08595</span>     <span class="sc">-</span><span class="fl">5.016</span>   <span class="fl">5.276e-07</span></span>
+<span id="cb144-16"><a href="why-study-experimental-design-and-results.html#cb144-16" aria-hidden="true" tabindex="-1"></a>Half<span class="sc">-</span>BW    <span class="fl">0.2588</span>      <span class="dv">338</span>          <span class="sc">-</span><span class="fl">0.3826</span>   <span class="fl">0.11917</span>     <span class="sc">-</span><span class="fl">3.211</span>   <span class="fl">1.325e-03</span></span>
+<span id="cb144-17"><a href="why-study-experimental-design-and-results.html#cb144-17" aria-hidden="true" tabindex="-1"></a>Double<span class="sc">-</span>BW  <span class="fl">1.0352</span>     <span class="dv">1344</span>          <span class="sc">-</span><span class="fl">0.4799</span>   <span class="fl">0.06328</span>     <span class="sc">-</span><span class="fl">7.584</span>   <span class="fl">3.351e-14</span></span>
+<span id="cb144-18"><a href="why-study-experimental-design-and-results.html#cb144-18" aria-hidden="true" tabindex="-1"></a>              </span>
+<span id="cb144-19"><a href="why-study-experimental-design-and-results.html#cb144-19" aria-hidden="true" tabindex="-1"></a>LATE       <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb144-20"><a href="why-study-experimental-design-and-results.html#cb144-20" aria-hidden="true" tabindex="-1"></a>Half<span class="sc">-</span>BW    <span class="sc">**</span> </span>
+<span id="cb144-21"><a href="why-study-experimental-design-and-results.html#cb144-21" aria-hidden="true" tabindex="-1"></a>Double<span class="sc">-</span>BW  <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb144-22"><a href="why-study-experimental-design-and-results.html#cb144-22" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb144-23"><a href="why-study-experimental-design-and-results.html#cb144-23" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb144-24"><a href="why-study-experimental-design-and-results.html#cb144-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-25"><a href="why-study-experimental-design-and-results.html#cb144-25" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistics<span class="sc">:</span></span>
+<span id="cb144-26"><a href="why-study-experimental-design-and-results.html#cb144-26" aria-hidden="true" tabindex="-1"></a>           F      Num. DoF  Denom. DoF  p        </span>
+<span id="cb144-27"><a href="why-study-experimental-design-and-results.html#cb144-27" aria-hidden="true" tabindex="-1"></a>LATE       <span class="fl">17.94</span>  <span class="dv">3</span>          <span class="dv">679</span>        <span class="fl">3.240e-11</span></span>
+<span id="cb144-28"><a href="why-study-experimental-design-and-results.html#cb144-28" aria-hidden="true" tabindex="-1"></a>Half<span class="sc">-</span>BW    <span class="fl">11.80</span>  <span class="dv">3</span>          <span class="dv">334</span>        <span class="fl">2.300e-07</span></span>
+<span id="cb144-29"><a href="why-study-experimental-design-and-results.html#cb144-29" aria-hidden="true" tabindex="-1"></a>Double<span class="sc">-</span>BW  <span class="fl">68.60</span>  <span class="dv">3</span>         <span class="dv">1340</span>        <span class="fl">2.864e-41</span></span>
+<span id="cb144-30"><a href="why-study-experimental-design-and-results.html#cb144-30" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(Y_fuzzy<span class="sc">~</span>W<span class="sc">+</span>treatProb, <span class="at">data=</span>d))</span>
+<span id="cb144-31"><a href="why-study-experimental-design-and-results.html#cb144-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-32"><a href="why-study-experimental-design-and-results.html#cb144-32" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb144-33"><a href="why-study-experimental-design-and-results.html#cb144-33" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> Y_fuzzy <span class="sc">~</span> W <span class="sc">+</span> treatProb, <span class="at">data =</span> d)</span>
+<span id="cb144-34"><a href="why-study-experimental-design-and-results.html#cb144-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-35"><a href="why-study-experimental-design-and-results.html#cb144-35" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
+<span id="cb144-36"><a href="why-study-experimental-design-and-results.html#cb144-36" aria-hidden="true" tabindex="-1"></a>     Min       1Q   Median       3Q      Max </span>
+<span id="cb144-37"><a href="why-study-experimental-design-and-results.html#cb144-37" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">1.29321</span> <span class="sc">-</span><span class="fl">0.28232</span>  <span class="fl">0.00369</span>  <span class="fl">0.28859</span>  <span class="fl">1.66531</span> </span>
+<span id="cb144-38"><a href="why-study-experimental-design-and-results.html#cb144-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-39"><a href="why-study-experimental-design-and-results.html#cb144-39" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb144-40"><a href="why-study-experimental-design-and-results.html#cb144-40" aria-hidden="true" tabindex="-1"></a>            Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb144-41"><a href="why-study-experimental-design-and-results.html#cb144-41" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">0.71966</span>    <span class="fl">0.05501</span>   <span class="fl">13.08</span>   <span class="sc">&lt;</span><span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb144-42"><a href="why-study-experimental-design-and-results.html#cb144-42" aria-hidden="true" tabindex="-1"></a>W            <span class="fl">0.74097</span>    <span class="fl">0.01859</span>   <span class="fl">39.87</span>   <span class="sc">&lt;</span><span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb144-43"><a href="why-study-experimental-design-and-results.html#cb144-43" aria-hidden="true" tabindex="-1"></a>treatProb    <span class="fl">0.48721</span>    <span class="fl">0.03861</span>   <span class="fl">12.62</span>   <span class="sc">&lt;</span><span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb144-44"><a href="why-study-experimental-design-and-results.html#cb144-44" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb144-45"><a href="why-study-experimental-design-and-results.html#cb144-45" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb144-46"><a href="why-study-experimental-design-and-results.html#cb144-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-47"><a href="why-study-experimental-design-and-results.html#cb144-47" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">0.4217</span> on <span class="dv">1997</span> degrees of freedom</span>
+<span id="cb144-48"><a href="why-study-experimental-design-and-results.html#cb144-48" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.4769</span>,    Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.4764</span> </span>
+<span id="cb144-49"><a href="why-study-experimental-design-and-results.html#cb144-49" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">910.3</span> on <span class="dv">2</span> and <span class="dv">1997</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="er">&lt;</span> <span class="fl">2.2e-16</span></span></code></pre></div>
+<p>In this case, we know the treatment effect is 0.5. Using a strict cut-off, we had estimates of the effects in the range of 0.42 to 0.48. Using the fuzzy cut-off, we had estimates from 0.43 to 0.48. Note the implication here - in the fuzzy case, we knew what the administrative cut-off was (2.0) and we didn’t know exactly or were not sure which students attended, but we were nevertheless able to estimate the effect.</p>
+</div>
+</div>
+<div id="a-recent-application-in-gender-and-politics" class="section level3" number="13.3.4">
+<h3>
+<span class="header-section-number">B.3.4</span> A recent application in gender and politics<a class="anchor" aria-label="anchor" href="#a-recent-application-in-gender-and-politics"><i class="fas fa-link"></i></a>
+</h3>
+<p>From Basques and Campes (2017)</p>
+<blockquote>
+<p>In a recent paper, we provide a comprehensive analysis of the impact of candidate gender quotas using the unique quasi-experimental evidence offered by their introduction in Spanish local elections.</p>
+</blockquote>
+<blockquote>
+<p>In the context of closed lists with proportional representation, the quota prescribes that at least 40% of the candidates in the list should be female (and male). The provision applies to the entire list, and also to every block of five candidates.</p>
+</blockquote>
+<blockquote>
+<p>The quota was first implemented in 2007 in municipalities with more than 5,000 inhabitants, and was extended in 2011 to municipalities with more than 3,000 inhabitants.</p>
+</blockquote>
+<blockquote>
+<p>We take advantage of the existence of these population cut-offs to implement a regression discontinuity design where we compare municipalities slightly above and below these cut-offs over three rounds of elections (2007, 2011, and 2015).
+By comparing municipalities that are practically identical in terms of population (the optimal bandwidth is around 1,000 inhabitants), this empirical strategy is robust to the existence of any other relevant factors that vary smoothly at the threshold. The analysis provides information on the impact of quotas in an important context: relatively small municipalities, likely in rural areas, where the persistence of gender stereotypes tends to be stronger and where women have been traditionally excluded from decision-making to a larger extent. Interestingly, this is a group of municipalities that many countries have decided to exclude from the quota (e.g. France, Italy, and Spain).</p>
+</blockquote>
+<blockquote>
+<p>In sum, our study confirms that quotas in electoral lists increase the number of women elected.</p>
+</blockquote>
+<blockquote>
+<p>However, during the ten years in which quotas have been in place in Spain, they have not significantly affected the probability that women reach leadership positions or the type of policies that are implemented, at least in small municipalities that were the object of our study. At the same time, the fear that quotas would decrease the quality of politicians has not been confirmed: quota candidates have similar educational attainment and they attract a similar number of votes compared to the candidates they replace.</p>
+</blockquote>
+<p>Details: <a href="https://voxeu.org/article/electoral-gender-quotas-fail-empower-women" class="uri">https://voxeu.org/article/electoral-gender-quotas-fail-empower-women</a></p>
+</div>
+</div>
+<div id="why-quasi-experiments-might-be-superior" class="section level2" number="13.4">
+<h2>
+<span class="header-section-number">B.4</span> Why quasi-experiments might be superior<a class="anchor" aria-label="anchor" href="#why-quasi-experiments-might-be-superior"><i class="fas fa-link"></i></a>
+</h2>
+<p><span class="citation"><a href="references.html#ref-green2010" role="doc-biblioref">Green</a> (<a href="references.html#ref-green2010" role="doc-biblioref">2010</a>)</span> makes the strong case for more widespread use of quasi-experiments. While randomized controlled experiments are generally superior to other types of casual inference, she argues that we should think of a continuum ranging form poorly designed quasi-experiments (least preferred) to strongly designed controlled experiments (most preferred). In the middle range are both strongly designed quasi-experiments and poorly-designed controlled experiments. In that category, there is a case to be made for using quasi-experiments.</p>
+<p>Think about our threats to validity:</p>
+<p>In a quasi-experiment, no one - researcher or subject - knows at the time they are part of experiment. So we have higher confidence in internal validity.</p>
+<p>In a quasi-experiment, you are not constrained by access to subjects or other practical and ethical constraints. You are only observing post-hoc.</p>
+<ul>
+<li>you are not making choices about access to some treatment</li>
+<li>you are not exposing subjects to potential harm</li>
+</ul>
+<p>Since the design can be applied to a broader range of settings and contexts, we can have a higher confidence in external validity.</p>
+<p>But since the natural or administrative choices that set up the quasi-experiment may be rare, external validity may be a challenge.</p>
+<p>These insights might explain why quasi-experiments and particularly regression discontinuity design are becoming so widely used and popular: inexpensive, powerful, practical.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="data-models-and-evidence-based-policymaking.html"><span class="header-section-number">A</span> Data, models and evidence-based policymaking</a></div>
+<div class="next"><a href="matching.html"><span class="header-section-number">C</span> Matching</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li>
+<a class="nav-link" href="#why-study-experimental-design-and-results"><span class="header-section-number">B</span> Why study experimental design and results?</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#describing-treatment-effects"><span class="header-section-number">B.0.1</span> Describing treatment effects</a></li></ul>
+</li>
+<li><a class="nav-link" href="#analyzing-experimental-data-the-star-project"><span class="header-section-number">B.1</span> Analyzing experimental data: the STAR project</a></li>
+<li>
+<a class="nav-link" href="#validity-in-experiments"><span class="header-section-number">B.2</span> Validity in experiments</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#internal-validity-in-experimental-settings"><span class="header-section-number">B.2.1</span> Internal validity in experimental settings</a></li>
+<li><a class="nav-link" href="#threats-to-external-validity-in-experimental-settings"><span class="header-section-number">B.2.2</span> Threats to external validity in experimental settings</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#so-what-is-a-quasi-experiment"><span class="header-section-number">B.3</span> So what is a quasi-experiment?</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#difference-in-difference-estimators."><span class="header-section-number">B.3.1</span> Difference-in difference estimators.</a></li>
+<li><a class="nav-link" href="#an-example-with-artificial-data"><span class="header-section-number">B.3.2</span> An example with artificial data</a></li>
+<li><a class="nav-link" href="#regression-discontinuity-designs"><span class="header-section-number">B.3.3</span> Regression discontinuity designs</a></li>
+<li><a class="nav-link" href="#a-recent-application-in-gender-and-politics"><span class="header-section-number">B.3.4</span> A recent application in gender and politics</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#why-quasi-experiments-might-be-superior"><span class="header-section-number">B.4</span> Why quasi-experiments might be superior</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Political Science and Applied Statistics using R</strong>" was written by J.K. Corder. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
