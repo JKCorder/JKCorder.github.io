@@ -6,14 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>5 Working with time series | Political Science and Applied Statistics using R</title>
 <meta name="author" content="J.K. Corder">
-<meta name="description" content="5.1 Modeling presidential approval For the assignment due in two weeks you will model or predict approval of US presidents as a function of economic conditions and war. The dependent variable is...">
+<meta name="description" content="Data organized by date are known as time series and data of this form introduce some particular challenges with arcane names like autocorrelation and nonstationarity. There is a particular and...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="5 Working with time series | Political Science and Applied Statistics using R">
 <meta property="og:type" content="book">
-<meta property="og:description" content="5.1 Modeling presidential approval For the assignment due in two weeks you will model or predict approval of US presidents as a function of economic conditions and war. The dependent variable is...">
+<meta property="og:description" content="Data organized by date are known as time series and data of this form introduce some particular challenges with arcane names like autocorrelation and nonstationarity. There is a particular and...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5 Working with time series | Political Science and Applied Statistics using R">
-<meta name="twitter:description" content="5.1 Modeling presidential approval For the assignment due in two weeks you will model or predict approval of US presidents as a function of economic conditions and war. The dependent variable is...">
+<meta name="twitter:description" content="Data organized by date are known as time series and data of this form introduce some particular challenges with arcane names like autocorrelation and nonstationarity. There is a particular and...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -45,20 +45,20 @@
 <li><a class="" href="logistic-regression.html"><span class="header-section-number">3</span> Logistic regression</a></li>
 <li><a class="" href="using-interaction-terms.html"><span class="header-section-number">4</span> Using interaction terms</a></li>
 <li><a class="active" href="working-with-time-series.html"><span class="header-section-number">5</span> Working with time series</a></li>
-<li><a class="" href="dynamic-models-1.html"><span class="header-section-number">6</span> Dynamic Models</a></li>
+<li><a class="" href="dynamic-models-1.html"><span class="header-section-number">6</span> Dynamic models</a></li>
 <li><a class="" href="working-with-panel-data.html"><span class="header-section-number">7</span> Working with panel data</a></li>
-<li><a class="" href="dynamics-panel-models---a-brief-introduction.html"><span class="header-section-number">8</span> Dynamics panel models - a brief introduction</a></li>
+<li><a class="" href="working-with-time-series-cross-sectional-tscs-data.html"><span class="header-section-number">8</span> Working with Time-Series Cross-Sectional (TSCS) data</a></li>
 <li><a class="" href="counts.html"><span class="header-section-number">9</span> Counts</a></li>
 <li><a class="" href="duration-models.html"><span class="header-section-number">10</span> Duration models</a></li>
 <li><a class="" href="references.html"><span class="header-section-number">11</span> References</a></li>
 <li class="book-part">Appendix</li>
 <li><a class="" href="using-the-american-national-election-study.html">Using the American National Election Study</a></li>
-<li><a class="" href="the-harvard-dataverse.html">The Harvard Dataverse</a></li>
+<li><a class="" href="the-harvard-dataverse-1.html">The Harvard Dataverse</a></li>
 <li><a class="" href="replicating-when-do-politicians-grandstand.html">Replicating “When do politicians grandstand?”</a></li>
-<li><a class="" href="data-models-and-evidence-based-policymaking.html"><span class="header-section-number">A</span> Data, models and evidence-based policymaking</a></li>
-<li><a class="" href="quasi--and-natural-experiments.html"><span class="header-section-number">B</span> Quasi- and natural experiments</a></li>
-<li><a class="" href="matching.html"><span class="header-section-number">C</span> Matching</a></li>
-<li><a class="" href="multilevel-and-hierarchical-models.html"><span class="header-section-number">D</span> Multilevel and hierarchical models</a></li>
+<li class="book-part">Short Introductions</li>
+<li><a class="" href="quasi--and-natural-experiments.html">Quasi- and natural experiments</a></li>
+<li><a class="" href="matching.html">Matching</a></li>
+<li><a class="" href="multilevel-and-hierarchical-models.html">Multilevel and hierarchical models</a></li>
 <li><a class="" href="about-the-author.html">About the author</a></li>
 </ul>
 
@@ -71,12 +71,18 @@
 <h1>
 <span class="header-section-number">5</span> Working with time series<a class="anchor" aria-label="anchor" href="#working-with-time-series"><i class="fas fa-link"></i></a>
 </h1>
+<p>Data organized by date are known as time series and data of this form introduce some particular challenges with arcane names like <em>autocorrelation</em> and <em>nonstationarity</em>. There is a particular and compelling advantage to using data organized by date - you can add in new variables - anything you can imagine - if you expect it is relevant.</p>
+<p>We will cover each of the challenges in turn:</p>
+<ul>
+<li><p>what it means to have stationary series, why that is important, and how we transform a nonstationary series to a stationary series.</p></li>
+<li><p>what is means to have serial correlation, why that is important to know, and how we fix the problem.</p></li>
+</ul>
+<p>We will use presidential approval data to introduce tests for stationarity, estimate a simple model to see what serial correlation looks like, and next week we will talking about alternative ways to manage serial correlation.</p>
 <div id="modeling-presidential-approval" class="section level2" number="5.1">
 <h2>
 <span class="header-section-number">5.1</span> Modeling presidential approval<a class="anchor" aria-label="anchor" href="#modeling-presidential-approval"><i class="fas fa-link"></i></a>
 </h2>
-<p>For the assignment due in two weeks you will model or predict approval of US presidents as a function of economic conditions and war. The dependent variable is presidential approval, measured using the Gallup poll. In a 2010 article in <em>Public Opinion Quarterly</em>, Benny Geys concludes that presidential approval is influenced by US spending in foreign conflicts <span class="citation">(<a href="references.html#ref-geys2010" role="doc-biblioref">Geys 2010</a>)</span>. He relied on data from 1948 to 2008, capturing the experience of 11 US Presidents and four long-term foreign conflicts (Korea, Vietnam, and Iraq and Afghanistan after 9/11). The data are organized by quarter, starting 1948 Q2 and ending 2008 Q3. The Gallup Poll, administered dozens of times every year (in some years, several times a month), often includes the question “Do you approve or disapprove of the way [president’s name] is handling his job as president?” The approval rating is simply the percentage of the population that answers “approve.” The data are summarized below and you can see the long-run average is probably around 50%. Work by political scientists has linked the level of this approval rating to the state of the economy and highlighted the fact that approval ratings immediately following election are typically higher than average (the “honeymoon” period). Other work has linked increasing casualties in war to declining presidential approval and Geys starts his piece with the claim that we should consider fiscal as well as human costs.</p>
-<p>The quarterly level of presidential approval is summarized in the figure below.</p>
+<p>For the assignment due in two weeks you will model or predict approval of US presidents as a function of economic conditions and war. The dependent variable is presidential approval, measured using the Gallup poll. In a 2010 article in <em>Public Opinion Quarterly</em>, Benny Geys concludes that presidential approval is influenced by US spending in foreign conflicts <span class="citation">(<a href="references.html#ref-geys2010" role="doc-biblioref">Geys 2010</a>)</span>. He relied on data from 1948 to 2008, capturing the experience of 11 US Presidents and four long-term foreign conflicts (Korea, Vietnam, and Iraq and Afghanistan after 9/11). The data are organized by quarter, starting 1948 Q2 and ending 2008 Q3. The Gallup Poll, administered dozens of times every year (in some years, several times a month), often includes the question “Do you approve or disapprove of the way [president’s name] is handling his job as president?” The approval rating is simply the percentage of the population that answers “approve.” The quarterly level of presidential approval is summarized in the figure below.</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Use the haven package read_dta function to read the STATA dataset</span>
@@ -90,28 +96,22 @@
 
 <span class="co"># Create a figure</span>
 <span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">approval</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Figure 1. Presidential approval, 1948-2008"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"#095872"</span>, size<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme</span><span class="op">(</span>plot.title.position <span class="op">=</span> <span class="st">"plot"</span>, plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face<span class="op">=</span><span class="st">"bold"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"Percent approving"</span><span class="op">)</span></code></pre></div>
+  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"Percent approving"</span>, caption<span class="op">=</span><span class="st">"Figure 1. Presidential approval, 1948-2008"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/read.poq-1.png" width="672"></div>
-<p>Data organized by date are known as time series and data of this form introduce some particular challenges with arcane names like <em>autocorrelation</em> and <em>nonstationarity</em>. There is a particular and compelling advantage to using data organized by date - you can add in new variables - anything you can imagine - if you expect it is relevant.</p>
-<p>We will cover each of the challenges in turn:</p>
-<ul>
-<li><p>what it means to have stationary series, why that is important, and how we transform a nonstationary series to a stationary series.</p></li>
-<li><p>what is means to have serial correlation, why that is important to know, and how we fix the problem.</p></li>
-</ul>
-<p>We will use the presidential approval data to introduce tests for stationarity, estimate a simple model to see what serial correlation looks like, and next week we will talking about alternative ways to fix that problem.</p>
+<p>You can see the long-run average is probably around 50%. Work by political scientists has linked the level of this approval rating to the state of the economy and highlighted the fact that approval ratings immediately following the election are typically higher than average (the “honeymoon” period). Other work has linked increasing casualties in war to declining presidential approval and Geys starts his piece with the claim that we should consider fiscal as well as human costs of war.</p>
 </div>
 <div id="nonstationary-data-can-lead-to-spurious-findings" class="section level2" number="5.2">
 <h2>
 <span class="header-section-number">5.2</span> Nonstationary data can lead to spurious findings<a class="anchor" aria-label="anchor" href="#nonstationary-data-can-lead-to-spurious-findings"><i class="fas fa-link"></i></a>
 </h2>
 <p>The first step when working with time series data is to test that the series is <em>stationary</em>. Statisticians working with time series data uncovered a serious problem with standard econometric techniques applied to time series: estimation of parameters of the OLS model produces statistically significant results between time series that contain a trend and are otherwise random. This revelation dates back to the mid-1920s, in a piece titled “Why do we sometimes get nonsense-correlations between Time-Series?” <span class="citation">(<a href="references.html#ref-yule1926we" role="doc-biblioref">Yule 1926</a>)</span>. The finding led to considerable work on how to determine what properties a time series must possess if econometric techniques are to be used. The basic conclusion was that any time series used in econometric applications must be stationary. (We will discuss one exception – next week – when two nonstationary time series are <em>cointegrated.</em>).</p>
+<p>Evaluating whether a series if stationary boils down to one question. Are the characteristics of a time series – the mean and variance - constant over time? If the mean and variance are constant over time, then the series is stationary. If the mean and variance change, then the series is nonstationary.</p>
+<p>You can get some idea about problems with nonstationarity just by looking at a plot of a time series. Does the series appear to have a stable mean or a trend? Does the variance of the series appear to be constant over time?</p>
 <div id="determining-the-properties-of-a-series" class="section level3 unnumbered">
 <h3>Determining the properties of a series<a class="anchor" aria-label="anchor" href="#determining-the-properties-of-a-series"><i class="fas fa-link"></i></a>
 </h3>
-<p>You can think about any time series as composed of four different elements: random error, a trend, a drift, and memory (how much the value today depends on the value yesterday.) If we put all of these together, we would have an equation that looks like this:</p>
+<p>You can think about any time series as composed of four different elements: random error, a trend, a drift, and memory (how much the value today depends on the value yesterday). If we put all of these together, we would have an equation that looks like this:</p>
 <p><span class="math display">\[Y_t=\rho Y_{t-1}+\mu+\beta t +\epsilon_t\]</span></p>
 <p>The memory is captured with <span class="math inline">\(\rho\)</span>. If <span class="math inline">\(\rho=0\)</span>, then the there is no memory. If the value of <span class="math inline">\(\rho&gt;1\)</span> or <span class="math inline">\(\rho&lt;-1\)</span>, the series will be <em>explosive.</em></p>
 <p>The drift is represented as <span class="math inline">\(\mu\)</span>.</p>
@@ -119,15 +119,15 @@
 <p>If all of the parameters are zero, then all that is left is white noise or random error (<span class="math inline">\(\epsilon_t\)</span>).</p>
 <p>A special case is when <span class="math inline">\(\rho\)</span> =1. A time series is described as a <em>random walk</em> if the variable of interest (Y<sub>t</sub>) is a function of past values plus some random error:</p>
 <p><span class="math display">\[Y_t=Y_{t-1}+\epsilon_t\]</span></p>
-<p>Notice that this is the same as above with <span class="math inline">\(\rho=1\)</span>, <span class="math inline">\(\beta=0\)</span>, and <span class="math inline">\(\mu=0\)</span></p>
-<p>If Y<sub>t</sub> may be accompanied by a constant, <span class="math inline">\(\mu\)</span>, which means that the best guess for Y<sub>t+1</sub> is Y<sub>t</sub>+<span class="math inline">\(\mu\)</span>. This is designated a <em>random walk with a drift</em>.</p>
-<p>Rather than depending upon Y<sub>t-1</sub> , Y<sub>t</sub> may simply be a function of a deterministic trend. In this case, Y<sub>t</sub> is a function of <span class="math inline">\(\beta*t\)</span> and <span class="math inline">\(\epsilon_t\)</span>. This is designated a trend-stationary process.</p>
-<p>In general, a series is stationary is <span class="math inline">\(-1&lt;\rho&lt;1\)</span> and we formally test this below. (If <span class="math inline">\(\rho\)</span>=1, a random walk, the series is not stationary.</p>
+<p>Notice that this is the same as above with <span class="math inline">\(\rho=1\)</span>, <span class="math inline">\(\beta=0\)</span>, and <span class="math inline">\(\mu=0\)</span>. When <span class="math inline">\(\rho=1\)</span>, the time series is described as having a <em>unit root</em>.</p>
+<p>If Y<sub>t</sub> is be accompanied by a constant, <span class="math inline">\(\mu\)</span>, then the best guess for Y<sub>t+1</sub> is Y<sub>t</sub>+<span class="math inline">\(\mu\)</span>. This is designated a <em>random walk with a drift</em>.</p>
+<p>Rather than depending upon Y<sub>t-1</sub>, Y<sub>t</sub> may simply be a function of a deterministic trend. In this case, Y<sub>t</sub> is a function of <span class="math inline">\(\beta*t\)</span> and <span class="math inline">\(\epsilon_t\)</span>. This is designated a trend-stationary process.</p>
+<p>In general, a series is stationary is <span class="math inline">\(-1&lt;\rho&lt;1\)</span> and we formally test this below. If <span class="math inline">\(\rho\)</span>=1, a random walk, the series is not stationary.</p>
 </div>
 <div id="some-examples" class="section level3 unnumbered">
 <h3>Some examples<a class="anchor" aria-label="anchor" href="#some-examples"><i class="fas fa-link"></i></a>
 </h3>
-<p>To give you a sense of the difference between a stationary series and one that is not stationary, I will create several series with random numbers, one entirely random, three with <span class="math inline">\(\rho=0.7\)</span> and three with a unit root or <span class="math inline">\(\rho=1\)</span>, and one that is explosive.</p>
+<p>To give you a sense of the difference between a stationary series and one that is not stationary, I will create several series with random numbers:, one entirely random, three with <span class="math inline">\(\rho=0.7\)</span> and three with a unit root or <span class="math inline">\(\rho=1\)</span>, and one that is explosive (<span class="math inline">\(\rho&gt;1\)</span>)_.</p>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Adapted from Principles of  Econometrics with R</span>
@@ -142,100 +142,310 @@
 <span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">N</span>,<span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co"># Random noise</span>
-<span class="va">y4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
+<span class="va">y1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="va">N</span><span class="op">)</span><span class="op">{</span>
-  <span class="va">y4</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+  <span class="va">y1</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
 <span class="op">}</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y4</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Random or white noise"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y1</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Random or white noise"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="05-time-series_files/figure-html/POE-1.png" width="480"></div>
+<div class="inline-figure"><img src="05-time-series_files/figure-html/examples_POE-1.png" width="480"></div>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
+<span class="co">#ggplot(data=as.data.frame(y1), aes(x=n, y=y1)) +</span>
+<span class="co">#geom_line()x = as.numeric(row.names(df))</span>
+
 <span class="co"># AR(1)</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
+<span class="va">y2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="va">N</span><span class="op">)</span><span class="op">{</span>
-  <span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">rho</span><span class="op">*</span><span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+  <span class="va">y2</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">rho</span><span class="op">*</span><span class="va">y2</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
 <span class="op">}</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"AR(1)"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y2</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"AR(1)"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="05-time-series_files/figure-html/POE-2.png" width="480"></div>
+<div class="inline-figure"><img src="05-time-series_files/figure-html/examples_POE-2.png" width="480"></div>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># AR(1) with drift</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
+<span class="va">y3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="va">N</span><span class="op">)</span><span class="op">{</span>
-  <span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">a</span><span class="op">+</span><span class="va">rho</span><span class="op">*</span><span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+  <span class="va">y3</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">a</span><span class="op">+</span><span class="va">rho</span><span class="op">*</span><span class="va">y3</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
 <span class="op">}</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"AR(1) with drift"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y3</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"AR(1) with drift"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="05-time-series_files/figure-html/POE-3.png" width="480"></div>
+<div class="inline-figure"><img src="05-time-series_files/figure-html/examples_POE-3.png" width="480"></div>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># AR(1) with drift and trend</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
+<span class="va">y4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="va">N</span><span class="op">)</span><span class="op">{</span>
-  <span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">a</span><span class="op">+</span><span class="va">l</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/time.html">time</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">+</span><span class="va">rho</span><span class="op">*</span><span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+  <span class="va">y4</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">a</span><span class="op">+</span><span class="va">l</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/time.html">time</a></span><span class="op">(</span><span class="va">y4</span><span class="op">)</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">+</span><span class="va">rho</span><span class="op">*</span><span class="va">y4</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
 <span class="op">}</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"AR(1) with trend and drift"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y4</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"AR(1) with trend and drift"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="05-time-series_files/figure-html/POE-4.png" width="480"></div>
+<div class="inline-figure"><img src="05-time-series_files/figure-html/examples_POE-4.png" width="480"></div>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Random walk</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
+<span class="va">y5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="va">N</span><span class="op">)</span><span class="op">{</span>
-  <span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+  <span class="va">y5</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">y5</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
 <span class="op">}</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Random walk"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y5</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Random walk"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="05-time-series_files/figure-html/POE-5.png" width="480"></div>
+<div class="inline-figure"><img src="05-time-series_files/figure-html/examples_POE-5.png" width="480"></div>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Random Walk with drift</span>
-<span class="va">y3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
+<span class="va">y6</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="va">N</span><span class="op">)</span><span class="op">{</span>
-  <span class="va">y3</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">a</span><span class="op">+</span><span class="va">y3</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+  <span class="va">y6</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">a</span><span class="op">+</span><span class="va">y6</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
 <span class="op">}</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y3</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Random walk with drift"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y6</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Random walk with drift"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="05-time-series_files/figure-html/POE-6.png" width="480"></div>
+<div class="inline-figure"><img src="05-time-series_files/figure-html/examples_POE-6.png" width="480"></div>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Random walk with trend and drift"</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
+<span class="va">y7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="va">N</span><span class="op">)</span><span class="op">{</span>
-  <span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">a</span><span class="op">+</span><span class="va">l</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/time.html">time</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">+</span><span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+  <span class="va">y7</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">a</span><span class="op">+</span><span class="va">l</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/time.html">time</a></span><span class="op">(</span><span class="va">y7</span><span class="op">)</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">+</span><span class="va">y7</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
 <span class="op">}</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Random walk with trend and drift"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y7</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Random walk with trend and drift"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="05-time-series_files/figure-html/POE-7.png" width="480"></div>
+<div class="inline-figure"><img src="05-time-series_files/figure-html/examples_POE-7.png" width="480"></div>
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 
-<span class="co"># explosive</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
+<span class="co"># explosive - rho=1.075</span>
+<span class="va">y8</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
 <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="va">N</span><span class="op">)</span><span class="op">{</span>
-  <span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="fl">1.075</span><span class="op">*</span><span class="va">y</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+  <span class="va">y8</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="fl">1.075</span><span class="op">*</span><span class="va">y8</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
 <span class="op">}</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Explosive"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">y8</span>,type<span class="op">=</span><span class="st">'l'</span>, ylab<span class="op">=</span><span class="st">""</span>, main<span class="op">=</span><span class="st">"Explosive"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="05-time-series_files/figure-html/POE-8.png" width="480"></div>
-<p>The first three series appear to be stationary - a constant mean and constant variance across the range of the series. the fourth series - ar(1) with trend - appears to have a constant variance but a mean that increases over time. The nextlast three series are not stationary. The fourth has a higher mean in the middle of the time series. The next two (and the explosive series) have a mean that increases over time. Notice that the ar(1) with a drift is stationary while the random walke with a drift is not. So it really matters if the autoregressive parameter is lower than 1.0.</p>
+<div class="inline-figure"><img src="05-time-series_files/figure-html/examples_POE-8.png" width="480"></div>
+<p>The first three series appear to be stationary - a constant mean and constant variance across the range of the series. The fourth series is trend-stationary and we will talk about how we handloe that series below. The fourth series - ar(1) with trend - appears to have a constant variance but a mean that increases over time. The next three series are not stationary. The fourth has a higher mean in the middle of the time series. The next two (and the explosive series) have a mean that increases over time. Take a close look at the two series with a drift: Notice that the ar(1) with a drift is stationary while the random walk with a drift is not. So it really matters if the autoregressive parameter is lower than 1.0.</p>
 </div>
 <div id="a-statistical-test" class="section level3" number="5.2.1">
 <h3>
 <span class="header-section-number">5.2.1</span> A statistical test<a class="anchor" aria-label="anchor" href="#a-statistical-test"><i class="fas fa-link"></i></a>
 </h3>
-<p>Are the characteristics of a time series – the mean and variance - constant over time? If the mean and variance are constant over time, then the series is stationary. If the mean and variance change, then the series is nonstationary.</p>
-<p>You can get some idea about problems with nonstationarity just by looking at the plot. Does the series appear to have a stable mean or a trend? Does the variance of the series appear to be constant over time?</p>
 <p>We can use a simple statistical test to estimate the parameters of any times series we are using, to identify a trend or drift, and to asses the value of <span class="math inline">\(\rho\)</span>. so we don’t have to rely on our intuition based on the figures, we estimate the properties from the sample data.</p>
 <p>How can you know if a series is stationary? Remember that the key thing we want to know is the value of <span class="math inline">\(\rho\)</span> and reject the idea that the value of that parameter is 1.0.</p>
 <p>In order to test this revisit this equation from above:</p>
 <p><span class="math display">\[Y_t=\rho Y_{t-1}+\mu+\beta t +\epsilon_t\]</span></p>
 <p>Subtract Y<sub>t-1</sub> from each side of the equation above:</p>
 <p><span class="math display">\[Y_t-Y_{t-1}=(\rho-1) Y_{t-1}+\mu+\beta t +\epsilon_t\]</span></p>
-<p>We can use OLS to estimate the parameters of this equation. The output below is for the presidential approval variable.</p>
+<p>We can use OLS to estimate the parameters of this equation. The output below is for the presidential approval variable. The output above is known as the Dickey-Fuller test. The focus is the t-values, so I use a simple summary of the regression.</p>
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># create lag and difference</span>
+<span class="va">poq</span><span class="op">$</span><span class="va">l.approval</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">approval</span>, <span class="fl">1</span>, na.pad<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">poq</span><span class="op">$</span><span class="va">d.approval</span><span class="op">&lt;-</span><span class="va">poq</span><span class="op">$</span><span class="va">approval</span><span class="op">-</span><span class="va">poq</span><span class="op">$</span><span class="va">l.approval</span>
+<span class="co"># Add a counter</span>
+
+<span class="va">poq</span><span class="op">$</span><span class="va">t</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">poq</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">df_example</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">d.approval</span><span class="op">~</span><span class="va">l.approval</span><span class="op">+</span><span class="va">t</span>, data<span class="op">=</span><span class="va">poq</span><span class="op">)</span>
+<span class="co"># I am using summary() rather than stargazer since I want to show the t-values</span>
+<span class="va">temp</span><span class="op">&lt;-</span><span class="fu">tidy</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df_example</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">kable</span><span class="op">(</span><span class="va">temp</span>, digits<span class="op">=</span><span class="fl">3</span>, caption<span class="op">=</span><span class="st">"**Table 3.  Dickey-Fuller test**"</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:unnamed-chunk-1"></span><strong>Table 3. Dickey-Fuller test</strong>
+</caption>
+<thead><tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">8.292</td>
+<td align="right">2.052</td>
+<td align="right">4.041</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">l.approval</td>
+<td align="right">-0.139</td>
+<td align="right">0.033</td>
+<td align="right">-4.197</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">t</td>
+<td align="right">-0.007</td>
+<td align="right">0.006</td>
+<td align="right">-1.064</td>
+<td align="right">0.288</td>
+</tr>
+</tbody>
+</table></div>
+<p>Since the counter (<span class="math inline">\(t\)</span>) is not statistically significant, there is no trend. And since (<span class="math inline">\(\rho-1\)</span>) is different from zero, the series if stationary. The constant is not zero, so this is ar(1) with drift. We can reject the hypothesis that this series is a random walk.</p>
+<p>If the coefficient on the lagged value of the series is zero, <span class="math inline">\((\rho - 1)=0\)</span> then the series is not stationary (the series contains what is called a <em>unit root</em>). In the example above, (<span class="math inline">\(\rho - 1) &lt; 0\)</span> (the coefficient is -0.139 and the coefficient is statistically significant). This means <span class="math inline">\(\rho&lt;1\)</span>. This is what you will typically see with a stationary series.</p>
+<p>If <span class="math inline">\(\beta&gt;0\)</span> then the series contains a trend. In the example above <span class="math inline">\(\beta=0\)</span>.</p>
+<p>If <span class="math inline">\(\beta=0\)</span> (not significant) and <span class="math inline">\((\rho - 1)\)</span> is not zero (significant), then the series is stationary.</p>
+<p>The approval series is stationary.</p>
+<p>We can use the same test to make sure that all of the variables in order model are stationary.</p>
+<p>The key thing to avoid is regressing a nonstationary Y on a nonstationary X.</p>
+<div id="why-we-are-concerned-about-spurious-regression" class="section level4" number="5.2.1.1">
+<h4>
+<span class="header-section-number">5.2.1.1</span> Why we are concerned about spurious regression<a class="anchor" aria-label="anchor" href="#why-we-are-concerned-about-spurious-regression"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can create a random time series, Y<sub>1</sub>, and and random time series, X. I will also create a third series, Y<sub>2</sub>, that is a linear function of X.</p>
+<p>We should be able to use OLS to determine which Y<sub>i</sub> is unrelated (random) and which is related. The table below reports the coefficients from the regressions that evaluate those links.</p>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># Adapted from Principles of Econometrics with R</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">246810</span><span class="op">)</span>
+<span class="va">v1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">N</span>,<span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+<span class="va">v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">N</span>,<span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+<span class="va">v3</span><span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">N</span>,<span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># Create a series with a unit root for X and Y1</span>
+
+<span class="va">Y1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="va">N</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">Y1</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">Y1</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v1</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+<span class="op">}</span>
+
+<span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/ts.html">ts</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">N</span><span class="op">)</span><span class="op">)</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="va">N</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">X</span><span class="op">[</span><span class="va">t</span><span class="op">]</span><span class="op">&lt;-</span> <span class="va">X</span><span class="op">[</span><span class="va">t</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">+</span><span class="va">v2</span><span class="op">[</span><span class="va">t</span><span class="op">]</span>
+<span class="op">}</span>
+
+<span class="co"># Create Y2 as a linear function of X plus an error</span>
+
+<span class="va">Y2</span> <span class="op">&lt;-</span> <span class="fl">2</span><span class="op">+</span><span class="fl">5</span><span class="op">*</span><span class="va">X</span><span class="op">+</span><span class="va">v3</span>
+
+<span class="va">data</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">Y1</span>,<span class="va">Y2</span>,<span class="va">X</span><span class="op">)</span>
+<span class="va">m1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Y1</span><span class="op">~</span><span class="va">X</span>, data<span class="op">=</span><span class="va">data</span><span class="op">)</span>
+<span class="va">m2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Y2</span><span class="op">~</span><span class="va">X</span>, data<span class="op">=</span><span class="va">data</span><span class="op">)</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">m1</span>, <span class="va">m2</span>, style<span class="op">=</span><span class="st">"apsr"</span>, type<span class="op">=</span><span class="st">"html"</span>, dep.var.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Y~1~"</span>, <span class="st">"Y~2~"</span><span class="op">)</span>,  
+          title<span class="op">=</span><span class="st">"**Table 2.  OLS with random and related Y**"</span>,
+          notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>, 
+          star.cutoffs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>, omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 2. OLS with random and related Y</strong></strong>
+</caption>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Y<sub>1</sub>
+</td>
+<td>
+Y<sub>2</sub>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+X
+</td>
+<td>
+0.142<sup>**</sup>
+</td>
+<td>
+5.000<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.038)
+</td>
+<td>
+(0.006)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-3.966<sup>**</sup>
+</td>
+<td>
+1.965<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.419)
+</td>
+<td>
+(0.063)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+500
+</td>
+<td>
+500
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.027
+</td>
+<td>
+0.999
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.025
+</td>
+<td>
+0.999
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="3" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<p><br></p>
+<p>Notice that there is a statistically significant link between Y<sub>1</sub> and X, even though they are totally random and unrelated. This is the spurious result we risk reporting if variables are not stationary.</p>
+</div>
+</div>
+<div id="using-the-urca-package-and-the-ur.test-function" class="section level3" number="5.2.2">
+<h3>
+<span class="header-section-number">5.2.2</span> Using the <strong>urca</strong> package and the <code>ur.test</code> function<a class="anchor" aria-label="anchor" href="#using-the-urca-package-and-the-ur.test-function"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can pursue a simple to test for stationarity using the <code>ur.test</code> function from the <strong>urca</strong> package. We remain focused on the test for a unit root, but we might use the regression to test for the presence of a trend. One other wrinkle: the standard p-value is not used to assess statistical significance, a critical value is reported at the end of the output and that is what we use to evaluate whether or not the series is significant (so the regression result may show p&lt;0.05 but you need to check the critical value)</p>
+<p>Before I run the test, I create some variables and trim away observations with missing values</p>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Create some new variables and identify the variables retained for the assignment.</span>
 
 <span class="co"># WAR VARIABLES</span>
@@ -264,106 +474,7 @@
 <span class="co"># Create the data for the paper and use this data for the rest of the notes.</span>
 
 <span class="va">poq</span><span class="op">&lt;-</span><span class="va">poq</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">date</span>, <span class="va">approval</span>, <span class="va">unempl</span>, <span class="va">Infl_new</span>, <span class="va">growth</span>, <span class="va">mics</span>, <span class="va">weary</span>, <span class="va">casualty</span>, <span class="va">wardummy</span>, <span class="va">cumulative</span>, <span class="va">honeymoon</span>, <span class="va">water</span>, <span class="va">elyear</span>, <span class="va">dg</span>, <span class="va">DoDspend</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">date</span><span class="op">&lt;</span><span class="st">"2009-01-01"</span><span class="op">)</span></code></pre></div>
-<p>The output above is known as the Dickey-Fuller test.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="working-with-time-series.html#cb46-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-2"><a href="working-with-time-series.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create lag and difference</span></span>
-<span id="cb46-3"><a href="working-with-time-series.html#cb46-3" aria-hidden="true" tabindex="-1"></a>poq<span class="sc">$</span>l.approval<span class="ot">&lt;-</span><span class="fu">lag</span>(poq<span class="sc">$</span>approval, <span class="dv">1</span>, <span class="at">na.pad=</span><span class="cn">TRUE</span>)</span>
-<span id="cb46-4"><a href="working-with-time-series.html#cb46-4" aria-hidden="true" tabindex="-1"></a>poq<span class="sc">$</span>d.approval<span class="ot">&lt;-</span>poq<span class="sc">$</span>approval<span class="sc">-</span>poq<span class="sc">$</span>l.approval</span>
-<span id="cb46-5"><a href="working-with-time-series.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a counter</span></span>
-<span id="cb46-6"><a href="working-with-time-series.html#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-7"><a href="working-with-time-series.html#cb46-7" aria-hidden="true" tabindex="-1"></a>poq<span class="sc">$</span>count<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(poq))</span>
-<span id="cb46-8"><a href="working-with-time-series.html#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-9"><a href="working-with-time-series.html#cb46-9" aria-hidden="true" tabindex="-1"></a>df_example<span class="ot">&lt;-</span><span class="fu">lm</span>(d.approval<span class="sc">~</span>l.approval<span class="sc">+</span>count, <span class="at">data=</span>poq)</span>
-<span id="cb46-10"><a href="working-with-time-series.html#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="co"># I am using summary() rather than stargazer since I want to show the t-values</span></span>
-<span id="cb46-11"><a href="working-with-time-series.html#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df_example) </span>
-<span id="cb46-12"><a href="working-with-time-series.html#cb46-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-13"><a href="working-with-time-series.html#cb46-13" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb46-14"><a href="working-with-time-series.html#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> d.approval <span class="sc">~</span> l.approval <span class="sc">+</span> count, <span class="at">data =</span> poq)</span>
-<span id="cb46-15"><a href="working-with-time-series.html#cb46-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-16"><a href="working-with-time-series.html#cb46-16" aria-hidden="true" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
-<span id="cb46-17"><a href="working-with-time-series.html#cb46-17" aria-hidden="true" tabindex="-1"></a>    Min      1Q  Median      3Q     Max </span>
-<span id="cb46-18"><a href="working-with-time-series.html#cb46-18" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">14.724</span>  <span class="sc">-</span><span class="fl">3.869</span>  <span class="sc">-</span><span class="fl">0.609</span>   <span class="fl">2.625</span>  <span class="fl">33.667</span> </span>
-<span id="cb46-19"><a href="working-with-time-series.html#cb46-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-20"><a href="working-with-time-series.html#cb46-20" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb46-21"><a href="working-with-time-series.html#cb46-21" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
-<span id="cb46-22"><a href="working-with-time-series.html#cb46-22" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">8.291512</span>   <span class="fl">2.051907</span>   <span class="fl">4.041</span> <span class="fl">7.19e-05</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb46-23"><a href="working-with-time-series.html#cb46-23" aria-hidden="true" tabindex="-1"></a>l.approval  <span class="sc">-</span><span class="fl">0.139016</span>   <span class="fl">0.033121</span>  <span class="sc">-</span><span class="fl">4.197</span> <span class="fl">3.82e-05</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb46-24"><a href="working-with-time-series.html#cb46-24" aria-hidden="true" tabindex="-1"></a>count       <span class="sc">-</span><span class="fl">0.006526</span>   <span class="fl">0.006131</span>  <span class="sc">-</span><span class="fl">1.064</span>    <span class="fl">0.288</span>    </span>
-<span id="cb46-25"><a href="working-with-time-series.html#cb46-25" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb46-26"><a href="working-with-time-series.html#cb46-26" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
-<span id="cb46-27"><a href="working-with-time-series.html#cb46-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-28"><a href="working-with-time-series.html#cb46-28" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">6.592</span> on <span class="dv">238</span> degrees of freedom</span>
-<span id="cb46-29"><a href="working-with-time-series.html#cb46-29" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">1</span> observation deleted due to missingness)</span>
-<span id="cb46-30"><a href="working-with-time-series.html#cb46-30" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.07053</span>,   Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.06272</span> </span>
-<span id="cb46-31"><a href="working-with-time-series.html#cb46-31" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span>  <span class="fl">9.03</span> on <span class="dv">2</span> and <span class="dv">238</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.0001659</span></span></code></pre></div>
-<p>Since the counter (<span class="math inline">\(t\)</span>) is not statistically significant, there is not trend. And since (<span class="math inline">\(\rho-1\)</span>) is different from zero, the series if stationary. The constant is not zero, so this is ar(1) with drift. We can reject the hypothesis that this series is not a random walk.</p>
-<p>If the coefficient on the lagged value of the series is zero, <span class="math inline">\((\rho - 1)=0\)</span> then the series is not stationary (the series contains what is called a <em>unit root</em>). In the example above, (<span class="math inline">\(\rho - 1) &lt; 0\)</span> (the coefficient is -0.139 and the coefficient is statistically significant). This means <span class="math inline">\(\rho&lt;1\)</span>. This is what you will typically see with a stationary series.</p>
-<p>If <span class="math inline">\(\beta&gt;0\)</span> then the series contains a trend. In the example above <span class="math inline">\(\beta=0\)</span>.</p>
-<p>If <span class="math inline">\(\beta=0\)</span> (not significant) and <span class="math inline">\((\rho - 1)\)</span> is not zero (significant), then the series is stationary.</p>
-<p>The approval series is stationary.</p>
-<p>We can use the same test to make sure that all of the variables in order model are stationary.</p>
-<p>The key thing to avoid is regressing a nonstationary <span class="math inline">\(Y\)</span> on a nonstationary <span class="math inline">\(X\)</span>.</p>
-<div id="why-we-are-concerned-about-spurious-regression" class="section level4" number="5.2.1.1">
-<h4>
-<span class="header-section-number">5.2.1.1</span> Why we are concerned about spurious regression<a class="anchor" aria-label="anchor" href="#why-we-are-concerned-about-spurious-regression"><i class="fas fa-link"></i></a>
-</h4>
-<p>We can create a random time series, <span class="math inline">\(Y_1\)</span>, and and random time series, <span class="math inline">\(X\)</span>. I will also create a third series, <span class="math inline">\(Y_2\)</span>, that is a linear function of <span class="math inline">\(X\)</span>.</p>
-<p>We should be able to use OLS to determine which <span class="math inline">\(Y_i\)</span> is unrelated (random) and which is related. The table below reports the coefficients from the regressions that evaluate those links.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="working-with-time-series.html#cb47-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-2"><a href="working-with-time-series.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Adapted from Principles of Econometrics with R</span></span>
-<span id="cb47-3"><a href="working-with-time-series.html#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-4"><a href="working-with-time-series.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">246810</span>)</span>
-<span id="cb47-5"><a href="working-with-time-series.html#cb47-5" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rnorm</span>(N,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb47-6"><a href="working-with-time-series.html#cb47-6" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rnorm</span>(N,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb47-7"><a href="working-with-time-series.html#cb47-7" aria-hidden="true" tabindex="-1"></a>v3<span class="ot">&lt;-</span>  <span class="fu">ts</span>(<span class="fu">rnorm</span>(N,<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb47-8"><a href="working-with-time-series.html#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-9"><a href="working-with-time-series.html#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a series with a unit root for X and Y1</span></span>
-<span id="cb47-10"><a href="working-with-time-series.html#cb47-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-11"><a href="working-with-time-series.html#cb47-11" aria-hidden="true" tabindex="-1"></a>Y1 <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rep</span>(<span class="dv">0</span>,N))</span>
-<span id="cb47-12"><a href="working-with-time-series.html#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>N){</span>
-<span id="cb47-13"><a href="working-with-time-series.html#cb47-13" aria-hidden="true" tabindex="-1"></a>  Y1[t]<span class="ot">&lt;-</span> Y1[t<span class="dv">-1</span>]<span class="sc">+</span>v1[t]</span>
-<span id="cb47-14"><a href="working-with-time-series.html#cb47-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb47-15"><a href="working-with-time-series.html#cb47-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-16"><a href="working-with-time-series.html#cb47-16" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rep</span>(<span class="dv">0</span>,N))</span>
-<span id="cb47-17"><a href="working-with-time-series.html#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>N){</span>
-<span id="cb47-18"><a href="working-with-time-series.html#cb47-18" aria-hidden="true" tabindex="-1"></a>  X[t]<span class="ot">&lt;-</span> X[t<span class="dv">-1</span>]<span class="sc">+</span>v2[t]</span>
-<span id="cb47-19"><a href="working-with-time-series.html#cb47-19" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb47-20"><a href="working-with-time-series.html#cb47-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-21"><a href="working-with-time-series.html#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Y2 as a linear function of X plus an error</span></span>
-<span id="cb47-22"><a href="working-with-time-series.html#cb47-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-23"><a href="working-with-time-series.html#cb47-23" aria-hidden="true" tabindex="-1"></a>Y2 <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">+</span><span class="dv">5</span><span class="sc">*</span>X<span class="sc">+</span>v3</span>
-<span id="cb47-24"><a href="working-with-time-series.html#cb47-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-25"><a href="working-with-time-series.html#cb47-25" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">cbind</span>(Y1,Y2,X)</span>
-<span id="cb47-26"><a href="working-with-time-series.html#cb47-26" aria-hidden="true" tabindex="-1"></a>m1<span class="ot">&lt;-</span><span class="fu">lm</span>(Y1<span class="sc">~</span>X, <span class="at">data=</span>data)</span>
-<span id="cb47-27"><a href="working-with-time-series.html#cb47-27" aria-hidden="true" tabindex="-1"></a>m2<span class="ot">&lt;-</span><span class="fu">lm</span>(Y2<span class="sc">~</span>X, <span class="at">data=</span>data)</span>
-<span id="cb47-28"><a href="working-with-time-series.html#cb47-28" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(m1, m2, <span class="at">type =</span> <span class="st">'text'</span>,  <span class="at">model.numbers=</span><span class="cn">FALSE</span>, <span class="at">omit.stat=</span><span class="fu">c</span>(<span class="st">"ser"</span>,<span class="st">"f"</span>))</span>
-<span id="cb47-29"><a href="working-with-time-series.html#cb47-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-30"><a href="working-with-time-series.html#cb47-30" aria-hidden="true" tabindex="-1"></a><span class="sc">==</span><span class="er">=======================================</span></span>
-<span id="cb47-31"><a href="working-with-time-series.html#cb47-31" aria-hidden="true" tabindex="-1"></a>                 Dependent variable<span class="sc">:</span>     </span>
-<span id="cb47-32"><a href="working-with-time-series.html#cb47-32" aria-hidden="true" tabindex="-1"></a>             <span class="sc">----------------------------</span></span>
-<span id="cb47-33"><a href="working-with-time-series.html#cb47-33" aria-hidden="true" tabindex="-1"></a>                   Y1            Y2      </span>
-<span id="cb47-34"><a href="working-with-time-series.html#cb47-34" aria-hidden="true" tabindex="-1"></a><span class="sc">-----------------------------------------</span></span>
-<span id="cb47-35"><a href="working-with-time-series.html#cb47-35" aria-hidden="true" tabindex="-1"></a>X               <span class="fl">0.142</span><span class="sc">**</span><span class="er">*</span>      <span class="fl">5.000</span><span class="sc">**</span><span class="er">*</span>   </span>
-<span id="cb47-36"><a href="working-with-time-series.html#cb47-36" aria-hidden="true" tabindex="-1"></a>                (<span class="fl">0.038</span>)        (<span class="fl">0.006</span>)   </span>
-<span id="cb47-37"><a href="working-with-time-series.html#cb47-37" aria-hidden="true" tabindex="-1"></a>                                         </span>
-<span id="cb47-38"><a href="working-with-time-series.html#cb47-38" aria-hidden="true" tabindex="-1"></a>Constant       <span class="sc">-</span><span class="fl">3.966</span><span class="sc">**</span><span class="er">*</span>      <span class="fl">1.965</span><span class="sc">**</span><span class="er">*</span>   </span>
-<span id="cb47-39"><a href="working-with-time-series.html#cb47-39" aria-hidden="true" tabindex="-1"></a>                (<span class="fl">0.419</span>)        (<span class="fl">0.063</span>)   </span>
-<span id="cb47-40"><a href="working-with-time-series.html#cb47-40" aria-hidden="true" tabindex="-1"></a>                                         </span>
-<span id="cb47-41"><a href="working-with-time-series.html#cb47-41" aria-hidden="true" tabindex="-1"></a><span class="sc">-----------------------------------------</span></span>
-<span id="cb47-42"><a href="working-with-time-series.html#cb47-42" aria-hidden="true" tabindex="-1"></a>Observations      <span class="dv">500</span>            <span class="dv">500</span>     </span>
-<span id="cb47-43"><a href="working-with-time-series.html#cb47-43" aria-hidden="true" tabindex="-1"></a>R2               <span class="fl">0.027</span>          <span class="fl">0.999</span>    </span>
-<span id="cb47-44"><a href="working-with-time-series.html#cb47-44" aria-hidden="true" tabindex="-1"></a>Adjusted R2      <span class="fl">0.025</span>          <span class="fl">0.999</span>    </span>
-<span id="cb47-45"><a href="working-with-time-series.html#cb47-45" aria-hidden="true" tabindex="-1"></a><span class="sc">==</span><span class="er">=======================================</span></span>
-<span id="cb47-46"><a href="working-with-time-series.html#cb47-46" aria-hidden="true" tabindex="-1"></a>Note<span class="sc">:</span>         <span class="er">*</span>p<span class="sc">&lt;</span><span class="fl">0.1</span>; <span class="sc">**</span>p<span class="sc">&lt;</span><span class="fl">0.05</span>; <span class="sc">**</span><span class="er">*</span>p<span class="sc">&lt;</span><span class="fl">0.01</span></span></code></pre></div>
-<p><br>
-Notice that there is a statistically significant link between <span class="math inline">\(Y_1\)</span> and X, even though they are totally random and unrelated. This is the spurious result we risk reporting if variables are not stationary.</p>
-</div>
-</div>
-<div id="using-the-urca-package-and-the-ur.test-function" class="section level3" number="5.2.2">
-<h3>
-<span class="header-section-number">5.2.2</span> Using the <strong>urca</strong> package and the <code>ur.test</code> function<a class="anchor" aria-label="anchor" href="#using-the-urca-package-and-the-ur.test-function"><i class="fas fa-link"></i></a>
-</h3>
-<p>We can pursue a simple to test for stationarity using the <code>ur.test</code> function from the <strong>urca</strong> package. We remain focused on the test for a unit root, but we might use the regression to test for the presence of a trend. One other wrinkle: the standard p-value is not used to assess statistical significance, a critical value is reported at the end of the output and that is what we use to evaluate whether or not the series is significant (so the regression result may show p&lt;0.05 but you need to check the critical value)</p>
+<p>The codechunk below evaluates whether or not the approval series is stationary.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="working-with-time-series.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(<span class="at">y=</span>poq<span class="sc">$</span>approval, <span class="at">lags=</span><span class="dv">0</span>, <span class="at">type=</span><span class="st">'trend'</span>))</span>
 <span id="cb48-2"><a href="working-with-time-series.html#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-3"><a href="working-with-time-series.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
@@ -400,10 +511,10 @@ Notice that there is a statistically significant link between <span class="math 
 <span id="cb48-34"><a href="working-with-time-series.html#cb48-34" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.99</span> <span class="sc">-</span><span class="fl">3.43</span> <span class="sc">-</span><span class="fl">3.13</span></span>
 <span id="cb48-35"><a href="working-with-time-series.html#cb48-35" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.22</span>  <span class="fl">4.75</span>  <span class="fl">4.07</span></span>
 <span id="cb48-36"><a href="working-with-time-series.html#cb48-36" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.43</span>  <span class="fl">6.49</span>  <span class="fl">5.47</span></span></code></pre></div>
-<p>Note that the key statistic <span class="math inline">\(tau3\)</span> is the t-value associated with the first lag of the sereis (<span class="math inline">\(z.lag1\)</span>) : significant means stationary.</p>
-<p>The output below just shows the results of this test for our simulated series - the random variable (y4) from the figures above and the unit root (y3) from the same set of figures.</p>
+<p>Note that the key statistic <span class="math inline">\(tau3\)</span> is the t-value associated with the first lag of the series (<span class="math inline">\(z.lag1\)</span>): significant means stationary. In this case, the value of the test statistic is larger in absolute value than the critical value at 5pct, so the test confrims the series is stationary.</p>
+<p>The output below just shows the results of this test for our simulated series - the random variable (y1) from the figures above and the unit root (y5) from the same set of figures.</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="working-with-time-series.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This command instructs the function to omit missing values and include one lag of Y, as we did above.</span></span>
-<span id="cb49-2"><a href="working-with-time-series.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(y4,  <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))  </span>
+<span id="cb49-2"><a href="working-with-time-series.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(y1,  <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))  </span>
 <span id="cb49-3"><a href="working-with-time-series.html#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-4"><a href="working-with-time-series.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
 <span id="cb49-5"><a href="working-with-time-series.html#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
@@ -439,7 +550,7 @@ Notice that there is a statistically significant link between <span class="math 
 <span id="cb49-35"><a href="working-with-time-series.html#cb49-35" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.98</span> <span class="sc">-</span><span class="fl">3.42</span> <span class="sc">-</span><span class="fl">3.13</span></span>
 <span id="cb49-36"><a href="working-with-time-series.html#cb49-36" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.15</span>  <span class="fl">4.71</span>  <span class="fl">4.05</span></span>
 <span id="cb49-37"><a href="working-with-time-series.html#cb49-37" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.34</span>  <span class="fl">6.30</span>  <span class="fl">5.36</span></span>
-<span id="cb49-38"><a href="working-with-time-series.html#cb49-38" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(y3, <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))</span>
+<span id="cb49-38"><a href="working-with-time-series.html#cb49-38" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(y5, <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))</span>
 <span id="cb49-39"><a href="working-with-time-series.html#cb49-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-40"><a href="working-with-time-series.html#cb49-40" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
 <span id="cb49-41"><a href="working-with-time-series.html#cb49-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test Unit Root Test # </span></span>
@@ -456,37 +567,35 @@ Notice that there is a statistically significant link between <span class="math 
 <span id="cb49-52"><a href="working-with-time-series.html#cb49-52" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">2.65403</span> <span class="sc">-</span><span class="fl">0.71415</span>  <span class="fl">0.03071</span>  <span class="fl">0.70711</span>  <span class="fl">3.07356</span> </span>
 <span id="cb49-53"><a href="working-with-time-series.html#cb49-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-54"><a href="working-with-time-series.html#cb49-54" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb49-55"><a href="working-with-time-series.html#cb49-55" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
-<span id="cb49-56"><a href="working-with-time-series.html#cb49-56" aria-hidden="true" tabindex="-1"></a>(Intercept)  <span class="fl">0.471046</span>   <span class="fl">0.093106</span>   <span class="fl">5.059</span> <span class="fl">5.94e-07</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb49-57"><a href="working-with-time-series.html#cb49-57" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>     <span class="sc">-</span><span class="fl">0.009994</span>   <span class="fl">0.006514</span>  <span class="sc">-</span><span class="fl">1.534</span>    <span class="fl">0.126</span>    </span>
-<span id="cb49-58"><a href="working-with-time-series.html#cb49-58" aria-hidden="true" tabindex="-1"></a>tt           <span class="fl">0.004904</span>   <span class="fl">0.003263</span>   <span class="fl">1.503</span>    <span class="fl">0.134</span>    </span>
-<span id="cb49-59"><a href="working-with-time-series.html#cb49-59" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb49-60"><a href="working-with-time-series.html#cb49-60" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
-<span id="cb49-61"><a href="working-with-time-series.html#cb49-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-62"><a href="working-with-time-series.html#cb49-62" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">1.014</span> on <span class="dv">496</span> degrees of freedom</span>
-<span id="cb49-63"><a href="working-with-time-series.html#cb49-63" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.004852</span>,  Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.0008397</span> </span>
-<span id="cb49-64"><a href="working-with-time-series.html#cb49-64" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">1.209</span> on <span class="dv">2</span> and <span class="dv">496</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.2993</span></span>
-<span id="cb49-65"><a href="working-with-time-series.html#cb49-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-55"><a href="working-with-time-series.html#cb49-55" aria-hidden="true" tabindex="-1"></a>              Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)</span>
+<span id="cb49-56"><a href="working-with-time-series.html#cb49-56" aria-hidden="true" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">0.0239565</span>  <span class="fl">0.0924629</span>  <span class="sc">-</span><span class="fl">0.259</span>    <span class="fl">0.796</span></span>
+<span id="cb49-57"><a href="working-with-time-series.html#cb49-57" aria-hidden="true" tabindex="-1"></a>z.lag<span class="fl">.1</span>     <span class="sc">-</span><span class="fl">0.0099942</span>  <span class="fl">0.0065139</span>  <span class="sc">-</span><span class="fl">1.534</span>    <span class="fl">0.126</span></span>
+<span id="cb49-58"><a href="working-with-time-series.html#cb49-58" aria-hidden="true" tabindex="-1"></a>tt          <span class="sc">-</span><span class="fl">0.0000936</span>  <span class="fl">0.0003153</span>  <span class="sc">-</span><span class="fl">0.297</span>    <span class="fl">0.767</span></span>
+<span id="cb49-59"><a href="working-with-time-series.html#cb49-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-60"><a href="working-with-time-series.html#cb49-60" aria-hidden="true" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">1.014</span> on <span class="dv">496</span> degrees of freedom</span>
+<span id="cb49-61"><a href="working-with-time-series.html#cb49-61" aria-hidden="true" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.004852</span>,  Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.0008397</span> </span>
+<span id="cb49-62"><a href="working-with-time-series.html#cb49-62" aria-hidden="true" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">1.209</span> on <span class="dv">2</span> and <span class="dv">496</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.2993</span></span>
+<span id="cb49-63"><a href="working-with-time-series.html#cb49-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-64"><a href="working-with-time-series.html#cb49-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-65"><a href="working-with-time-series.html#cb49-65" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">1.5343</span> <span class="fl">0.8605</span> <span class="fl">1.2093</span> </span>
 <span id="cb49-66"><a href="working-with-time-series.html#cb49-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-67"><a href="working-with-time-series.html#cb49-67" aria-hidden="true" tabindex="-1"></a>Value of test<span class="sc">-</span>statistic is<span class="sc">:</span> <span class="sc">-</span><span class="fl">1.5343</span> <span class="fl">38.322</span> <span class="fl">1.2093</span> </span>
-<span id="cb49-68"><a href="working-with-time-series.html#cb49-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-69"><a href="working-with-time-series.html#cb49-69" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
-<span id="cb49-70"><a href="working-with-time-series.html#cb49-70" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
-<span id="cb49-71"><a href="working-with-time-series.html#cb49-71" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.98</span> <span class="sc">-</span><span class="fl">3.42</span> <span class="sc">-</span><span class="fl">3.13</span></span>
-<span id="cb49-72"><a href="working-with-time-series.html#cb49-72" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.15</span>  <span class="fl">4.71</span>  <span class="fl">4.05</span></span>
-<span id="cb49-73"><a href="working-with-time-series.html#cb49-73" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.34</span>  <span class="fl">6.30</span>  <span class="fl">5.36</span></span></code></pre></div>
-<p>You can see that the test with the stationary series rejects the null- the series is identified as stationary.</p>
-<p>But the test on the unit root we created does not reject the null - that series is not stationary.</p>
+<span id="cb49-67"><a href="working-with-time-series.html#cb49-67" aria-hidden="true" tabindex="-1"></a>Critical values <span class="cf">for</span> test statistics<span class="sc">:</span> </span>
+<span id="cb49-68"><a href="working-with-time-series.html#cb49-68" aria-hidden="true" tabindex="-1"></a>      1pct  5pct 10pct</span>
+<span id="cb49-69"><a href="working-with-time-series.html#cb49-69" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.98</span> <span class="sc">-</span><span class="fl">3.42</span> <span class="sc">-</span><span class="fl">3.13</span></span>
+<span id="cb49-70"><a href="working-with-time-series.html#cb49-70" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.15</span>  <span class="fl">4.71</span>  <span class="fl">4.05</span></span>
+<span id="cb49-71"><a href="working-with-time-series.html#cb49-71" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.34</span>  <span class="fl">6.30</span>  <span class="fl">5.36</span></span></code></pre></div>
+<p>You can see that the test with the stationary series rejects the null: the series is identified as stationary.</p>
+<p>But the test on the unit root we created does not reject the null: that series is not stationary.</p>
 <p>Use of these tests to determine if time series are stationary is well-established in practice.</p>
 </div>
 <div id="variables-may-require-some-elaborate-transformations." class="section level3" number="5.2.3">
 <h3>
 <span class="header-section-number">5.2.3</span> Variables may require some elaborate transformations.<a class="anchor" aria-label="anchor" href="#variables-may-require-some-elaborate-transformations."><i class="fas fa-link"></i></a>
 </h3>
-<p>what happens if a variable is not stationary? The time series must be <em>transformed</em> in some way – subtracting the trend or creating the first difference, or using an alternative functional form.</p>
+<p>What happens if a variable is not stationary? The time series must be <em>transformed</em> in some way – subtracting the trend or creating the first difference, or using an alternative functional form.</p>
 <p>You have several variables to choose from as you specify a model of presidential approval for the assignment. Some of these variables are stationary, but others are not. We need to figure out what types of transformations might be appropriate for these variables and the implications of these transformations.</p>
-<p>I would like to use three variables in the running example: casualties, the index of consumer sentiment (a subjective perception about how the economy is doing, and the honeymoon period. I expect presidential approval to decrease when there are casualties, increase when people believe the economy is doing well, and be higher during the first quarter of any term.</p>
-<p>I need to test each of these variables for stationarity, just like I tested the <span class="math inline">\(Y\)</span> variable.</p>
+<p>I would like to use three variables in the running example: casualties, the index of consumer sentiment (a subjective perception about how the economy is doing), and the honeymoon period. I expect presidential approval to decrease when there are casualties, increase when people believe the economy is doing well, and be higher during the first quarter of any term.</p>
+<p>I need to test each of these variables for stationarity, just like I tested the Y variable.</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="working-with-time-series.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">ur.df</span>(poq<span class="sc">$</span>honeymoon,  <span class="at">type=</span><span class="st">'trend'</span>, <span class="at">lags=</span><span class="dv">0</span>))  </span>
 <span id="cb50-2"><a href="working-with-time-series.html#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-3"><a href="working-with-time-series.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="do">############################################### </span></span>
@@ -597,15 +706,16 @@ Notice that there is a statistically significant link between <span class="math 
 <span id="cb50-108"><a href="working-with-time-series.html#cb50-108" aria-hidden="true" tabindex="-1"></a>tau3 <span class="sc">-</span><span class="fl">3.99</span> <span class="sc">-</span><span class="fl">3.43</span> <span class="sc">-</span><span class="fl">3.13</span></span>
 <span id="cb50-109"><a href="working-with-time-series.html#cb50-109" aria-hidden="true" tabindex="-1"></a>phi2  <span class="fl">6.22</span>  <span class="fl">4.75</span>  <span class="fl">4.07</span></span>
 <span id="cb50-110"><a href="working-with-time-series.html#cb50-110" aria-hidden="true" tabindex="-1"></a>phi3  <span class="fl">8.43</span>  <span class="fl">6.49</span>  <span class="fl">5.47</span></span></code></pre></div>
-<p>The tests reveal a couple of things - casualties and the honeymoon variable are both stationary, but the index of consumer sentiment, the first test, is not. This series is not stationary.</p>
+<p>The tests reveal a couple of things - casualties and the honeymoon variable are both stationary, but the index of consumer sentiment, the last test, is not. This series is not stationary since the test statistic is not lower than -3.34.</p>
 </div>
 <div id="we-have-options" class="section level3 unnumbered">
 <h3>We have options<a class="anchor" aria-label="anchor" href="#we-have-options"><i class="fas fa-link"></i></a>
 </h3>
+<p>When you are confronted with a series that is not stationary, you have several alternatives:</p>
 <ul>
 <li><p>Detrend. Our test for stationarity has two parts – one test for trend.
-If the trend variable was significant, we could detrend – remove a linear trend. Identify the linear trend (regression <span class="math inline">\(Y\)</span> on t). Create a predicted value. Subtract the predicted value from the original. Note that the MICS variable does not have a linear trend, so this probably won’t work in this instance. I will demonstrate this next week.</p></li>
-<li><p>First–difference. In many cases, a series can be transformed from nonstationary to stationary by taking the first difference. This is the typical approach to manage nonstationarity. Rather than using <span class="math inline">\(X_t\)</span> as an independent variable, the independent variable becomes <span class="math inline">\(X_t-X_{t-1}\)</span>. A series that is stationary without any transformation is designated as I(0), or integrated of order 0. A series that has stationary first differences is designated I(1), or integrated of order 1.</p></li>
+If the trend variable was significant, we could detrend – remove a linear trend. Identify the linear trend (regress Y on t). Create a predicted value. Subtract the predicted value from the original. Note that the MICS variable does not have a linear trend, so this probably won’t work in this instance. I will demonstrate this next week.</p></li>
+<li><p>First–difference. In many (most) cases, a series can be transformed from nonstationary to stationary by taking the first difference. This is the typical approach to manage nonstationarity. Rather than using X<sub>t</sub> as an independent variable, the independent variable becomes X<sub>t</sub>-X<sub>t-1</sub>. A series that is stationary without any transformation is designated as I(0), or integrated of order 0. A series that has stationary first differences is designated I(1), or integrated of order 1.</p></li>
 <li><p>Other transformations. We could take the log or use some other type of transformation.</p></li>
 </ul>
 <p>Carefully consider the substantive implications of these transformations. Returning to presidential approval example, consider the implications of a positive link between presidential approval and economic conditions.</p>
@@ -613,11 +723,11 @@ If the trend variable was significant, we could detrend – remove a linear tren
 <h4>How to use MICS?<a class="anchor" aria-label="anchor" href="#how-to-use-mics"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
-<li><p>Alternative 1 (raw series). The level of presidential approval is a function of the level of MICS. When consumer sentiment is high, approval is high. We CANNOT run this regression since we know that approval is I(0) but mics is I(1) – this model would be “unbalanced.”</p></li>
+<li><p>Alternative 1 (raw series). The level of presidential approval is a function of the level of MICS. When consumer sentiment is high, approval is high. We CANNOT run this regression since we know that approval is I(0) but mics is I(1) – this model would be <em>unbalanced.</em></p></li>
 <li><p>Alternative 2 (de-trended series). Presidential approval is a function of departure of MICS from a trend. If MICS is increasing and remains increasing, the level of presidential approval does not change. If the rate of increase of MICS falls (an observation is below trend), then presidential approval falls. We WOULD NOT take this approach since we know MICS has no trend.</p></li>
 <li><p>Alternative 3 (first difference). Levels of presidential approval are a function of changes in MICS. If MICS falls, then presidential approval falls. If MICS falls from very high to high, then presidential approval falls. If there is no change in consumer sentiment (remains low or remains high), then approval is expected to remain at the mean. Notice the subtle changes in theory that we incorporate if we transform the variable.</p></li>
 <li><p>Alternative 4 (percent change). Presidential approval responds not just to the change in MICS from the current level, but how big of a change that is from the current level, as a percentage. So a change from 100 to 120 (+20%) would be more meaningful than a change from 110 to 120 (+9.1%)</p></li>
-<li><p>Alternative 5 (alternative functional form - log). In other cases, we may other reasons to transform a series. It is not uncommon for large numbers to be transformed with the log or logarithm. The POQ piece uses data on US casualties in war, but includes the log of these numbers. The intuition is that it is not the level of casualties that matter, or even the difference from the last period, but the percentage change that matters - so small changes from low levels will be more important than small changes from high levels. This can be picked with a log and it is very common to see series that have a couple of very high numbers but many low numbers transformed using the log.</p></li>
+<li><p>Alternative 5 (alternative functional form - log). In other cases, we may have other reasons to transform a series. It is not uncommon for large numbers to be transformed with the log or logarithm. The POQ piece uses data on US casualties in war, but includes the log of these numbers. The intuition is that it is not the level of casualties that matter, or even the difference from the last period, but the percentage change that matters - so small changes from low levels will be more important than small changes from high levels. This can be picked with a log and it is very common to see series that have a couple of very high numbers but many low numbers transformed using the log.</p></li>
 </ul>
 <p>Notice how the technical prescription may or may not coincide with what you think happens substantively.</p>
 </div>
@@ -626,38 +736,41 @@ If the trend variable was significant, we could detrend – remove a linear tren
 <h3>
 <span class="header-section-number">5.2.4</span> What the transformed series look like<a class="anchor" aria-label="anchor" href="#what-the-transformed-series-look-like"><i class="fas fa-link"></i></a>
 </h3>
-<p>We can compare the plots of the MICS data using these transformations. (Note that we would need to check that these new, transformed series are stationary too.) This is just to show you how these transformations work.</p>
+<p>We can compare the plots of the MICS data using these transformations. (Note that we would need to check that these new, transformed series are stationary too.) This is just to show you how these transformations work. You could test any of these transformations to ensure they are stationary and add the new series to the model of approval.</p>
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Create the first differnce</span>
+<code class="sourceCode R"><span class="co"># Create the first difference</span>
 <span class="va">poq</span><span class="op">$</span><span class="va">d.mics</span><span class="op">&lt;-</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">)</span>
 
-<span class="co">#Create  transformed series</span>
-
+<span class="co"># Create  transformed series by taking the log</span>
 <span class="co">#We have to add 1 to make sure zeroes are converted to log=0</span>
 <span class="va">poq</span><span class="op">$</span><span class="va">log.mics</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span>
 
-<span class="co"># Calculate the percent change for mics</span>
-<span class="co"># First calculate the lag</span>
-<span class="va">poq</span><span class="op">$</span><span class="va">l.mics</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">)</span>
-<span class="va">poq</span><span class="op">$</span><span class="va">pct.mics</span><span class="op">=</span><span class="fl">100</span><span class="op">*</span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">-</span><span class="va">poq</span><span class="op">$</span><span class="va">l.mics</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">l.mics</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span>  
-<span class="va">poq</span><span class="op">$</span><span class="va">d.mics</span><span class="op">&lt;-</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">-</span><span class="va">poq</span><span class="op">$</span><span class="va">l.mics</span>
-
+<span class="co"># Calculate the percent change and first differences for mics</span>
+<span class="va">poq</span><span class="op">$</span><span class="va">pct.mics</span><span class="op">=</span><span class="fl">100</span><span class="op">*</span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">)</span>
+                  
 <span class="co"># compare the plots</span>
 
-<span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">mics</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Index of Consumer Sentiment"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span> <span class="op">+</span> <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"MICS"</span><span class="op">)</span></code></pre></div>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">mics</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"MICS"</span>, caption<span class="op">=</span><span class="st">"Index of Consumer Sentiment"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/compare-1.png" width="672"></div>
 <div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">log.mics</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Log, Index of Consumer Sentiment"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span> <span class="op">+</span> <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"Log, MICS"</span><span class="op">)</span></code></pre></div>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">log.mics</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"Log, MICS"</span>, caption<span class="op">=</span><span class="st">"Log, Index of Consumer Sentiment"</span><span class="op">)</span> </code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/compare-2.png" width="672"></div>
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">pct.mics</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Percent change, Index of Consumer Sentiment"</span><span class="op">)</span> <span class="op">+</span>  <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span> <span class="op">+</span> <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"Percent change from previous quarter"</span><span class="op">)</span></code></pre></div>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">pct.mics</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  
+  <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"Percent change from previous quarter"</span>, caption<span class="op">=</span><span class="st">"Percent change, Index of Consumer Sentiment"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/compare-3.png" width="672"></div>
 <div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">d.mics</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"First difference, Index of Consumer Sentiment"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span> <span class="op">+</span> <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"First difference"</span><span class="op">)</span></code></pre></div>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">poq</span>, <span class="fu">aes</span><span class="op">(</span>y<span class="op">=</span><span class="va">d.mics</span>, x<span class="op">=</span><span class="va">date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>  
+  <span class="fu">geom_line</span><span class="op">(</span>color<span class="op">=</span><span class="st">"blue"</span>, size<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span><span class="st">"First difference"</span>, caption<span class="op">=</span><span class="st">"First difference, Index of Consumer Sentiment"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/compare-4.png" width="672"></div>
 </div>
 </div>
@@ -671,20 +784,19 @@ If the trend variable was significant, we could detrend – remove a linear tren
 </h3>
 <p>To date we have discussed two common violations of assumptions of the classical linear regression model: one formal assumption (<em>heteroskedasticity</em>) and another implicit assumption (<em>unit homogeneity</em>). We approached heteroskedasticity as a nuisance – how can we select estimators for the standard errors that are robust to these violations? This week we take a similar approach to deal with the problem of autocorrelation – also labeled serial correlation in the special case of time series data. Next week we adopt a different strategy for dealing with autocorrelation – treating the autocorrelation as additional information (a good thing) in the data – similar to the way we learned something new or added information when we included an interaction term.</p>
 <p>Autocorrelation is the label for observed correlation between the error terms across observations in the model. The classical linear regression model assumes that the errors term are uncorrelated – random – across observations. We typically observe autocorrelation in two applications – when observations are organized as a time series (serial correlation) or when data are geographic units that share borders (spatial correlation). In both cases “neighboring” observations – close proximity in space and time – are related. What are the implications for OLS?</p>
-<p>Parameter estimates generated via OLS are still unbiased, but estimated variances of OLS parameters are biased. OLS in the presence of serial correlation tends to underestimate the true variances and standard errors, and inflate t values, potentially leading to the erroneous conclusion that coefficients are statistically different from 0. The formula used to compute error variance (<span class="math inline">\(\sigma^2\)</span>) is a biased estimator – usually underestimates the actual variance in the error, so, the estimated <span class="math inline">\(R^2\)</span> will not be a reliable estimate of the true <span class="math inline">\(R^2\)</span></p>
+<p>Parameter estimates generated via OLS are still unbiased, but estimated variances of OLS parameters are biased. OLS in the presence of serial correlation tends to underestimate the true variances and standard errors, and inflate t values, potentially leading to the erroneous conclusion that coefficients are statistically different from 0. The formula used to compute error variance (<span class="math inline">\(\sigma^2\)</span>) is a biased estimator – usually underestimates the actual variance in the error, so, the estimated R<sup>2</sup> will not be a reliable estimate of the true R<sup>2</sup>.</p>
 </div>
 <div id="detecting-autocorrelation" class="section level3" number="5.3.2">
 <h3>
 <span class="header-section-number">5.3.2</span> Detecting Autocorrelation<a class="anchor" aria-label="anchor" href="#detecting-autocorrelation"><i class="fas fa-link"></i></a>
 </h3>
-<p>Again, as with heteroskedasticity, we do not actually observe the error (<span class="math inline">\(u\)</span>) or its variance
-In order to determine if autocorrelation exists, we again rely on our estimate of u, which is <span class="math inline">\(e\)</span>.</p>
+<p>Again, as with heteroskedasticity, we do not actually observe the error (<span class="math inline">\(u\)</span>) or its variance In order to determine if autocorrelation exists, we again rely on our estimate of <span class="math inline">\(u\)</span>, which is <span class="math inline">\(e\)</span>.</p>
 </div>
 <div id="starting-with-ols" class="section level3" number="5.3.3">
 <h3>
 <span class="header-section-number">5.3.3</span> Starting with OLS<a class="anchor" aria-label="anchor" href="#starting-with-ols"><i class="fas fa-link"></i></a>
 </h3>
-<p>Start, as always, with a model, most likely a model involving time series data. In this case the dependent variable is presidential approval and the predictors are the Michigan Index of Consumer Sentiment and an indicator for the honeymoon period (4 in the first quarter of any presidential term, 3,2,1 and 0 by the first quarter of the second year). the index of consumer sentiment (MICS) is a subjective measure of how people perceive the state of the econonmy. The idea is that if the economy is good, then presidential approval will be higher. There is also a dummy variable for the honeymoon period - the first quarter of any presidential term. We expect approval to be higher earlier in the term, rather than later in the term. I will use the first differnce of MICS.</p>
+<p>Start, as always, with a model, most likely a model involving time series data. As above, the dependent variable is presidential approval and the predictors are the Michigan Index of Consumer Sentiment and an indicator for the honeymoon period (4 in the first quarter of any presidential term, 3,2,1 and 0 by the first quarter of the second year). the index of consumer sentiment (MICS) is a subjective measure of how people perceive the state of the economy. The idea is that if the economy is good, then presidential approval will be higher. There is also a dummy variable for the honeymoon period - the first quarter of any presidential term. We expect approval to be higher earlier in the term, rather than later in the term. I will use the first difference of MICS.</p>
 <p><span class="math display">\[Presidential.approval_t = \beta_0 + \beta_1(d.mics_t)+ \beta_2(honeymoon) + u_t\]</span></p>
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">poq</span><span class="op">$</span><span class="va">d.mics</span><span class="op">=</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">poq</span><span class="op">$</span><span class="va">mics</span><span class="op">)</span>
@@ -693,13 +805,13 @@ In order to determine if autocorrelation exists, we again rely on our estimate o
 <span class="fu">stargazer</span><span class="op">(</span><span class="va">model1</span>,  type<span class="op">=</span><span class="st">"html"</span>,
           model.names<span class="op">=</span><span class="cn">FALSE</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>, style<span class="op">=</span><span class="st">"apsr"</span>, digits<span class="op">=</span><span class="fl">2</span>,
           dep.var.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Presidential approval"</span><span class="op">)</span>,
-          title<span class="op">=</span><span class="st">"**Table 1. Presidential approval as a function of economy, war and the honeymoon, OLS**"</span>,
+          title<span class="op">=</span><span class="st">"**Table 3. Presidential approval as a function of economy, war and the honeymoon, OLS**"</span>,
           notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append <span class="op">=</span> <span class="cn">FALSE</span>,
           covariate.labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"MICS, first difference"</span>, <span class="st">"Casualities"</span>, <span class="st">"Honeymoon"</span><span class="op">)</span>, omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>,
           star.cutoffs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table style="text-align:center" class="table table-sm">
 <caption>
-<strong><strong>Table 1. Presidential approval as a function of economy, war and the honeymoon, OLS</strong></strong>
+<strong><strong>Table 3. Presidential approval as a function of economy, war and the honeymoon, OLS</strong></strong>
 </caption>
 <tr>
 <td colspan="2" style="border-bottom: 1px solid black">
@@ -817,15 +929,26 @@ p&lt;.10* ; p&lt;.05**
 </h3>
 <p>Again, like heteroskedasticity, the first thing to do is to actually look at your residuals, to determine whether or not they appear to follow some sort of a pattern. The first figure just plots the residuals over time and they look fairly random. But the second figure shows that the residuals are clearly related - error today is a positive function of error in the previous quarter.</p>
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">model1</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span>,<span class="va">model1</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">model1t</span><span class="op">&lt;-</span><span class="fu">tidy</span><span class="op">(</span><span class="va">model1</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">rename</span><span class="op">(</span>residuals<span class="op">=</span><span class="va">x</span><span class="op">)</span>
+
+
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">model1t</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">names</span>, y<span class="op">=</span><span class="va">residuals</span>, group <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+         <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu">theme</span><span class="op">(</span>axis.text.x<span class="op">=</span><span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,       axis.ticks.x<span class="op">=</span><span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+         <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Time"</span>, y<span class="op">=</span><span class="st">"Residuals, t"</span>, caption<span class="op">=</span><span class="st">"Figure 4a. Residuals from the approval model"</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="05-time-series_files/figure-html/next-1.png" width="672"></div>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">model1t</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">residuals</span><span class="op">)</span>, y<span class="op">=</span><span class="va">residuals</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+         <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+         <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Residuals, t-1"</span>, y<span class="op">=</span><span class="st">"Residuals, t"</span>, caption<span class="op">=</span><span class="st">"Figure 4b. Serial correlation in practice"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="05-time-series_files/figure-html/next-2.png" width="672"></div>
 </div>
 </div>
 <div id="a-statistical-test-for-autocorrelation" class="section level2" number="5.4">
 <h2>
 <span class="header-section-number">5.4</span> A statistical test for autocorrelation<a class="anchor" aria-label="anchor" href="#a-statistical-test-for-autocorrelation"><i class="fas fa-link"></i></a>
 </h2>
-<p>The figure is instructive, but there is not specific guidance about the severity of the problem. We instead rely on a simple measure of serial correlation, the durbin-watson, defined as:</p>
+<p>The figure is instructive, but there is not specific guidance about the severity of the problem. We instead rely on a simple measure of serial correlation, the <em>Durbin-Watson</em>, defined as:</p>
 <p><span class="math display">\[d = \dfrac{\sum_{i = 2}^N (e_i - e_{i-1})^2}{\sum_{i = 1}^N e_i^2}\]</span>
 In other words, the sum of the every residual minus its lag, squared, divided by the sum of the residuals squared. (Or, more accurately, the covariance of the error and lagged error divided by the variance of the error term). This statistic is easy to compute, and even easier given that just about every statistical package will kick out a Durbin-Watson statistic automatically if you ask it to. When reporting regression results for time series it is absolutely standard to report the Durbin-Watson <span class="math inline">\(d\)</span> test for autocorrelation</p>
 <p>Several conditions must hold, however, in order to use the Durbin-Watson <span class="math inline">\(d\)</span></p>
@@ -843,14 +966,25 @@ The form of this equation should be familiar. <span class="math inline">\(\rho\)
 </h3>
 <p>A d closer to 0 means positive autocorrelation, a d closer to 4 means negative autocorrelation</p>
 <p>In order to determine how close to 0 or 4 is close enough to determine that the model has either positive or negative autocorrelation, there are both upper and lower critical values for d, which depend on the number of observations (N) and the number of explanatory variables (k).</p>
-<p>The null hypothesis is: No autocorrelation. In the ouput below, the test is not ambiguous. We clearly must reject the null and accept the alternative hypothesis - there is autocorrelation.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="working-with-time-series.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dwtest</span>(model1)</span>
-<span id="cb57-2"><a href="working-with-time-series.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-3"><a href="working-with-time-series.html#cb57-3" aria-hidden="true" tabindex="-1"></a>    Durbin<span class="sc">-</span>Watson test</span>
-<span id="cb57-4"><a href="working-with-time-series.html#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-5"><a href="working-with-time-series.html#cb57-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  model1</span>
-<span id="cb57-6"><a href="working-with-time-series.html#cb57-6" aria-hidden="true" tabindex="-1"></a>DW <span class="ot">=</span> <span class="fl">0.24122</span>, p<span class="sc">-</span>value <span class="sc">&lt;</span> <span class="fl">2.2e-16</span></span>
-<span id="cb57-7"><a href="working-with-time-series.html#cb57-7" aria-hidden="true" tabindex="-1"></a>alternative hypothesis<span class="sc">:</span> true autocorrelation is greater than <span class="dv">0</span></span></code></pre></div>
+<p>The null hypothesis is: No autocorrelation. In the output below, the test is not ambiguous. We clearly must reject the null and accept the alternative hypothesis - there is autocorrelation.</p>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">kable</span><span class="op">(</span><span class="fu">tidy</span><span class="op">(</span><span class="fu">dwtest</span><span class="op">(</span><span class="va">model1</span><span class="op">)</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">2</span>, caption<span class="op">=</span><span class="st">"Table x.  Durbon-Watson"</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:dw"></span>Table x. Durbon-Watson</caption>
+<thead><tr class="header">
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="left">method</th>
+<th align="left">alternative</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="right">0.24</td>
+<td align="right">0</td>
+<td align="left">Durbin-Watson test</td>
+<td align="left">true autocorrelation is greater than 0</td>
+</tr></tbody>
+</table></div>
 </div>
 <div id="a-more-contemporary-test-breusch-godfrey-bg" class="section level3" number="5.4.2">
 <h3>
@@ -860,13 +994,14 @@ The form of this equation should be familiar. <span class="math inline">\(\rho\)
 <p><span class="math display">\[e_t=v_t\]</span>,</p>
 <p>where <span class="math inline">\(v_t\)</span> is mean zero and variance <span class="math inline">\(\sigma^2\)</span>, then the autocorrelation function should be composed of <span class="math inline">\(\rho\)</span>=0 for k&gt;0.</p>
 <p>This is described as a <em>white noise process</em>.</p>
-<p>If there is no serial correlation – at lag 1 or other lags – in our model, then the error term should appear to be white noise. There are formal tests for this implemented in many statistical packages. The Breusch Godfrey (BG) test statistic is a function of the R^2 of a regression of the error at t against the errors at lags 1 to k. This should be zero or close to zero if the errors are uncorrelated. Specifically:</p>
+<p>If there is no serial correlation – at lag 1 or other lags – in our model, then the error term should appear to be white noise. There are formal tests for this implemented in many statistical packages. The Breusch-Godfrey (BG) test statistic is a function of the R<sup>2</sup> of a regression of the error at t against the errors at lags 1 to k. This should be zero or close to zero if the errors are uncorrelated. Specifically:</p>
 <p><span class="math display">\[BG =(T-k)*R^2\]</span></p>
 <p>T is the number of time periods, k is the number of lags tested, and R<sup>2</sup> is the goodness of fit test statistic from a regression of the error on its lags. The <code>bgtest</code> function reports if the test is statistically significant. If the test is significant, then the residuals are correlated. Below, I calculate the test statistic manually for 1 lag and call the test for up to lag 4. The first number is just to show you where the test statistic comes from. The second set of output is what we will use for the assignment.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="working-with-time-series.html#cb58-1" aria-hidden="true" tabindex="-1"></a>model4<span class="ot">&lt;-</span><span class="fu">lm</span>(model1<span class="sc">$</span>residual<span class="sc">~</span><span class="fu">lag</span>(model1<span class="sc">$</span>residual))</span>
-<span id="cb58-2"><a href="working-with-time-series.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model4)<span class="sc">$</span>r.squared<span class="sc">*</span>(<span class="dv">222-1</span>)</span>
-<span id="cb58-3"><a href="working-with-time-series.html#cb58-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">170.4665</span></span>
-<span id="cb58-4"><a href="working-with-time-series.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">tidy</span>(<span class="fu">bgtest</span>(model1, <span class="at">order=</span><span class="dv">1</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"Chisq"</span>))))</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="working-with-time-series.html#cb59-1" aria-hidden="true" tabindex="-1"></a>model4<span class="ot">&lt;-</span><span class="fu">lm</span>(model1<span class="sc">$</span>residual<span class="sc">~</span><span class="fu">lag</span>(model1<span class="sc">$</span>residual))</span>
+<span id="cb59-2"><a href="working-with-time-series.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model4)<span class="sc">$</span>r.squared<span class="sc">*</span>(<span class="dv">222-1</span>)</span>
+<span id="cb59-3"><a href="working-with-time-series.html#cb59-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">170.4665</span></span>
+<span id="cb59-4"><a href="working-with-time-series.html#cb59-4" aria-hidden="true" tabindex="-1"></a>test<span class="ot">&lt;-</span><span class="fu">tidy</span>(<span class="fu">bgtest</span>(model1, <span class="at">order=</span><span class="dv">4</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"Chisq"</span>)))</span>
+<span id="cb59-5"><a href="working-with-time-series.html#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(test)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="right">statistic</th>
@@ -875,18 +1010,12 @@ The form of this equation should be familiar. <span class="math inline">\(\rho\)
 <th align="left">method</th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="right">174.7438</td>
+<td align="right">175.6182</td>
 <td align="right">0</td>
-<td align="right">1</td>
-<td align="left">Breusch-Godfrey test for serial correlation of order up to 1</td>
+<td align="right">4</td>
+<td align="left">Breusch-Godfrey test for serial correlation of order up to 4</td>
 </tr></tbody>
 </table></div>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="working-with-time-series.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bgtest</span>(model1, <span class="at">order=</span><span class="dv">4</span>, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"Chisq"</span>))</span>
-<span id="cb59-2"><a href="working-with-time-series.html#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-3"><a href="working-with-time-series.html#cb59-3" aria-hidden="true" tabindex="-1"></a>    Breusch<span class="sc">-</span>Godfrey test <span class="cf">for</span> serial correlation of order up to <span class="dv">4</span></span>
-<span id="cb59-4"><a href="working-with-time-series.html#cb59-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb59-5"><a href="working-with-time-series.html#cb59-5" aria-hidden="true" tabindex="-1"></a>data<span class="sc">:</span>  model1</span>
-<span id="cb59-6"><a href="working-with-time-series.html#cb59-6" aria-hidden="true" tabindex="-1"></a>LM test <span class="ot">=</span> <span class="fl">175.62</span>, df <span class="ot">=</span> <span class="dv">4</span>, p<span class="sc">-</span>value <span class="sc">&lt;</span> <span class="fl">2.2e-16</span></span></code></pre></div>
 </div>
 </div>
 <div id="next-week-1" class="section level2" number="5.5">
@@ -894,24 +1023,22 @@ The form of this equation should be familiar. <span class="math inline">\(\rho\)
 <span class="header-section-number">5.5</span> Next week<a class="anchor" aria-label="anchor" href="#next-week-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>Once you are confident the variables are stationary, then you can choose a modeling strategy helps to mitigate the problems of serial correlation. There are two common approaches</p>
-<div id="arima-models" class="section level3" number="5.5.1">
-<h3>
-<span class="header-section-number">5.5.1</span> ARIMA models<a class="anchor" aria-label="anchor" href="#arima-models"><i class="fas fa-link"></i></a>
+<div id="arima-models" class="section level3 unnumbered">
+<h3>ARIMA models<a class="anchor" aria-label="anchor" href="#arima-models"><i class="fas fa-link"></i></a>
 </h3>
 <p>The autoregressive integrated moving average (ARIMA) modeling strategy permits us to remedy the problem of serial correlation by treating the error term as a dynamic process. All of the dynamics - the influence of the past on current observations - is introduced via the error term. This assumes the effects of X on Y are <em>contemporaneous</em>. There is no way (technically or substantively) in this modeling framework that past values of X cause current values of Y or that past values of Y influence current values of Y. This suggests that ARIMA strategy may be a special case and a more general strategy for handling dynamics may be appropriate.</p>
 </div>
-<div id="dynamic-models" class="section level3" number="5.5.2">
-<h3>
-<span class="header-section-number">5.5.2</span> Dynamic models<a class="anchor" aria-label="anchor" href="#dynamic-models"><i class="fas fa-link"></i></a>
+<div id="dynamic-models" class="section level3 unnumbered">
+<h3>Dynamic models<a class="anchor" aria-label="anchor" href="#dynamic-models"><i class="fas fa-link"></i></a>
 </h3>
-<p>Dynamic models are simply models that include lagged (prior) values of X or Y. Instead of only treating the error as dynamic, Why not model persistence or dynamics directly, by including lagged values of X or Y? Read Kennedy, Chapter 19 before next week. Much of what I will be going over in class next week will be derived from <span class="citation"><a href="references.html#ref-keele_kelly2006" role="doc-biblioref">Keele and Kelly</a> (<a href="references.html#ref-keele_kelly2006" role="doc-biblioref">2006</a>)</span>, which you might review online.</p>
+<p>Dynamic models are simply models that include lagged (prior) values of X or Y. Instead of only treating the error as dynamic, Why not model persistence or dynamics directly, by including lagged values of X or Y? Much of what I will be going over in class next week will be derived from <span class="citation"><a href="references.html#ref-keele_kelly2006" role="doc-biblioref">Keele and Kelly</a> (<a href="references.html#ref-keele_kelly2006" role="doc-biblioref">2006</a>)</span>, which you might review online.</p>
 
 </div>
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="using-interaction-terms.html"><span class="header-section-number">4</span> Using interaction terms</a></div>
-<div class="next"><a href="dynamic-models-1.html"><span class="header-section-number">6</span> Dynamic Models</a></div>
+<div class="next"><a href="dynamic-models-1.html"><span class="header-section-number">6</span> Dynamic models</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -944,8 +1071,8 @@ The form of this equation should be familiar. <span class="math inline">\(\rho\)
 </li>
 <li>
 <a class="nav-link" href="#next-week-1"><span class="header-section-number">5.5</span> Next week</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#arima-models"><span class="header-section-number">5.5.1</span> ARIMA models</a></li>
-<li><a class="nav-link" href="#dynamic-models"><span class="header-section-number">5.5.2</span> Dynamic models</a></li>
+<li><a class="nav-link" href="#arima-models">ARIMA models</a></li>
+<li><a class="nav-link" href="#dynamic-models">Dynamic models</a></li>
 </ul>
 </li>
 </ul>
