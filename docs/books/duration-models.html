@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>10 Duration models | Political Science and Applied Statistics using R</title>
+<meta name="author" content="J.K. Corder">
+<meta name="description" content="Survival analysis or duration models are distinct from count models. The distinction takes the form of duration dependence - the probability of failure today may be related to the probability of...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="10 Duration models | Political Science and Applied Statistics using R">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Survival analysis or duration models are distinct from count models. The distinction takes the form of duration dependence - the probability of failure today may be related to the probability of...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="10 Duration models | Political Science and Applied Statistics using R">
+<meta name="twitter:description" content="Survival analysis or duration models are distinct from count models. The distinction takes the form of duration dependence - the probability of failure today may be related to the probability of...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Political Science and Applied Statistics using R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li><a class="" href="why-math-why-r.html"><span class="header-section-number">1</span> Why math? Why R?</a></li>
+<li><a class="" href="regression-review-and-assumptions.html"><span class="header-section-number">2</span> Regression: review and assumptions</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">3</span> Logistic regression</a></li>
+<li><a class="" href="using-interaction-terms.html"><span class="header-section-number">4</span> Using interaction terms</a></li>
+<li><a class="" href="working-with-time-series.html"><span class="header-section-number">5</span> Working with time series</a></li>
+<li><a class="" href="dynamic-models-1.html"><span class="header-section-number">6</span> Dynamic models</a></li>
+<li><a class="" href="working-with-panel-data.html"><span class="header-section-number">7</span> Working with panel data</a></li>
+<li><a class="" href="working-with-time-series-cross-sectional-tscs-data.html"><span class="header-section-number">8</span> Working with Time-Series Cross-Sectional (TSCS) data</a></li>
+<li><a class="" href="counts.html"><span class="header-section-number">9</span> Counts</a></li>
+<li><a class="active" href="duration-models.html"><span class="header-section-number">10</span> Duration models</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">11</span> References</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="using-the-american-national-election-study.html">Using the American National Election Study</a></li>
+<li><a class="" href="the-harvard-dataverse-1.html">The Harvard Dataverse</a></li>
+<li><a class="" href="replicating-when-do-politicians-grandstand.html">Replicating “When do politicians grandstand?”</a></li>
+<li class="book-part">Short Introductions</li>
+<li><a class="" href="quasi--and-natural-experiments.html">Quasi- and natural experiments</a></li>
+<li><a class="" href="matching.html">Matching</a></li>
+<li><a class="" href="multilevel-and-hierarchical-models.html">Multilevel and hierarchical models</a></li>
+<li><a class="" href="about-the-author.html">About the author</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="duration-models" class="section level1" number="10">
+<h1>
+<span class="header-section-number">10</span> Duration models<a class="anchor" aria-label="anchor" href="#duration-models"><i class="fas fa-link"></i></a>
+</h1>
+<p>Survival analysis or duration models are distinct from count models. The distinction takes the form of <em>duration dependence</em> - the probability of failure today may be related to the probability of failure in the past. We know that flips of a coin or turns of a card are unrelated – no memory. We know, on the other hand, that mechanical parts have an increasing probability of failure as they age (people too). One recent text suggests that you use the “whether or when” test to determine if survival analysis is an appropriate technique to use. If your research question contains the word “when” or “whether,” then you might need to learn about this technique. Do addicts relapse? Do nurses leave the profession? When do governments fail? Are programs terminated?</p>
+<div id="longitudinal-data" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> Longitudinal data<a class="anchor" aria-label="anchor" href="#longitudinal-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>Survival data analysis offers a convenient empirical strategy to identify features of that lead to success or failure – life or death – of some subject. Does the program or patient or innovation thrive or fail?</p>
+<p>Prominent in biostatistics, survival data describe the time that a subject (patient or program) comes under observation, the time the subject failed (patient death or program termination), and attributes of the subject during the period of observation. The empirical objective is to model the time to failure for each subject under observation.</p>
+<p>In order to exploit survival data analysis techniques, you must observe subjects for more than one (preferably many more than one) time periods – the typical prescription is three or more waves and a metric for time (months under observation, miles driven for a car). Survival data analysis is one of several types of “longitudinal data analysis.” Much of the statistical foundations for this work come out of biostatistics, specifically models that evaluate the efficacy of medical interventions (so the survival time really is the survival time).</p>
+<div id="the-challenge-of-censoring" class="section level3 unnumbered">
+<h3>The challenge of censoring<a class="anchor" aria-label="anchor" href="#the-challenge-of-censoring"><i class="fas fa-link"></i></a>
+</h3>
+<p>There is one important technical consideration in survival data analysis: censoring. Consider a clinical trial. Subjects are recruited so we know with certainty the date that a subject came under observation (when they were given a treatment for the first time, for instance.) We also know when subjects move out of observation, but this could be due to the end of the trial or experiment. If the trial ends, we really don’t know if they would fully recover or not or when. The subjects that do not experience the termination event when the period of observation ends are <em>right-censored.</em> Any subject that is right-censored is excluded from a statistical model - more details about the implications of this below.</p>
+<p>In many political science applications, we use an observational approach that picks some arbitrary start date. In this case, we don’t know, at the start date, how long each subject has been in the initial state. This is known as <em>left-censoring.</em></p>
+<p>If you ever read medical studies, you might notice that one metric is median survival time (for a cancer therapy, for instance. We use the median to get around the censoring problem - if you want to figure out the average lifespan of the control and treatment group, you would need to wait until everyone died. But we can learn the median survival time of the group without treatment (the number of months or years until 50 percent of the group has died) and compare that to the control group.</p>
+</div>
+</div>
+<div id="the-hazard-function-and-survivor-function" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> The hazard function and survivor function<a class="anchor" aria-label="anchor" href="#the-hazard-function-and-survivor-function"><i class="fas fa-link"></i></a>
+</h2>
+<p>Box-Steffensmeier and Jones (1997) provide an introduction to the modeling framework and describe the application of duration analysis to political science questions ranging from durations of war to the career paths of members of Congress. For a thorough technical introduction, see Hougaard (2000).</p>
+<p>The core empirical and theoretical concepts are the hazard function and the surivor function.</p>
+<div id="what-is-the-hazard-function" class="section level3 unnumbered">
+<h3>What is the hazard function?<a class="anchor" aria-label="anchor" href="#what-is-the-hazard-function"><i class="fas fa-link"></i></a>
+</h3>
+<p>A hazard function summarizes the probability that a subject under observation experiences some event at time t, given that they survived until t-1. You can think of two hazard functions that represent opposite extremes - one where the hazard of the event increases with every period a subject survives. A mechanical part that is subject to wear likely survives the first period, but, over time, the probability of failure increases. The second extreme would be a case where survival in early periods makes survival more likely in later periods - some kind of process that weeds out the weak so the survivors are more and more hardy.</p>
+<p>Three hazard functions are reproduced below - the red line shows a typical example of increasing hazards, the green line is consistent with decreasing hazards - once the subject survives early time periods, then the hazard diminishes. The blue line is a constant hazard. We will talk about the parameter values below. I adapted to figures from <span class="citation"><a href="references.html#ref-moore2016" role="doc-biblioref">Moore</a> (<a href="references.html#ref-moore2016" role="doc-biblioref">n.d.</a>)</span>.</p>
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># These examples from Moore (2016) in the Use R! series.   Figure 2.4</span>
+
+<span class="va">weibHaz</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">shape</span>, <span class="va">scale</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/Weibull.html">dweibull</a></span><span class="op">(</span><span class="va">x</span>, shape<span class="op">=</span><span class="va">shape</span>,scale<span class="op">=</span><span class="va">scale</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/Weibull.html">pweibull</a></span><span class="op">(</span><span class="va">x</span>, shape<span class="op">=</span><span class="va">shape</span>, scale<span class="op">=</span><span class="va">scale</span>,lower.tail<span class="op">=</span><span class="cn">F</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu">weibHaz</span><span class="op">(</span><span class="va">x</span>, shape<span class="op">=</span><span class="fl">1.5</span>, scale<span class="op">=</span><span class="fl">1</span><span class="op">/</span><span class="fl">0.03</span><span class="op">)</span>, from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">80</span>,ylab<span class="op">=</span><span class="st">"Hazard"</span>, xlab<span class="op">=</span><span class="st">"Time"</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu">weibHaz</span><span class="op">(</span><span class="va">x</span>, shape<span class="op">=</span><span class="fl">1.0</span>, scale<span class="op">=</span><span class="fl">1</span><span class="op">/</span><span class="fl">0.03</span><span class="op">)</span>, from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">80</span>,ylab<span class="op">=</span><span class="st">"Hazard"</span>, xlab<span class="op">=</span><span class="st">"Time"</span>, col<span class="op">=</span><span class="st">"blue"</span>, add<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu">weibHaz</span><span class="op">(</span><span class="va">x</span>, shape<span class="op">=</span><span class="fl">0.075</span>, scale<span class="op">=</span><span class="fl">1</span><span class="op">/</span><span class="fl">0.03</span><span class="op">)</span>, from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">80</span>,ylab<span class="op">=</span><span class="st">"Hazard"</span>, xlab<span class="op">=</span><span class="st">"Time"</span>, col<span class="op">=</span><span class="st">"green"</span>, add<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">8.0</span>,<span class="fl">0.06</span>, <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">alpha</span> <span class="op">==</span> <span class="fl">0.075</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">50.0</span>,<span class="fl">0.035</span>, <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">alpha</span> <span class="op">==</span> <span class="fl">1.0</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">60.0</span>,<span class="fl">0.005</span>, <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">alpha</span> <span class="op">==</span> <span class="fl">1.5</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="10-duration-data_files/figure-html/hazard-1.png" width="672"></div>
+</div>
+<div id="what-is-the-survival-function" class="section level3 unnumbered">
+<h3>What is the survival function?<a class="anchor" aria-label="anchor" href="#what-is-the-survival-function"><i class="fas fa-link"></i></a>
+</h3>
+<p>The survival function summarizes the total proportion of subjects that have survived the event - 1.0 in period 0 and, eventually, 0. Every hazard function has an associated survival function. The survival functions below are associated with the hazard functions above. You can see that more than 1/2 of the subjects experience the event at time t=1 for the green hazard function but it takes about 25 periods to see that for the other hazard functions. For the latter, the median survival time is more than 20 periods.</p>
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># These examples from Moore (2016) in the Use R! series.   Figure 2.4</span>
+
+<span class="va">weibSurv</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">t</span>, <span class="va">shape</span>, <span class="va">scale</span><span class="op">)</span>
+   <span class="fu"><a href="https://rdrr.io/r/stats/Weibull.html">pweibull</a></span><span class="op">(</span><span class="va">t</span>, shape<span class="op">=</span><span class="va">shape</span>,scale<span class="op">=</span><span class="va">scale</span>, lower.tail<span class="op">=</span><span class="cn">F</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu">weibSurv</span><span class="op">(</span><span class="va">x</span>, shape<span class="op">=</span><span class="fl">1.5</span>, scale<span class="op">=</span><span class="fl">1</span><span class="op">/</span><span class="fl">0.03</span><span class="op">)</span>, from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">80</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, ylab<span class="op">=</span><span class="st">"Survival probability"</span>, xlab<span class="op">=</span><span class="st">"Time"</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu">weibSurv</span><span class="op">(</span><span class="va">x</span>, shape<span class="op">=</span><span class="fl">1.0</span>, scale<span class="op">=</span><span class="fl">1</span><span class="op">/</span><span class="fl">0.03</span><span class="op">)</span>, from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">80</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, ylab<span class="op">=</span><span class="st">"Survival probability"</span>, xlab<span class="op">=</span><span class="st">"Time"</span>, col<span class="op">=</span><span class="st">"blue"</span>, add<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu">weibSurv</span><span class="op">(</span><span class="va">x</span>, shape<span class="op">=</span><span class="fl">0.075</span>, scale<span class="op">=</span><span class="fl">1</span><span class="op">/</span><span class="fl">0.03</span><span class="op">)</span>, from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">80</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, ylab<span class="op">=</span><span class="st">"Survival probability"</span>, xlab<span class="op">=</span><span class="st">"Time"</span>, col<span class="op">=</span><span class="st">"green"</span>, add<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="10-duration-data_files/figure-html/survival-1.png" width="672"></div>
+</div>
+</div>
+<div id="parametric-vs-nonparametric-approaches" class="section level2" number="10.3">
+<h2>
+<span class="header-section-number">10.3</span> Parametric vs nonparametric approaches<a class="anchor" aria-label="anchor" href="#parametric-vs-nonparametric-approaches"><i class="fas fa-link"></i></a>
+</h2>
+<p>Survival analysis requires several modeling choices, arguably the most important choices are the use of a parametric or nonparametric statistical modeling approach and the appropriate form of the survivor function for a parametric approach.</p>
+<p>A nonparametric approach (such as the Cox proportional hazards model) permits estimation with no assumptions about how risk of termination changes over (requiring a more weak and testable assumption of the proportionality of hazard across programs and time). The nonparametric approach does not, however, permit a graphical representation of the underlying hazard of termination, a useful visualization of the outcomes of interest.</p>
+<p>Parametric models require some assumptions about the distribution that describes the survivor function. A variety of functional forms can be used and we will just talk about two: the Weibull distribution and the generalized gamma distribution.</p>
+<div id="the-weibull-distribution" class="section level3 unnumbered">
+<h3>The Weibull distribution<a class="anchor" aria-label="anchor" href="#the-weibull-distribution"><i class="fas fa-link"></i></a>
+</h3>
+<p>For an important class of commonly used models, the survivor function is assumed to have a form that makes the associated risk of termination in each period of observation (the hazard function) <em>monotonic</em>. Monotonicity implies that risk either increases over time or decreases over time, but forecloses increasing risk the outset and later decreasing risk. The Weibull distribution is a widely-used for these cases. The distribution has only two parameters (<span class="math inline">\(\lambda\)</span>) and what is known as the scale parameter(1/$)</p>
+<p><span class="math display">\[ h(t)=\alpha\lambda^\alpha t^{\alpha-1}\]</span>
+The figures above are examples of the Weibull distribution with <span class="math inline">\(\lambda\)</span> equal to 0.075, 1.0 and 1.5. The scale parameter in each case is 0.03.</p>
+</div>
+<div id="generalized-gamma-distribution" class="section level3 unnumbered">
+<h3>Generalized gamma distribution<a class="anchor" aria-label="anchor" href="#generalized-gamma-distribution"><i class="fas fa-link"></i></a>
+</h3>
+<p>Since (theoretically) the probability of survival could in fact initially increase and then decline in many social science applications, imposing a monotonic hazard function may not not be appropriate.</p>
+<p>One of a broader class of accelerated failure time models, the generalized gamma distribution is extremely complex, but is very general form that reduce to other distributions as a special case. It is useful since it is monotonically increasing up to a certain time period, then monotonically decreasing after that. An example is below.</p>
+</div>
+</div>
+<div id="an-exampleterminating-federal-programs" class="section level2" number="10.4">
+<h2>
+<span class="header-section-number">10.4</span> An <a href="example:terminating" class="uri">example:terminating</a> federal programs<a class="anchor" aria-label="anchor" href="#an-exampleterminating-federal-programs"><i class="fas fa-link"></i></a>
+</h2>
+<p>Are government programs immortal? Theoretical work on public sector programs seems to offer two very different yet equally well-developed answers to this question.</p>
+<p>Since each Congress does not create the structure of the bureaucracy de novo, current programs may not represent the needs of contemporary legislators (the problem of <em>legislative or coalitional drift</em>). Or managers of a program may adapt or innovate in ways that frustrate the original architects of the program (<em>bureau drift</em>). Either type of drift suggests that, over time, a program or agency may be increasingly out of step with members of Congress and vulnerable to termination.</p>
+<p>Another set of research emphasizes the obstacles that reform-minded politicians or fiscal conservatives face in attempting to abolish public sector programs. Downs (1966), for instance, makes the explicit claim that “the older a bureau is the less likely it is to die.”</p>
+<p>Certainly both perspectives cannot be descriptively accurate. Either programs face the credible risk of termination or they do not. These two perspectives can be distinguished by the answer to a single empirical question: are hazards of termination highest at program creation (implying that older, surviving programs are difficult to terminate) or does the probability of termination increase over time (implying vulnerability for older programs)? Estimation and description of the hazard of termination for a sample of federal programs should answer this question.</p>
+<p>The hazard function implied by the “program immortality” perspective is summarized in Figure 1, reproduced from <span class="citation"><a href="references.html#ref-corder2004" role="doc-biblioref">Corder</a> (<a href="references.html#ref-corder2004" role="doc-biblioref">2004</a>)</span>.</p>
+<div class="inline-figure"><img src="images/Corder%20APR%20Figure%201.png" width="80%"></div>
+<p>The hazard function implied by the “drift” perspective is summarized in Figure 2.</p>
+<div class="inline-figure"><img src="images/Corder%20APR%20Figure%202.png" width="80%"></div>
+<p>This application of survival analysis is compelling since the two perspectives imply such different prospects for programs over time, suggesting a crisp empirical test.</p>
+<div id="the-data" class="section level3" number="10.4.1">
+<h3>
+<span class="header-section-number">10.4.1</span> The data<a class="anchor" aria-label="anchor" href="#the-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>Indicators of program activity used for this project are all federal credit programs (loan or loan guaranteee program) included as entries in the Catalog of Federal Domestic Assistance (CFDA). The CFDA provides an exhaustive list of all active credit programs exclusive of the off-budget agencies (the Export-Import Bank) and the secondary market programs of the Government-Sponsored Enterprises (GSEs). Federal credit programs described in the CFDA span the cabinet departments, are components of a number of independent agencies and account for the primary activity of one agency, the Small Business Administration. The sample includes all credit programs existing in 1974 and all programs created after 1974. Termination was identified as the date of last entry in the CFDA. After that date applications for loans or guarantees were not accepted under the program.</p>
+</div>
+<div id="the-hazard-function-in-this-sample" class="section level3" number="10.4.2">
+<h3>
+<span class="header-section-number">10.4.2</span> The hazard function in this sample<a class="anchor" aria-label="anchor" href="#the-hazard-function-in-this-sample"><i class="fas fa-link"></i></a>
+</h3>
+<p>Results reported below are based on a generalized gamma distribution for the survivor function, a conventional way to introduce non-monotonic hazards in a linear survival model. One of a broader class of <em>accelerated failure time models</em>, the generalized gamma distribution was the best empirical fit for the survivor function of the credit program data based on the Akaike Information Criteria). This distributional assumption has absolutely no effect on the substantive results reported in the table below – the results are the same for a number of different distributional families. The distributional assumption is important for the graphical representation of the hazard.</p>
+<p>The upshot is the programs face increasing vulnerability until they are about 10 years old, but after that point hazards diminish to practically zero over the long term. This result has been replicated in a number of contexts by other scholars. This results suggest that the emphasis on legislative or bureau drift is misplaced. The empirical reality is that old programs are unlikely to be terminated.</p>
+<div class="inline-figure"><img src="images/Corder%20APR%20Figure%203.png" width="80%"></div>
+</div>
+</div>
+<div id="an-example-shelter-in-place-orders-sipos-in-the-united-states" class="section level2" number="10.5">
+<h2>
+<span class="header-section-number">10.5</span> An example: Shelter-In-Place Orders (SIPOs) in the United States<a class="anchor" aria-label="anchor" href="#an-example-shelter-in-place-orders-sipos-in-the-united-states"><i class="fas fa-link"></i></a>
+</h2>
+<div id="what-explains-state-variation-in-timing" class="section level3" number="10.5.1">
+<h3>
+<span class="header-section-number">10.5.1</span> What explains state variation in timing?<a class="anchor" aria-label="anchor" href="#what-explains-state-variation-in-timing"><i class="fas fa-link"></i></a>
+</h3>
+<p>This section reproduces the figures and models for 2020 paper I co-authored that appeared in <em>Policy Design and Practice</em>. We relied on two durations - the time between the WHO announcement of a pandemic (5 January 2020) and the data a state crosses the 1:100,000 threshold for COVID-19 cases per capita, and the time between crossing the threshold and implementation of the first SIPO.</p>
+<p>The first chunk, which is not echoed, reads in and manages the data on cases and state characteristics.</p>
+</div>
+<div id="box-plots" class="section level3" number="10.5.2">
+<h3>
+<span class="header-section-number">10.5.2</span> Box plots<a class="anchor" aria-label="anchor" href="#box-plots"><i class="fas fa-link"></i></a>
+</h3>
+<p>The box plots below summarize two different times: time to reach 1:100,000 (time1) and time from 1:100,000 case to implementation (tto3).</p>
+<p>The long delays in the Democratic states are the first cases in the United States - Washington, Illinois and California.</p>
+<p>The box plot includes eight Republican states with a start date entered as the end of the observation period - to manage right-censoring.</p>
+<p><img src="10-duration-data_files/figure-html/sipo_box_plots-1.png" width="672"><img src="10-duration-data_files/figure-html/sipo_box_plots-2.png" width="672"></p>
+</div>
+<div id="kaplan-meier-curves" class="section level3" number="10.5.3">
+<h3>
+<span class="header-section-number">10.5.3</span> Kaplan Meier curves<a class="anchor" aria-label="anchor" href="#kaplan-meier-curves"><i class="fas fa-link"></i></a>
+</h3>
+<p>We have discussed parametric approaches to estimating the hazard and survival functions. One common non-parametric approach just uses sample information abou the proportion of the subjects entering observation that experience an event. I produce a figure shows the percentage of subjects that experience the event (the survivors are states that do not implement an SIPO so “failure” in this case is implementation or action). The proportion is reported for each of four groups of states. This is called a “Kaplan-Meier” curve</p>
+<div class="inline-figure"><img src="10-duration-data_files/figure-html/sipo_logrank7-1.png" width="672"></div>
+<div class="inline-figure"><img src="10-duration-data_files/figure-html/sipo_logrank2-1.png" width="672"></div>
+</div>
+<div id="parametric-models" class="section level3" number="10.5.4">
+<h3>
+<span class="header-section-number">10.5.4</span> Parametric models<a class="anchor" aria-label="anchor" href="#parametric-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>Weibull models for two durations are below.</p>
+<p>Model 1 is time from WHO announcement to 1:100,000
+Model 3 is time from 1:100,000 to SIPO for 42 states that implemented SIPOs. Model 5 includes the eight states that never implemented with an action data of 30 May, the end of the observation period.</p>
+<div id="time-to-1100000" class="section level5" number="10.5.4.0.1">
+<h5>
+<span class="header-section-number">10.5.4.0.1</span> Time to 1:100,000<a class="anchor" aria-label="anchor" href="#time-to-1100000"><i class="fas fa-link"></i></a>
+</h5>
+<p>Weibull model - predicting the time it takes states to reach 1 case per 100,000 population, based on political and other factors</p>
+<pre><code>
+============================================================================
+                                                    timetocase              
+----------------------------------------------------------------------------
+controlDemocratic governor only                      -0.03***               
+                                                      (0.01)                
+                                                                            
+controlRepublican governor only                      -0.05***               
+                                                      (0.02)                
+                                                                            
+controlDemocratic governor and senate                -0.04***               
+                                                      (0.01)                
+                                                                            
+urban                                                -0.0003                
+                                                     (0.0004)               
+                                                                            
+elderly                                               0.002                 
+                                                     (0.002)                
+                                                                            
+taxrevenuepercapita                                  -0.0001                
+                                                     (0.0003)               
+                                                                            
+population                                           -0.0003                
+                                                     (0.001)                
+                                                                            
+Constant                                             4.31***                
+                                                      (0.05)                
+                                                                            
+N                                                       50                  
+Log Likelihood                                        -93.18                
+chi2                                            32.86*** (df = 7)           
+============================================================================
+Notes:                                ***Significant at the 1 percent level.
+                                       **Significant at the 5 percent level.
+                                       *Significant at the 10 percent level.</code></pre>
+</div>
+<div id="time-to-sipo-with-censored-data-excluded" class="section level4" number="10.5.4.1">
+<h4>
+<span class="header-section-number">10.5.4.1</span> Time to SIPO with censored data excluded<a class="anchor" aria-label="anchor" href="#time-to-sipo-with-censored-data-excluded"><i class="fas fa-link"></i></a>
+</h4>
+<pre><code>
+============================================================================
+                                                      tto3_a                
+----------------------------------------------------------------------------
+controlDemocratic governor only                       -0.24                 
+                                                      (0.17)                
+                                                                            
+controlRepublican governor only                       -0.03                 
+                                                      (0.27)                
+                                                                            
+controlDemocratic governor and senate                 -0.07                 
+                                                      (0.21)                
+                                                                            
+urban                                                 -0.001                
+                                                     (0.004)                
+                                                                            
+elderly                                               0.003                 
+                                                      (0.03)                
+                                                                            
+taxrevenuepercapita                                   -0.003                
+                                                     (0.003)                
+                                                                            
+population                                            0.0001                
+                                                      (0.01)                
+                                                                            
+Constant                                             2.96***                
+                                                      (0.71)                
+                                                                            
+N                                                       42                  
+Log Likelihood                                       -121.84                
+chi2                                              5.44 (df = 7)             
+============================================================================
+Notes:                                ***Significant at the 1 percent level.
+                                       **Significant at the 5 percent level.
+                                       *Significant at the 10 percent level.</code></pre>
+</div>
+<div id="time-to-sipo-with-censored-observations-included." class="section level4" number="10.5.4.2">
+<h4>
+<span class="header-section-number">10.5.4.2</span> Time to SIPO with censored observations included.<a class="anchor" aria-label="anchor" href="#time-to-sipo-with-censored-observations-included."><i class="fas fa-link"></i></a>
+</h4>
+<pre><code>
+============================================================================
+                                                   tto3_uncen_a             
+----------------------------------------------------------------------------
+controlDemocratic governor only                      -1.44***               
+                                                      (0.26)                
+                                                                            
+controlRepublican governor only                      -1.72***               
+                                                      (0.40)                
+                                                                            
+controlDemocratic governor and senate                -1.58***               
+                                                      (0.27)                
+                                                                            
+urban                                                 -0.01                 
+                                                      (0.01)                
+                                                                            
+elderly                                               -0.10*                
+                                                      (0.05)                
+                                                                            
+taxrevenuepercapita                                   0.01**                
+                                                      (0.01)                
+                                                                            
+population                                           -0.05***               
+                                                      (0.01)                
+                                                                            
+Constant                                             5.21***                
+                                                      (1.29)                
+                                                                            
+N                                                       50                  
+Log Likelihood                                       -154.28                
+chi2                                            47.81*** (df = 7)           
+============================================================================
+Notes:                                ***Significant at the 1 percent level.
+                                       **Significant at the 5 percent level.
+                                       *Significant at the 10 percent level.</code></pre>
+<p>I calculated predicted values for the number of days until the order is implemented. All variables held equal to the mean:</p>
+<p>Republican governor and senate: 51 days
+Republican governor and Democratic senate: 10 days
+Democratic governor and Republican senate: 9 days
+Democratic governor and Democratic senate: 12 days
+Republican governor, population 1 million
+Republican governor, Democratic senate, population=1 million: 12
+Republican governor, Democratic senate, population=10 million: 7.8</p>
+<p>The largest non-political effect is much, much smaller than the effect of partisan control.</p>
+</div>
+</div>
+</div>
+<div id="looking-ahead-1" class="section level2" number="10.6">
+<h2>
+<span class="header-section-number">10.6</span> Looking ahead<a class="anchor" aria-label="anchor" href="#looking-ahead-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="paper-6-modeling-political-activity-with-the-anes" class="section level3" number="10.6.1">
+<h3>
+<span class="header-section-number">10.6.1</span> Paper 6: Modeling political activity with the ANES<a class="anchor" aria-label="anchor" href="#paper-6-modeling-political-activity-with-the-anes"><i class="fas fa-link"></i></a>
+</h3>
+<p>There RMD shell for paper 6 is available. You will need to pick an election year and estimate the campaign activity model with Poisson regression, quasi-poisson and a negative binomial regression. You will interpret the output from one regression and use the same strategy I did, with cplot, to figure out which variables matter more in the election year you choose.</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="counts.html"><span class="header-section-number">9</span> Counts</a></div>
+<div class="next"><a href="references.html"><span class="header-section-number">11</span> References</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#duration-models"><span class="header-section-number">10</span> Duration models</a></li>
+<li>
+<a class="nav-link" href="#longitudinal-data"><span class="header-section-number">10.1</span> Longitudinal data</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-challenge-of-censoring">The challenge of censoring</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#the-hazard-function-and-survivor-function"><span class="header-section-number">10.2</span> The hazard function and survivor function</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#what-is-the-hazard-function">What is the hazard function?</a></li>
+<li><a class="nav-link" href="#what-is-the-survival-function">What is the survival function?</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#parametric-vs-nonparametric-approaches"><span class="header-section-number">10.3</span> Parametric vs nonparametric approaches</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-weibull-distribution">The Weibull distribution</a></li>
+<li><a class="nav-link" href="#generalized-gamma-distribution">Generalized gamma distribution</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#an-exampleterminating-federal-programs"><span class="header-section-number">10.4</span> An example:terminating federal programs</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-data"><span class="header-section-number">10.4.1</span> The data</a></li>
+<li><a class="nav-link" href="#the-hazard-function-in-this-sample"><span class="header-section-number">10.4.2</span> The hazard function in this sample</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#an-example-shelter-in-place-orders-sipos-in-the-united-states"><span class="header-section-number">10.5</span> An example: Shelter-In-Place Orders (SIPOs) in the United States</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#what-explains-state-variation-in-timing"><span class="header-section-number">10.5.1</span> What explains state variation in timing?</a></li>
+<li><a class="nav-link" href="#box-plots"><span class="header-section-number">10.5.2</span> Box plots</a></li>
+<li><a class="nav-link" href="#kaplan-meier-curves"><span class="header-section-number">10.5.3</span> Kaplan Meier curves</a></li>
+<li><a class="nav-link" href="#parametric-models"><span class="header-section-number">10.5.4</span> Parametric models</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#looking-ahead-1"><span class="header-section-number">10.6</span> Looking ahead</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#paper-6-modeling-political-activity-with-the-anes"><span class="header-section-number">10.6.1</span> Paper 6: Modeling political activity with the ANES</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Political Science and Applied Statistics using R</strong>" was written by J.K. Corder. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

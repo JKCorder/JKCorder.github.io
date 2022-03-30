@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>7 Working with panel data | Political Science and Applied Statistics using R</title>
+<meta name="author" content="J.K. Corder">
+<meta name="description" content="7.1 Statistical models for panel data: “N” dominant approaches Panel data describes datasets that have the same units observed over more than one time period. Panel data may be time dominant (a...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="7 Working with panel data | Political Science and Applied Statistics using R">
+<meta property="og:type" content="book">
+<meta property="og:description" content="7.1 Statistical models for panel data: “N” dominant approaches Panel data describes datasets that have the same units observed over more than one time period. Panel data may be time dominant (a...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="7 Working with panel data | Political Science and Applied Statistics using R">
+<meta name="twitter:description" content="7.1 Statistical models for panel data: “N” dominant approaches Panel data describes datasets that have the same units observed over more than one time period. Panel data may be time dominant (a...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Political Science and Applied Statistics using R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li><a class="" href="why-math-why-r.html"><span class="header-section-number">1</span> Why math? Why R?</a></li>
+<li><a class="" href="regression-review-and-assumptions.html"><span class="header-section-number">2</span> Regression: review and assumptions</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">3</span> Logistic regression</a></li>
+<li><a class="" href="using-interaction-terms.html"><span class="header-section-number">4</span> Using interaction terms</a></li>
+<li><a class="" href="working-with-time-series.html"><span class="header-section-number">5</span> Working with time series</a></li>
+<li><a class="" href="dynamic-models-1.html"><span class="header-section-number">6</span> Dynamic models</a></li>
+<li><a class="active" href="working-with-panel-data.html"><span class="header-section-number">7</span> Working with panel data</a></li>
+<li><a class="" href="working-with-time-series-cross-sectional-tscs-data.html"><span class="header-section-number">8</span> Working with Time-Series Cross-Sectional (TSCS) data</a></li>
+<li><a class="" href="counts.html"><span class="header-section-number">9</span> Counts</a></li>
+<li><a class="" href="duration-models.html"><span class="header-section-number">10</span> Duration models</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">11</span> References</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="using-the-american-national-election-study.html">Using the American National Election Study</a></li>
+<li><a class="" href="the-harvard-dataverse-1.html">The Harvard Dataverse</a></li>
+<li><a class="" href="replicating-when-do-politicians-grandstand.html">Replicating “When do politicians grandstand?”</a></li>
+<li class="book-part">Short Introductions</li>
+<li><a class="" href="quasi--and-natural-experiments.html">Quasi- and natural experiments</a></li>
+<li><a class="" href="matching.html">Matching</a></li>
+<li><a class="" href="multilevel-and-hierarchical-models.html">Multilevel and hierarchical models</a></li>
+<li><a class="" href="about-the-author.html">About the author</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="working-with-panel-data" class="section level1" number="7">
+<h1>
+<span class="header-section-number">7</span> Working with panel data<a class="anchor" aria-label="anchor" href="#working-with-panel-data"><i class="fas fa-link"></i></a>
+</h1>
+<div id="statistical-models-for-panel-data-n-dominant-approaches" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> Statistical models for panel data: “N” dominant approaches<a class="anchor" aria-label="anchor" href="#statistical-models-for-panel-data-n-dominant-approaches"><i class="fas fa-link"></i></a>
+</h2>
+<p>Panel data describes datasets that have the same units observed over more than one time period. Panel data may be time dominant (a few units observed over a long period of time) or “N” dominant (many units observed over a short period of time).</p>
+<p>Panel data may be balanced (each unit observed the same number of times) or unbalanced (some units observed more or fewer times than others).</p>
+<p>Panel data offer a lot of leverage over empirical questions, but introduce a lot of modeling choices.</p>
+<p>Economists often use panel data at the individual level - household or consumers observed or surveyed. Panel data econometrics is an entire subfield and there are books devoted it - one notable and influential contribution was Jeffrey Wooldridge’s <em>Econometric Analysis of Cross Section and Panel Data</em> <span class="citation">(<a href="references.html#ref-wooldridge2001" role="doc-biblioref">Wooldridge 2001</a>)</span>. The insights of panel data econometrics have also been exported to other fields, including political science. Important findings about voting behavior emerged from the 1972/4/6 ANES panel study. These individual-level datasets are typically many people (large N) observed over a short period of time (small T). Work in comparative politics has extended to panel data that have very different forms (smaller N and larger T).</p>
+<p>The models that are the focus of this week were developed to be applied to “N” dominant datasets. Next week we talk about dynamics and endogeneity, complications that become more problematic as T grows relative to N.</p>
+<div id="why-use-panel-data" class="section level3 unnumbered">
+<h3>Why use panel data?<a class="anchor" aria-label="anchor" href="#why-use-panel-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are at least four compelling, practical advantages from using panel data:</p>
+<ol style="list-style-type: decimal">
+<li><p>Increase N for small sample of nations or regions</p></li>
+<li><p>Address problems of multicollinearity (more variation in Xs and Y)</p></li>
+<li><p>Model dynamic adjustment (leveraging many short-term reactions to estimate properties of long-term adjustment). More on this in next week, but the upshot is the same as time series: lagged values of the dependent variable go a long way.</p></li>
+<li><p>Test for and model <em>unobserved heterogeneity</em> - the idea is that we need to understand features of individuals that may be related to Y, but that we can’t measure or observe directly. If we have only a cross-sectional snapshot we can never get a handle of this - this systematic variation across individuals just gets lumped into the error term. Panel data - multiple observations on individuals lets us estimate and manage this heterogeneiety. This is very important.</p></li>
+</ol>
+</div>
+<div id="panel-data-problems" class="section level3 unnumbered">
+<h3>Panel data problems<a class="anchor" aria-label="anchor" href="#panel-data-problems"><i class="fas fa-link"></i></a>
+</h3>
+<p>Two problems present themselves when we have panel data.</p>
+<p>The problems we have already learned about that can emerge in cross-sectional and time-series applications are both present here: heteroskedasticity and serial correlation.</p>
+<ul>
+<li><p>Some observations have errors that persist over time (slow adjustment).</p></li>
+<li><p>Observations on the same unit may share an error and this error may vary across units.</p></li>
+</ul>
+<p>These problems may be minor if you have a few time periods, but they can be major if you have many time periods.</p>
+</div>
+<div id="why-panel-data-can-be-particularly-tricky" class="section level3 unnumbered">
+<h3>Why panel data can be particularly tricky<a class="anchor" aria-label="anchor" href="#why-panel-data-can-be-particularly-tricky"><i class="fas fa-link"></i></a>
+</h3>
+<p>The figure below describes the relationship between X and Y in a hypothetical (contrived) time-dominant dataset. Think of each cluster of observations describing 100 years of experience in one country. The plot below combines scatter plot and three regression lines - one line for the entire dataset (pooled) and one line for the 100 observations that for each country.</p>
+<p>The basic model that links X and Y is a simple linear model:</p>
+<p><span class="math display">\[Y=\beta_0+\beta_1X\]</span></p>
+<p>Take a close look at the code below - I have specified the model parameters - how X is translated into Y with the true <span class="math inline">\(\beta_1=-2\)</span> for each country and different values for the intercept (<span class="math inline">\(\beta_0\)</span>): 0 and 15. X is also different: average of 1 for the first 200 observations and an average of 2 for the second 200 observations. The difference in intercepts is a form of unobserved heterogeneity. If we pool the data together to estimate the slope, we are ignoring these differences.</p>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># example of unobserved heterogeneity </span>
+<span class="co"># adapted from Garrett Glasgow's panel data course site</span>
+<span class="co"># the set.seed function just makes sure that the random numbers are the same each time I run the commands.  This is important for replication.</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">10725</span><span class="op">)</span>
+<span class="va">x1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">200</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>
+<span class="va">x2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">200</span>,<span class="fl">2</span>,<span class="fl">1</span><span class="op">)</span>
+<span class="va">e1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">200</span>,<span class="fl">0</span>,<span class="fl">0.8</span><span class="op">)</span>
+<span class="va">e2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">200</span>,<span class="fl">0</span>,<span class="fl">0.8</span><span class="op">)</span>
+<span class="co"># y1 and y2 are the same function of x but different intercept</span>
+<span class="co"># In the second regression, x is the same (-2) but the intercept is higher (15)</span>
+<span class="va">y1</span> <span class="op">&lt;-</span> <span class="fl">0</span> <span class="op">-</span> <span class="fl">2</span><span class="op">*</span><span class="va">x1</span> <span class="op">+</span> <span class="va">e1</span>
+<span class="va">y2</span> <span class="op">&lt;-</span> <span class="fl">15</span> <span class="op">-</span> <span class="fl">2</span><span class="op">*</span><span class="va">x2</span> <span class="op">+</span> <span class="va">e2</span>
+
+<span class="va">xy</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">x1</span>,<span class="va">x2</span><span class="op">)</span>, y<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">y1</span>,<span class="va">y2</span><span class="op">)</span><span class="op">)</span>
+<span class="va">xy1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x1</span>, y<span class="op">=</span><span class="va">y1</span><span class="op">)</span>
+<span class="va">xy2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x2</span>, y<span class="op">=</span><span class="va">y2</span><span class="op">)</span>
+<span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">xy</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_smooth</span><span class="op">(</span>method<span class="op">=</span><span class="va">lm</span>, se<span class="op">=</span><span class="cn">FALSE</span>, color<span class="op">=</span><span class="st">"red"</span>, formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data<span class="op">=</span><span class="va">xy1</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_smooth</span><span class="op">(</span>method<span class="op">=</span><span class="va">lm</span>, se<span class="op">=</span><span class="cn">FALSE</span>, color<span class="op">=</span><span class="st">"red"</span>, formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data<span class="op">=</span><span class="va">xy2</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_smooth</span><span class="op">(</span>method<span class="op">=</span><span class="va">lm</span>, se<span class="op">=</span><span class="cn">FALSE</span>, color<span class="op">=</span><span class="st">"blue"</span>, formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data<span class="op">=</span><span class="va">xy</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>subtitle<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="op">~</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html">hat</a></span><span class="op">(</span><span class="va">beta</span><span class="op">)</span><span class="op">[</span><span class="va">true</span><span class="op">]</span><span class="op">==</span><span class="op">-</span><span class="fl">2</span><span class="op">~</span><span class="op">~</span><span class="op">~</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html">hat</a></span><span class="op">(</span><span class="va">beta</span><span class="op">)</span><span class="op">[</span><span class="va">blue</span><span class="op">]</span><span class="op">==</span><span class="fl">1.04</span><span class="op">)</span>,
+    caption<span class="op">=</span><span class="st">"Figure 1. Comparing true and estimated slope coefficients"</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">theme</span><span class="op">(</span>plot.caption.position <span class="op">=</span> <span class="st">"plot"</span>, plot.caption <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust<span class="op">=</span><span class="fl">0</span>, face<span class="op">=</span><span class="st">"bold"</span>, size<span class="op">=</span><span class="fu">rel</span><span class="op">(</span><span class="fl">1.15</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure">
+<img src="07-panel_files/figure-html/demo-1.png" width="672">
+What is the link between X and Y? Positive? Negative? Is the downward slope that describes each country the “true” link or is the upward sloping line that describes the entire collection of 200 observations the true link? (One lesson I take from this exercise is that we must be very careful if we use panel data and even skeptical of results that rely on just one cross-sectional snapshot IF we expect unmeasured heterogeneity).</div>
+<p>I could describe the data in any arbitrary number of ways. In the example I had in mind we have two countries each observed 200 times - a total of 400 observations. This could be data from 200 countries each observed two times. This could be 20 countries each observed 20 times. Pooled OLS is agnostic to how the data are collected. It is just a regression of Y on X for the entire data set. The code chunk below sets up the data in three forms - each with varying intercepts, varying levels of X and the same slope coefficient. Each data set is indexed on ccode<sub>n</sub> and time<sub>t</sub>.</p>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># This creates a dataset that is T&gt;N, just like above</span>
+<span class="va">ccode1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">200</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">200</span><span class="op">)</span><span class="op">)</span>
+<span class="va">time1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">200</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="va">data1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">ccode1</span>,<span class="va">time1</span><span class="op">)</span><span class="op">)</span>
+<span class="va">data1</span><span class="op">$</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">400</span>,<span class="va">ccode1</span>,<span class="fl">1</span><span class="op">)</span>
+<span class="va">data1</span><span class="op">$</span><span class="va">e</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">400</span>,<span class="fl">0</span>,<span class="fl">0.8</span><span class="op">)</span>
+<span class="va">data1</span><span class="op">$</span><span class="va">beta0</span><span class="op">&lt;-</span> <span class="fl">15</span><span class="op">*</span><span class="op">(</span><span class="va">data1</span><span class="op">$</span><span class="va">ccode1</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>
+<span class="va">data1</span><span class="op">$</span><span class="va">y</span><span class="op">&lt;-</span> <span class="va">data1</span><span class="op">$</span><span class="va">beta0</span> <span class="op">+</span> <span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">data1</span><span class="op">$</span><span class="va">x</span><span class="op">)</span> <span class="op">+</span> <span class="va">data1</span><span class="op">$</span><span class="va">e</span>
+
+<span class="co"># This creates a dataset that is N~=T</span>
+<span class="va">ccode2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">20</span><span class="op">)</span><span class="op">)</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">n</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">19</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+<span class="va">ccode2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">ccode2</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="va">time2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">20</span><span class="op">)</span><span class="op">)</span>
+<span class="va">data2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">ccode2</span>,<span class="va">time2</span><span class="op">)</span><span class="op">)</span>
+<span class="va">data2</span><span class="op">$</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">400</span>,<span class="va">ccode2</span><span class="op">/</span><span class="fl">10</span>,<span class="fl">1</span><span class="op">)</span>
+<span class="va">data2</span><span class="op">$</span><span class="va">e</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">400</span>,<span class="fl">0</span>,<span class="fl">0.8</span><span class="op">)</span>
+<span class="va">data2</span><span class="op">$</span><span class="va">beta0</span><span class="op">&lt;-</span> <span class="fl">15</span><span class="op">*</span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">ccode2</span><span class="op">/</span><span class="fl">10</span><span class="op">)</span>
+<span class="va">data2</span><span class="op">$</span><span class="va">y</span><span class="op">&lt;-</span> <span class="va">data2</span><span class="op">$</span><span class="va">beta0</span> <span class="op">+</span> <span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">data2</span><span class="op">$</span><span class="va">x</span><span class="op">)</span> <span class="op">+</span> <span class="va">data2</span><span class="op">$</span><span class="va">e</span>
+
+<span class="co"># This creates a dataset that is N&gt;T</span>
+<span class="va">ccode3</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">n</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">199</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+<span class="va">ccode3</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">ccode3</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">n</span><span class="op">+</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="va">time3</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>,<span class="fl">200</span><span class="op">)</span><span class="op">)</span>
+<span class="va">data3</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">ccode3</span>,<span class="va">time3</span><span class="op">)</span><span class="op">)</span>
+<span class="va">data3</span><span class="op">$</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">400</span>,<span class="va">ccode2</span><span class="op">/</span><span class="fl">100</span>,<span class="fl">1</span><span class="op">)</span>
+<span class="va">data3</span><span class="op">$</span><span class="va">e</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">400</span>,<span class="fl">0</span>,<span class="fl">0.8</span><span class="op">)</span>
+<span class="va">data3</span><span class="op">$</span><span class="va">beta0</span><span class="op">&lt;-</span> <span class="fl">15</span><span class="op">*</span><span class="op">(</span><span class="va">data3</span><span class="op">$</span><span class="va">ccode3</span><span class="op">/</span><span class="fl">100</span><span class="op">)</span>
+<span class="va">data3</span><span class="op">$</span><span class="va">y</span><span class="op">&lt;-</span> <span class="va">data3</span><span class="op">$</span><span class="va">beta0</span> <span class="op">+</span> <span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="va">data3</span><span class="op">$</span><span class="va">x</span><span class="op">)</span> <span class="op">+</span> <span class="va">data3</span><span class="op">$</span><span class="va">e</span>
+
+<span class="va">reg.data1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="va">x</span>, data<span class="op">=</span><span class="va">data1</span><span class="op">)</span>
+<span class="va">reg.data2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="va">x</span>, data<span class="op">=</span><span class="va">data2</span><span class="op">)</span>
+<span class="va">reg.data3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="va">x</span>, data<span class="op">=</span><span class="va">data3</span><span class="op">)</span>
+
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">reg.data1</span>, <span class="va">reg.data2</span>, <span class="va">reg.data3</span>, style<span class="op">=</span><span class="st">"apsr"</span>, type<span class="op">=</span><span class="st">"html"</span> , digits<span class="op">=</span><span class="fl">2</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>, column.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"T&gt;N"</span>,<span class="st">"N=T"</span>,<span class="st">"N&gt;T"</span><span class="op">)</span>, dep.var.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span>,
+title<span class="op">=</span><span class="st">"Table 1. Estimates from three datasets"</span>, notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>, notes.append <span class="op">=</span> <span class="cn">FALSE</span>, star.cutoffs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong>Table 1. Estimates from three datasets</strong>
+</caption>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+T&gt;N
+</td>
+<td>
+N=T
+</td>
+<td>
+N&gt;T
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+x
+</td>
+<td>
+1.02<sup>**</sup>
+</td>
+<td>
+2.08<sup>**</sup>
+</td>
+<td>
+-1.31<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.30)
+</td>
+<td>
+(0.32)
+</td>
+<td>
+(0.43)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+2.80<sup>**</sup>
+</td>
+<td>
+11.36<sup>**</sup>
+</td>
+<td>
+14.98<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.57)
+</td>
+<td>
+(0.50)
+</td>
+<td>
+(0.44)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+400
+</td>
+<td>
+400
+</td>
+<td>
+400
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.03
+</td>
+<td>
+0.10
+</td>
+<td>
+0.02
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.03
+</td>
+<td>
+0.10
+</td>
+<td>
+0.02
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="4" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<p><br>
+You can see from these examples that as N gets large relative to T, the estimate of the slope coefficient is closer to the true value, but still biased.</p>
+</div>
+</div>
+<div id="panel-data-in-r" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> Panel data in R<a class="anchor" aria-label="anchor" href="#panel-data-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>The estimates and examples below draw on a dataset used in a 2013 <em>Journal of Politics</em> article that investigated the link between border security and democratization <span class="citation">(<a href="references.html#ref-owsiak2013" role="doc-biblioref">Owsiak 2013</a>)</span>. I am pulling a couple of variables to look at the link between trade openness, economic performance, settled borders, and democratization.</p>
+<p>The dependent variable is the <em>Polity 2</em> score for democratization (-10 to 10), trade openness is the lagged natural log of exports plus imports, and the economic performance index is lagged change in annual GDP per capita (as best I could determine based on the data descriptions at the Maddison project). Settled borders is the key predictor. Review the article for the theory and expectations - how the presence of settled borders permits decentralization and demilitarization, which abet the establishment or persistence of democracy.</p>
+<p>For details about the Polity index, see <span class="citation"><a href="references.html#ref-polity" role="doc-biblioref">Center for Systemic Peace</a> (<a href="references.html#ref-polity" role="doc-biblioref">2021</a>)</span>. The data covers 1919-2006.</p>
+<p>Before you run the panel data commands, below make sure you have installed and loaded the <strong>plm</strong> package in R.</p>
+<p>To treat data as a panel, you must specify a two variables that, together, uniquely identifies each observation: a code for the individual and code for the time. In R, this is the <code>pdim</code> function</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="working-with-panel-data.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quitely=TRUE suppresses a warning message about conflict with dplyr</span></span>
+<span id="cb84-2"><a href="working-with-panel-data.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plm, <span class="at">quietly=</span><span class="cn">TRUE</span>)</span>
+<span id="cb84-3"><a href="working-with-panel-data.html#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Need JOP data</span></span>
+<span id="cb84-4"><a href="working-with-panel-data.html#cb84-4" aria-hidden="true" tabindex="-1"></a>jop<span class="ot">&lt;-</span><span class="fu">read_stata</span>(<span class="st">"data/jop_2013.dta"</span>)</span>
+<span id="cb84-5"><a href="working-with-panel-data.html#cb84-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify the dataset as panel data</span></span>
+<span id="cb84-6"><a href="working-with-panel-data.html#cb84-6" aria-hidden="true" tabindex="-1"></a><span class="fu">pdim</span>(jop, <span class="at">index=</span><span class="fu">c</span>(<span class="st">"ccode"</span>, <span class="st">"year"</span>))</span>
+<span id="cb84-7"><a href="working-with-panel-data.html#cb84-7" aria-hidden="true" tabindex="-1"></a>Unbalanced Panel<span class="sc">:</span> n <span class="ot">=</span> <span class="dv">200</span>, T <span class="ot">=</span> <span class="dv">2-89</span>, N <span class="ot">=</span> <span class="dv">10434</span></span></code></pre></div>
+<p>The output above indicates that we have 200 countries, observed as few as 2 years and as many as 89 years. There are total of 10,434 observations and, since we have different numbers of years for some countries, the data are “unbalanced.”</p>
+<p>One practical note. If the data are time dominant (T&gt;&gt;N), then use the appropriate approach is to use what is known as feasible generalized least squares. This will be covered next week.</p>
+<p>If the data are “N” dominant (N&gt;&gt;T, or even N~T), then use the approach outlined here. This example is clear N&gt;&gt;T since we have 200 countries but only a maximum of 89 years.</p>
+<p>You can imagine that, due to the expense of collecting repeated observations, most panel data are large N and small T.</p>
+<p>The basic model we are using takings this form:</p>
+<p><span class="math display">\[Y_{it}=c_i+\beta_1X_{it}+u_i\]</span>
+Notice that intercept has a subscript, it may vary across observations</p>
+<ul>
+<li><p>If <span class="math inline">\(c_i\)</span> is constant across individuals (<span class="math inline">\(\beta_0=\beta_{0_i}\)</span>), then OLS is OK</p></li>
+<li><p>If <span class="math inline">\(c_i\)</span> varies, then OLS is not appropriate (a form of omitted variable bias)</p></li>
+</ul>
+</div>
+<div id="alternative-solutions" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> Alternative solutions<a class="anchor" aria-label="anchor" href="#alternative-solutions"><i class="fas fa-link"></i></a>
+</h2>
+<div id="pooled-data-generic-and-with-robust-standard-errors" class="section level3 unnumbered">
+<h3>Pooled data (generic and with robust standard errors)<a class="anchor" aria-label="anchor" href="#pooled-data-generic-and-with-robust-standard-errors"><i class="fas fa-link"></i></a>
+</h3>
+<p>We could simply pool the data and assume intercepts are the same across individuals (and over time). This is equivalent to ignoring unit heterogeneity (unmeasured individual level differences).</p>
+<p>You know this can be hazardous based on the example above.</p>
+<p>The results are the same if we use the <code>plm</code> function and request model=pooling”</p>
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pooled.ols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">polity2</span> <span class="op">~</span> <span class="va">lagtradeopen</span> <span class="op">+</span> <span class="va">laggdpchg</span> <span class="op">+</span> <span class="va">allsettle</span>, data<span class="op">=</span><span class="va">jop</span>, na.action<span class="op">=</span><span class="va">na.omit</span><span class="op">)</span>
+<span class="va">pooled.plm</span> <span class="op">&lt;-</span> <span class="fu">plm</span><span class="op">(</span><span class="va">polity2</span><span class="op">~</span> <span class="va">lagtradeopen</span> <span class="op">+</span> <span class="va">laggdpchg</span><span class="op">+</span>  <span class="va">allsettle</span>, data<span class="op">=</span><span class="va">jop</span>, index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ccode"</span>, <span class="st">"year"</span><span class="op">)</span>, na.action<span class="op">=</span><span class="va">na.omit</span>, model<span class="op">=</span><span class="st">"pooling"</span><span class="op">)</span>
+
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">pooled.ols</span>, <span class="va">pooled.plm</span>, style<span class="op">=</span><span class="st">"apsr"</span>, type<span class="op">=</span><span class="st">"html"</span>, title<span class="op">=</span><span class="st">"**Table 2. Polity 2 scores as a function of trade, economics, and borders**"</span>, notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append<span class="op">=</span><span class="cn">FALSE</span>, omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>, star.cutoffs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">2</span>, dep.var.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Polity democracy score"</span><span class="op">)</span>, covariate.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Trade openness"</span>, <span class="st">"Economic growth"</span>, <span class="st">"Settled borders"</span>, <span class="st">"Constant"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 2. Polity 2 scores as a function of trade, economics, and borders</strong></strong>
+</caption>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+Polity democracy score
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+OLS
+</td>
+<td>
+panel
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+linear
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Trade openness
+</td>
+<td>
+1.22<sup>**</sup>
+</td>
+<td>
+1.22<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.03)
+</td>
+<td>
+(0.03)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Economic growth
+</td>
+<td>
+3.91<sup>**</sup>
+</td>
+<td>
+3.91<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.29)
+</td>
+<td>
+(1.29)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Settled borders
+</td>
+<td>
+3.07<sup>**</sup>
+</td>
+<td>
+3.07<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.18)
+</td>
+<td>
+(0.18)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-11.50<sup>**</sup>
+</td>
+<td>
+-11.50<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.30)
+</td>
+<td>
+(0.30)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+7,238
+</td>
+<td>
+7,238
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.18
+</td>
+<td>
+0.18
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.18
+</td>
+<td>
+0.18
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="3" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<p><br>
+Based on these results we would conclude that more settled borders, trade openness and positive growth in GDP would be associated with higher levels of democratization.</p>
+<p>The effect of borders is obviously large given that we are talking about a -10 to +10 scale and this is a dummy variable.</p>
+<p>We could request robust standard errors. The code chunk below reproduces what are known as “panel-corrected standard errors,” prescribed and detailed in a widely cited piece, <span class="citation"><a href="references.html#ref-beckkatz1995" role="doc-biblioref">Beck and Katz</a> (<a href="references.html#ref-beckkatz1995" role="doc-biblioref">1995</a>)</span>. Check out the article for the origins and rationale for this approach. They use the label <em>TSCS</em> or time-series cross-ectional to describe panel data. I think this is meant to differentiate the type of panel data we see in Political Science - larger T and smaller N - from the panel data that is typical in Economics (larger N and smaller T).</p>
+<p>The options I specify below mean that the standard errors are robust to the presence of heteroskedasticity (specifically, errors varying by country) and for serial correlation. In this case, the standard errors are higher, so more conservative - but everything is still significant and the standard errors are quite low relative to the parameter estimates.</p>
+<p>Note that this takes care of the problems with the standard error but does not do anything about unobserved heterogeneity bias.</p>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">kable</span><span class="op">(</span><span class="fu">tidy</span><span class="op">(</span><span class="fu">coeftest</span><span class="op">(</span><span class="va">pooled.plm</span>, vcov<span class="op">=</span><span class="va">vcovBK</span>, type<span class="op">=</span><span class="st">"HC1"</span>, cluster<span class="op">=</span><span class="st">"time"</span><span class="op">)</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">-11.497</td>
+<td align="right">0.668</td>
+<td align="right">-17.217</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">lagtradeopen</td>
+<td align="right">1.224</td>
+<td align="right">0.069</td>
+<td align="right">17.850</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">laggdpchg</td>
+<td align="right">3.905</td>
+<td align="right">1.952</td>
+<td align="right">2.001</td>
+<td align="right">0.045</td>
+</tr>
+<tr class="even">
+<td align="left">allsettle</td>
+<td align="right">3.067</td>
+<td align="right">0.235</td>
+<td align="right">13.046</td>
+<td align="right">0.000</td>
+</tr>
+</tbody>
+</table></div>
+<p>What happens if we do try to take tackle unobserved heterogeneity?</p>
+</div>
+<div id="fixed-effects" class="section level3 unnumbered">
+<h3>Fixed effects<a class="anchor" aria-label="anchor" href="#fixed-effects"><i class="fas fa-link"></i></a>
+</h3>
+<p>The fixed effects approch assumes that differences across units can be captured by differences in the constant term. We have two options to implement this approach:</p>
+<div id="least-squares-dummy-variable-approach-lsdv" class="section level4 unnumbered">
+<h4>Least squares dummy variable approach (LSDV)<a class="anchor" aria-label="anchor" href="#least-squares-dummy-variable-approach-lsdv"><i class="fas fa-link"></i></a>
+</h4>
+<p>This approach fully captures individual heterogeneity</p>
+<p>It can be problematic for large n datasets, but useful for small n:</p>
+<ul>
+<li><p>a large matrix (n-1 dummy variables) forecloses estimation in some statistical software</p></li>
+<li><p>inefficiency (too many parameters)</p></li>
+<li><p>inconsistency (adding more observations increases number of parameters)</p></li>
+</ul>
+<p>The output below does not include the coefficients on the 199 country dummy variables.</p>
+<p>The first table reports the results of our settled border example</p>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">lsdv.ols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">polity2</span><span class="op">~</span> <span class="va">lagtradeopen</span> <span class="op">+</span> <span class="va">allsettle</span> <span class="op">+</span> <span class="va">laggdpchg</span> <span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">ccode</span><span class="op">)</span>, data<span class="op">=</span><span class="va">jop</span>, na.action<span class="op">=</span><span class="va">na.omit</span><span class="op">)</span>
+
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">lsdv.ols</span>, style<span class="op">=</span><span class="st">"apsr"</span>, type<span class="op">=</span><span class="st">"html"</span>, omit<span class="op">=</span><span class="st">"ccode"</span>, title<span class="op">=</span><span class="st">"**Table 3 Polity 2 scores as a function of trade, economics, and borders"</span>, notes<span class="op">=</span><span class="st">"p&lt;.10* ; p&lt;.05**"</span>, notes.append<span class="op">=</span><span class="cn">FALSE</span>, omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>, star.cutoffs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">2</span>, dep.var.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Polity democracy score"</span><span class="op">)</span>, column.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Trade openness"</span>, <span class="st">"Economic growth"</span>, <span class="st">"Settled borders"</span>, <span class="st">"Constant"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong>**Table 3 Polity 2 scores as a function of trade, economics, and borders</strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Polity democracy score
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Trade openness
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lagtradeopen
+</td>
+<td>
+1.10<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.03)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+allsettle
+</td>
+<td>
+0.29
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.21)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+laggdpchg
+</td>
+<td>
+-0.72
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.85)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-1.28<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.58)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+7,238
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.67
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.66
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<p>Accounting for country fixed effects, economics growth and lagged GDP change and settled borders are now not significant.</p>
+<p>We can experiment with this approach for datasets where we know the true model.</p>
+<p>Note that the fixed effects approach works for any of your contrived datasets. No dependence on the size of N relative to T. (Note that we know we don’t have serial correlation in this case. We will simulate serial correlation next week to see what that does to the results).</p>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#pdim(data1, index=c("ccode1", "time1"))</span>
+<span class="va">lsdv1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span> <span class="va">x</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">ccode1</span><span class="op">)</span>, data<span class="op">=</span><span class="va">data1</span>, na.action<span class="op">=</span><span class="va">na.omit</span><span class="op">)</span>
+
+<span class="co">#pdim(data2, index=c("ccode2", "time2"))</span>
+<span class="va">lsdv2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span> <span class="va">x</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">ccode2</span><span class="op">)</span>, data<span class="op">=</span><span class="va">data2</span>, na.action<span class="op">=</span><span class="va">na.omit</span><span class="op">)</span>
+
+<span class="co">#pdim(data3, index=c("ccode3", "time3"))</span>
+<span class="va">lsdv3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span> <span class="va">x</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">ccode3</span><span class="op">)</span>, data<span class="op">=</span><span class="va">data3</span>, na.action<span class="op">=</span><span class="va">na.omit</span><span class="op">)</span>
+
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">lsdv1</span>, <span class="va">lsdv2</span>, <span class="va">lsdv3</span>,
+          style<span class="op">=</span><span class="st">"apsr"</span>, type<span class="op">=</span><span class="st">"html"</span> , digits<span class="op">=</span><span class="fl">2</span>, model.numbers<span class="op">=</span><span class="cn">FALSE</span>,
+          column.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"T&gt;N"</span>,<span class="st">"N=T"</span>,<span class="st">"N&gt;T"</span><span class="op">)</span>,
+          omit<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ccode1"</span>, <span class="st">"ccode2"</span>, <span class="st">"ccode3"</span><span class="op">)</span>, 
+          dep.var.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span>,
+          title<span class="op">=</span><span class="st">"**Table 3. LSDV with three panel structures**"</span>,
+          notes<span class="op">=</span> <span class="st">"p&lt;.10* ; p&lt;.05**"</span>,  notes.append<span class="op">=</span><span class="cn">FALSE</span>,
+          omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>, star.cutoffs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong><strong>Table 3. LSDV with three panel structures</strong></strong>
+</caption>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+T&gt;N
+</td>
+<td>
+N=T
+</td>
+<td>
+N&gt;T
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+x
+</td>
+<td>
+-1.94<sup>**</sup>
+</td>
+<td>
+-2.05<sup>**</sup>
+</td>
+<td>
+-1.98<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.04)
+</td>
+<td>
+(0.04)
+</td>
+<td>
+(0.06)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-0.19<sup>**</sup>
+</td>
+<td>
+1.45<sup>**</sup>
+</td>
+<td>
+0.11
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.07)
+</td>
+<td>
+(0.18)
+</td>
+<td>
+(0.58)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+400
+</td>
+<td>
+400
+</td>
+<td>
+400
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.99
+</td>
+<td>
+0.99
+</td>
+<td>
+1.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.99
+</td>
+<td>
+0.99
+</td>
+<td>
+0.99
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="4" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<p><br>
+Independent of the way we structured the panel data, the fixed effect strategy picked up the true value we expected: <span class="math inline">\(\beta_1 \approx\)</span> -2.0.</p>
+</div>
+<div id="testing-the-significance-of-group-effects" class="section level4" number="7.3.0.1">
+<h4>
+<span class="header-section-number">7.3.0.1</span> Testing the significance of group effects<a class="anchor" aria-label="anchor" href="#testing-the-significance-of-group-effects"><i class="fas fa-link"></i></a>
+</h4>
+<p>An F-test can be used to test joint significance of n-1 dummy variables.</p>
+<p>We can test the difference between the two models of democratization pooled and LSDV.</p>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">kable</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">pooled.ols</span>, <span class="va">lsdv.ols</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">Res.Df</th>
+<th align="right">RSS</th>
+<th align="right">Df</th>
+<th align="right">Sum of Sq</th>
+<th align="right">F</th>
+<th align="right">Pr(&gt;F)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">7234</td>
+<td align="right">331620.6</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="right">7103</td>
+<td align="right">133492.1</td>
+<td align="right">131</td>
+<td align="right">198128.5</td>
+<td align="right">80.47519</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table></div>
+<p>This output suggests that the including the dummy variables for each country was a statistically significant improvement in model fit - a substantial reduction in the residual sum of squares.</p>
+<p>This tells us that there is unobserved heterogeneity, captured with the country-specific constant.</p>
+<p>Our test data would give the same result.</p>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">kable</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">reg.data1</span>, <span class="va">lsdv1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">Res.Df</th>
+<th align="right">RSS</th>
+<th align="right">Df</th>
+<th align="right">Sum of Sq</th>
+<th align="right">F</th>
+<th align="right">Pr(&gt;F)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">398</td>
+<td align="right">18437.1260</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="right">397</td>
+<td align="right">232.4397</td>
+<td align="right">1</td>
+<td align="right">18204.69</td>
+<td align="right">31093.06</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="within-group-estimators-fixed-effects-without-dummy-variables" class="section level3" number="7.3.1">
+<h3>
+<span class="header-section-number">7.3.1</span> Within group estimators (fixed effects without dummy variables)<a class="anchor" aria-label="anchor" href="#within-group-estimators-fixed-effects-without-dummy-variables"><i class="fas fa-link"></i></a>
+</h3>
+<p>I could also estimate this as a fixed effect or “within” model with the plm package. LSDV and fixed effects give the same result</p>
+<p>Fixed effects transformation or within transformation required thinking about the link between the average level of X and the average level of Y.</p>
+<p><span class="math display">\[\mu_{yi}=c_i+\beta_1\mu_{xi}+\epsilon_{i}\]</span></p>
+<p>Subtract from the basic model, above</p>
+<p><span class="math display">\[Y_{it}-\mu_y= \beta_1(X_{it}-\mu_{xi}) +(e_{it}-\epsilon_{i})\]</span></p>
+<p>Note that <span class="math inline">\(c_i\)</span> drops out</p>
+<p>The approach is generally a two step estimation. First, the mean is calculated for each individual for Y and each X. The difference from each time period Y and the average Y is modeled as a function of the difference between each time period X and the average X. THINK ABOUT WHAT THIS MEANS THEORETICALLY</p>
+<p>One big problem: This transformation forecloses the use of variables that are fixed over time for each individual unit (could be constitutional features for countries; race or gender for individuals) since <span class="math inline">\(X_{it} - \mu_{xi}\)</span> would be zero for all observations.</p>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">fe.model</span> <span class="op">&lt;-</span> <span class="fu">plm</span><span class="op">(</span><span class="va">polity2</span> <span class="op">~</span> <span class="va">lagtradeopen</span> <span class="op">+</span> <span class="va">laggdpchg</span> <span class="op">+</span> <span class="va">allsettle</span>, data<span class="op">=</span><span class="va">jop</span>, index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ccode"</span>, <span class="st">"year"</span><span class="op">)</span>, na.action<span class="op">=</span><span class="va">na.omit</span>, model<span class="op">=</span><span class="st">"within"</span><span class="op">)</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">fe.model</span>, style<span class="op">=</span><span class="st">"apsr"</span>, type<span class="op">=</span><span class="st">"html"</span>, omit<span class="op">=</span><span class="st">"ccode"</span>, title<span class="op">=</span><span class="st">"**Table 3 Polity 2 scores as a function of trade, economics, and borders"</span>, notes<span class="op">=</span><span class="st">"p&lt;.10* ; p&lt;.05**"</span>, notes.append<span class="op">=</span><span class="cn">FALSE</span>, omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>, star.cutoffs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">2</span>, dep.var.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Polity democracy score"</span><span class="op">)</span>, column.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Trade openness"</span>, <span class="st">"Economic growth"</span>, <span class="st">"Settled borders"</span>, <span class="st">"Constant"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong>**Table 3 Polity 2 scores as a function of trade, economics, and borders</strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Polity democracy score
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Trade openness
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lagtradeopen
+</td>
+<td>
+1.10<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.03)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+laggdpchg
+</td>
+<td>
+-0.72
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.85)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+allsettle
+</td>
+<td>
+0.29
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.21)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+7,238
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.16
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.14
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+
+<span class="va">fe.model1</span> <span class="op">&lt;-</span> <span class="fu">plm</span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data<span class="op">=</span><span class="va">data1</span>, index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ccode1"</span>, <span class="st">"time1"</span><span class="op">)</span>, na.action<span class="op">=</span><span class="va">na.omit</span>, model<span class="op">=</span><span class="st">"within"</span><span class="op">)</span>
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">fe.model1</span>, style<span class="op">=</span><span class="st">"apsr"</span>, type<span class="op">=</span><span class="st">"html"</span> , omit<span class="op">=</span><span class="st">"ccode"</span>, digits<span class="op">=</span><span class="fl">2</span>, dep.var.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"T&gt;N"</span><span class="op">)</span>,  title<span class="op">=</span><span class="st">"Table 4.  Fixed effects, with known slope coefficient equal to 2.0"</span>, notes<span class="op">=</span><span class="st">"p&lt;.10* ; p&lt;.05**"</span>, notes.append<span class="op">=</span><span class="cn">FALSE</span>, omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>, star.cutoffs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong>Table 4. Fixed effects, with known slope coefficient equal to 2.0</strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+T&gt;N
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+x
+</td>
+<td>
+-1.94<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.04)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+400
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.87
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.87
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<p>Compare the coefficients of these models with the LSDV model above - identical.</p>
+</div>
+<div id="random-effects-estimator" class="section level3" number="7.3.2">
+<h3>
+<span class="header-section-number">7.3.2</span> Random effects estimator<a class="anchor" aria-label="anchor" href="#random-effects-estimator"><i class="fas fa-link"></i></a>
+</h3>
+<p>In random effects models, all individuals have varying intercepts, but these intercepts are drawn from a distribution - a normal distribution centered around zero.</p>
+<p>This only works if the unmeasured features are uncorrelated with the other predictors (in the same way that excluding any other variable that is related to <span class="math inline">\(Y\)</span> but unrelated to other Xs).</p>
+<p>(The fixed effects estimators works in the presence of this correlation)</p>
+<p>The random effects estimator relies on information from the “within” estimator, above, and a “between” estimator</p>
+<p>The between estimator uses the country means:</p>
+<p><span class="math display">\[\mu_{y}=c_i+\beta_1\mu_x+\epsilon\]</span></p>
+<p>This approach throws away all of the information about how things are related over time and just uses the average.</p>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">be.model</span> <span class="op">&lt;-</span> <span class="fu">plm</span><span class="op">(</span><span class="va">polity2</span> <span class="op">~</span> <span class="va">lagtradeopen</span> <span class="op">+</span> <span class="va">laggdpchg</span> <span class="op">+</span> <span class="va">allsettle</span>, data<span class="op">=</span><span class="va">jop</span>, index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ccode"</span>, <span class="st">"year"</span><span class="op">)</span>, na.action<span class="op">=</span><span class="va">na.omit</span>, model<span class="op">=</span><span class="st">"between"</span><span class="op">)</span>
+
+<span class="fu">stargazer</span><span class="op">(</span><span class="va">be.model</span>, style<span class="op">=</span><span class="st">"apsr"</span>, type<span class="op">=</span><span class="st">"html"</span>, omit<span class="op">=</span><span class="st">"ccode"</span>, title<span class="op">=</span><span class="st">"**Table 3 Polity 2 scores as a function of trade, economics, and borders"</span>, notes<span class="op">=</span><span class="st">"p&lt;.10* ; p&lt;.05**"</span>, notes.append<span class="op">=</span><span class="cn">FALSE</span>, omit.stat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ser"</span>,<span class="st">"f"</span><span class="op">)</span>, star.cutoffs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.05</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">2</span>, dep.var.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Polity democracy score"</span><span class="op">)</span>, column.labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Trade openness"</span>, <span class="st">"Economic growth"</span>, <span class="st">"Settled borders"</span>, <span class="st">"Constant"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table style="text-align:center" class="table table-sm">
+<caption>
+<strong>**Table 3 Polity 2 scores as a function of trade, economics, and borders</strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Polity democracy score
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Trade openness
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lagtradeopen
+</td>
+<td>
+1.16<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.30)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+laggdpchg
+</td>
+<td>
+81.24<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(27.66)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+allsettle
+</td>
+<td>
+4.07<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.13)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-13.70<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(2.41)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+132
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.27
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.25
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:left">
+p&lt;.10* ; p&lt;.05**
+</td>
+</tr>
+</table></div>
+<p>There is a problem with the between effects approach: the between estimator is not consistent if the mean of x is be related to the level of the intercept term (i.e. correlated with the error term). In our contrived data, we know that this the intercept is related to X - higher X is associated with the intercept. And the result is an estimate of <span class="math inline">\(\beta_1\)</span> that is way off - high and positive when the truth is negative. Ignoring unmeasured heterogeneity is hazardous.</p>
+<p>Imagine if you made a policy recommendation based on this result.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="working-with-panel-data.html#cb94-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-2"><a href="working-with-panel-data.html#cb94-2" aria-hidden="true" tabindex="-1"></a>be.model3 <span class="ot">&lt;-</span> <span class="fu">plm</span>(y <span class="sc">~</span> x, <span class="at">data=</span>data3, <span class="at">index=</span><span class="fu">c</span>(<span class="st">"ccode3"</span>, <span class="st">"time3"</span>), <span class="at">na.action=</span>na.omit, <span class="at">model=</span><span class="st">"between"</span>)</span>
+<span id="cb94-3"><a href="working-with-panel-data.html#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(be.model3, <span class="at">style=</span><span class="st">"apsr"</span>, <span class="at">type=</span><span class="st">"html"</span>, <span class="at">omit=</span><span class="st">"ccode"</span>, <span class="at">title=</span><span class="st">"**Table 3, Random effects"</span>, <span class="at">notes=</span><span class="st">"p&lt;.10* ; p&lt;.05**"</span>, <span class="at">notes.append=</span><span class="cn">FALSE</span>, <span class="at">omit.stat=</span><span class="fu">c</span>(<span class="st">"ser"</span>,<span class="st">"f"</span>), <span class="at">star.cutoffs=</span><span class="fu">c</span>(<span class="fl">0.10</span>,<span class="fl">0.05</span>), <span class="at">digits=</span><span class="dv">2</span>, <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">"T&gt;N"</span>))</span>
+<span id="cb94-4"><a href="working-with-panel-data.html#cb94-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-5"><a href="working-with-panel-data.html#cb94-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>table style<span class="ot">=</span><span class="st">"text-align:center"</span><span class="sc">&gt;</span><span class="er">&lt;</span>caption<span class="sc">&gt;</span><span class="er">&lt;</span>strong<span class="sc">&gt;</span><span class="er">**</span>Table <span class="dv">3</span>, Random effects<span class="sc">&lt;</span><span class="er">/</span>strong<span class="sc">&gt;</span><span class="er">&lt;/</span>caption<span class="sc">&gt;</span></span>
+<span id="cb94-6"><a href="working-with-panel-data.html#cb94-6" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td colspan<span class="ot">=</span><span class="st">"2"</span> style<span class="ot">=</span><span class="st">"border-bottom: 1px solid black"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span>T<span class="sc">&gt;</span>N<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb94-7"><a href="working-with-panel-data.html#cb94-7" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td colspan<span class="ot">=</span><span class="st">"2"</span> style<span class="ot">=</span><span class="st">"border-bottom: 1px solid black"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>x<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;-</span><span class="fl">0.66</span><span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb94-8"><a href="working-with-panel-data.html#cb94-8" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span>(<span class="fl">0.85</span>)<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb94-9"><a href="working-with-panel-data.html#cb94-9" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>Constant<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span><span class="fl">14.89</span><span class="sc">&lt;</span>sup<span class="sc">&gt;</span><span class="er">**&lt;/</span>sup<span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb94-10"><a href="working-with-panel-data.html#cb94-10" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span>(<span class="fl">0.63</span>)<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb94-11"><a href="working-with-panel-data.html#cb94-11" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>N<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span><span class="dv">200</span><span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb94-12"><a href="working-with-panel-data.html#cb94-12" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>R<span class="sc">&lt;</span>sup<span class="sc">&gt;</span><span class="dv">2</span><span class="sc">&lt;</span><span class="er">/</span>sup<span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span><span class="fl">0.003</span><span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb94-13"><a href="working-with-panel-data.html#cb94-13" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>Adjusted R<span class="sc">&lt;</span>sup<span class="sc">&gt;</span><span class="dv">2</span><span class="sc">&lt;</span><span class="er">/</span>sup<span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;-</span><span class="fl">0.002</span><span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb94-14"><a href="working-with-panel-data.html#cb94-14" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td colspan<span class="ot">=</span><span class="st">"2"</span> style<span class="ot">=</span><span class="st">"border-bottom: 1px solid black"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td colspan<span class="ot">=</span><span class="st">"2"</span> style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>p<span class="sc">&lt;</span>.<span class="dv">10</span><span class="sc">*</span> ; p<span class="sc">&lt;</span>.<span class="dv">05</span><span class="sc">**</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb94-15"><a href="working-with-panel-data.html#cb94-15" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/</span>table<span class="sc">&gt;</span></span></code></pre></div>
+<p>The random effects estimator is a weighted average of the within and between estimator, so bias introduced with the be estimator is also present in the re estimator. The intuition is compelling -we want to combine insights from how each observation deviates from it’s mean along with how the observations vary from each other.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="working-with-panel-data.html#cb95-1" aria-hidden="true" tabindex="-1"></a>re.model <span class="ot">&lt;-</span> <span class="fu">plm</span>(polity2 <span class="sc">~</span> lagtradeopen <span class="sc">+</span> laggdpchg <span class="sc">+</span> allsettle, <span class="at">data=</span>jop, <span class="at">index=</span><span class="fu">c</span>(<span class="st">"ccode"</span>, <span class="st">"year"</span>), <span class="at">na.action=</span>na.omit, <span class="at">model=</span><span class="st">"random"</span>)</span>
+<span id="cb95-2"><a href="working-with-panel-data.html#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(re.model, <span class="at">style=</span><span class="st">"apsr"</span>, <span class="at">type=</span><span class="st">"html"</span>, <span class="at">omit=</span><span class="st">"ccode"</span>, <span class="at">title=</span><span class="st">"**Table 3 Polity 2 scores as a function of trade, economics, and borders"</span>, <span class="at">notes=</span><span class="st">"p&lt;.10* ; p&lt;.05**"</span>, <span class="at">notes.append=</span><span class="cn">FALSE</span>, <span class="at">omit.stat=</span><span class="fu">c</span>(<span class="st">"ser"</span>,<span class="st">"f"</span>), <span class="at">star.cutoffs=</span><span class="fu">c</span>(<span class="fl">0.10</span>,<span class="fl">0.05</span>), <span class="at">digits=</span><span class="dv">2</span>, <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">"Polity democracy score"</span>), <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">"Trade openness"</span>, <span class="st">"Economic growth"</span>, <span class="st">"Settled borders"</span>, <span class="st">"Constant"</span>))</span>
+<span id="cb95-3"><a href="working-with-panel-data.html#cb95-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-4"><a href="working-with-panel-data.html#cb95-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>table style<span class="ot">=</span><span class="st">"text-align:center"</span><span class="sc">&gt;</span><span class="er">&lt;</span>caption<span class="sc">&gt;</span><span class="er">&lt;</span>strong<span class="sc">&gt;</span><span class="er">**</span>Table <span class="dv">3</span> Polity <span class="dv">2</span> scores as a <span class="cf">function</span> of trade, economics, and borders<span class="sc">&lt;</span><span class="er">/</span>strong<span class="sc">&gt;</span><span class="er">&lt;/</span>caption<span class="sc">&gt;</span></span>
+<span id="cb95-5"><a href="working-with-panel-data.html#cb95-5" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td colspan<span class="ot">=</span><span class="st">"2"</span> style<span class="ot">=</span><span class="st">"border-bottom: 1px solid black"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span>Polity democracy score<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-6"><a href="working-with-panel-data.html#cb95-6" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span>Trade openness<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-7"><a href="working-with-panel-data.html#cb95-7" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td colspan<span class="ot">=</span><span class="st">"2"</span> style<span class="ot">=</span><span class="st">"border-bottom: 1px solid black"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>lagtradeopen<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span><span class="fl">1.10</span><span class="sc">&lt;</span>sup<span class="sc">&gt;</span><span class="er">**&lt;/</span>sup<span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-8"><a href="working-with-panel-data.html#cb95-8" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span>(<span class="fl">0.03</span>)<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-9"><a href="working-with-panel-data.html#cb95-9" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>laggdpchg<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;-</span><span class="fl">0.63</span><span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-10"><a href="working-with-panel-data.html#cb95-10" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span>(<span class="fl">0.85</span>)<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-11"><a href="working-with-panel-data.html#cb95-11" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>allsettle<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span><span class="fl">0.40</span><span class="sc">&lt;</span>sup<span class="sc">&gt;</span><span class="er">*&lt;/</span>sup<span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-12"><a href="working-with-panel-data.html#cb95-12" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span>(<span class="fl">0.21</span>)<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-13"><a href="working-with-panel-data.html#cb95-13" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>Constant<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;-</span><span class="fl">9.16</span><span class="sc">&lt;</span>sup<span class="sc">&gt;</span><span class="er">**&lt;/</span>sup<span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-14"><a href="working-with-panel-data.html#cb95-14" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span>(<span class="fl">0.51</span>)<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-15"><a href="working-with-panel-data.html#cb95-15" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>N<span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span><span class="dv">7</span>,<span class="dv">238</span><span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-16"><a href="working-with-panel-data.html#cb95-16" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>R<span class="sc">&lt;</span>sup<span class="sc">&gt;</span><span class="dv">2</span><span class="sc">&lt;</span><span class="er">/</span>sup<span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span><span class="fl">0.16</span><span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-17"><a href="working-with-panel-data.html#cb95-17" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>Adjusted R<span class="sc">&lt;</span>sup<span class="sc">&gt;</span><span class="dv">2</span><span class="sc">&lt;</span><span class="er">/</span>sup<span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;</span>td<span class="sc">&gt;</span><span class="fl">0.16</span><span class="sc">&lt;</span><span class="er">/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-18"><a href="working-with-panel-data.html#cb95-18" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td colspan<span class="ot">=</span><span class="st">"2"</span> style<span class="ot">=</span><span class="st">"border-bottom: 1px solid black"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>tr<span class="sc">&gt;</span><span class="er">&lt;</span>td colspan<span class="ot">=</span><span class="st">"2"</span> style<span class="ot">=</span><span class="st">"text-align:left"</span><span class="sc">&gt;</span>p<span class="sc">&lt;</span>.<span class="dv">10</span><span class="sc">*</span> ; p<span class="sc">&lt;</span>.<span class="dv">05</span><span class="sc">**</span><span class="er">&lt;/</span>td<span class="sc">&gt;</span><span class="er">&lt;/</span>tr<span class="sc">&gt;</span></span>
+<span id="cb95-19"><a href="working-with-panel-data.html#cb95-19" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/</span>table<span class="sc">&gt;</span></span></code></pre></div>
+</div>
+</div>
+<div id="why-random-effects-approaches-may-fail" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> Why random effects approaches may fail<a class="anchor" aria-label="anchor" href="#why-random-effects-approaches-may-fail"><i class="fas fa-link"></i></a>
+</h2>
+<p>The random effects estimator is biased when X variables are correlated with the magnitude of the error term (this was the case with our contrived data, above).</p>
+<p>An example: If we use panel data to estimate the relationship between education and income, each individual has an unobserved skill level. This skill level is associated with x and with the intercept. A fixed effects estimator would handle this well (with higher intercepts for higher skill respondents). The random effects estimator would have an upward bias. You must test for this bias. The <em>Hausman</em> test indicates whether random effects or fixed effects estimator is appropriate.</p>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">kable</span><span class="op">(</span><span class="fu">tidy</span><span class="op">(</span><span class="fu">phtest</span><span class="op">(</span><span class="va">fe.model</span>, <span class="va">re.model</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="right">parameter</th>
+<th align="left">method</th>
+<th align="left">alternative</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="right">6.816828</td>
+<td align="right">0.077971</td>
+<td align="right">3</td>
+<td align="left">Hausman Test</td>
+<td align="left">one model is inconsistent</td>
+</tr></tbody>
+</table></div>
+<p>The Hausman test indicates that the coefficients from the random effects and fixed effects models are not different. Under the null hypothesis (H0), the coefficients are unbiased and estimates of <span class="math inline">\(\beta_i\)</span> are consistent. This is close, but inspect the coefficients and you can see how or why this is the case.</p>
+<p>We reject the null hypothesis, which means we can use the random effects estimator.</p>
+<p>You can see why this test indicated the coefficients were not different. Trade openness is positive and significant in both models. GDP growth is zero (not significant) in both models. Settled borders is positive and on the threshold of statistical significance in both models.</p>
+<div id="returning-to-our-example" class="section level3 unnumbered">
+<h3>Returning to our example<a class="anchor" aria-label="anchor" href="#returning-to-our-example"><i class="fas fa-link"></i></a>
+</h3>
+<p>If I test the random effects vs. the fixed effects model for our N&gt;&gt;T dataset. 100 countries observed twice, the Hausman test suggests fixed effects.</p>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fe.model3</span> <span class="op">&lt;-</span> <span class="fu">plm</span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data<span class="op">=</span><span class="va">data3</span>, index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ccode3"</span>, <span class="st">"time3"</span><span class="op">)</span>, na.action<span class="op">=</span><span class="va">na.omit</span>, model<span class="op">=</span><span class="st">"within"</span><span class="op">)</span>
+<span class="va">re.model3</span> <span class="op">&lt;-</span> <span class="fu">plm</span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data<span class="op">=</span><span class="va">data3</span>, index<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ccode3"</span>, <span class="st">"time3"</span><span class="op">)</span>, na.action<span class="op">=</span><span class="va">na.omit</span>, model<span class="op">=</span><span class="st">"random"</span><span class="op">)</span>
+<span class="fu">kable</span><span class="op">(</span><span class="fu">tidy</span><span class="op">(</span><span class="fu">phtest</span><span class="op">(</span><span class="va">fe.model3</span>, <span class="va">re.model3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="right">parameter</th>
+<th align="left">method</th>
+<th align="left">alternative</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="right">10.19736</td>
+<td align="right">0.0014064</td>
+<td align="right">1</td>
+<td align="left">Hausman Test</td>
+<td align="left">one model is inconsistent</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div id="practical-implications" class="section level2" number="7.5">
+<h2>
+<span class="header-section-number">7.5</span> Practical implications<a class="anchor" aria-label="anchor" href="#practical-implications"><i class="fas fa-link"></i></a>
+</h2>
+<p>If T is large and N is small, the appropriate strategy is to use feasible generalized least squares or a dynamic panel model that leverages what we can learn from a long time series.</p>
+<p>If N is large and T is small (which is often when we turn to these estimators), the estimates can diverge. This is the case with our example data set, whether we have N=T or N&gt;&gt;T.</p>
+<p>If the F-test for <span class="math inline">\(u_{in}=0\)</span> is significant, then the pooled regression is not appropriate since we clearly have unmeasured heterogeneity across units.</p>
+<p>If the Hausmann test indicates that the coefficients from random and fixed effects are substantially different, then the model of choice is the fixed effects model. The test indicates that the unit heterogeneity is correlated with X.</p>
+<p>If N is large and T is small and the Hausmann test is not significant, then the random effects estimator is the most efficient estimator. (AND you can use time invariant covariates).</p>
+</div>
+<div id="notes-and-next-week" class="section level2" number="7.6">
+<h2>
+<span class="header-section-number">7.6</span> Notes and next week<a class="anchor" aria-label="anchor" href="#notes-and-next-week"><i class="fas fa-link"></i></a>
+</h2>
+<p>In the Spring 2007 issue of Political Analysis there were several articles on analysis of TSCS data - the conclusions of one set of authors are sobering but insightful. This is from <span class="citation"><a href="references.html#ref-wilson2007" role="doc-biblioref">Wilson and Butler</a> (<a href="references.html#ref-wilson2007" role="doc-biblioref">2007</a>)</span>:</p>
+<blockquote>
+<p>Although continued statistical analysis and the development of better methods should proceed, researchers must be prepared for the answer that regression analysis simply will not provide reliable conclusions in some instances-a humbling fact relevant to regression analysis generally, we might add, not just in the TSCS context. This fact also points to the unavoidable conclusion that research in comparative politics and international relations must remain qualitatively rich. The rift between qualitative and quantitative analysts is, especially in the case of small panel data sets, counterproductive. Political science seems particularly well poised, we think, to pursue a methodological agenda of marrying quantitative and qualitative methods (both enlightened by stronger theories), since neither mode of analysis on its own will be sufficient in many cases.</p>
+</blockquote>
+<p>Next week. Modeling dynamics in long T panel data.</p>
+
+<!-- requires jop2013.dta -->
+<!-- introduces panel library--->
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="dynamic-models-1.html"><span class="header-section-number">6</span> Dynamic models</a></div>
+<div class="next"><a href="working-with-time-series-cross-sectional-tscs-data.html"><span class="header-section-number">8</span> Working with Time-Series Cross-Sectional (TSCS) data</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#working-with-panel-data"><span class="header-section-number">7</span> Working with panel data</a></li>
+<li>
+<a class="nav-link" href="#statistical-models-for-panel-data-n-dominant-approaches"><span class="header-section-number">7.1</span> Statistical models for panel data: “N” dominant approaches</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#why-use-panel-data">Why use panel data?</a></li>
+<li><a class="nav-link" href="#panel-data-problems">Panel data problems</a></li>
+<li><a class="nav-link" href="#why-panel-data-can-be-particularly-tricky">Why panel data can be particularly tricky</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#panel-data-in-r"><span class="header-section-number">7.2</span> Panel data in R</a></li>
+<li>
+<a class="nav-link" href="#alternative-solutions"><span class="header-section-number">7.3</span> Alternative solutions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pooled-data-generic-and-with-robust-standard-errors">Pooled data (generic and with robust standard errors)</a></li>
+<li><a class="nav-link" href="#fixed-effects">Fixed effects</a></li>
+<li><a class="nav-link" href="#within-group-estimators-fixed-effects-without-dummy-variables"><span class="header-section-number">7.3.1</span> Within group estimators (fixed effects without dummy variables)</a></li>
+<li><a class="nav-link" href="#random-effects-estimator"><span class="header-section-number">7.3.2</span> Random effects estimator</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#why-random-effects-approaches-may-fail"><span class="header-section-number">7.4</span> Why random effects approaches may fail</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#returning-to-our-example">Returning to our example</a></li></ul>
+</li>
+<li><a class="nav-link" href="#practical-implications"><span class="header-section-number">7.5</span> Practical implications</a></li>
+<li><a class="nav-link" href="#notes-and-next-week"><span class="header-section-number">7.6</span> Notes and next week</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Political Science and Applied Statistics using R</strong>" was written by J.K. Corder. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

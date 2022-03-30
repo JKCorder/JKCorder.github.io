@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>9 Counts | Political Science and Applied Statistics using R</title>
+<meta name="author" content="J.K. Corder">
+<meta name="description" content="9.1 Generalized Linear Models in R R includes a function that permits you to estimate a wide variety of models using maximum likelihood - glm or general linear model. The idea is that you specify...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="9 Counts | Political Science and Applied Statistics using R">
+<meta property="og:type" content="book">
+<meta property="og:description" content="9.1 Generalized Linear Models in R R includes a function that permits you to estimate a wide variety of models using maximum likelihood - glm or general linear model. The idea is that you specify...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="9 Counts | Political Science and Applied Statistics using R">
+<meta name="twitter:description" content="9.1 Generalized Linear Models in R R includes a function that permits you to estimate a wide variety of models using maximum likelihood - glm or general linear model. The idea is that you specify...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Political Science and Applied Statistics using R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li><a class="" href="why-math-why-r.html"><span class="header-section-number">1</span> Why math? Why R?</a></li>
+<li><a class="" href="regression-review-and-assumptions.html"><span class="header-section-number">2</span> Regression: review and assumptions</a></li>
+<li><a class="" href="logistic-regression.html"><span class="header-section-number">3</span> Logistic regression</a></li>
+<li><a class="" href="using-interaction-terms.html"><span class="header-section-number">4</span> Using interaction terms</a></li>
+<li><a class="" href="working-with-time-series.html"><span class="header-section-number">5</span> Working with time series</a></li>
+<li><a class="" href="dynamic-models-1.html"><span class="header-section-number">6</span> Dynamic models</a></li>
+<li><a class="" href="working-with-panel-data.html"><span class="header-section-number">7</span> Working with panel data</a></li>
+<li><a class="" href="working-with-time-series-cross-sectional-tscs-data.html"><span class="header-section-number">8</span> Working with Time-Series Cross-Sectional (TSCS) data</a></li>
+<li><a class="active" href="counts.html"><span class="header-section-number">9</span> Counts</a></li>
+<li><a class="" href="duration-models.html"><span class="header-section-number">10</span> Duration models</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">11</span> References</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="using-the-american-national-election-study.html">Using the American National Election Study</a></li>
+<li><a class="" href="the-harvard-dataverse-1.html">The Harvard Dataverse</a></li>
+<li><a class="" href="replicating-when-do-politicians-grandstand.html">Replicating “When do politicians grandstand?”</a></li>
+<li class="book-part">Short Introductions</li>
+<li><a class="" href="quasi--and-natural-experiments.html">Quasi- and natural experiments</a></li>
+<li><a class="" href="matching.html">Matching</a></li>
+<li><a class="" href="multilevel-and-hierarchical-models.html">Multilevel and hierarchical models</a></li>
+<li><a class="" href="about-the-author.html">About the author</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="counts" class="section level1" number="9">
+<h1>
+<span class="header-section-number">9</span> Counts<a class="anchor" aria-label="anchor" href="#counts"><i class="fas fa-link"></i></a>
+</h1>
+<div id="generalized-linear-models-in-r" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> Generalized Linear Models in R<a class="anchor" aria-label="anchor" href="#generalized-linear-models-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>R includes a function that permits you to estimate a wide variety of models using maximum likelihood - <code>glm</code> or general linear model. The idea is that you specify how the dependent variable Y is distributed and what function links observed data X to the underlying probabilities associated with observed outcome Y. So the probability function (or probability density function or PDF) is determined by designating a “family” and the way that you transform X to get Y is determined by a “link.”</p>
+<p>If the dependent variable is distributed approximately normally – or more precisely, the error term associated with the difference between a linear function of X and observed Y is distributed normally, then we have family(Gaussian) link(id) model – the simple linear model that we have used many times.</p>
+<p>Family(binomial) link(logit) is logistic regression. The assumption is that the dependent variable is distributed according to the binomial distribution and that the function that links the observed p to the underlying X is the logit:</p>
+<p><span class="math display">\[(\beta_0+\beta_1X)  = \log (p/1-p)\]</span></p>
+<p>Family(binomial) link(probit) is known as <em>probit</em>. The dependent variable is distributed according to the binomial distribution and the function that links X to p is the inverse cumulative normal distribution:</p>
+<p><span class="math display">\[(\beta_0+\beta_1X) =\Phi^{-1}= \left(\frac{1}{\sqrt{2\pi}} \exp(-p^2/2) \right)^{-1} = \frac{\sqrt{2\pi}}{\exp(-p^2/2)}.\]</span>
+Logit and probit are closely related. The distributions are compared in the figure below. The code chunk evaluates the logit and the inverse cumulative normal distribution for 0.00 to 1.00 in increments of 0.1. The blue line is the logit and the red line is the inverse cumulative normal. You can see how marginal effects might diverge if you have many observations with predicted probabilities at the extremes.</p>
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0.01</span><span class="op">)</span>
+<span class="va">y1</span><span class="op">&lt;-</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">p</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">p</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">y2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span>
+<span class="va">data</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">p</span>,<span class="va">y1</span>,<span class="va">y2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">ggplot</span><span class="op">(</span>data<span class="op">=</span><span class="va">data</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">p</span>, y<span class="op">=</span><span class="va">y1</span><span class="op">)</span>, color<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">p</span>, y<span class="op">=</span><span class="va">y2</span><span class="op">)</span>, color<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x<span class="op">=</span><span class="st">"Probability"</span>, y<span class="op">=</span><span class="st">""</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="09-counts_files/figure-html/figure1-1.png" width="672"></div>
+<p>The available families in R include:
+- binomial(link = “probit”) &lt;==probit
+- binomial(link = “logit”) &lt;==logit
+- gaussian(link = “identity”) &lt;==OLS
+- Gamma(link = “inverse”)
+- inverse.gaussian(link = “1/mu^2”)
+- poisson(link = “log”) &lt;==poisson
+- quasi(link = “identity,” variance = “constant”)
+- quasibinomial(link = “logit”)
+- quasipoisson(link = “log”)</p>
+</div>
+<div id="count-models" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> Count models<a class="anchor" aria-label="anchor" href="#count-models"><i class="fas fa-link"></i></a>
+</h2>
+<p>The most important class of models that the <code>glm</code> function permits us to incorporate, beyond OLS, probit, and logit, are count models.</p>
+<p>Count models describe instances where we observed a count of events aggregated over time. How many years of education beyond high school did a participant in the Youth Socialization Panel complete during the period 1972-1982? This number could vary from 0 to 7. OLS would make little sense if we apply it to the data and recover predicted values that fall below 0 or exceed 7. We need some kind of distributional assumption about Y that permits zeroes but implies some type of upper bound.</p>
+<p>We could have other forms of count data and there are other methods. For instance, if we only had three or four categories, then we could use extensions of logit (ordered or multinomial) or or other alternatives for discrete outcomes, probit, and related extensions (ordered or multinomial).</p>
+<p>If the count is a unit of time – months, years, days – then we have other options. If we were observing the number of periods that something took to fail or succeed, we would use survival data analysis (which lets us talk about duration dependence). Next week we will talk about this type of approach.</p>
+</div>
+<div id="poisson-regression" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> Poisson regression<a class="anchor" aria-label="anchor" href="#poisson-regression"><i class="fas fa-link"></i></a>
+</h2>
+<p>The most common strategy to analyze simple counts is what is known as <em>Poisson regression</em> – the data generating process for Y is assumed to be the <em>Poisson distribution</em> (Poisson is the “distribution function” or family for Y). This distribution turns out to describe a number of processes that involve waiting in line. And, classically, the number of horsemen in the Prussian army who were killed by kicks from horses (for details, read about Ladislaus Bortkiewicz in <span class="citation"><a href="references.html#ref-hardle2014" role="doc-biblioref">Härdle and Vogt</a> (<a href="references.html#ref-hardle2014" role="doc-biblioref">2014</a>)</span>).</p>
+<p>The shorthand Y <span class="math inline">\(\sim {\rm poisson}(\lambda)\)</span> is used to indicate that the
+random variable Y has the Poisson distribution with scale parameter <span class="math inline">\(\lambda\)</span>.</p>
+<p>A Poisson random variable Y with scale parameter <span class="math inline">\(\lambda\)</span> has the distribution</p>
+<p><span class="math display">\[p(Y) = \frac{\lambda^Y e^{-\lambda}}{Y!}\]</span>
+For any X=0,1,2,3…. <span class="math inline">\(E(Y) = Var(Y) = \lambda\)</span></p>
+<p>The code chunk below generates random draws from the Poisson distribution with 4 different settings for <span class="math inline">\(\lambda\)</span>: 0.25, 0.50, 1.0, 2.0</p>
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">x1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">100</span>,<span class="fl">0.25</span><span class="op">)</span>
+<span class="va">x2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">100</span>,<span class="fl">0.50</span><span class="op">)</span>
+<span class="va">x3</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">100</span>,<span class="fl">1.0</span><span class="op">)</span>
+<span class="va">x4</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">100</span>,<span class="fl">2.0</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">lambda</span>,<span class="st">"=0.40"</span><span class="op">)</span><span class="op">)</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">80</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">lambda</span>,<span class="st">"=0.80"</span><span class="op">)</span><span class="op">)</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">80</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">x3</span><span class="op">)</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">lambda</span>,<span class="st">"=1.2"</span><span class="op">)</span><span class="op">)</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">80</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">x4</span><span class="op">)</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">lambda</span>,<span class="st">"=1.6"</span><span class="op">)</span><span class="op">)</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">80</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="09-counts_files/figure-html/poisson-1.png" width="672"></div>
+<div id="an-example-from-the-anes" class="section level3" number="9.3.1">
+<h3>
+<span class="header-section-number">9.3.1</span> An example from the ANES<a class="anchor" aria-label="anchor" href="#an-example-from-the-anes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Earlier in the term we looked at the level of political activity for men and women - a count variable that was zero (no activity) for many people, but up to four for people who were politically active. The code chunks below read the data and plot the distribution of activity for the 1960 ANES sample.</p>
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># read the data from the current directory</span>
+<span class="co"># ANES cumulative file </span>
+<span class="va">temp</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data/anes_timeseries_cdf_rawdata.txt"</span>, header<span class="op">=</span><span class="cn">TRUE</span>, sep<span class="op">=</span><span class="st">"|"</span><span class="op">)</span>
+<span class="va">anes</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">temp</span>, <span class="va">temp</span><span class="op">$</span><span class="va">VCF0004</span><span class="op">==</span><span class="fl">1960</span><span class="op">)</span>
+
+<span class="co"># recode missing values and create dummy variables</span>
+<span class="co"># The mutate commands could be combined into one long command</span>
+<span class="co"># But I prefer to do one at a time</span>
+
+<span class="co"># note: all of the coding information is just cut and paste from the PDF codebook</span>
+ 
+ <span class="va">anes</span> <span class="op">&lt;-</span> 
+   <span class="va">anes</span> <span class="op">%&gt;%</span>
+   <span class="fu">mutate</span><span class="op">(</span>education<span class="op">=</span><span class="va">VCF0140a</span>,
+          education<span class="op">=</span><span class="fu">na_if</span><span class="op">(</span><span class="va">education</span>,<span class="fl">8</span><span class="op">)</span>,
+          education<span class="op">=</span><span class="fu">na_if</span><span class="op">(</span><span class="va">education</span>,<span class="fl">9</span><span class="op">)</span><span class="op">)</span>
+ 
+<span class="co"># #education is coded:</span>
+<span class="co"># #1. 8 grades or less ('grade school')</span>
+<span class="co"># #2. 9-12 grades ('high school'), no diploma/equivalency</span>
+<span class="co"># #3. 12 grades, diploma or equivalency</span>
+<span class="co"># #4. 12 grades, diploma or equivalency plus non-academic training</span>
+<span class="co"># #5. Some college, no degree; junior/community college level degree (AA degree)</span>
+<span class="co"># #6. BA level degrees</span>
+<span class="co"># #7. Advanced degrees incl. LLB</span>
+<span class="co"># </span>
+<span class="va">anes</span> <span class="op">&lt;-</span> <span class="va">anes</span> <span class="op">%&gt;%</span>
+   <span class="fu">mutate</span><span class="op">(</span>turnout<span class="op">=</span>
+          <span class="fu">case_when</span><span class="op">(</span><span class="va">VCF0702</span><span class="op">==</span><span class="fl">2</span> <span class="op">~</span> <span class="fl">1</span>,
+                    <span class="va">VCF0702</span><span class="op">==</span><span class="fl">1</span> <span class="op">~</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#turnout is coded:</span>
+<span class="co"># #0 did not vote</span>
+<span class="co"># #1 voted</span>
+ 
+ 
+ <span class="va">anes</span> <span class="op">&lt;-</span> 
+   <span class="va">anes</span> <span class="op">%&gt;%</span>
+   <span class="fu">mutate</span><span class="op">(</span>income<span class="op">=</span><span class="va">VCF0114</span>,
+          income<span class="op">=</span><span class="fu">na_if</span><span class="op">(</span><span class="va">income</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+ <span class="co">#income is coded:</span>
+ <span class="co">#1. 0 to 16 percentile</span>
+ <span class="co">#2. 17 to 33 percentile</span>
+ <span class="co">#3. 34 to 67 percentile</span>
+ <span class="co">#4. 68 to 95 percentile</span>
+ <span class="co">#5. 96 to 100 percentile</span>
+ 
+ <span class="va">anes</span> <span class="op">&lt;-</span>
+   <span class="va">anes</span> <span class="op">%&gt;%</span>
+   <span class="fu">mutate</span><span class="op">(</span>age<span class="op">=</span><span class="va">VCF0101</span>,
+          age<span class="op">=</span><span class="fu">na_if</span><span class="op">(</span><span class="va">age</span>,<span class="fl">0</span><span class="op">)</span>,
+          age<span class="op">=</span><span class="fu">na_if</span><span class="op">(</span><span class="va">age</span>,<span class="fl">17</span><span class="op">)</span><span class="op">)</span>
+ 
+ <span class="co"># age is age in years</span>
+ <span class="co"># 18 and over only</span>
+ <span class="co"># some very old (95+ are grouped together at 95 in ANES pre-1980, see the codebook)</span>
+ 
+ <span class="va">anes</span> <span class="op">&lt;-</span>  <span class="va">anes</span> <span class="op">%&gt;%</span>
+   <span class="fu">mutate</span><span class="op">(</span>female<span class="op">=</span>
+   <span class="fu">case_when</span><span class="op">(</span><span class="va">VCF0104</span><span class="op">==</span><span class="fl">2</span> <span class="op">~</span> <span class="fl">1</span>,
+             <span class="va">VCF0104</span><span class="op">==</span><span class="fl">1</span> <span class="op">~</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+ <span class="co"># female=1 designate women</span>
+ <span class="co"># female=0 designates men</span>
+ <span class="co"># Other and refused are treated as missing</span>
+ 
+ <span class="co"># For this module, I specified female as a category or factor - this improves the look of the tables</span>
+ <span class="va">anes</span><span class="op">$</span><span class="va">female_c</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">anes</span><span class="op">$</span><span class="va">female</span>, labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Men"</span>, <span class="st">"Women"</span><span class="op">)</span><span class="op">)</span>
+ 
+ 
+ <span class="va">anes</span> <span class="op">&lt;-</span>  <span class="va">anes</span> <span class="op">%&gt;%</span>
+   <span class="fu">mutate</span><span class="op">(</span>minority<span class="op">=</span>
+   <span class="fu">case_when</span><span class="op">(</span><span class="va">VCF0105a</span><span class="op">&gt;</span><span class="fl">1</span> <span class="op">&amp;</span> <span class="va">VCF0105a</span><span class="op">&lt;</span><span class="fl">9</span><span class="op">~</span> <span class="fl">1</span>,
+             <span class="va">VCF0105a</span><span class="op">==</span><span class="fl">1</span> <span class="op">~</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span>
+ <span class="co"># minority=0 is white and not Hispanic</span>
+ <span class="co"># minority=1 is any other group, including all Hispanic-identifying</span>
+
+<span class="va">anes</span> <span class="op">&lt;-</span>  <span class="va">anes</span> <span class="op">%&gt;%</span>
+<span class="fu">mutate</span><span class="op">(</span>activity<span class="op">=</span><span class="va">VCF0723a</span><span class="op">-</span><span class="fl">1</span>,
+          activity<span class="op">=</span><span class="fu">na_if</span><span class="op">(</span><span class="va">activity</span>,<span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+<span class="co"># in the raw data, 0 is missing and activity ranges from</span>
+<span class="co"># 1 (none) to 6 (high)</span>
+<span class="co"># I substract one so that scale now ranges from 0 (none) to 5 (high)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">anes</span><span class="op">$</span><span class="va">activity</span><span class="op">)</span>, ylab<span class="op">=</span><span class="st">"N"</span>, main<span class="op">=</span><span class="st">"Distribution of campaign activity"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="09-counts_files/figure-html/plot.activity-1.png" width="672"></div>
+<p>The data are clearly consistent with some of the distributions above, so Poisson regression would be appropriate. We will investigate some tests to better evaluate the suitability of the Poisson distribution for this data, but we can check the results first. We will test the difference between men and women in 1960, and then introduce controls for age, education, income and race. The first set of code chunks focuses on the difference between men and women.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="counts.html#cb116-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-2"><a href="counts.html#cb116-2" aria-hidden="true" tabindex="-1"></a>model1<span class="ot">&lt;-</span><span class="fu">glm</span>((activity)<span class="sc">~</span>female, <span class="at">data=</span>anes, <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
+<span id="cb116-3"><a href="counts.html#cb116-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span>
+<span id="cb116-4"><a href="counts.html#cb116-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-5"><a href="counts.html#cb116-5" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb116-6"><a href="counts.html#cb116-6" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> (activity) <span class="sc">~</span> female, <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>), </span>
+<span id="cb116-7"><a href="counts.html#cb116-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> anes)</span>
+<span id="cb116-8"><a href="counts.html#cb116-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-9"><a href="counts.html#cb116-9" aria-hidden="true" tabindex="-1"></a>Deviance Residuals<span class="sc">:</span> </span>
+<span id="cb116-10"><a href="counts.html#cb116-10" aria-hidden="true" tabindex="-1"></a>    Min       1Q   Median       3Q      Max  </span>
+<span id="cb116-11"><a href="counts.html#cb116-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">1.0555</span>  <span class="sc">-</span><span class="fl">1.0555</span>  <span class="sc">-</span><span class="fl">0.9230</span>   <span class="fl">0.5331</span>   <span class="fl">2.5621</span>  </span>
+<span id="cb116-12"><a href="counts.html#cb116-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-13"><a href="counts.html#cb116-13" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb116-14"><a href="counts.html#cb116-14" aria-hidden="true" tabindex="-1"></a>            Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
+<span id="cb116-15"><a href="counts.html#cb116-15" aria-hidden="true" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">0.58503</span>    <span class="fl">0.05944</span>  <span class="sc">-</span><span class="fl">9.842</span>  <span class="sc">&lt;</span> <span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb116-16"><a href="counts.html#cb116-16" aria-hidden="true" tabindex="-1"></a>female      <span class="sc">-</span><span class="fl">0.26838</span>    <span class="fl">0.08625</span>  <span class="sc">-</span><span class="fl">3.112</span>  <span class="fl">0.00186</span> <span class="sc">**</span> </span>
+<span id="cb116-17"><a href="counts.html#cb116-17" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb116-18"><a href="counts.html#cb116-18" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb116-19"><a href="counts.html#cb116-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-20"><a href="counts.html#cb116-20" aria-hidden="true" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> poisson family taken to be <span class="dv">1</span>)</span>
+<span id="cb116-21"><a href="counts.html#cb116-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-22"><a href="counts.html#cb116-22" aria-hidden="true" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">1145.0</span>  on <span class="dv">1108</span>  degrees of freedom</span>
+<span id="cb116-23"><a href="counts.html#cb116-23" aria-hidden="true" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">1135.3</span>  on <span class="dv">1107</span>  degrees of freedom</span>
+<span id="cb116-24"><a href="counts.html#cb116-24" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">72</span> observations deleted due to missingness)</span>
+<span id="cb116-25"><a href="counts.html#cb116-25" aria-hidden="true" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">2040.9</span></span>
+<span id="cb116-26"><a href="counts.html#cb116-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-27"><a href="counts.html#cb116-27" aria-hidden="true" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">5</span></span>
+<span id="cb116-28"><a href="counts.html#cb116-28" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model1,<span class="at">test=</span><span class="st">"Chisq"</span>)</span>
+<span id="cb116-29"><a href="counts.html#cb116-29" aria-hidden="true" tabindex="-1"></a>Analysis of Deviance Table</span>
+<span id="cb116-30"><a href="counts.html#cb116-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-31"><a href="counts.html#cb116-31" aria-hidden="true" tabindex="-1"></a>Model<span class="sc">:</span> poisson, link<span class="sc">:</span> log</span>
+<span id="cb116-32"><a href="counts.html#cb116-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-33"><a href="counts.html#cb116-33" aria-hidden="true" tabindex="-1"></a>Response<span class="sc">:</span> (activity)</span>
+<span id="cb116-34"><a href="counts.html#cb116-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-35"><a href="counts.html#cb116-35" aria-hidden="true" tabindex="-1"></a>Terms added <span class="fu">sequentially</span> (first to last)</span>
+<span id="cb116-36"><a href="counts.html#cb116-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-37"><a href="counts.html#cb116-37" aria-hidden="true" tabindex="-1"></a>       Df Deviance Resid. Df Resid. Dev <span class="fu">Pr</span>(<span class="sc">&gt;</span>Chi)   </span>
+<span id="cb116-38"><a href="counts.html#cb116-38" aria-hidden="true" tabindex="-1"></a><span class="cn">NULL</span>                    <span class="dv">1108</span>     <span class="fl">1145.0</span>            </span>
+<span id="cb116-39"><a href="counts.html#cb116-39" aria-hidden="true" tabindex="-1"></a>female  <span class="dv">1</span>    <span class="fl">9.696</span>      <span class="dv">1107</span>     <span class="fl">1135.3</span> <span class="fl">0.001847</span> <span class="sc">**</span></span>
+<span id="cb116-40"><a href="counts.html#cb116-40" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb116-41"><a href="counts.html#cb116-41" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code></pre></div>
+<p>As with logistic regression, the coefficients are not the parameters of a line. Instead the coefficients are estimate of the log of <span class="math inline">\(\lambda\)</span> for men and women: -0.5850 for men and (-0.5850-0.2684) or =0.8503.</p>
+<p>The code chunk below plots the distribution of activity implied by these coefficients. You can see that the model implies that men are much more likely than women to engage in at least one political activity.</p>
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">500</span>,<span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5850</span><span class="op">)</span><span class="op">)</span>
+<span class="va">id1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">x</span>,<span class="st">"Men"</span><span class="op">)</span>
+<span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">500</span>,<span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.8503</span><span class="op">)</span><span class="op">)</span>
+<span class="va">id2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">x</span>,<span class="st">"Women"</span><span class="op">)</span>
+<span class="va">data</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">id2</span>,<span class="va">id1</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, fill <span class="op">=</span> <span class="va">V2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_bar</span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> </code></pre></div>
+<div class="inline-figure"><img src="09-counts_files/figure-html/gender.comparison-1.png" width="672"></div>
+<p>There are two other things to notice about the output. The output reminds us that the dispersion parameter is taken to be 1.0 - this is an assumption that we will test. And there is a goodness-of-fit test statistic reported - the AIC or Akaike’s Information Criteria. This test came up when we discussed logistic regression. AIC is a simple function of the log of the likelihood function evaluated at a particular set of parameter estimates.</p>
+<p><span class="math display">\[AIC = −N * L(m_*)+2k\]</span></p>
+<p>N is the number of observations, k is the number of model parameters, and <span class="math inline">\(L_(m_*)\)</span> is the log likelihood.</p>
+<p>We can compare the AIC of any two models to determine which model fits the data better. The code chunk below adds age, education, income and race to see if gender still matters after we introduce controls.</p>
+<p>The output includes an estimate of the <em>deviance</em> - this is analogous to the residual sum of squares in OLS. The null deviance is the model fit when only a constant appears in the model. The residual deviance is the model fit for the model we stimated. We should see an improvement or a reduction in error. We can even test if the difference is statistically significant.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="counts.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model1,<span class="at">test=</span><span class="st">"Chisq"</span>)</span>
+<span id="cb118-2"><a href="counts.html#cb118-2" aria-hidden="true" tabindex="-1"></a>Analysis of Deviance Table</span>
+<span id="cb118-3"><a href="counts.html#cb118-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-4"><a href="counts.html#cb118-4" aria-hidden="true" tabindex="-1"></a>Model<span class="sc">:</span> poisson, link<span class="sc">:</span> log</span>
+<span id="cb118-5"><a href="counts.html#cb118-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-6"><a href="counts.html#cb118-6" aria-hidden="true" tabindex="-1"></a>Response<span class="sc">:</span> (activity)</span>
+<span id="cb118-7"><a href="counts.html#cb118-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-8"><a href="counts.html#cb118-8" aria-hidden="true" tabindex="-1"></a>Terms added <span class="fu">sequentially</span> (first to last)</span>
+<span id="cb118-9"><a href="counts.html#cb118-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-10"><a href="counts.html#cb118-10" aria-hidden="true" tabindex="-1"></a>       Df Deviance Resid. Df Resid. Dev <span class="fu">Pr</span>(<span class="sc">&gt;</span>Chi)   </span>
+<span id="cb118-11"><a href="counts.html#cb118-11" aria-hidden="true" tabindex="-1"></a><span class="cn">NULL</span>                    <span class="dv">1108</span>     <span class="fl">1145.0</span>            </span>
+<span id="cb118-12"><a href="counts.html#cb118-12" aria-hidden="true" tabindex="-1"></a>female  <span class="dv">1</span>    <span class="fl">9.696</span>      <span class="dv">1107</span>     <span class="fl">1135.3</span> <span class="fl">0.001847</span> <span class="sc">**</span></span>
+<span id="cb118-13"><a href="counts.html#cb118-13" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb118-14"><a href="counts.html#cb118-14" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code></pre></div>
+<p>The test indicates that improvement in deviance is statistically significant.</p>
+<p>What if we add more information to improve our prediction? This is a similar strategy to the one we used to create a model of turnout and the model you will use for your assignment.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="counts.html#cb119-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-2"><a href="counts.html#cb119-2" aria-hidden="true" tabindex="-1"></a>model2<span class="ot">&lt;-</span><span class="fu">glm</span>(activity<span class="sc">~</span>female<span class="sc">+</span>minority<span class="sc">+</span>age<span class="sc">+</span>income<span class="sc">+</span>education, <span class="at">data=</span>anes, <span class="at">family=</span><span class="st">"poisson"</span>)</span>
+<span id="cb119-3"><a href="counts.html#cb119-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span>
+<span id="cb119-4"><a href="counts.html#cb119-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-5"><a href="counts.html#cb119-5" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb119-6"><a href="counts.html#cb119-6" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> activity <span class="sc">~</span> female <span class="sc">+</span> minority <span class="sc">+</span> age <span class="sc">+</span> income <span class="sc">+</span> education, </span>
+<span id="cb119-7"><a href="counts.html#cb119-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">"poisson"</span>, <span class="at">data =</span> anes)</span>
+<span id="cb119-8"><a href="counts.html#cb119-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-9"><a href="counts.html#cb119-9" aria-hidden="true" tabindex="-1"></a>Deviance Residuals<span class="sc">:</span> </span>
+<span id="cb119-10"><a href="counts.html#cb119-10" aria-hidden="true" tabindex="-1"></a>    Min       1Q   Median       3Q      Max  </span>
+<span id="cb119-11"><a href="counts.html#cb119-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">1.6010</span>  <span class="sc">-</span><span class="fl">0.9610</span>  <span class="sc">-</span><span class="fl">0.7919</span>   <span class="fl">0.5420</span>   <span class="fl">3.0442</span>  </span>
+<span id="cb119-12"><a href="counts.html#cb119-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-13"><a href="counts.html#cb119-13" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb119-14"><a href="counts.html#cb119-14" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
+<span id="cb119-15"><a href="counts.html#cb119-15" aria-hidden="true" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">1.692636</span>   <span class="fl">0.266233</span>  <span class="sc">-</span><span class="fl">6.358</span> <span class="fl">2.05e-10</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb119-16"><a href="counts.html#cb119-16" aria-hidden="true" tabindex="-1"></a>female      <span class="sc">-</span><span class="fl">0.233548</span>   <span class="fl">0.087210</span>  <span class="sc">-</span><span class="fl">2.678</span> <span class="fl">0.007407</span> <span class="sc">**</span> </span>
+<span id="cb119-17"><a href="counts.html#cb119-17" aria-hidden="true" tabindex="-1"></a>minority    <span class="sc">-</span><span class="fl">0.110448</span>   <span class="fl">0.187332</span>  <span class="sc">-</span><span class="fl">0.590</span> <span class="fl">0.555470</span>    </span>
+<span id="cb119-18"><a href="counts.html#cb119-18" aria-hidden="true" tabindex="-1"></a>age          <span class="fl">0.004470</span>   <span class="fl">0.003342</span>   <span class="fl">1.338</span> <span class="fl">0.181003</span>    </span>
+<span id="cb119-19"><a href="counts.html#cb119-19" aria-hidden="true" tabindex="-1"></a>income       <span class="fl">0.182990</span>   <span class="fl">0.049595</span>   <span class="fl">3.690</span> <span class="fl">0.000225</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb119-20"><a href="counts.html#cb119-20" aria-hidden="true" tabindex="-1"></a>education    <span class="fl">0.101194</span>   <span class="fl">0.027378</span>   <span class="fl">3.696</span> <span class="fl">0.000219</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb119-21"><a href="counts.html#cb119-21" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb119-22"><a href="counts.html#cb119-22" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb119-23"><a href="counts.html#cb119-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-24"><a href="counts.html#cb119-24" aria-hidden="true" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> poisson family taken to be <span class="dv">1</span>)</span>
+<span id="cb119-25"><a href="counts.html#cb119-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-26"><a href="counts.html#cb119-26" aria-hidden="true" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">1136.8</span>  on <span class="dv">1099</span>  degrees of freedom</span>
+<span id="cb119-27"><a href="counts.html#cb119-27" aria-hidden="true" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">1071.0</span>  on <span class="dv">1094</span>  degrees of freedom</span>
+<span id="cb119-28"><a href="counts.html#cb119-28" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">81</span> observations deleted due to missingness)</span>
+<span id="cb119-29"><a href="counts.html#cb119-29" aria-hidden="true" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">1982.6</span></span>
+<span id="cb119-30"><a href="counts.html#cb119-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-31"><a href="counts.html#cb119-31" aria-hidden="true" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">6</span></span></code></pre></div>
+<p>The output reveals that, in 1960, income and education are good predictors of political engagement and gender matters too. You can also see from this output the value of the AIC has dropped - this means the more complex model is a better fit.</p>
+</div>
+<div id="what-is-the-dispersion-parameter" class="section level3" number="9.3.2">
+<h3>
+<span class="header-section-number">9.3.2</span> What is the dispersion parameter<a class="anchor" aria-label="anchor" href="#what-is-the-dispersion-parameter"><i class="fas fa-link"></i></a>
+</h3>
+<p>The central problem that leads to rejection of the Poisson model is overdispersion – when the variance of the dependent variable exceeds the mean. In the presence of overdispersion, estimates of standard errors from the Poisson regression are biased downward (leading to Type I errors). The alternative is what is known as negative binomial regression</p>
+<p>The negative binomial probability distribution function has two parameters:</p>
+<p><span class="math display">\[p(x) = \frac{\lambda\mu^x e^{-\lambda\mu}}{x!}\]</span>
+If <span class="math inline">\(\mu=1\)</span>, then this reduces to the Poisson</p>
+<p>The logic of the negative binomial distribution:
+1. You observe a series of independent trials with outcomes of success or failure
+2. The probability of success or failure is constant from one trial to the next.
+3. Trials are conducted until some number (r) successes are observed</p>
+<p>The number produced by the function is the number of failures that occur before you observe rth success.</p>
+<p>The distribution requires the specification of two parameters (the average probability of success, and the number of successes to be observed).</p>
+<p>If the probability of success is 0.5, how many failures will occur before you observe 8 successes? If the probability of success is 0.5, then you should observe about 1 failure for every one success – so most likely 8 failures and 8 successes.</p>
+<p>The plots below shows the probability that you observe x failures (1 or 8) before you observe 8 successes at probability of success 0.40 and 0.80.</p>
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">rnbinom</a></span><span class="op">(</span><span class="fl">100</span>, prob<span class="op">=</span><span class="fl">0.50</span>, size<span class="op">=</span><span class="fl">1</span><span class="op">)</span>
+<span class="va">x2</span><span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">rnbinom</a></span><span class="op">(</span><span class="fl">100</span>, prob<span class="op">=</span><span class="fl">0.50</span>, size<span class="op">=</span><span class="fl">8</span><span class="op">)</span>
+<span class="va">x3</span><span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">rnbinom</a></span><span class="op">(</span><span class="fl">100</span>, prob<span class="op">=</span><span class="fl">0.80</span>, size<span class="op">=</span><span class="fl">1</span><span class="op">)</span>
+<span class="va">x4</span><span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/stats/NegBinomial.html">rnbinom</a></span><span class="op">(</span><span class="fl">100</span>, prob<span class="op">=</span><span class="fl">0.80</span>, size<span class="op">=</span><span class="fl">8</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">p</span>,<span class="st">"=0.40, fails=1"</span><span class="op">)</span><span class="op">)</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">80</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">p</span>,<span class="st">"=0.40, fails=8"</span><span class="op">)</span><span class="op">)</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">80</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">x3</span><span class="op">)</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">p</span>,<span class="st">"=0.80, fails=1"</span><span class="op">)</span><span class="op">)</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">80</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">x4</span><span class="op">)</span>, main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">p</span>,<span class="st">"=0.80, fails=8"</span><span class="op">)</span><span class="op">)</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">80</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="09-counts_files/figure-html/negbin.random-1.png" width="672"></div>
+<p>In order to determine which of these two alternatives - negative binomial or Poisson - is most appropriate, we can first estimate the model using an approach called quasi-poisson - this approach includes an estimate for the dispersion parameter.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="counts.html#cb121-1" aria-hidden="true" tabindex="-1"></a>model3<span class="ot">&lt;-</span><span class="fu">glm</span>(activity<span class="sc">~</span>female<span class="sc">+</span>minority<span class="sc">+</span>age<span class="sc">+</span>income<span class="sc">+</span>education, <span class="at">data=</span>anes, <span class="at">family=</span><span class="st">"quasipoisson"</span>)</span>
+<span id="cb121-2"><a href="counts.html#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model3)</span>
+<span id="cb121-3"><a href="counts.html#cb121-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-4"><a href="counts.html#cb121-4" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb121-5"><a href="counts.html#cb121-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> activity <span class="sc">~</span> female <span class="sc">+</span> minority <span class="sc">+</span> age <span class="sc">+</span> income <span class="sc">+</span> education, </span>
+<span id="cb121-6"><a href="counts.html#cb121-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">"quasipoisson"</span>, <span class="at">data =</span> anes)</span>
+<span id="cb121-7"><a href="counts.html#cb121-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-8"><a href="counts.html#cb121-8" aria-hidden="true" tabindex="-1"></a>Deviance Residuals<span class="sc">:</span> </span>
+<span id="cb121-9"><a href="counts.html#cb121-9" aria-hidden="true" tabindex="-1"></a>    Min       1Q   Median       3Q      Max  </span>
+<span id="cb121-10"><a href="counts.html#cb121-10" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">1.6010</span>  <span class="sc">-</span><span class="fl">0.9610</span>  <span class="sc">-</span><span class="fl">0.7919</span>   <span class="fl">0.5420</span>   <span class="fl">3.0442</span>  </span>
+<span id="cb121-11"><a href="counts.html#cb121-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-12"><a href="counts.html#cb121-12" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb121-13"><a href="counts.html#cb121-13" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb121-14"><a href="counts.html#cb121-14" aria-hidden="true" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">1.692636</span>   <span class="fl">0.271546</span>  <span class="sc">-</span><span class="fl">6.233</span> <span class="fl">6.51e-10</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb121-15"><a href="counts.html#cb121-15" aria-hidden="true" tabindex="-1"></a>female      <span class="sc">-</span><span class="fl">0.233548</span>   <span class="fl">0.088951</span>  <span class="sc">-</span><span class="fl">2.626</span> <span class="fl">0.008771</span> <span class="sc">**</span> </span>
+<span id="cb121-16"><a href="counts.html#cb121-16" aria-hidden="true" tabindex="-1"></a>minority    <span class="sc">-</span><span class="fl">0.110448</span>   <span class="fl">0.191071</span>  <span class="sc">-</span><span class="fl">0.578</span> <span class="fl">0.563351</span>    </span>
+<span id="cb121-17"><a href="counts.html#cb121-17" aria-hidden="true" tabindex="-1"></a>age          <span class="fl">0.004470</span>   <span class="fl">0.003409</span>   <span class="fl">1.311</span> <span class="fl">0.189965</span>    </span>
+<span id="cb121-18"><a href="counts.html#cb121-18" aria-hidden="true" tabindex="-1"></a>income       <span class="fl">0.182990</span>   <span class="fl">0.050585</span>   <span class="fl">3.617</span> <span class="fl">0.000311</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb121-19"><a href="counts.html#cb121-19" aria-hidden="true" tabindex="-1"></a>education    <span class="fl">0.101194</span>   <span class="fl">0.027924</span>   <span class="fl">3.624</span> <span class="fl">0.000304</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb121-20"><a href="counts.html#cb121-20" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb121-21"><a href="counts.html#cb121-21" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb121-22"><a href="counts.html#cb121-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-23"><a href="counts.html#cb121-23" aria-hidden="true" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> quasipoisson family taken to be <span class="fl">1.040313</span>)</span>
+<span id="cb121-24"><a href="counts.html#cb121-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-25"><a href="counts.html#cb121-25" aria-hidden="true" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">1136.8</span>  on <span class="dv">1099</span>  degrees of freedom</span>
+<span id="cb121-26"><a href="counts.html#cb121-26" aria-hidden="true" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">1071.0</span>  on <span class="dv">1094</span>  degrees of freedom</span>
+<span id="cb121-27"><a href="counts.html#cb121-27" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">81</span> observations deleted due to missingness)</span>
+<span id="cb121-28"><a href="counts.html#cb121-28" aria-hidden="true" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="cn">NA</span></span>
+<span id="cb121-29"><a href="counts.html#cb121-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-30"><a href="counts.html#cb121-30" aria-hidden="true" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">6</span></span></code></pre></div>
+<p>In this case, the dispersion parameter is very close to 1.0, so this data most likely fits the poisson distribution, but we could test to see if you results hold up with negative binomial regression.</p>
+</div>
+<div id="over-dispersion---negative-binomial" class="section level3" number="9.3.3">
+<h3>
+<span class="header-section-number">9.3.3</span> Over-dispersion - Negative binomial<a class="anchor" aria-label="anchor" href="#over-dispersion---negative-binomial"><i class="fas fa-link"></i></a>
+</h3>
+<p>Negative binomial regression requires the <code>glm.nb</code> function from the <strong>MASS</strong> package.</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="counts.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb122-2"><a href="counts.html#cb122-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-3"><a href="counts.html#cb122-3" aria-hidden="true" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'MASS'</span></span>
+<span id="cb122-4"><a href="counts.html#cb122-4" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:dplyr'</span><span class="sc">:</span></span>
+<span id="cb122-5"><a href="counts.html#cb122-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-6"><a href="counts.html#cb122-6" aria-hidden="true" tabindex="-1"></a>    select</span>
+<span id="cb122-7"><a href="counts.html#cb122-7" aria-hidden="true" tabindex="-1"></a>model4 <span class="ot">&lt;-</span><span class="fu">glm.nb</span>(activity <span class="sc">~</span> female <span class="sc">+</span> minority <span class="sc">+</span> age <span class="sc">+</span> income <span class="sc">+</span> education, <span class="at">data=</span>anes)</span>
+<span id="cb122-8"><a href="counts.html#cb122-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model4)</span>
+<span id="cb122-9"><a href="counts.html#cb122-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-10"><a href="counts.html#cb122-10" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb122-11"><a href="counts.html#cb122-11" aria-hidden="true" tabindex="-1"></a><span class="fu">glm.nb</span>(<span class="at">formula =</span> activity <span class="sc">~</span> female <span class="sc">+</span> minority <span class="sc">+</span> age <span class="sc">+</span> income <span class="sc">+</span> </span>
+<span id="cb122-12"><a href="counts.html#cb122-12" aria-hidden="true" tabindex="-1"></a>    education, <span class="at">data =</span> anes, <span class="at">init.theta =</span> <span class="fl">67.53212759</span>, <span class="at">link =</span> log)</span>
+<span id="cb122-13"><a href="counts.html#cb122-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-14"><a href="counts.html#cb122-14" aria-hidden="true" tabindex="-1"></a>Deviance Residuals<span class="sc">:</span> </span>
+<span id="cb122-15"><a href="counts.html#cb122-15" aria-hidden="true" tabindex="-1"></a>    Min       1Q   Median       3Q      Max  </span>
+<span id="cb122-16"><a href="counts.html#cb122-16" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">1.5947</span>  <span class="sc">-</span><span class="fl">0.9591</span>  <span class="sc">-</span><span class="fl">0.7910</span>   <span class="fl">0.5393</span>   <span class="fl">3.0266</span>  </span>
+<span id="cb122-17"><a href="counts.html#cb122-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-18"><a href="counts.html#cb122-18" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb122-19"><a href="counts.html#cb122-19" aria-hidden="true" tabindex="-1"></a>             Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
+<span id="cb122-20"><a href="counts.html#cb122-20" aria-hidden="true" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">1.693877</span>   <span class="fl">0.267304</span>  <span class="sc">-</span><span class="fl">6.337</span> <span class="fl">2.34e-10</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb122-21"><a href="counts.html#cb122-21" aria-hidden="true" tabindex="-1"></a>female      <span class="sc">-</span><span class="fl">0.234179</span>   <span class="fl">0.087561</span>  <span class="sc">-</span><span class="fl">2.674</span> <span class="fl">0.007485</span> <span class="sc">**</span> </span>
+<span id="cb122-22"><a href="counts.html#cb122-22" aria-hidden="true" tabindex="-1"></a>minority    <span class="sc">-</span><span class="fl">0.110799</span>   <span class="fl">0.187946</span>  <span class="sc">-</span><span class="fl">0.590</span> <span class="fl">0.555509</span>    </span>
+<span id="cb122-23"><a href="counts.html#cb122-23" aria-hidden="true" tabindex="-1"></a>age          <span class="fl">0.004487</span>   <span class="fl">0.003355</span>   <span class="fl">1.337</span> <span class="fl">0.181107</span>    </span>
+<span id="cb122-24"><a href="counts.html#cb122-24" aria-hidden="true" tabindex="-1"></a>income       <span class="fl">0.183079</span>   <span class="fl">0.049778</span>   <span class="fl">3.678</span> <span class="fl">0.000235</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb122-25"><a href="counts.html#cb122-25" aria-hidden="true" tabindex="-1"></a>education    <span class="fl">0.101357</span>   <span class="fl">0.027497</span>   <span class="fl">3.686</span> <span class="fl">0.000228</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb122-26"><a href="counts.html#cb122-26" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb122-27"><a href="counts.html#cb122-27" aria-hidden="true" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
+<span id="cb122-28"><a href="counts.html#cb122-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-29"><a href="counts.html#cb122-29" aria-hidden="true" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> Negative <span class="fu">Binomial</span>(<span class="fl">67.5321</span>) family taken to be <span class="dv">1</span>)</span>
+<span id="cb122-30"><a href="counts.html#cb122-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-31"><a href="counts.html#cb122-31" aria-hidden="true" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">1128.4</span>  on <span class="dv">1099</span>  degrees of freedom</span>
+<span id="cb122-32"><a href="counts.html#cb122-32" aria-hidden="true" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">1063.1</span>  on <span class="dv">1094</span>  degrees of freedom</span>
+<span id="cb122-33"><a href="counts.html#cb122-33" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">81</span> observations deleted due to missingness)</span>
+<span id="cb122-34"><a href="counts.html#cb122-34" aria-hidden="true" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">1984.6</span></span>
+<span id="cb122-35"><a href="counts.html#cb122-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-36"><a href="counts.html#cb122-36" aria-hidden="true" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">1</span></span>
+<span id="cb122-37"><a href="counts.html#cb122-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-38"><a href="counts.html#cb122-38" aria-hidden="true" tabindex="-1"></a>              Theta<span class="sc">:</span>  <span class="dv">68</span> </span>
+<span id="cb122-39"><a href="counts.html#cb122-39" aria-hidden="true" tabindex="-1"></a>          Std. Err.<span class="sc">:</span>  <span class="dv">393</span> </span>
+<span id="cb122-40"><a href="counts.html#cb122-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-41"><a href="counts.html#cb122-41" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span> x log<span class="sc">-</span>likelihood<span class="sc">:</span>  <span class="sc">-</span><span class="fl">1970.562</span> </span></code></pre></div>
+</div>
+<div id="under-dispersion---zero-inflated-regression" class="section level3" number="9.3.4">
+<h3>
+<span class="header-section-number">9.3.4</span> Under-dispersion - Zero-inflated regression<a class="anchor" aria-label="anchor" href="#under-dispersion---zero-inflated-regression"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can have a case where there is under-dispersion - variance low relative to the mean and that would require using what is known as zero-inflated poisson regression, implemented in the <span class="math inline">\(pscl\)</span> package with the <code>zeroinfl</code> function.</p>
+</div>
+</div>
+<div id="using-the-predict-command-with-count-models" class="section level2" number="9.4">
+<h2>
+<span class="header-section-number">9.4</span> Using the predict command with count models<a class="anchor" aria-label="anchor" href="#using-the-predict-command-with-count-models"><i class="fas fa-link"></i></a>
+</h2>
+<p>We can use the function <code>cplot</code>, which we used with logistic regression, to come up with a predicted value of <span class="math inline">\(\lambda\)</span> for our various groups - this will let us get a handle on what variables matter the most. I calculate the predicted <span class="math inline">\(\lambda\)</span> for ten groups below, the highest and lowest value of each of the five predictors, with other variables held constant at the mean. I then simulate the number of activities expected based on that parameter and compare each pair of groups in a figure and a table. There is probably a much more efficient way to do this, but it works.</p>
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leeper/margins">margins</a></span><span class="op">)</span>
+<span class="va">test1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/margins/man/cplot.html">cplot</a></span><span class="op">(</span><span class="va">model3</span>, x<span class="op">=</span><span class="st">"female"</span>, type<span class="op">=</span><span class="st">"response"</span>, n<span class="op">=</span><span class="fl">2</span>, draw<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
+<span class="va">test2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/margins/man/cplot.html">cplot</a></span><span class="op">(</span><span class="va">model3</span>, x<span class="op">=</span><span class="st">"minority"</span>, type<span class="op">=</span><span class="st">"response"</span>, n<span class="op">=</span><span class="fl">2</span>, draw<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
+<span class="va">test3</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/margins/man/cplot.html">cplot</a></span><span class="op">(</span><span class="va">model3</span>, x<span class="op">=</span><span class="st">"age"</span>, type<span class="op">=</span><span class="st">"response"</span>, n<span class="op">=</span><span class="fl">2</span>, draw<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
+<span class="va">test4</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/margins/man/cplot.html">cplot</a></span><span class="op">(</span><span class="va">model3</span>, x<span class="op">=</span><span class="st">"education"</span>, type<span class="op">=</span><span class="st">"response"</span>, n<span class="op">=</span><span class="fl">2</span>, draw<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
+<span class="va">test5</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/margins/man/cplot.html">cplot</a></span><span class="op">(</span><span class="va">model3</span>, x<span class="op">=</span><span class="st">"income"</span>, type<span class="op">=</span><span class="st">"response"</span>, n<span class="op">=</span><span class="fl">2</span>, draw<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>
+
+<span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">500</span>,<span class="va">test1</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span>
+<span class="va">id1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">x</span>,<span class="st">"Men"</span><span class="op">)</span>
+<span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">500</span>,<span class="va">test1</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span>
+<span class="va">id2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">x</span>,<span class="st">"Women"</span><span class="op">)</span>
+<span class="va">data1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">id2</span>,<span class="va">id1</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">data1</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, fill <span class="op">=</span> <span class="va">V2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_bar</span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> </code></pre></div>
+<div class="inline-figure"><img src="09-counts_files/figure-html/unnamed-chunk-2-1.png" width="672"></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="counts.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(data1<span class="sc">$</span>x, data1<span class="sc">$</span>V2), <span class="at">margin=</span><span class="dv">2</span>)</span>
+<span id="cb124-2"><a href="counts.html#cb124-2" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb124-3"><a href="counts.html#cb124-3" aria-hidden="true" tabindex="-1"></a>      Men Women</span>
+<span id="cb124-4"><a href="counts.html#cb124-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span> <span class="fl">0.584</span> <span class="fl">0.666</span></span>
+<span id="cb124-5"><a href="counts.html#cb124-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span> <span class="fl">0.318</span> <span class="fl">0.270</span></span>
+<span id="cb124-6"><a href="counts.html#cb124-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span> <span class="fl">0.080</span> <span class="fl">0.054</span></span>
+<span id="cb124-7"><a href="counts.html#cb124-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span> <span class="fl">0.016</span> <span class="fl">0.010</span></span>
+<span id="cb124-8"><a href="counts.html#cb124-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span> <span class="fl">0.002</span> <span class="fl">0.000</span></span>
+<span id="cb124-9"><a href="counts.html#cb124-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-10"><a href="counts.html#cb124-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-11"><a href="counts.html#cb124-11" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">rpois</span>(<span class="dv">500</span>,test2[<span class="dv">1</span>,<span class="dv">2</span>])</span>
+<span id="cb124-12"><a href="counts.html#cb124-12" aria-hidden="true" tabindex="-1"></a>id1<span class="ot">&lt;-</span><span class="fu">cbind</span>(x,<span class="st">"White"</span>)</span>
+<span id="cb124-13"><a href="counts.html#cb124-13" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">rpois</span>(<span class="dv">500</span>,test2[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb124-14"><a href="counts.html#cb124-14" aria-hidden="true" tabindex="-1"></a>id2<span class="ot">&lt;-</span><span class="fu">cbind</span>(x,<span class="st">"People of color"</span>)</span>
+<span id="cb124-15"><a href="counts.html#cb124-15" aria-hidden="true" tabindex="-1"></a>data2<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">rbind</span>(id2,id1))</span>
+<span id="cb124-16"><a href="counts.html#cb124-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data2, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">fill =</span> V2)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code></pre></div>
+<div class="inline-figure"><img src="09-counts_files/figure-html/unnamed-chunk-2-2.png" width="672"></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="counts.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(data2<span class="sc">$</span>x, data2<span class="sc">$</span>V2), <span class="at">margin=</span><span class="dv">2</span>)</span>
+<span id="cb125-2"><a href="counts.html#cb125-2" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb125-3"><a href="counts.html#cb125-3" aria-hidden="true" tabindex="-1"></a>    People of color White</span>
+<span id="cb125-4"><a href="counts.html#cb125-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>           <span class="fl">0.678</span> <span class="fl">0.604</span></span>
+<span id="cb125-5"><a href="counts.html#cb125-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>           <span class="fl">0.260</span> <span class="fl">0.330</span></span>
+<span id="cb125-6"><a href="counts.html#cb125-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>           <span class="fl">0.056</span> <span class="fl">0.060</span></span>
+<span id="cb125-7"><a href="counts.html#cb125-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>           <span class="fl">0.006</span> <span class="fl">0.004</span></span>
+<span id="cb125-8"><a href="counts.html#cb125-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span>           <span class="fl">0.000</span> <span class="fl">0.002</span></span>
+<span id="cb125-9"><a href="counts.html#cb125-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-10"><a href="counts.html#cb125-10" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">rpois</span>(<span class="dv">500</span>,test3[<span class="dv">1</span>,<span class="dv">2</span>])</span>
+<span id="cb125-11"><a href="counts.html#cb125-11" aria-hidden="true" tabindex="-1"></a>id1<span class="ot">&lt;-</span><span class="fu">cbind</span>(x,<span class="st">"Young"</span>)</span>
+<span id="cb125-12"><a href="counts.html#cb125-12" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">rpois</span>(<span class="dv">500</span>,test3[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb125-13"><a href="counts.html#cb125-13" aria-hidden="true" tabindex="-1"></a>id2<span class="ot">&lt;-</span><span class="fu">cbind</span>(x,<span class="st">"Old"</span>)</span>
+<span id="cb125-14"><a href="counts.html#cb125-14" aria-hidden="true" tabindex="-1"></a>data3<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">rbind</span>(id2,id1))</span>
+<span id="cb125-15"><a href="counts.html#cb125-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data3, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">fill =</span> V2)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code></pre></div>
+<div class="inline-figure"><img src="09-counts_files/figure-html/unnamed-chunk-2-3.png" width="672"></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="counts.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(data3<span class="sc">$</span>x, data3<span class="sc">$</span>V2), <span class="at">margin=</span><span class="dv">2</span>)</span>
+<span id="cb126-2"><a href="counts.html#cb126-2" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb126-3"><a href="counts.html#cb126-3" aria-hidden="true" tabindex="-1"></a>      Old Young</span>
+<span id="cb126-4"><a href="counts.html#cb126-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span> <span class="fl">0.556</span> <span class="fl">0.660</span></span>
+<span id="cb126-5"><a href="counts.html#cb126-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span> <span class="fl">0.344</span> <span class="fl">0.266</span></span>
+<span id="cb126-6"><a href="counts.html#cb126-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span> <span class="fl">0.082</span> <span class="fl">0.068</span></span>
+<span id="cb126-7"><a href="counts.html#cb126-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span> <span class="fl">0.018</span> <span class="fl">0.004</span></span>
+<span id="cb126-8"><a href="counts.html#cb126-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span> <span class="fl">0.000</span> <span class="fl">0.002</span></span>
+<span id="cb126-9"><a href="counts.html#cb126-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-10"><a href="counts.html#cb126-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-11"><a href="counts.html#cb126-11" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">rpois</span>(<span class="dv">500</span>,test4[<span class="dv">1</span>,<span class="dv">2</span>])</span>
+<span id="cb126-12"><a href="counts.html#cb126-12" aria-hidden="true" tabindex="-1"></a>id1<span class="ot">&lt;-</span><span class="fu">cbind</span>(x,<span class="st">"Low education"</span>)</span>
+<span id="cb126-13"><a href="counts.html#cb126-13" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">rpois</span>(<span class="dv">500</span>,test4[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb126-14"><a href="counts.html#cb126-14" aria-hidden="true" tabindex="-1"></a>id2<span class="ot">&lt;-</span><span class="fu">cbind</span>(x,<span class="st">"High education"</span>)</span>
+<span id="cb126-15"><a href="counts.html#cb126-15" aria-hidden="true" tabindex="-1"></a>data4<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">rbind</span>(id2,id1))</span>
+<span id="cb126-16"><a href="counts.html#cb126-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data4, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">fill =</span> V2)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code></pre></div>
+<div class="inline-figure"><img src="09-counts_files/figure-html/unnamed-chunk-2-4.png" width="672"></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="counts.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(data4<span class="sc">$</span>x, data4<span class="sc">$</span>V2), <span class="at">margin=</span><span class="dv">2</span>)</span>
+<span id="cb127-2"><a href="counts.html#cb127-2" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb127-3"><a href="counts.html#cb127-3" aria-hidden="true" tabindex="-1"></a>    High education Low education</span>
+<span id="cb127-4"><a href="counts.html#cb127-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>          <span class="fl">0.472</span>         <span class="fl">0.686</span></span>
+<span id="cb127-5"><a href="counts.html#cb127-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>          <span class="fl">0.384</span>         <span class="fl">0.262</span></span>
+<span id="cb127-6"><a href="counts.html#cb127-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>          <span class="fl">0.110</span>         <span class="fl">0.042</span></span>
+<span id="cb127-7"><a href="counts.html#cb127-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>          <span class="fl">0.026</span>         <span class="fl">0.010</span></span>
+<span id="cb127-8"><a href="counts.html#cb127-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span>          <span class="fl">0.008</span>         <span class="fl">0.000</span></span>
+<span id="cb127-9"><a href="counts.html#cb127-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-10"><a href="counts.html#cb127-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-11"><a href="counts.html#cb127-11" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">rpois</span>(<span class="dv">500</span>,test5[<span class="dv">1</span>,<span class="dv">2</span>])</span>
+<span id="cb127-12"><a href="counts.html#cb127-12" aria-hidden="true" tabindex="-1"></a>id1<span class="ot">&lt;-</span><span class="fu">cbind</span>(x,<span class="st">"Poor"</span>)</span>
+<span id="cb127-13"><a href="counts.html#cb127-13" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">rpois</span>(<span class="dv">500</span>,test5[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb127-14"><a href="counts.html#cb127-14" aria-hidden="true" tabindex="-1"></a>id2<span class="ot">&lt;-</span><span class="fu">cbind</span>(x,<span class="st">"Rich"</span>)</span>
+<span id="cb127-15"><a href="counts.html#cb127-15" aria-hidden="true" tabindex="-1"></a>data5<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">rbind</span>(id2,id1))</span>
+<span id="cb127-16"><a href="counts.html#cb127-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data5, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">fill =</span> V2)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code></pre></div>
+<div class="inline-figure"><img src="09-counts_files/figure-html/unnamed-chunk-2-5.png" width="672"></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="counts.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(data5<span class="sc">$</span>x, data5<span class="sc">$</span>V2), <span class="at">margin=</span><span class="dv">2</span>)</span>
+<span id="cb128-2"><a href="counts.html#cb128-2" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb128-3"><a href="counts.html#cb128-3" aria-hidden="true" tabindex="-1"></a>     Poor  Rich</span>
+<span id="cb128-4"><a href="counts.html#cb128-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span> <span class="fl">0.718</span> <span class="fl">0.496</span></span>
+<span id="cb128-5"><a href="counts.html#cb128-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span> <span class="fl">0.248</span> <span class="fl">0.336</span></span>
+<span id="cb128-6"><a href="counts.html#cb128-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span> <span class="fl">0.026</span> <span class="fl">0.134</span></span>
+<span id="cb128-7"><a href="counts.html#cb128-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span> <span class="fl">0.008</span> <span class="fl">0.026</span></span>
+<span id="cb128-8"><a href="counts.html#cb128-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span> <span class="fl">0.000</span> <span class="fl">0.008</span></span></code></pre></div>
+<p>One way to make sense of these numbers might just be to see which variable had the biggest differences in the percentage with zero activity - rich vs. poor is 54% of the rich at zero vs. 73% of the poor. The rich are more likely to engage in at least one campaign activity. The effect of education is comparable or maybe a little stronger. The effect of age, race, and gender are much smaller. We know that the small effect of race is not statistically significant. You can imagine that if we combined the effect of income and education, we wold find that high income, high education respondents are much more likely to engage.</p>
+<!-- ## Revisitng the cplot function with lm -->
+<!-- For paper 5 we used OLS to study the impact of settled borders on democratization.  You can use the `cplot` functon to check your math or verify your finding with OLS.  The code chunk below reads in the paper5 data, estimates the model as it appears in JOP.  The second chunk compares he size of effects. -->
+<!-- ```{r replicate, results = 'asis', warning=FALSE, message=FALSE} -->
+<!-- load("jop.Rdata") -->
+<!-- #pdim(jop, index=c("ccode", "year")) -->
+<!-- # This models pools the data, ignoring unit heterogeneity.  I estimate and report the coefficients along with 2 sets of standard errors:  conventional, clustered (as reported in the paper), -->
+<!-- # This is standard OLS -->
+<!-- pooled.pa <- lm(polity2~ allsettle+laggdpam+laggdpchg+lagtradeopen+lagmilper+lagmilex+lagupop+lagsumdown+ lagpolity, data=jop, na.action=na.omit) -->
+<!-- #cov2 is the variance covariance matrix calculated with an adjustment that compensates for the presence of heteroskedasticity,  We have not used this before, so check out the syntax carefully -->
+<!-- cluster_se2        <- sqrt(diag(vcovCL(pooled.pa, cluster = ~ ccode, type = "HC2"))) -->
+<!-- stargazer(pooled.pa, pooled.pa, style="qje", type="text", se = list(NULL, cluster_se2), column.labels=c("Standard", "Clustered")) -->
+<!-- ``` -->
+<!-- ```{r compare} -->
+<!-- # n=2 just gives me two values to compare X=0 and X=1 -->
+<!-- cat("Borders") -->
+<!-- test1a<-cplot(pooled.pa, x="allsettle", type="response", n=2, draw=FALSE) -->
+<!-- test1a[2,2]-test1a[1,2] -->
+<!-- # For the continuous variables, I compare the 10th and 90th percentiles -->
+<!-- # so I use xvals= rather than n= -->
+<!-- cat("Change in GDP") -->
+<!-- test2a<-cplot(pooled.pa, x="laggdpchg", type="response", xvals=quantile(jop$laggdpchg, c(.10, .90), na.rm=TRUE), draw=FALSE) -->
+<!-- test2a[2,2]-test2a[1,2] -->
+<!-- cat("Military expenditures") -->
+<!-- test3a<-cplot(pooled.pa, x="lagmilex", type="response", xvals=quantile(jop$lagmilex, c(.10, .90), na.rm=TRUE), draw=FALSE) -->
+<!-- test3a[2,2]-test3a[1,2] -->
+<!-- cat("Cumulative downward movement") -->
+<!-- test4a<-cplot(pooled.pa, x="lagsumdown", type="response", xvals=quantile(jop$lagsumdown, c(.10, .90), na.rm=TRUE), draw=FALSE) -->
+<!-- test4a[2,2]-test4a[1,2] -->
+<!-- The control variable have the expected sign - economic decline and military expenditures result in lower democracy scores in the short-run.  But the effect of previous downward movement (a rebound effect?) is about as large as settled borders.  Note that these are all short-run effect. -->
+</div>
+<div id="exercise-modeling-political-activity-with-the-anes" class="section level2" number="9.5">
+<h2>
+<span class="header-section-number">9.5</span> Exercise: Modeling political activity with the ANES<a class="anchor" aria-label="anchor" href="#exercise-modeling-political-activity-with-the-anes"><i class="fas fa-link"></i></a>
+</h2>
+<p>Read the ANES cumulative dataset and pick an election year - estimate the campaign activity model with poisson regression. Interpret the output from the regression and use the same strategy described above, with <code>cplot</code>, to figure out which variables matter more in the election year you choose.</p>
+</div>
+<div id="next-week-duration-models" class="section level2" number="9.6">
+<h2>
+<span class="header-section-number">9.6</span> Next week: duration models<a class="anchor" aria-label="anchor" href="#next-week-duration-models"><i class="fas fa-link"></i></a>
+</h2>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="working-with-time-series-cross-sectional-tscs-data.html"><span class="header-section-number">8</span> Working with Time-Series Cross-Sectional (TSCS) data</a></div>
+<div class="next"><a href="duration-models.html"><span class="header-section-number">10</span> Duration models</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#counts"><span class="header-section-number">9</span> Counts</a></li>
+<li><a class="nav-link" href="#generalized-linear-models-in-r"><span class="header-section-number">9.1</span> Generalized Linear Models in R</a></li>
+<li><a class="nav-link" href="#count-models"><span class="header-section-number">9.2</span> Count models</a></li>
+<li>
+<a class="nav-link" href="#poisson-regression"><span class="header-section-number">9.3</span> Poisson regression</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#an-example-from-the-anes"><span class="header-section-number">9.3.1</span> An example from the ANES</a></li>
+<li><a class="nav-link" href="#what-is-the-dispersion-parameter"><span class="header-section-number">9.3.2</span> What is the dispersion parameter</a></li>
+<li><a class="nav-link" href="#over-dispersion---negative-binomial"><span class="header-section-number">9.3.3</span> Over-dispersion - Negative binomial</a></li>
+<li><a class="nav-link" href="#under-dispersion---zero-inflated-regression"><span class="header-section-number">9.3.4</span> Under-dispersion - Zero-inflated regression</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#using-the-predict-command-with-count-models"><span class="header-section-number">9.4</span> Using the predict command with count models</a></li>
+<li><a class="nav-link" href="#exercise-modeling-political-activity-with-the-anes"><span class="header-section-number">9.5</span> Exercise: Modeling political activity with the ANES</a></li>
+<li><a class="nav-link" href="#next-week-duration-models"><span class="header-section-number">9.6</span> Next week: duration models</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Political Science and Applied Statistics using R</strong>" was written by J.K. Corder. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
