@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 7 Statistical models with many predictors | Applied Statistics for Political Science</title>
+<title>7 Statistical models with many predictors | Applied Statistics for Political Science</title>
 <meta name="author" content="J.K. Corder">
 <meta name="description" content="This chapter introduces the statistical model that is most commonly used in the social sciences and the building block for more complex models that have emerged to confront specific research...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 7 Statistical models with many predictors | Applied Statistics for Political Science">
+<meta property="og:title" content="7 Statistical models with many predictors | Applied Statistics for Political Science">
 <meta property="og:type" content="book">
 <meta property="og:description" content="This chapter introduces the statistical model that is most commonly used in the social sciences and the building block for more complex models that have emerged to confront specific research...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 7 Statistical models with many predictors | Applied Statistics for Political Science">
+<meta name="twitter:title" content="7 Statistical models with many predictors | Applied Statistics for Political Science">
 <meta name="twitter:description" content="This chapter introduces the statistical model that is most commonly used in the social sciences and the building block for more complex models that have emerged to confront specific research...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
@@ -52,7 +52,7 @@
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/JKCorder/JKCorder.github.io/">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/JKCorder/RMD-for-AppStats-chapters">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -79,7 +79,7 @@
 <h3>
 <span class="header-section-number">7.1.1</span> Red state, Blue state: cross tabulation with a control variable<a class="anchor" aria-label="anchor" href="#red-state-blue-state-cross-tabulation-with-a-control-variable"><i class="fas fa-link"></i></a>
 </h3>
-<p>Observers of American politics claim that the South is politically distinctive (100 % “Red State”). We associate Red states with what? Republican voting, support for the military, guns, Christian values, maybe even NASCAR and country music. We associate Blue states with Democratic voting, urban living, Volvos, latte and book clubs. While the stereotypes are fun, are Red states really that different? The 2004 election should be very good test of this question – George Bush – from Texas – was running for re-election against John Kerry, a northerner, a liberal, and career politician and diplomat. Kerry was portrayed as elitist, affected and out-of-touch. So what happened to Kerry in the South? Was the proportion of the electorate supporting Bush in 2004 really that different between Southern and other states? The South is all red, the rest of the country a mixture of red and blue – so did the South deliver votes for Bush? Table 2 reports each candidate’s percentage of the two-party vote(from [anes2004].</p>
+<p>Observers of American politics claim that the South is politically distinctive (100 % “Red State”). We associate Red states with what? Republican voting, support for the military, guns, Christian values, maybe even NASCAR and country music. We associate Blue states with Democratic voting, urban living, Volvos, latte and book clubs. While the stereotypes are fun, are Red states really that different? The 2004 election should be very good test of this question – George Bush – from Texas – was running for re-election against John Kerry, a northerner, a liberal, and career politician and diplomat. Kerry was portrayed as elitist, affected and out-of-touch. So what happened to Kerry in the South? Was the proportion of the electorate supporting Bush in 2004 really that different between Southern and other states? The South is all red, the rest of the country a mixture of red and blue – so did the South deliver votes for Bush? Table 2 reports each candidate’s percentage of the two-party vote [anes2004].</p>
 <div id="table-1.-support-for-george-bush-percentage-of-the-two-party-vote-by-region-2004." class="section level4" number="7.1.1.1">
 <h4>
 <span class="header-section-number">7.1.1.1</span> Table 1. Support for George Bush, percentage of the two-party vote, by region, 2004.<a class="anchor" aria-label="anchor" href="#table-1.-support-for-george-bush-percentage-of-the-two-party-vote-by-region-2004."><i class="fas fa-link"></i></a>
@@ -217,7 +217,7 @@
 <h3>
 <span class="header-section-number">7.3.2</span> Adjusted r-squared<a class="anchor" aria-label="anchor" href="#adjusted-r-squared"><i class="fas fa-link"></i></a>
 </h3>
-<p>R-squared has limitations for comparing the performance of two multivariate models. Every time you add an X variable to a model, the value of R-squared increases. Given this, we would add ALL possible variables to the model to maximize R-squared. It is also good to have a simple model, rather a complex model. To “reward” simple models, we can use an alternative measure of the "goodness-of-fit“: adjusted R-squared.</p>
+<p>R-squared has limitations for comparing the performance of two multivariate models. Every time you add an X variable to a model, the value of R-squared increases. Given this, we would add ALL possible variables to the model to maximize R-squared. It is also good to have a simple model, rather a complex model. To “reward” simple models, we can use an alternative measure of the “goodness-of-fit“: adjusted R-squared.</p>
 <p><span class="math display">\[R^2_{adj} = {1-\frac{(1-R^2)(n-1) } {n-k-1}}\]</span></p>
 <p>Adjusted R-squared may be very close to R-squared if you have a very large sample and a small number of predictors. In the example below, the two numbers are the same since we have at most five predictors and 5,807 observations - so the adjustment is very, very small. But, with smaller samples it is conventional to use the adjusted R-squared. So, if two models of the same Y have a different number of X variables, you should use adjusted R-squared to compare the models.</p>
 </div>
@@ -786,7 +786,7 @@ Adjusted R<sup>2</sup>
 </h2>
 <p>Statistical models with many predictors are a simple way to isolate the effects of key variables, a necessity when we deal with observational data. The multivariate model is widely used in the social sciences in both policy analysis and studies of political behavior. This approach to statistical modeling is the foundation for more advanced data analysis strategies that have emerged over the past 30 years in subfields as diverse as judicial politics, the study of Congress, international relations, political economy, and the study of bureaucracy. If you pick a political science journal, the odds are high that you will see several examples of statistical models used to test competing expectations about what matters – you know to look for the sign, significance, and size of effects to understand what these regressions tell us.</p>
 
-<p>`r if (knitr::is_html_output()) ’</p>
+<!-- `r if (knitr::is_html_output()) ' -->
 </div>
 </div>
   <div class="chapter-nav">
@@ -818,8 +818,8 @@ Adjusted R<sup>2</sup>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/JKCorder/JKCorder.github.io//blob/master/07-models.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/JKCorder/JKCorder.github.io//edit/master/07-models.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/JKCorder/RMD-for-AppStats-chapters/blob/master/07-models.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/JKCorder/RMD-for-AppStats-chapters/edit/master/07-models.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

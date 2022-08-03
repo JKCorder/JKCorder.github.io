@@ -3,6 +3,8 @@
 
 # Measures of association: t-test
 
+Add this info - Gossett's data from Kalamazoo....https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2008.00279.x
+
 ## What is the t-test?
 
 In many research situations, the $Y$ variable is some type of scale - either an interval or an ordinal variable.  This would include concrete measures like household income, year of education, or age and concepts that we order in a meaningful way – like ideology (from extreme liberal to extreme conservative) or party identification (from strong Democrat to strong Republican) or a feeling thermometer (from 0 – don’t like it – to 100- really like it).  But the $X$ variable may be a category: race, marital status, gender, employment status.  If you are interested in determining the relationship between two variables when $Y$ is a scale, and $X$ is a category, then a t-test is the appropriate measure of association.
