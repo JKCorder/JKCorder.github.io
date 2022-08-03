@@ -28,12 +28,8 @@ measures-of-central-tendency
 measures-of-dispersion
 when-are-descriptive-statistics-useful
 a-starting-point-party-identification
-what-can-we-learn-about-party-identification-from-measures-of-central-tendency-and-measures-of-dispersion
+how-can-we-use-descriptive-statistics
 comparing-two-groups
-mean-1
-mode-and-median
-standard-deviation-1
-putting-in-at-all-together.
 whats-next-1
 an-introduction-to-measures-of-association-correlation
 experimental-research-in-social-science-and-public-policy

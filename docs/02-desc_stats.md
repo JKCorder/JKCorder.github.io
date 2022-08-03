@@ -175,7 +175,7 @@ It is clear from the figure that the mode is Strong Democrat, and it appears tha
 
 ### How has this distribution changed over time?{-}
 
-You might be curious about the proportion of the electorate that identifies with Democrats or Republicans today, compared to what we saw during the Bush administration or Obama administration.   A long view of the balance between Republican and Democrats is reproduced as Figure \@ref(fig:figure24) , below.  This is from the ANES and based on the 7-point scale we used above.  The figure shows you the the total percentage of women and men who identified as some type of Democrat (1,2, or 3)  You can see the Democrats enjoyed a substantial, even overwhelming advantage in the early 1960s, with nearly 2/3 of all American identifying with the party.  But that advantage has been decaying for 70 years and support for Democrats continued to erode under President Trump.  We may, soon, have an election cycle where more people identify as Republican than Democratic, which will come as a surprise to the many people who think that the Republican brand is a demographic corner, doomed to decline as American becomes more diverse and more secular. Also, notice that the support for Democrats decayed more rapidly for men than women, the basis for the contemporary gender gap in presidential voting.
+You might be curious about the proportion of the electorate that identifies with Democrats or Republicans today, compared to what we saw during the Bush administration or Obama administration.   A long view of the balance between Republican and Democrats is reproduced as Figure \@ref(fig:figure24) , below.  This is from the ANES and based on the 7-point scale we used above.  The figure shows you the the total percentage of women and men who identified as some type of Democrat (1,2, or 3)  You can see the Democrats enjoyed a substantial, even overwhelming advantage in the early 1960s, with nearly 2/3 of all American identifying with the party.  But that advantage has been decaying for 70 years and support for Democrats continued to erode under President Trump.  Today, about 45% of the electorate identifies as some form of Democrat and 42% as some form of Republican.  We may, soon, have an election cycle where more people identify as Republican than Democratic, which will come as a surprise to the many people who think that the Republican brand is a demographic corner, doomed to decline as American becomes more diverse and more secular. Also, notice that the support for Democrats decayed more rapidly for men than women, the basis for the contemporary gender gap in presidential voting.
 
 **Figure \@ref(fig:figure24)** Identification with Democrats over time, women compared to men.
 <div class="figure" style="text-align: center">
@@ -184,15 +184,15 @@ You might be curious about the proportion of the electorate that identifies with
 </div>
 
 
-## What can we learn about party identification from measures of central tendency and measures of dispersion?
+## How can we use descriptive statistics?
 
-The output that you will use for the worksheet and assignment includes two tables in addition to the bar chart
+The output that you will use for the worksheet and assignment includes two tables in addition to the bar chart:
 
-– the frequency distribution: the percentage of people in each party identification category
+* the frequency distribution, the percentage of people in each party identification category
 
-- the descriptive statistics.
+* the descriptive statistics
 
-Table \@ref(tab:table24) reproduces the descriptive statistics and percentages that summarize party identification in the 2020 electorate. 
+Table \@ref(tab:table24) reproduces the descriptive statistics that summarize party identification in the 2020 electorate. 
 
 
 
@@ -209,21 +209,23 @@ Table: (\#tab:table24)
 |Variance           | 5.09|
 |Standard deviation | 2.26|
 
-Table \@ref(tab:table24) suggests a couple of interesting things about party identification. 
+These numbers tell us a couple of interesting things about party identification. 
 
-First, notice the mode (mode=1.00). The most frequent response is Strong Democrat - you can see that on the bar chart. 
+First, notice the mode (mode=1.00). The most frequent response is Strong Democrat - you can see that on the bar chart too.
 
 Second, remember that the number attached to Independent is 4. Since the mean party id of the sample is 3.93, the electorate is barely leaning toward the lower end of the scale or slightly Democratic.
 
 Finally, the median is 4 meaning the 50th percentile is in the Independent category. The percentages confirm this. Only 43.8% of the responses are in the first three categories (sum of the first three categories reported in Table \@ref(tab:table23)), so the 50th percentile is 4. And only 41.6% of the responses are in the last three categories. So while the electorate leans toward the Democrats, any candidate, Republican or Democratic, must reach some independents in order to gain support from 50% of the electorate.
 
+We can see that the standard deviation for the entire electorate is 2.26, so, while this doesn't tell us much, we can use this number as a benchmark to compare groups. If you observe a group with a standard deviation higher than 2.26, then that group is more spread out - more polarized - than the electorate as a whole.  If you observe a smaller standard deviation, then the group is more concentrated in a few party id categories.
+
 ## Comparing two groups
 
 In many cases we are less interested in the electorate as a whole and more interested in the distribution of some variable for a particular group. To isolate and examine a particular group we use select a subset of cases for analysis. The output for the first worksheet and first paper allow you to compare the party identification data for two different groups. To give some sense of how you use the output, I will focus on differences between men and women.
 
-Most media coverage you hear suggests that women have distinct political preferences and vote Democratic, while men are more likely to be Republicans. Much of the coverage immediately after the 2016 election suggested that White women voting for Donald Trump was a surprise, especially given that his opponent was Hillary Clinton. In fact, White women have voted for the Republican presidential candidate in every election since 1980, with the exception of 1996 and 1992. So exactly how different is the party identification of men and women?
+Most media coverage you hear suggests that women have distinct political preferences and vote Democratic, while men are more likely to be Republicans. Much of the coverage immediately after the 2016 election suggested that White women voting for Donald Trump was a surprise, especially given that his opponent was Hillary Clinton. In fact, White women have voted for the Republican presidential candidate in every election since 1980, with the exception of 1996 and 1992. So exactly how different is the party identification of men and women?  We expect that women are more likely to be Democrats, but maybe not by much.
 
-The output below reproduces the frequencies and descriptive statistics for men and women using the same format as you will see in output for the worksheets and first paper. 
+The output below reproduces the frequencies and descriptive statistics for men and women using the same format as you will see in output for the worksheets and first paper.  The figure and the first table are exactly the same information, just presented two different ways.  You should use both the percentages and the statistics in your papers and worksheets. 
 
 ### **Women, 2020** {-}
 
@@ -275,19 +277,19 @@ The output below reproduces the frequencies and descriptive statistics for men a
 
 ### Interpreting the descriptive statistics {-}
 
-#### Mean
+#### Mean {-}
 
 Notice that while the mean for both groups is between 3 and 5, these responses are in no way typical – the most common responses are 1 and 7.  So average doesn't mean typical when you are looking at distribution that has two peaks, known as a *bimodal* distribution. The means are close  – women a bit lower than 4, so leaning Democratic while men are a bit higher than 4 so leaning Republican. This immediately suggest that any expectation that women are overwhelmingly Democratic and men overwhelmingly Republican is way off the mark.
 
-#### Mode and median
+#### Mode and median {-}
 
 The statistics do reveal some important differences: men have a different mode (Strong Republican) than women (Strong Democrat).  But the median is 4 for both, so a majority of men are not Republican identifiers and a majority of women are not Democratic identifiers, consistent with the figure above. 
 
-#### Standard deviation
+#### Standard deviation {-}
 
 Both groups are spread out across the seven categories, rather than concentrated in a few categories near the mean. The smaller number is men, so men may be slightly more likely to be in the categories closest to the mean: 3, 4 or 5.  But these distributions and the numbers are very similar. 
 
-### Putting in at all together.
+### Putting in at all together {-}
 
 Women lean slightly more Democratic than men: the average party id for women is 3.74 while the average party id for men is 4.13.  The median for both groups is 4.00, so neither party has a majority in either group - about 48% of women in are in the first categories, some form of Democrat.  And about 45% of men are some type of Republican.  Consistent with what we saw with the mean, the most frequent response for men is "Strong Republican" - 22%, while the most frequent response for women is "Strong Democrat" - 26%.  The second most common response for both groups is the opposite category of strong partisan identifier - so lots of Strong Republican women and Strong Democrati me.  Since the distributions are so similar in that way, the standard deviation for both groups is about the same (close to 2.2)
 
