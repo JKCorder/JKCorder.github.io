@@ -8,7 +8,7 @@ The second best alternative – and the strategy we rely on this course – is o
 
 After reviewing a few the key features of experimental research designs, we will turn to the ways that we use statistics to implement an observational strategy.
 
-## Experimental research in social science and public policy
+@# Experimental research in social science and public policy
 
 The social sciences – economics, sociology, political science – have historically relied more on observation and less on experiments. But there are at least two types of experimental designs that are fairly common in social science. Public policy can be evaluated by randomly assigning people to receive or not receive some service or program.  And, survey research can randomly give one set of questions to one group and another set of questions to another group. 
 
@@ -26,14 +26,12 @@ But the benefits of experimental approaches can be large: what if we had access 
 
 An early and compelling example of this type of research involved an evaluation of Job Training and Partnership Act (JTPA) programs in the late 1980s.  The JTPA programs offered classroom training, on-the-job training, or job search assistance to people who are out of work.  In September, 1987: two-thirds of the eligible population who applied to the program were directed to services, one-third were deferred for 18 months.  Do training and services offered to the unemployed increase earnings?  The results are summarized in the two figures below.
 
-Figure 3.1  **Estimated effects of JTPA programs on earnings**
+#### Figure 3.1  Estimated effects of JTPA programs on earnings
 
 Women 21 and over
-
 <img src="images/bloom19971a.png" width="80%" />
 
 Women 18-20
-
 <img src="images/bloom19972a.png" width="80%" />
 
 Reproduced from @bloom1997.  “The Benefits and Costs of JTPA Title II-A Programs….”
@@ -51,14 +49,13 @@ How do we compare two groups if we can’t do an experiment?  For the first assi
 
 If you want to compare the values of some variable of interest (party identification) over the levels of some other variable (education, income, gender), we can produce a table with the same types of percentages we observed in the frequency table.  This is known as *cross tabulation* and the two-variable or two-way table that we produce is known as a *cross-tab*. For now, we are going to ignore the problem that the grouping by one predictor variable does not create random groups – we will turn to this problem later.
 
-#### Example: party id and income {-}
+#### Example: party id and income
 
 How would you expect the distribution of party id to change across income groups?   Building on the income and vote example from Chapter 1, what should we observe for low income respondents?  What should we observe for high income respondents?
 
 One way to answer this question empirically is to create a cross-tab of income and party id using the ANES.  For this example, I created a measure of household income divides respondents into three categories - low income, middle income, an high income  The table is reproduced as Table 3.1, below
 
-Table 3.1 **Party identification and income, 2020 ANES**
-
+#### Table 3.1 Party identification and income, 2020 ANES
 
 |                           | Under $25,000| $25,000 to $150,000| Over $150,000|
 |:--------------------------|-------------:|-------------------:|-------------:|
@@ -78,7 +75,7 @@ In many cases it is more useful to produce a figure than a table.
 
 What if the table implied your choice of variables is very large? In the example above: 7 categories for the rows and 3 categories for the columns implies a total of 21 cells or percentages. That is a lot of numbers to process to make a simple point.  In the example below I use a column variable with 100 categories and a row variable with 7 categories (party identification).  A two-way table with these variables would have 700 cells!
 
-#### Example.  Feeling thermometers and party identification {-}
+#### Example.  Feeling thermometers and party identification
 
 Before revisiting the income and party identification data, consider an example that introduces the ANES feeling thermometers. These survey item asks you how you feel about particular groups, things or people – gays and lesbians, the military, Southerners, Anthony Fauci, Donald Trump.  The feeling thermometer responses can range from zero – I feel very cool or negative towards this person, symbol or group – to 100 – I am very warm or positive towards this person, feeling or group. These thermometers show up prominently in some of the readings for the course and in the papers you will write.
 
@@ -86,26 +83,24 @@ How are attitudes about Donald Trump related to party id?  How different are str
 
 There are three visualization strategies we could use to summarize the link between the variables we are interested in: a scatterplot, a bar chart of group means, or a line chart for group means.  An example of each is below.  In each figure, the vertical axis represents what we are trying to explain or understand – what is known as the dependent variable (Y).  The horizontal axis represents the predictor – what is known as the independent variable (X).  We are trying to show if there is a link between Y and X. 
 
-Figure 3.2 **Scatterplot.  Donald Trump feeling thermometer and party id**
-
+#### Figure 3.2 Scatterplot.  Donald Trump feeling thermometer and party id
 <img src="03-corr_files/figure-html/figure2-1.png" width="672" />
 
 The first figure – the scatterplot – is obviously not very useful. Since there are 5,000 respondents and 700 cells, at least one person occupies most cells on the table. You just end with a grid. This will be the case with any survey with a finite or small number of possible responses and many participants.
 
 The second and third figures, below, make things very clear.  There is a steep decrease in positive feelings as you move from strong Democrat to strong Republican.  The third figure appears more dramatic since the Y-axis excludes 0 and 100, so the effect is steeper.  Notice that, as you might have expected, the Independent-leaners are actually strong partisans in their attitudes.
 
-Figure 3.3 **Bar chart of group means. Donald Trump feeling thermometer and party id.**
-
+#### Figure 3.3 Bar chart of group means. Donald Trump feeling thermometer and party id.
 <img src="03-corr_files/figure-html/figure3-1.png" width="672" />
 
-Figure 3.4. **Line chart.  Donald Trump feeling thermometer and party id**
+#### Figure 3.4. Line chart.  Donald Trump feeling thermometer and party id
 <img src="03-corr_files/figure-html/figure4-1.png" width="672" />
 
 ### Income and party identification revisited
 
 We used a table to describe the link between party identification and income in three broad categories.  It might make sense to stick with the original, more finely grained scale of income - which ranges from 1 to 28.  Figure 3.5 – a line chart of average party identification for each of the 28 income categories in the 2020 ANES - suggests that there is a very weak relationship with between household income and party id - higher income households might be slightly more Republican on the party id scale.
 
-Figure 3.5. **Income and party identification**
+#### Figure 3.5. Income and party identification
 
 <img src="03-corr_files/figure-html/figure5-1.png" width="672" />
 
@@ -153,7 +148,12 @@ Correlation is a measure of association appropriate for interval level variables
 If two variables have a correlation of +1 or -1, then they are perfectly correlated.  If correlation is greater than 0, then the variables are described as positively related or directly related.  If correlation is less than 0, then the variables are described as negatively related or inversely related.  As the correlation moves away from zero (closer to +1 or -1), the stronger the link between $X$ and $Y$. A correlation of zero is a null relationship.  Negative does not mean null. Null is zero.  To give you a sense how numbers translate into data, the figures below show hypothetical samples wth different levels of correlation.
 
 
-Figure 3.6 **Positive, negative and null effects**
+####  Figure 3.6 Positive, negative and null effects
+
+```
+`geom_smooth()` using formula 'y ~ x'
+```
+
 <img src="03-corr_files/figure-html/example-1.png" width="672" />
 
 You can always describe your expectations using these numbers. For example, you would expect to observe that as the education level of a respondent increased, income would also increase. Income should be positively correlated with education. Maybe something in between what we observe above for 0.2 and 0.6?   
@@ -188,23 +188,22 @@ This number (the correlation) can never be large than 1.0 and never be smaller t
 
 Three important cautions about correlation. 
 
-#### Correlation is most useful as a relative measure {-}
+#### Correlation is most useful as a relative measure
 
 First, correlation is best used as a description of the direction and relative size of the relationship (i.e. a correlation of .8 is a stronger correlation than a correlation of .5).  It is less useful as an absolute measure.  A correlation of 0.5 without knowing the type of dataset, variables, or other correlations in the sample would not be very helpful to understand what is important or what is a weak predictor.
 
-#### Correlation assumes a linear relationship {-}
+#### Correlation assumes a linear relationship
 
 Second, statements about correlation also assume that the relationship between two variables is linear (or approximately linear). Nonlinear relationships may not be reflected in correlation. 
 
 For instance, we could not test the link between party id and attention to politics with a correlation coefficient. This would not work since strong Republicans and strong Democrats are both likely to pay attention to campaigns, while Independents are not likely to pay attention – the relationship between party id and attention is U-shaped or nonlinear. 
 
-Figure 3.5. **Example of a U-shaped relationship. Partisanship and interest in politics**
-
+#### Figure 5. Example of a U-shaped relationship. Partisanship and interest in politics
 <img src="03-corr_files/figure-html/figure7-1.png" width="672" />
 
 Notice, again, that leaners are more likely strong partisans - very interested in politics compared to weak partisans.  The interest scale goes from 1 to 4 and 3.0 indicates that someone follows politics "Fairly closely."  The blue span is the best-fitting curve.
 
-#### Correlation doesn't work for arbitrary categories {-}
+#### Correlation doesn't work for arbitrary categories
 
 Finally, never use correlation if variables are not scales. Recall that we have access to a number of variables that are simply categories- race, religion, and region.  We use a number to place people in categories. For the 2020 ANES religion variable, 1=mainline Protestant and 4=Roman Catholic.  The numbers are meaningless in the sense that Catholics are not 4 times more anything than Protestants and we could just as easily used  1=Roman Catholic or 3=Roman Catholic.
 
@@ -214,8 +213,7 @@ Any time the order of the categories is arbitrary (race, marital status, employm
 
 Most statistical software produces correlations in the form of a matrix.  Table 3.2 reproduces output that summarizes the link between education and income.  We just need to focus one number for now the Pearson correlation at the top right corner.
 
-Table 3.2 **Correlation between education and income**
-
+#### Table 3.2 Correlation between education and income
 
 ```
           income education
@@ -227,7 +225,7 @@ The correlation between income and education in this sample is 0.369.  We can le
 
 Note that the most useful way to use correlation is to compare the correlations between two pairs of variables from the same dataset.  Table 3.3 treats ideology as our dependent variable $Y$ and tests the link with two independent variables, education and income.  The ideology scale is order from 1=extremely liberal to 7=extremely conservative – so this variable is ordinal – and higher means more conservative.
 
-Table 3.3  **Correlation between ideology, party id, education, and income**
+#### Table 3.3  Correlation between ideology, party id, education, and income.
 
 ```
           ideology partyid income education
