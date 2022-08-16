@@ -56,6 +56,20 @@
     "input_file": {}
   },
   {
+    "path": "posts/2022-08-14-wall-street-journal/",
+    "title": "The Women’s Suffrage Movement and the Gender Gap Are Fixtures of U.S. Elections. It Didn’t Start Out That Way.",
+    "description": "Wall Street Journal",
+    "author": [],
+    "date": "2020-07-31",
+    "categories": [
+      "Women and politics"
+    ],
+    "contents": "\r\nCheck out this\r\npiece by Aaron Zinter in the Wall Street Journal. He draws\r\non some of the data we used in A Century of Votes for Women to\r\ntalk about the gender gap in presidential voting.\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.github.io/images/wsj.png",
+    "last_modified": "2022-08-16T11:10:57-04:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/ps/",
     "title": "Turning Rights into Ballots: The Uneven Integration of Women into Electoral Politics after Suffrage",
     "description": "PS Political Science and Politics. With Christina Wolbrecht",
@@ -85,16 +99,16 @@
   },
   {
     "path": "posts/allin/",
-    "title": "All IN",
+    "title": "A Century of Votes for Women",
     "description": "WFYI",
     "author": [],
     "date": "2020-02-12",
     "categories": [
       "Women and politics"
     ],
-    "contents": "\r\nCheck out a podcast from All IN - an interview with me and Christina Wolbrecht about our new book, Century of Votes for Women. Click here to listen.\r\n\r\n\r\n\r\n",
+    "contents": "\r\nCheck out a podcast from All IN - an interview with me and Christina\r\nWolbrecht about our new book, Century of Votes for\r\nWomen. Click\r\nhere to listen.\r\n\r\n\r\n\r\n",
     "preview": "https://www.wfyi.org/files/image/allin.png",
-    "last_modified": "2022-03-22T11:27:24-04:00",
+    "last_modified": "2022-08-16T11:06:55-04:00",
     "input_file": {}
   },
   {
@@ -150,7 +164,7 @@
     ],
     "contents": "\r\nCheck out a short summary of my work with Christina Wolbrecht on women’s voting in the 1920s and 1930s (Washington Post, August 26, 2016). Reposted August 26, 2017\r\n\r\n\r\n\r\n",
     "preview": "https://jkcorder.files.wordpress.com/2017/01/imrs-php.jpg",
-    "last_modified": "2022-03-05T11:43:24-05:00",
+    "last_modified": "2022-03-05T11:43:23-05:00",
     "input_file": {}
   },
   {
@@ -206,7 +220,7 @@
     ],
     "contents": "\r\nWhat was the role of the Federal Reserve System in the 2008 financial crisis—as a cause of the crisis, as the most important government agency to respond, and as the center of federal efforts to prevent another crisis?\r\nClick here to read a sample chapter from my 2012 book on the Fed’s response and the novel technical and political challenges the Fed is likely to face as the crisis unwinds.\r\n\r\n\r\n\r\n",
     "preview": "https://www.rienner.com/uploads/4f50f39c561d0.jpg",
-    "last_modified": "2022-03-04T13:09:53-05:00",
+    "last_modified": "2022-03-04T12:53:19-05:00",
     "input_file": {}
   },
   {
@@ -234,7 +248,7 @@
     ],
     "contents": "\r\nSusan Hoffmann and I co-authored a paper on the structure and early performance of the FSOC. Created in the aftermath of the 2008 financial crisis, the FSOC is just one example of efforts by Congress to use interagency councils to improve or rationalize federal regulation. The Council is an important formal response to the 2008 financial crisis, focusing regulator attention on a new problem and providing a forum to coordinate and reconcile agency choices related to that problem. We use two earlier and related initiatives – the Federal Financial Institutions Examination Council and the Interagency Country Exposure Review Committee – to learn about the operation and performance of interagency councils in the domain of financial regulation. The paper draws on insights from an extensive literature on interagency collaboration and research on the performance and management of formal and informal networks. What structural features and other observable administrative choices are associated with successful collaborative efforts?\r\nClick here to read the paper.\r\n\r\n\r\n\r\n",
     "preview": "https://jkcorder.github.io/images/fsoc.png",
-    "last_modified": "2022-03-05T15:01:06-05:00",
+    "last_modified": "2022-03-05T15:01:05-05:00",
     "input_file": {}
   },
   {
@@ -263,7 +277,7 @@
     ],
     "contents": "\r\nI got distracted from this work in 2006 but the conference paper has a few citations and some interesting resutls. Not as relevant today since the federal funds rate has been at or near the lower bound for years…\r\nHow do the President and the Congress affect the policy choices of the Federal Reserve System? I draw on a commonly used tool for estimating the sensitivity of Fed responses to output and inflation - the Taylor rule - to learn about the politics of monetary policy. The Taylor rule provides a convenient way to determine if Fed choices can be explained by the partisan makeup of Congress and the White House. Does the Fed respond more aggressively to inflation under a Republican President or if a Republican majority controls Congress? Does the Fed respond to recession sooner and with lower interest rates if the President is a Democrat? The results indicate changes in the pivotal legislator– as described by Morris (2000) - influence monetary policy choices, rather than the President alone, appointment to the Board, or the Board chairman. Congress and the President jointly influence the policy choices of the Fed in ways that benefit the core constituencies of the major parties. The Fed is systematically more responsive to inflation when a Republicans control the White House and the Congress.\r\nOne insight of the paper is that congressional majorities matter, not just the party of the president. The key result is captured in Figure 3 in the paper. Republican majorities lead to a higher federal funds rate in the presence of growing inflation.\r\n\r\n\r\n\r\nClick here to download the paper.\r\n\r\n\r\n\r\n",
     "preview": "https://jkcorder.github.io/images/mpsa2006.png",
-    "last_modified": "2022-03-05T11:39:30-05:00",
+    "last_modified": "2022-03-05T11:39:29-05:00",
     "input_file": {}
   },
   {
