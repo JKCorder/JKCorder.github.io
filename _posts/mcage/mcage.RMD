@@ -1,0 +1,13 @@
+---
+title: "Was Women's Suffrage a Failure?"
+description: The Monkeycage. With Christina Wolbrecht
+date: 08/26/2016
+preview: https://jkcorder.files.wordpress.com/2017/01/imrs-php.jpg
+output: distill::distill_article
+categories: 
+  - Women and politics
+---
+
+[Check out](https://www.washingtonpost.com/news/monkey-cage/wp/2016/08/26/was-womens-suffrage-a-failure-what-new-evidence-tells-us-about-the-first-women-voters/?utm_term=.6d0fff14d06b) a short summary of my work with Christina Wolbrecht on women's voting in the 1920s and 1930s (Washington Post, August 26, 2016). Reposted August 26, 2017
+
+

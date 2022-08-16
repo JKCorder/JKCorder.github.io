@@ -1,0 +1,13 @@
+---
+title: "The Women’s Suffrage Movement and the Gender Gap Are Fixtures of U.S. Elections. It Didn’t Start Out That Way."
+description: Wall Street Journal
+date: 07/31/2020
+output:
+  distill::distill_article
+preview: https://jkcorder.github.io/images/wsj.png
+categories:
+  - Women and politics
+---
+
+Check out [this piece](https://www.wsj.com/articles/the-womens-suffrage-movement-and-the-gender-gap-arefixtures-of-u-s-elections-it-didnt-start-out-that-way-11596209355) by Aaron Zinter in the *Wall Street Journal*.  He draws on some of the data we used in *A Century of Votes for Women* to talk about the gender gap in presidential voting.
+

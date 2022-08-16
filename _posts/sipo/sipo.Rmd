@@ -1,0 +1,16 @@
+---
+title: "The timing of COVID-19 shelter in place orders by U.S. governors"
+description: |
+  Policy Design and Practice. With Matthew Mingus and Daria Blinova
+date: 09/01/2020
+output: distill::distill_article
+preview: https://www.tandfonline.com/action/showCoverImage?doi=10.1080/rpdp20.v003.i03
+categories: 
+  - Other public policy
+---
+
+Matthew Mingus, Daria Blinova and I isolate and estimate the impact of political party control of state government on the length of time it took U.S. states to issue shelter-in-place orders (SIPOs) in an effort to control the spread of COVID-19. We adopt a two-step process to isolate the effect of politics. First, we measure the number of days between the date that state-level cases first exceeded one case per 100,000 population and state issuance of a SIPO. This permits us to compare governor’s choices in similar contexts – when the disease is known to be present in the community. Second, we use a statistical tool – survival analysis – to differentiate between state characteristics that might be associated with higher risks of uncontrolled spread and the impact of political party control. We find that the timing of disease progression was remarkably similar across states, suggesting that many states reached the 1:100,000 benchmark at about the same time. By contrast, we find that, even after controlling for a variety of factors, a Republican governor coupled with a Republican majority in the state senate predicts delays in the implementation of SIPOs – delays on the order of two days for Republican states that did act, but no action by more than one-third of those states after more than two months above 1:100,000. In contrast, potentially important decision-making factors such as urbanization, elderly population, hospital beds, extent of chronic diseases, and budget capacity of the state government serve, at best, as poor predictors of SIPO timing.
+
+[Click here](https://www.tandfonline.com/doi/full/10.1080/25741292.2020.1825156) to read the article.
+
+[Click here](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/UIFVSX) for replication data and details

@@ -1,0 +1,15 @@
+---
+title: "The Fed and the Credit Crisis"
+description: Lynne Rienner Publishers
+date: 10/01/2012
+output: distill::distill_article
+preview: https://www.rienner.com/uploads/4f50f39c561d0.jpg
+categories:
+  - Banking
+---
+
+What was the role of the Federal Reserve System in the 2008 financial crisis—as a cause of the crisis, as the most important government agency to respond, and as the center of federal efforts to prevent another crisis?
+
+[Click here](https://www.rienner.com/uploads/4f5f7ad7d4cf4.pdf) to read a sample chapter from my 2012 book on the Fed's response and the novel technical and political challenges the Fed is likely to face as the crisis unwinds.
+
+

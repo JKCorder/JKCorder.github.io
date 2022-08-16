@@ -1,0 +1,21 @@
+---
+title: "A Century of Votes for Women"
+description: |
+  Cambridge University Press.  2020. With Christina Wolbrecht
+date: 03/01/2020
+output: distill::distill_article
+preview: https://assets.cambridge.org/97813166/38071/cover/9781316638071.jpg
+categories: 
+  - Women and politics
+---
+
+From the publisher:
+
+How have American women voted in the first 100 years since the ratification of the Nineteenth Amendment? How have popular understandings of women as voters both persisted and changed over time? In **A Century of Votes for Women**, Christina Wolbrecht and J. Kevin Corder offer an unprecedented account of women voters in American politics over the last ten decades. Bringing together new and existing data, the book provides unique insight into women's (and men's) voting behavior, and traces how women's turnout and vote choice evolved across a century of enormous transformation overall and for women in particular. Wolbrecht and Corder show that there is no such thing as 'the woman voter'; instead they reveal considerable variation in how different groups of women voted in response to changing political, social, and economic realities. The book also demonstrates how assumptions about women as voters influenced politicians, the press, and scholars.
+
+[Click here](https://www.cambridge.org/us/academic/subjects/politics-international-relations/american-government-politics-and-policy/century-votes-women-american-elections-suffrage?format=PB) for details...
+
+Christina created a site for the book that includes [links to several reviews](https://acenturyofvotesforwomen.com/reviews/)....Perspectives on Politics, American Historical Review, MS Magazine, Kirkus and others
+
+
+

@@ -1,0 +1,16 @@
+---
+title: "Did Women Vote Once they had the Opportunity?"
+description: ABA Insights on Law and Society. With Christina Wolbrecht
+date: 10/01/2019
+output: distill::distill_article
+preview: https://jkcorder.files.wordpress.com/2019/11/aba-cover.png
+categories: 
+  - Women and politics
+---
+
+The initial verdict and much of the early scholarship concluded that woman suffrage was a failure, as turnout was low and the addition of women voters failed to shake up the two-party balance of power. While the observers were right in important ways—women’s turnout was indeed lower than men’s—we now know that there were a host of legal and organizational factors that conspired to block or slow the mobilization of women. The incorporation of women as full equals in the electoral process would take decades, and understanding why this is the case helps us better understand the challenges facing efforts to make voting rights a reality for traditionally marginalized groups.
+
+[Click here](https://www.americanbar.org/groups/public_education/publications/insights-on-law-and-society/volume-20/issue-1/did-women-vote-once-they-had-the-opportunity-/) to check out the essay.
+
+
+

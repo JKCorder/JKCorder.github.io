@@ -1,0 +1,11 @@
+---
+title: "Is Now The Right Time To Scale Back Financial Regulations?"
+description: WMUK
+date: 03/11/2017
+preview: https://jkcorder.files.wordpress.com/2017/03/pexels-photo-200749.jpeg
+output: distill::distill_article
+categories: 
+  - Banking
+---
+
+[Click here](https://cpa.ds.npr.org/wmuk/audio/2017/03/WSW-030217-corder-web.mp3) to listen my interview on financial regulation on West by Southwest with Gordon Evans of WMUK.

@@ -4,8 +4,8 @@
       "path": "index.html",
       "title": "Research and media",
       "author": [],
-      "contents": "\r\n\r\nJ. Kevin Corder\r\nI am a faculty member in the Department of Political Science at Western Michigan University. I teach courses in US government and politics, as well as methods courses. This blog profiles my work on banking, women and politics, and public policy. You can find posts about my research and links to open source textbooks that I have developed for my undergraduate and graduate data analysis courses. You can also navigate to my replication data at the Harvard Dataverse. For a comprehensive list of my published work, visit Google Scholar. This site was created with the R distill package.\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-03-22T11:32:21-04:00"
+      "contents": "\r\n\r\nJ.\r\nKevin Corder\r\nI am a faculty member in the Department of Political Science at\r\nWestern Michigan University. I teach courses in US government and\r\npolitics, as well as methods courses. This blog profiles my work on\r\nbanking, women and politics, and public policy. You can find posts about\r\nmy research and links to open source textbooks that I have developed for\r\nmy undergraduate and graduate data analysis courses. You can also\r\nnavigate to my replication data at the Harvard Dataverse. For a\r\ncomprehensive list of my published work, visit Google\r\nScholar. This site was created with the R distill\r\npackage.\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-08-16T11:11:02-04:00"
     }
   ],
   "collections": ["posts/posts.json"]

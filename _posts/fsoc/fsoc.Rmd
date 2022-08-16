@@ -1,0 +1,15 @@
+---
+title: "Innovations in Information Sharing and Collaboration: Building the Financial Stability Oversight Council"
+description: Working paper. With Susan Hoffmann
+date: 04/01/2012
+output: distill::distill_article
+preview: https://jkcorder.github.io/images/fsoc.png
+categories:
+  - Other public policy
+---
+
+Susan Hoffmann and I co-authored a paper on the structure and early performance of the FSOC.  Created in the aftermath of the 2008 financial crisis, the FSOC is just one example of efforts by Congress to use interagency councils to improve or rationalize federal regulation. The Council is an important formal response to the 2008 financial crisis, focusing regulator attention on a new problem and providing a forum to coordinate and reconcile agency choices related to that problem. We use two earlier and related initiatives – the Federal Financial Institutions Examination Council and the Interagency Country Exposure Review Committee – to learn about the operation and performance of interagency councils in the domain of financial regulation. The paper draws on insights from an extensive literature on interagency collaboration and research on the performance and management of formal and informal networks. What structural features and other observable administrative choices are associated with successful collaborative efforts?
+
+[Click here](https://jkcorder.files.wordpress.com/2017/02/fsoc.pdf) to read the paper.
+
+

@@ -1,0 +1,14 @@
+---
+title: "Bank recovery and resolution"
+preview: https://jkcorder.files.wordpress.com/2017/05/pexels-photo-351264.jpeg
+date: 04/01/2016
+description: |
+  Working paper
+output: distill::distill_article
+categories: 
+  - Banking
+---
+
+The global financial crisis drew attention to the costs of bank failure - taxpayer-funded bailouts of large financial institutions were an unpopular but common solution. How have different countries adapted tools for bank recovery and resolution to avoid bailouts in the future? I look at the experience of Eurozone nations, the US and the UK to determine how or if national approaches converged or diverged as the crisis unfolded. 
+
+[Click here](https://jkcorder.files.wordpress.com/2017/02/resolution.pdf) for a copy of the working paper.

@@ -1,0 +1,16 @@
+---
+title: "The Federal Reserve System and the Credit Crisis"
+description: Public Administration Review
+date: 07/01/2009
+output: distill::distill_article
+preview: https://onlinelibrary.wiley.com/cms/asset/0b07bc3d-020b-47ac-b1d1-d19f7c58ebef/puar.2009.69.issue-4.cover.gif
+categories:
+  - Banking
+  - Other public policy
+---
+
+The Federal Reserve System struggled to maintain order in U.S. credit markets as rapid declines in home prices led to huge write-downs in the value of mortgage-backed securities held by financial institutions. The Fed could have taken a number of steps—in the mortgage market or through broader regulatory actions—to either preempt or mitigate the impact of this market disruption. Broader regulatory actions—in the mortgage market, of risk taking by financial institutions, or in the form of actions to limit the contagion of crisis—imply fundamental changes at the Fed. The network of actors with a stake in broader regulatory action is powerful and highly resistant to regulatory scrutiny. The statutory mission of the Fed—especially its commitment to stable prices—could be jeopardized by a broad and explicit mandate to provide liquidity to a wide range of vulnerable financial institutions.
+
+[Click here]( https://doi.org/10.1111/j.1540-6210.2009.02011.x) to read the paper at PAR.
+
+

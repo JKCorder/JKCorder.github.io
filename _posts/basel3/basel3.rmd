@@ -1,0 +1,15 @@
+---
+title: "Capital requirements and Basel III"
+preview: https://jkcorder.files.wordpress.com/2017/05/tower2.jpg
+date: 04/01/2016
+description: |
+  Working paper
+output: distill::distill_article
+categories: 
+  - Banking
+---
+
+The global financial crisis inspired a radical overhaul of international conventions for capital and liquidity requirements applied to banks. Did the reforms lead to a broad convergence in national approaches to bank regulation, or did the crisis experience lead national authorities to seek broader discretion to reign in risky lending and contain potential crises?
+
+[Click here](https://jkcorder.files.wordpress.com/2017/06/capital-requirements.pdf) to see the paper
+

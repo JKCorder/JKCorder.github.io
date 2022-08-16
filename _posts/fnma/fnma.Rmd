@@ -1,0 +1,15 @@
+---
+title: "Fannie Mae and Freddie Mac - Where Are They? How Did They Get There?"
+description: Working paper. With Susan Hoffmann
+date: 07/01/2012
+output: distill::distill_article
+preview: https://jkcorder.files.wordpress.com/2016/11/13972_150px11.jpg
+categories:
+  - Other public policy
+---
+
+Susan Hoffmann and I co-authored a paper on the history and evolution of the housing Government-Sponsored Enterprises -  Fannie Mae and Freddie Mac. We trace how the intersection of affordable housing policy, deregulation, and privatization ultimately caused the GSEs to fail.
+
+[Click here](https://jkcorder.files.wordpress.com/2017/02/fanniefreddie.pdf) to read the paper.
+
+
