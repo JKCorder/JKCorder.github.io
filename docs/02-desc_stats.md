@@ -2,7 +2,7 @@
 
 # Descriptive statistics
 
-Before we learn about statistical tests or statistical models, we will cover some basic measures that are used to describe data. The basic measures fall into two categories – measures of central tendency and measures of dispersion. What is the typical value for some variable? How are the observations spread out or dispersed around that value? This chapter also introduces you to party identification, at least how it is measured. The final part of the chapter focuses on interpreting and explaining statistical output that describes the distribution of party identification in the electorate today.  For a background on the meaning and importance of party identification, take a look at "Americans Hate to Love Their Party, but They Do!" @ucw2.
+Before we learn about statistical tests or statistical models, we will cover some basic measures that are used to describe data. The basic measures fall into two categories – measures of central tendency and measures of dispersion. What is the typical value for some variable? How are the observations spread out or dispersed around that value? This chapter also introduces you to party identification, at least how it is measured. The final part of the chapter focuses on interpreting and explaining statistical output that describes the distribution of party identification in the electorate today.  For a background on the meaning and importance of party identification, take a look at "Americans Hate to Love Their Party, but They Do!" [@ucw2].
 
 ## Measures of central tendency
 
@@ -86,6 +86,7 @@ Some variables have a meaningful order but are just a series of categories that 
 **Table \@ref(tab:table21)** Education categories in the ANES
 
 
+
 Table: (\#tab:table21)Source: @anes2020
 
 |Meaning                                                                                | Number |
@@ -102,6 +103,8 @@ Table: (\#tab:table21)Source: @anes2020
 |Professional school degree (e.g. MD, DDS, DVM, LLB,JD)/Doctoral degree (e.g. PHD, EDD) |   8    |
 |Other {SPECIFY}                                                                        |   95   |
 
+
+
 We know that a higher number means higher levels of education but we can’t really say that the difference between 4 and 5 (Associate degree vocational versus academic) is the same in as the difference between 6 and 7 (completing a BA compared to completing a Master's degree). We treat -9, -8, and 95 as missing values.  In general, variables that have meaningful order, but intervals that are not uniform, are known as *ordinal variables*.
 
 ### Categorical variables (not useful at all){-}
@@ -112,7 +115,7 @@ Descriptive statistics are most useful for interval variables like age. Descript
 
 ## A starting point: party identification
 
-All of the assignments and worksheets you prepare for this class are based on data collected in the American National Election Study (ANES), a survey of approximately 5,000 vote-eligible citizens collected and distributed each election year by the Inter-university Consortium for Political and Social Research (ICPSR) in Ann Arbor. The survey data inform work in American politics on mobilization and turnout, campaign effects, and provide insights into how party identification changes over time. The data collection effort is funded by the federal government (through the National Science Foundation). All of the data collected under the ANES (dating back to 1948) are free and available for download [@anes2020].
+All of the papers and problem sets you prepare for this class are based on data collected in the American National Election Study (ANES), a survey of approximately 5,000 vote-eligible citizens collected and distributed each election year by the Inter-university Consortium for Political and Social Research (ICPSR) in Ann Arbor. The survey data inform work in American politics on mobilization and turnout, campaign effects, and provide insights into how party identification changes over time. The data collection effort is funded by the federal government (through the National Science Foundation). All of the data collected under the ANES (dating back to 1948) are free and available for download [@anes2020].
 
 If you want to see question wording or other details, you have to access the complete ANES codebook on ELearning. Some variables may include responses like DK (“Don’t know”) or NA (‘Not Available”). The codebook may indicate these responses are associated with a number, but we treat these as missing values.
 
@@ -134,6 +137,7 @@ Individual responses from the 2020 survey are summarized in Table \@ref(tab:tabl
 
 **Table \@ref(tab:table22)** Frequency table for party identification in 2020
 
+
 Table: (\#tab:table22)
 
 |Response |  n   |
@@ -147,9 +151,12 @@ Table: (\#tab:table22)
 |5        | 879  |
 |6        | 832  |
 |7        | 1730 |
+
+
 The frequency table above just gives us the numbers of people in each category, but we are typically more interested in the percentage. The table below improves on Table \@ref(tab:table22) in couple of ways.  In addition to calculating the percentage, this table now labels the responses (so you can see, for instance that a "1" is a Strong Democrat).  This table also uses survey weights to accurately translate the ANES respondents into a nationally representative sample.  We won't discuss the technology or numbers behind survey weights very much, but all of the results you will be relying on use the appropriate weights. This is our best estimate for the distribution of party identification of eligible voters (citizens, 18 and over) in the United States. 
 
 **Table \@ref(tab:table23)** Party identification in 2020, weighted
+
 
 Table: (\#tab:table23) 
 
@@ -162,6 +169,8 @@ Table: (\#tab:table23)
 |Leaning Republican         | 10.3 |
 |Not very strong Republican | 10.8 |
 |Strong Republican          | 20.3 |
+
+
 
 We could also summarize these numbers with a simple bar chart.  The bar chart highlights the fact - surprising to some - that two most common responses to this questions are Strong Democrat and Strong Republican.  The table confirms that there are more Strong Democrats than Strong Republicans, but only by a narrow margin.
 
@@ -186,7 +195,7 @@ You might be curious about the proportion of the electorate that identifies with
 
 ## How can we use descriptive statistics?
 
-The output that you will use for the worksheet and assignment includes two tables in addition to the bar chart:
+The output that you will use for the papers and problem sets includes two tables in addition to the bar chart:
 
 * the frequency distribution, the percentage of people in each party identification category
 
@@ -199,6 +208,7 @@ Table \@ref(tab:table24) reproduces the descriptive statistics that summarize pa
 **Table \@ref(tab:table24).** Descriptive statistics for party identification, entire sample, 2020
 
 
+
 Table: (\#tab:table24)
 
 |                   |     |
@@ -208,6 +218,8 @@ Table: (\#tab:table24)
 |Mode               | 1.00|
 |Variance           | 5.09|
 |Standard deviation | 2.26|
+
+
 
 These numbers tell us a couple of interesting things about party identification. 
 
@@ -221,11 +233,11 @@ We can see that the standard deviation for the entire electorate is 2.26, so, wh
 
 ## Comparing two groups
 
-In many cases we are less interested in the electorate as a whole and more interested in the distribution of some variable for a particular group. To isolate and examine a particular group we use select a subset of cases for analysis. The output for the first worksheet and first paper allow you to compare the party identification data for two different groups. To give some sense of how you use the output, I will focus on differences between men and women.
+In many cases we are less interested in the electorate as a whole and more interested in the distribution of some variable for a particular group. To isolate and examine a particular group we use select a subset of cases for analysis. The output for the first problem set and first paper allow you to compare the party identification data for two different groups. To give some sense of how you use the output, I will focus on differences between men and women.
 
 Most media coverage you hear suggests that women have distinct political preferences and vote Democratic, while men are more likely to be Republicans. Much of the coverage immediately after the 2016 election suggested that White women voting for Donald Trump was a surprise, especially given that his opponent was Hillary Clinton. In fact, White women have voted for the Republican presidential candidate in every election since 1980, with the exception of 1996 and 1992. So exactly how different is the party identification of men and women?  We expect that women are more likely to be Democrats, but maybe not by much.
 
-The output below reproduces the frequencies and descriptive statistics for men and women using the same format as you will see in output for the worksheets and first paper.  The figure and the first table are exactly the same information, just presented two different ways.  You should use both the percentages and the statistics in your papers and worksheets. 
+The output below reproduces the frequencies and descriptive statistics for men and women using the same format as you will see in output for the problem set and paper.  The figure and the first table are exactly the same information, just presented two different ways.  You should use both the percentages and the statistics you produce in your paper and Problem Set 1. 
 
 ### **Women, 2020** {-}
 
@@ -251,6 +263,8 @@ The output below reproduces the frequencies and descriptive statistics for men a
 |Variance           |          5.04          |
 |Standard deviation |          2.25          |
 
+
+
 ### **Men, 2020** {-}
 
 <img src="02-desc_stats_files/figure-html/men-1.png" width="672" />
@@ -275,7 +289,9 @@ The output below reproduces the frequencies and descriptive statistics for men a
 |Variance           |          4.68          |
 |Standard deviation |          2.16          |
 
-### Interpreting the descriptive statistics {-}
+
+
+### **Interpreting the descriptive statistics** {-}
 
 #### Mean {-}
 
@@ -291,13 +307,13 @@ Both groups are spread out across the seven categories, rather than concentrated
 
 ### Putting in at all together {-}
 
-Women lean slightly more Democratic than men: the average party id for women is 3.74 while the average party id for men is 4.13.  The median for both groups is 4.00, so neither party has a majority in either group - about 48% of women in are in the first categories, some form of Democrat.  And about 45% of men are some type of Republican.  Consistent with what we saw with the mean, the most frequent response for men is "Strong Republican" - 22%, while the most frequent response for women is "Strong Democrat" - 26%.  The second most common response for both groups is the opposite category of strong partisan identifier - so lots of Strong Republican women and Strong Democrati me.  Since the distributions are so similar in that way, the standard deviation for both groups is about the same (close to 2.2)
+Women lean slightly more Democratic than men: the average party id for women is 3.74 while the average party id for men is 4.13.  The median for both groups is 4.00, so neither party has a majority in either group - about 48% of women in are in the first categories, some form of Democrat.  And about 45% of men are some type of Republican.  Consistent with what we saw with the mean, the most frequent response for men is "Strong Republican" - 22%, while the most frequent response for women is "Strong Democrat" - 26%.  The second most common response for both groups is the opposite category of strong partisan identifier - so lots of Strong Republican women and Strong Democratic men.  Since the distributions are so similar in that way, the standard deviation for both groups is about the same (close to 2.2)
 
 To fully describe the party identification of each group, we used the descriptive statistics *and* the percentages. We can be much more precise in our comparisons using these numbers, rather than simply describing distributions and whether they are skewed or lean or indicate one party has more support than other.
 
 ## What’s next?
 
-The way that we approach group differences in this chapter was deliberate and systematic in the sense that we came up with some expectations or hypotheses to test. Based on media coverage of US elections, we expected that women and men would have very different party identifications. This turned out to be wrong.  Had we started with a more formal effort to come up with a hypothesis, we might have seen this coming.  When it comes to basic human behavior – whether you approach things from the perspective of a sociologist (what is our identity), a psychologist (what are our habits) or an economist (what are your preferences) – you would be hard-pressed to make the case that women are fundamentally different from men – at least in ways that are politically relevant.  (It could be and is the case that women occupy different social and economic positions than men – lower paid, for instance, that might impact political choices.). For a broader discussion of the ways that gender differences can or might matter, you could take a look at the third chapter of a recent book on women’s voting behavior, *A Century of Votes for Women* [@CVW]. 
+The way that we approach group differences in this chapter was deliberate and systematic in the sense that we came up with some expectations or hypotheses to test. Based on media coverage of US elections, we expected that women and men would have very different party identifications. This turned out to be wrong.  Had we started with a more formal effort to come up with a hypothesis, we might have seen this coming.  When it comes to basic human behavior – whether you approach things from the perspective of a sociologist (what is our identity), a psychologist (what are our habits) or an economist (what are your preferences) – you would be hard-pressed to make the case that women are fundamentally different from men – at least in ways that are politically relevant.  (It could be and is the case that women occupy different social and economic positions than men – lower paid, for instance, that might impact political choices.) For a broader discussion of the ways that gender differences can or might matter, you could take a look at the third chapter of a recent book on women’s voting behavior, *A Century of Votes for Women* [@CVW]. 
 
 A second challenge of the approach we take in this chapter is that we are simply describing differences in the ANES sample.  How can we know if these differences in party identification – which are fairly small – actually tell us anything about the broader population of women and men in the US electorate?  We need to have ways to test if the group differences we observe permit us to make an inference about group differences in the population.  That is the focus of the next three chapters.
 

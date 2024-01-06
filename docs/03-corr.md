@@ -24,7 +24,7 @@ But the benefits of experimental approaches can be large: what if we had access 
 
 ### An example: Job Training and Partnership Act (JTPA) programs 
 
-An early and compelling example of this type of research involved an evaluation of Job Training and Partnership Act (JTPA) programs in the late 1980s.  The JTPA programs offered classroom training, on-the-job training, or job search assistance to people who are out of work.  In September, 1987: two-thirds of the eligible population who applied to the program were directed to services, one-third were deferred for 18 months.  Do training and services offered to the unemployed increase earnings?  The results are summarized in the two figures below.
+An early and compelling example of this type of research involved an evaluation of Job Training and Partnership Act (JTPA) programs in the late 1980s.  The JTPA programs offered classroom training, on-the-job training, or job search assistance to people who are out of work.  In September, 1987, two-thirds of the eligible population who applied to the program were directed to services, one-third were deferred for 18 months.  Do training and services offered to the unemployed increase earnings?  The results are summarized in the two figures below.
 
 Figure 3.1  **Estimated effects of JTPA programs on earnings**
 
@@ -55,9 +55,10 @@ If you want to compare the values of some variable of interest (party identifica
 
 How would you expect the distribution of party id to change across income groups?   Building on the income and vote example from Chapter 1, what should we observe for low income respondents?  What should we observe for high income respondents?
 
-One way to answer this question empirically is to create a cross-tab of income and party id using the ANES.  For this example, I created a measure of household income divides respondents into three categories - low income, middle income, an high income  The table is reproduced as Table 3.1, below
+One way to answer this question empirically is to create a cross-tab of income and party id using the ANES.  For this example, I created a measure of household income divides respondents into three categories - low income, middle income, and high income  The table is reproduced as Table 3.1, below
 
 Table 3.1 **Party identification and income, 2020 ANES**
+
 
 
 |                           | Under $25,000| $25,000 to $150,000| Over $150,000|
@@ -69,6 +70,8 @@ Table 3.1 **Party identification and income, 2020 ANES**
 |Leaning Republican         |           6.4|                10.8|          10.9|
 |Not very strong Republican |           7.8|                10.7|          12.7|
 |Strong Republican          |          13.8|                21.6|          18.7|
+
+
 
 Is this consistent with your expectations?  It is clear that you are roughly 1.5 times likely to be strong Republican if you are in an upper income household (19% compared to 14% for the lower income).  But there are about the same proportion of strong Democrats in upper and lower income households (23% in the upper income households and 27% in lower income households). In Chapter 1 we observed that the highest level of Trump support was from middle income households.  Data on party identification reinforce this conclusion.  The people who are most likely to identify as strong Republican are middle income households. Also notice that the number of independents plunges as you move up the income scale - people in higher income households are more likely to report an identification with one of the major parties.
 
@@ -92,7 +95,7 @@ Figure 3.2 **Scatterplot.  Donald Trump feeling thermometer and party id**
 
 The first figure – the scatterplot – is obviously not very useful. Since there are 5,000 respondents and 700 cells, at least one person occupies most cells on the table. You just end with a grid. This will be the case with any survey with a finite or small number of possible responses and many participants.
 
-The second and third figures, below, make things very clear.  There is a steep decrease in positive feelings as you move from strong Democrat to strong Republican.  The third figure appears more dramatic since the Y-axis excludes 0 and 100, so the effect is steeper.  Notice that, as you might have expected, the Independent-leaners are actually strong partisans in their attitudes.
+The second and third figures, below, make things very clear.  There is a steep increase in positive feelings as you move from strong Democrat to strong Republican.  Notice that, as you might have expected, the Independent-leaners are actually strong partisans in their attitudes.
 
 Figure 3.3 **Bar chart of group means. Donald Trump feeling thermometer and party id.**
 
@@ -127,7 +130,15 @@ The key to this form of inference is that samples must be random. Any individual
 
 If we do have a random sample from a broader population, we can use measures of association to describe relationships between variables.  In the lexicon of data science, the variable we are primarily interested in known as the dependent variable ($Y$) and the predictor variable is known as the independent variable ($X$). We assume (expect) that $X$ influences $Y$ or $Y$ is a function of $X$.
 
-We use measures of association to answer three questions:  What is the direction of the relationship between $X$ and $Y$.  Does an increase in $X$ increase (+) Y or decrease (-) $Y$?  What is the size of the effect?  Does $X$ have a big impact on $Y$ or small?  Could the observed effect be due to chance?  Or is the effect statistically significant?  We will focus on size and direction as we learn about correlation and turn to the concept of statistical significance in Chapter 5.
+We use measures of association to answer three questions: What is the direction of the relationship?  What is the size of the effect? Is the effect in the sample statistically significant?
+
+Direction. What is the direction of the relationship between $X$ and $Y$.  Does an increase in $X$ increase (+) Y or decrease (-) $Y$? 
+
+Size.  What is the size of the effect?  Does $X$ have a big impact on $Y$ or small?  
+
+Statistical significance.  Could the observed effect be due to chance?  Or is the effect statistically significant?  
+
+We will focus on size and direction as we learn about correlation and turn to the concept of statistical significance in Chapter 5.
 
 Recall the discussion of types of variables in earlier chapters.  We distinguish between categorical variables (respondents are grouped into categories that cannot be ranked – region, religion, marital status), ordinal variables (respondents are grouped into categories that can be ranked (party id, ideology) or interval variables (Respondents are grouped into categories that can be ranked on a scale with equal intervals between units – like age or years of education).
 
@@ -150,7 +161,7 @@ In many research situations, the variables of interest are both some type of sca
 
 Correlation is a measure of association appropriate for interval level variables (and can be applied to ordinal variables that are “approximately interval” e.g. party id or ideology).  The test statistic ranges from -1 to +1 and gives you a one-number summary of the direction and size of the relationship between $X$ and $Y$.  
 
-If two variables have a correlation of +1 or -1, then they are perfectly correlated.  If correlation is greater than 0, then the variables are described as positively related or directly related.  If correlation is less than 0, then the variables are described as negatively related or inversely related.  As the correlation moves away from zero (closer to +1 or -1), the stronger the link between $X$ and $Y$. A correlation of zero is a null relationship.  Negative does not mean null. Null is zero.  To give you a sense how numbers translate into data, the figures below show hypothetical samples wth different levels of correlation.
+If two variables have a correlation of +1 or -1, then they are perfectly correlated.  If correlation is greater than 0, then the variables are described as positively related or directly related.  If correlation is less than 0, then the variables are described as negatively related or inversely related.  As the correlation moves away from zero (closer to +1 or -1), the stronger the link between $X$ and $Y$. A correlation of zero is a null relationship.  Negative does not mean null. Null is zero.  To give you a sense how numbers translate into data, the figures below show hypothetical samples with different levels of correlation.
 
 
 Figure 3.6 **Positive, negative and null effects**
@@ -162,7 +173,7 @@ You can always describe your expectations using these numbers. For example, you 
 
 Computation of the correlation coefficient requires that we compute the covariance of two variables and the standard deviation of each variable.
 
-Recall that standard deviation $\sigma$is simply the square root of the sample variance.  
+Recall that standard deviation $\sigma$ is simply the square root of the sample variance.  
 
 $$ \sigma_x = \sqrt{\frac{( \sum_{i=1}^n (X_i - \mu)^2}{n-1}}$$
 
@@ -173,7 +184,7 @@ The building block for correlation is the covariance and it follows the same log
 In symbols, the covariance is:
 
 $$
-cov(x,y)= \frac{\sum_{i=1}^n (X_i - \mu)^2 (Y_i - \mu)^2}{n-1}
+cov(X,Y)= \frac{\sum_{i=1}^n (X_i - \mu)^2 (Y_i - \mu)^2}{n-1}
 $$
 
 Once we know the covariance between the two variables and the standard deviation for each variable, we can calculate the correlation. The sample correlation coefficient ($\rho$) is, in words, the covariance between $X$ and $Y$ divided by the standard deviation of $X$ and the standard deviation of $Y$.  In symbols:
@@ -184,9 +195,7 @@ $$
 
 This number (the correlation) can never be large than 1.0 and never be smaller than -1.0.  The farther the number is from zero, the larger the effect of $X$ on $Y$.
 
-### Limits of the correlation coefficient
-
-Three important cautions about correlation. 
+### Three important limits of the correlation coefficient
 
 #### Correlation is most useful as a relative measure {-}
 
@@ -196,23 +205,23 @@ First, correlation is best used as a description of the direction and relative s
 
 Second, statements about correlation also assume that the relationship between two variables is linear (or approximately linear). Nonlinear relationships may not be reflected in correlation. 
 
-For instance, we could not test the link between party id and attention to politics with a correlation coefficient. This would not work since strong Republicans and strong Democrats are both likely to pay attention to campaigns, while Independents are not likely to pay attention – the relationship between party id and attention is U-shaped or nonlinear. 
+For instance, we could not test the link between party id and attention to politics with a correlation coefficient. This would not work since strong Republicans and strong Democrats are both likely to pay attention to campaigns, while Independents are not likely to pay attention – the relationship between party id and attention is U-shaped or nonlinear. The link between partissanship and interest in politics in 2020 is summarized in Figure 3.5.
 
 Figure 3.5. **Example of a U-shaped relationship. Partisanship and interest in politics**
 
 <img src="03-corr_files/figure-html/figure7-1.png" width="672" />
 
-Notice, again, that leaners are more likely strong partisans - very interested in politics compared to weak partisans.  The interest scale goes from 1 to 4 and 3.0 indicates that someone follows politics "Fairly closely."  The blue span is the best-fitting curve.
+Notice, again, that leaners are more like strong partisans - very interested in politics compared to weak partisans.  The interest scale goes from 1 to 4 and 3.0 indicates that someone follows politics "Fairly closely."  The blue span is the best-fitting curve.
 
 #### Correlation doesn't work for arbitrary categories {-}
 
 Finally, never use correlation if variables are not scales. Recall that we have access to a number of variables that are simply categories- race, religion, and region.  We use a number to place people in categories. For the 2020 ANES religion variable, 1=mainline Protestant and 4=Roman Catholic.  The numbers are meaningless in the sense that Catholics are not 4 times more anything than Protestants and we could just as easily used  1=Roman Catholic or 3=Roman Catholic.
 
-Any time the order of the categories is arbitrary (race, marital status, employment status, region, religion), you should not use correlation since it will be misleading and uninformative. You will see an example of this on the final exam and you should be able to report that the correlation is meaningless.  Almost everyone gets this question wrong on the exam!
+Any time the order of the categories is arbitrary (race, marital status, employment status, region, religion), you should not use correlation since it will be misleading.
 
 ### Reading a correlation matrix
 
-Most statistical software produces correlations in the form of a matrix.  Table 3.2 reproduces output that summarizes the link between education and income.  We just need to focus one number for now the Pearson correlation at the top right corner.
+Most statistical software produces correlations in the form of a matrix.  Table 3.2 reproduces output that summarizes the link between education and income.  We just need to focus one number for now, the Pearson correlation at the top right corner.
 
 Table 3.2 **Correlation between education and income**
 
@@ -237,7 +246,7 @@ income      -0.005   0.033  1.000     0.350
 education   -0.141  -0.112  0.350     1.000
 ```
 
-This output is in the form of a correlation matrix – so you can see all three correlations – party vs. ideology, education vs. ideology, and income vs. ideology in one table.  In this sample, the correlation between ideology and income is very close to zero (-0.005) – there is no relationship.  The link between education and ideology is a bit stronger and negative (-0.141) – more education means a slightly lower ideology or more liberal.  It would be safe to conclude that poorly educated respondents are the most conservative and highly educated are the most liberal. But party id is clearly the best predictor (0.735 - the fartherst of any of the correlations from zero). We can also see that education and income are more closely  related to each other (0.350) than either are to ideology.  The number in this table is slightly different than immediately above since a few observations were missing - meaning that a few respondents did not answer the ideology question.
+This output is in the form of a correlation matrix – so you can see all three correlations – party vs. ideology, education vs. ideology, and income vs. ideology in one table.  In this sample, the correlation between ideology and income is very close to zero (-0.005) – there is no relationship.  The link between education and ideology is a bit stronger and negative (-0.141) – more education means a slightly lower ideology or more liberal.  It would be safe to conclude that poorly educated respondents are the most conservative and highly educated are the most liberal. But party id is clearly the best predictor (0.735 - the farthest of any of the correlations from zero). We can also see that education and income are more closely  related to each other (0.350) than either are to ideology.  The number in this table is slightly different than immediately above since a few observations were missing - meaning that a few respondents did not answer the ideology question.
 
 ## Conclusion
 

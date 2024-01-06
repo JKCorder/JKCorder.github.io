@@ -26,10 +26,12 @@ In earlier chapters, we described three ways that we could use tables and figure
 
 ### Red state, Blue state:  cross tabulation with a control variable 
 
-Observers of American politics claim that the South is politically distinctive (100 % “Red State”).  We associate Red states with what? Republican voting, support for the military, guns, Christian values, maybe even NASCAR and country music.  We associate Blue states with Democratic voting, urban living, Volvos, latte and book clubs.  While the stereotypes are fun, are Red states really that different?  The 2004 election should be very good test of this question – George Bush – from Texas – was running for re-election against John Kerry, a northerner, a liberal, and career politician and diplomat.  Kerry was portrayed as elitist, affected and out-of-touch.  So what happened to Kerry in the South?   Was the proportion of the electorate supporting Bush in 2004 really that different between Southern and other states?  The South is all red, the rest of the country a mixture of red and blue – so did the South deliver votes for Bush?  Table 2 reports each candidate's  percentage of the two-party vote [anes2004].  
+Observers of American politics claim that the South is politically distinctive (100 % “Red State”).  We associate Red states with what? Republican voting, support for the military, guns, Christian values, maybe even NASCAR and country music.  We associate Blue states with Democratic voting, urban living, Volvos, latte and book clubs.  While the stereotypes are fun, are Red states really that different?  The 2004 election should be very good test of this question – George Bush – from Texas – was running for re-election against John Kerry, a northerner, a liberal, and career politician and diplomat.  Kerry was portrayed as elitist, affected and out-of-touch.  So what happened to Kerry in the South?   Was the proportion of the electorate supporting Bush in 2004 really that different between Southern and other states?  The South is all red, the rest of the country a mixture of red and blue – so did the South deliver votes for Bush?  Table 2 reports each candidate's  percentage of the two-party vote [@anes2004].  
 
-#### Table 1. Support for George Bush, percentage of the two-party vote, by region, 2004.
 
+
+
+#### **Table 7.1 Support for George Bush, percentage of the two-party vote, by region, 2004**{-}
 
 
 |Region               | Percentage|
@@ -37,13 +39,15 @@ Observers of American politics claim that the South is politically distinctive (
 |Outside of the South |      50.88|
 |South                |      49.79|
 
+
+
 What happened?  There is almost no difference between the South and the rest of the nation – just over one percentage point and not in the expected direction.  (This result is, by the way, not statistically significant - there is no difference between these two groups of voters in the population.)   Do political pundits make way too much of Red State / Blue State differences? What are we missing here?
 
 Perhaps we should consider other factors that could be distorting the relationship - what demographic feature of the South distinguishes the South from the rest of the US?  One is race – the South has a higher proportion of African-Americans than the rest of the US and a couple of big states with large Latinx population (Texas and Florida). In the 2004 ANES sample, 40 percent of Southerns were racial and ethnic minorities, compared to only 20 percent outside of the South. This is somewhat puzzling to outside observers of American politics – the region of the country that is arguably the most ethnically and racially diverse is expected to be more Republican? 
 
 In any case, this question requires a controlled comparison – we know that the South is more diverse, we know or think that a diverse electorate is going to be more Democratic – so we need to control for race in order to clarify the link between region and vote.  Table 2 reports the controlled comparison – summarizing the link between region and vote for White respondents compared to respondents with any other ethnic or racial identity. 
 
-#### Table 2.  Bush and Kerry vote in the South and outside of the South, by race, ANES 2004.
+#### **Table 7.2 Bush and Kerry vote in the South and outside of the South, by race, ANES 2004** {-}
 
 
 |Region                             |Race                 | Percentage|
@@ -53,20 +57,22 @@ In any case, this question requires a controlled comparison – we know that the
 |Any other racial or identification |Outside of the South |      28.70|
 |Any other racial or identification |South                |      19.75|
 
+
+
 The regional differences are clearly much larger if we control for race.  White Southerners are 66% Bush, 10 percentage points higher than Whites outside of the South.  Southerners who are not White are the most Democratic of the four groups. Racial differences in the composition of the electorate confounded our attempt to understand regional differences.  It is interesting that the Red State - Blue state narrative works only if you exclusively focus on White voters.  (This is also an example of an interactive effect - Republican support is higher in the South if you look at White voters, Republican support is lower in the South if look at everyone else).
 
 ### Turnout, income and education: bar charts with a control variable
 
 We know that wealthy respondents are more likely to turnout in elections.  This could be the case since higher income families are more likely to have access to transportation, a job that permits time off, and may perceive more at stake in an election.  But we also know that highly educated people are more likely to turn out to vote – perhaps for reasons unrelated to income – highly educated people have more information, so the costs of voting (acquiring information, making choices) are lower – and, again, perhaps perceive the stakes as higher (more incentive to vote).  But education and income are intertwined – maybe the effect of income is just due to high income people having more education?  We should test whether the link between income and turnout is spurious.  Figure 1 summarizes self-reported turnout for people in the lower, middle, and upper 1/3 of the income distribution.  The turnout numbers seem high for a couple of reasons – the ANES has a potential response bias that is a consequence of people who are interested in politics being more likely to participate in the survey and, on top of that, people know they are supposed to vote, so they may self-report a vote when they did not vote.  In any case, the results are fairly clear – higher income is associated with higher self-reported voting.
 
-#### Figure 1.  Household income and self-reported turnout, 2020 ANES.
-<img src="07-models_files/figure-html/figure 1-1.png" width="672" />
+#### **Figure 7.1.  Household income and self-reported turnout, 2020 ANES** {-}
+<img src="07-models_files/figure-html/figure71-1.png" width="672" />
 
 Figure 2 breaks out the link between income and turnout across 3 levels of education – a controlled comparison.  Now we can understand the link between turnout and income for people with the same (or at least similar) levels of education).
 
-#### Figure 2.  Household and inomce and self-reported turnout, controlling for education, 2020 ANES.
+#### **Figure 7.2. Household and income and self-reported turnout, controlling for education, 2020 ANES**{-}
 
-<img src="07-models_files/figure-html/figure2-1.png" width="672" />
+<img src="07-models_files/figure-html/figure72-1.png" width="672" />
 
 The data in the figure would lead us to conclude that there is an effect of income - a positive link – for every level of education.  We can also see that education matters – in each case – each income group – the effect of more education is also positive.  Although education and income are related, they both exert an independent effect on turnout – and the combined effects are large – low income, low education respondents are almost half as likely to vote as high education, high income – a reality that grossly distorts what we learn about citizen preferences from elections – we learn about the what voters want – not what everyone wants and the two things are very different since low income and low education voters are under-represented.
 
@@ -174,7 +180,7 @@ The single variable models predicting the Donald Trump feeling thermometer are r
 
 The second column reports the same numbers for the link between the ideology and the thermometer.  The coefficient indicates the effect of ideology is even more powerful, with feelings declining about 100 points - the full range of the thermometer - as we compare extreme liberals (ideology = 1) to extreme conservatives (ideology=7).  
 
-#### Table 3.  Two bivariate models predicting the Donald Trump feeling thermometer, using party and ideology.
+#### **Table 7.3. Two bivariate models predicting the Donald Trump feeling thermometer, using party and ideology** {-}
 
 <br>
 
@@ -201,7 +207,7 @@ Notice that the coefficient on party identification is lower than the coefficien
 
 Moreover, how can we be sure if either of these models are accurate?  We know that party id and ideology are correlated  - conservatives are likely to be Republican – so we know that full effects (the slopes above) and partial effects (in a multivariate model) will be different. By introducing both predictors in one model we can disentangle the effects of ideology and party id.  This permits us to clarify, for instance, if an extremely liberal Strong Democrat would feel differently about Hillary Clinton than a middle of the road Strong Democrat. Or if a conservative Strong Republican would feel differently than a conservative Independent.  The coefficients from a multivariate model with both party id and ideology appears below as Table 4.  The first column reports the unstandardized coefficients and standardized coefficients are reported at the bottom of the table.
 
-#### Table 4.  A multvariate model predicing the Donald Trump feeling thermometer, using party and ideology in one model.
+#### **Table 7.4. A multvariate model predicing the Donald Trump feeling thermometer, using party and ideology in one model.** {-}
 
 <br>
 
@@ -233,7 +239,7 @@ So while this is an example of additive effects – both variables remain signif
 
 We could use a similar strategy to evaluate a range of variables.  The table below reports the coefficients from a complex model – party id, ideology, race, gender, age, education and income.
 
-#### Table 5.  A multvariate model predicing the Donald Trump feeling thermometer, testing several potential predictors.
+#### **Table 7.5. A multvariate model predicing the Donald Trump feeling thermometer, testing several potential predictors.** {-}
 
 <table style="text-align:center"><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td>Feeling Thermometer, Donald Trump</td></tr>
 <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Party identification</td><td>9.255<sup>***</sup></td></tr>
@@ -270,11 +276,11 @@ We could use a similar strategy to evaluate a range of variables.  The table bel
 | Education            | -0.06    |
 | Income               | -0.01    |
 | Female               | 0.02    |
-| Minority             | 0.02    |
+| Minority             | -0.05    |
 
 This type of table has a lot of information, but we can focus on a few numbers.  First, which variables can we ignore as not statistically significant?  You can see that the coefficient on income is not statistically significant - after controlling for other factors, income doesn't matter.
 
-To figure out which of the significant variables are the best predictors, we can use the standadrized coefficients.  The largest (in absolute value) is party identification, followed by ideology, then education, and, weakest, race and gender.  
+To figure out which of the significant variables are the best predictors, we can use the standardized coefficients.  The largest (in absolute value) is party identification, followed by ideology, then education, and, weakest, race and gender.  
 
 So we could conclude that highly educated, liberal, Strong Democrats will dislike Donald Trump, while poorly educated, conservative Strong Republicans will like Donald Trump the most.  Gender and race matter, but the effects are small - White respondents about 4 pts higher than others, and women about 2 pts higher than men. Notice the r-squared – nearly 64 percent of the variation in this attitude is explained by five variables. Review the table to be sure you understand how these conclusions follow from the numbers.
 

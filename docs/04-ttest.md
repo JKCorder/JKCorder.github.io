@@ -3,7 +3,7 @@
 
 # Measures of association: t-test
 
-Add this info - Gossett's data from Kalamazoo....https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2008.00279.x
+<!-- Add this info - Gossett's data from Kalamazoo....https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2008.00279.x -->
 
 ## What is the t-test?
 
@@ -22,7 +22,7 @@ We covered size and direction in Chapter 3, so the focus of this chapter is broa
 
 Inference is learning about something we cannot observe from something we can observe. We can observe samples.  We cannot observe and measure populations.  Inference is learning about populations from samples.  In order to make an unbiased inference about a population from a small sample, the only requirement is the sample is random.  Any individual in the population has an equal chance of showing up in the sample.
 
-Polling organizations devote a lot of time and energy to figure out how to create random samples.  Today, pollsters may rely on face-to-face, phone or web-based contacts to collect data – each strategy has its challenges and face-to-face is obviously very costly.  All of these strategies introduce what is known as survey response bias or *non-response bias* – individuals who are willing to respond may be different than individuals not willing to respond. Before caller id and cell phones, a pollster could randomly dial phone numbers and, as long as the people who answered were willing to talk, the sample would be random.  Today, people who are not interested in politics may be the phones who never answer an unidentified caller and cell phone users may not answer at all.  There are technical fixes for all of this, but it remains a continuing challenge to make sure a sample is random.
+Polling organizations devote a lot of time and energy to figure out how to create random samples.  Today, pollsters may rely on face-to-face, phone or web-based contacts to collect data – each strategy has its challenges and face-to-face is obviously very costly.  All of these strategies introduce what is known as survey response bias or *non-response bias* – individuals who are willing to respond may be different than individuals not willing to respond. Before caller id and cell phones, a pollster could randomly dial phone numbers and, as long as the people who answered were willing to talk, the sample would be random.  Today, people who are not interested in politics may be the ones who never answer an unidentified caller and cell phone users may not answer at all.  There are technical fixes for all of this, but it remains a continuing challenge to make sure a sample is random.
 
 Even if we do have a random sample we know we will be uncertain about how close our sample resembles the larger population – we know that, even if the sample is completely random, we can never have a perfect representation of the population there will be what is known as *sampling error*.  We could get a sample that, by chance, has a lot of Republicans – that would give us a flawed estimate of the average party identification.
 
@@ -60,6 +60,7 @@ If you have in front of you data from a single random sample – you can use sof
 
 #### Table 4.1.  Descriptive statistics for age in the 2020 ANES {-}
 
+
 |                   | Descriptive statistics |
 |:------------------|:----------------------:|
 |N                  |          7159          |
@@ -67,6 +68,8 @@ If you have in front of you data from a single random sample – you can use sof
 |Median             |           47           |
 |Variance           |         303.74         |
 |Standard deviation |         17.43          |
+
+
  
 Using the formula above, the standard error of the mean would be:
 
@@ -74,7 +77,7 @@ $$ \sigma_M=17.43 / \sqrt{7159} = 0.206 $$
 $$ ME = 2 * .206=0.412$$
 We know (with 95% certainty) that the population mean is +/- 2 standard error of the means from the sample mean.  The *95% confidence interval* is 47.26 +/- 0.412 years.  That is remarkable – we can be very confident that we know the true age of the actual very large US electorate within less than about 5 months (0.4 of a year).
 
-The key lesson: the “margin of error” associated with the survey response is 2 times the standard error of the mean.  
+>The key lesson: the “margin of error” associated with the survey response is 2 times the standard error of the mean.  
 
 ### Margin of error and sample size{-}
 
@@ -102,7 +105,7 @@ You can see that there is an obvious and large gain in improvement as you move f
 
 ## T-test: comparing means for two groups
 
-If we have a sample mean for some variable for some group, we can use that information along with the number in each group and the standard deviation of the responses in each group to make an inference about the mean for that group in the population.  We could estimate the average age of women, for instnace.  A t-test extends this idea to compare samples of two groups – the idea is that we treat our two groups as two independent samples from the same population.  If they are in fact identical then they should have the same sample mean.   If the sample means are different, then maybe the two groups are different in the population.  
+If we have a sample mean for some variable for some group, we can use that information along with the number in each group and the standard deviation of the responses in each group to make an inference about the mean for that group in the population.  We could estimate the average age of women, for instance.  A t-test extends this idea to compare samples of two groups – the idea is that we treat our two groups as two independent samples from the same population.  If they are in fact identical then they should have the same sample mean.   If the sample means are different, then maybe the two groups are different in the population.  
 
 The two-sample t-test permits you to test the difference in means across two categories of respondents (2 samples).  The output reveals the direction, size, and significance of the effect – Group 1 has a higher or lower mean than Group 2, the difference between the two means is large or small, and the difference between the two means is statistically significant or not.
 
@@ -112,7 +115,7 @@ The computation is not difficult.  Recall that $\mu$ designates the mean, $\sigm
 
 $$t=\frac{(\mu_1-\mu_2)}  {\sqrt{(\sigma_1^2/n_1)+(\sigma_2^2/n_2)}}$$
 
-Note: if the sample means are identical, the value of t is zero.  As the sample means diverge, the value of t will increase.
+>Note: if the sample means are identical, the value of t is zero.  As the sample means diverge, the value of t will increase.
 
 ### The t distribution
 
@@ -131,6 +134,7 @@ There is a feeling thermomemter for the NRA.  Other group thermometers include t
 
 #### Table 4.2.  Descriptive statistics.  NRA feeling thermometer{-}
 
+
 |                   | Descriptive statistics |
 |:------------------|:----------------------:|
 |N                  |          6992          |
@@ -139,11 +143,13 @@ There is a feeling thermomemter for the NRA.  Other group thermometers include t
 |Variance           |        1159.48         |
 |Standard deviation |         34.05          |
 
+
+
 The 95% confidence interval in this case would be:
 
 $$ 51.36 +/-  (2 * 34.05 / \sqrt{6992}) = 51.36 +/- 0.41 $$
 
-You don't have to calculate this by hand - the information will be included in the output you use for the worksheets and papers.  Again, this is precise - we know, with some certainty, that the population average is between 50.95 and 51.77.
+You don't have to calculate this by hand - the information will be included in the output you use for the problem sets and papers.  Again, this is precise - we know, with some certainty, that the population average is between 50.95 and 51.77.
 
 We can replicate this calculation to compare smaller samples – men compared to women, white compared to minority.  Instead of using the mean and standard error of the mean for the entire sample, we look at and compare two groups.  If we can be 95% confident that the group means are different in the population, then we know we can safely make an inference about the population from our sample. 
 
@@ -161,12 +167,11 @@ Mean for Women = 49.60146
 ```
 We only need to look at three numbers to understand this output – the average for men was 53.0 and the average for women was 49.06 – a small difference, but men slightly warmer.  The significance level or p-value associated with this test is 0.000. What does this mean? 
 
-The actual value of the t-test is -4.04 and we use that number to come up with a significance level (also called a p-value).  If there was no relationship between gender and the NRA thermometer (same exact means for men and women), the t-test would be 0.0 and the significance level would be 1.0.  If the significance level is below 0.05, then we can be 95% confident that the groups are different in the population.  In Table 4.1 the significance level (p)  is less than 0.05, something less 0.000.) 
+The actual value of the t-test is -4.04 and we use that number to come up with a significance level (also called a p-value).  If there was no relationship between gender and the NRA thermometer (same exact means for men and women), the t-test would be 0.0 and the significance level would be 1.0.  If the significance level is below 0.05, then we can be 95% confident that the groups are different in the population.  In Table 4.1 the significance level (p) is less than 0.05, something less than 0.0001.) 
 
 All statistics we use will be accompanied by a measure of significance – often denoted as “p” or the probability value.  For our purposes, “p” is the probability that a test statistic of some value could be observed in a sample drawn from a population where the actual or true value of the test statistic is zero.   There is a 0.00% probability that we could observe a t-test of -4.043 in the ANES even if men and women had identical average NRA responses in the population
 
-Note: this is very specific type of inference – we can learn something about the population 
-from our small sample.  If p < .05 then the observed difference between the two groups is statistically significant -- this an arbitrary standard but a convention in social science.  We will discuss this in a more systematic in the chapter on chi-square, but, for now, just remember the convention – p must be less than 0.05
+>Note: this is very specific type of inference – we can learn something about the population from our small sample.  If p < .05 then the observed difference between the two groups is statistically significant -- this an arbitrary standard but a convention in social science.  We will discuss this in a more systematic in the chapter on chi-square, but, for now, just remember the convention – p must be less than 0.05
 
 This example also illustrates a key difference between "statistically significance" and "meaningful" - the difference between men and women is very small, a couple of points on the 100 point thermometer - so while we would observe a difference between men and women in the broader population, any differences would be very small.
 

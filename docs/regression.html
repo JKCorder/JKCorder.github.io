@@ -7,17 +7,43 @@
 <title>6 Regression | Applied Statistics for Political Science</title>
 <meta name="author" content="J.K. Corder">
 <meta name="description" content="This chapter introduces a statistical modeling approach called regression or ordinary least squares regression, sometimes abbreviated as OLS. The idea is that we identify something we are...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
 <meta property="og:title" content="6 Regression | Applied Statistics for Political Science">
 <meta property="og:type" content="book">
 <meta property="og:description" content="This chapter introduces a statistical modeling approach called regression or ordinary least squares regression, sometimes abbreviated as OLS. The idea is that we identify something we are...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6 Regression | Applied Statistics for Political Science">
 <meta name="twitter:description" content="This chapter introduces a statistical modeling approach called regression or ordinary least squares regression, sometimes abbreviated as OLS. The idea is that we identify something we are...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -44,7 +70,7 @@
 <li><a class="" href="descriptive-statistics.html"><span class="header-section-number">2</span> Descriptive statistics</a></li>
 <li><a class="" href="an-introduction-to-measures-of-association-correlation.html"><span class="header-section-number">3</span> An introduction to measures of association: correlation</a></li>
 <li><a class="" href="measures-of-association-t-test.html"><span class="header-section-number">4</span> Measures of association: t-test</a></li>
-<li><a class="" href="measures-of-association-chi-square.html"><span class="header-section-number">5</span> Measures of association: Chi-square</a></li>
+<li><a class="" href="measures-of-association-chi-square.html"><span class="header-section-number">5</span> Measures of association: chi-square</a></li>
 <li><a class="active" href="regression.html"><span class="header-section-number">6</span> Regression</a></li>
 <li><a class="" href="statistical-models-with-many-predictors.html"><span class="header-section-number">7</span> Statistical models with many predictors</a></li>
 <li><a class="" href="references.html">References</a></li>
@@ -113,7 +139,7 @@ A line is fully and completely described by two parameters, <span class="math in
 <div id="graphing-relationships-between-two-variables" class="section level3 unnumbered">
 <h3>Graphing relationships between two variables<a class="anchor" aria-label="anchor" href="#graphing-relationships-between-two-variables"><i class="fas fa-link"></i></a>
 </h3>
-<p>The relationship between two variables may be linear, or it could take some other form – U-shaped or a curve. One way to understand the utility and use of the linear model is to produce a scatterplot of X and Y to see what it means to assume the relationship is linear. The examples below draws on data published by <span class="citation">Pollock (<a href="references.html#ref-pollock2011" role="doc-biblioref">2011</a>)</span> in an introductory text on social science statistics. The dependent variable (Y) is the percentage of state legislators who are women and the independent or predictor variable (X) is the percentage of state population who are Christian – “adhere to a Christian faith.”</p>
+<p>The relationship between two variables may be linear, or it could take some other form – U-shaped or a curve. One way to understand the utility and use of the linear model is to produce a scatterplot of X and Y to see what it means to assume the relationship is linear. The example below draws on data published by <span class="citation">Pollock (<a href="references.html#ref-pollock2011">2011</a>)</span> in an introductory text on social science statistics. The dependent variable (Y) is the percentage of state legislators who are women and the independent or predictor variable (X) is the percentage of state population who are Christian – “adhere to a Christian faith.”</p>
 <p>A simple scatter plot of this data for the 50 U.S. states is reproduced as Figure 1, below.</p>
 <strong>Figure <a href="regression.html#fig:figure61">6.1</a></strong>
 Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian
@@ -125,7 +151,7 @@ Scatterplot of women in the state legislature as a function of the proportion of
 </div>
 <p>Experiment with sketching the line in the figure above that you think best describes the link between the two variables. The line is obviously downward sloping: there are a higher proportion of women in the legislature in states that have a lower proportion of Christian adherents. But the line could be fairly steep - passing through 40 in the upper left and approach zero for X=80. Or the line could be fairly flat – passing through 30 in the upper left and approach 10 for X=80</p>
 <p>What is best way to draw a line that describes the relationship between X and Y?</p>
-<p>We are interested in the two parameters or numbers that describe the line that summarizes the relationship between X and Y – the slope and the intercept. What criteria should we use to pick one line over another? Maybe the distance between points and the line (lowest average error)? Maybe the squared distance between the points and the line (lowest sum of squared errors)? The second criteria – minimize squared error – is the approach we use. The actual regression line is added to the data in @fig:figure62, below.</p>
+<p>We are interested in the two parameters or numbers that describe the line that summarizes the relationship between X and Y – the slope and the intercept. What criteria should we use to pick one line over another? Maybe the distance between points and the line (lowest average error)? Maybe the squared distance between the points and the line (lowest sum of squared errors)? The second criteria – minimize squared error – is the approach we use. The actual regression line is added to the data in @(fig:figure62), below.</p>
 <strong>Figure <a href="regression.html#fig:figure62">6.2</a></strong>
 Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian. with OLS line
 <div class="figure" style="text-align: center">
@@ -170,7 +196,8 @@ Scatterplot of women in the state legislature as a function of the proportion of
 <p>If p&lt;0.05, then in the population <span class="math inline">\(\beta_1\)</span> is not equal to zero. (Formally, you reject the null hypothesis). The relationship between X and Y is statistically significant.</p>
 <p>To see how regression works in practice, we use two examples – the link between the the Donald Trump feeling thermometer and party id and the link between income and party identification (introduced in Chapter 1).</p>
 <div id="example-feelings-toward-donald-trump-and-party-identification" class="section level4 unnumbered">
-<h4>Example: Feelings toward Donald Trump and party identification<a class="anchor" aria-label="anchor" href="#example-feelings-toward-donald-trump-and-party-identification"><i class="fas fa-link"></i></a>
+<h4>
+<strong>Example: Feelings toward Donald Trump and party identification</strong><a class="anchor" aria-label="anchor" href="#example-feelings-toward-donald-trump-and-party-identification"><i class="fas fa-link"></i></a>
 </h4>
 <p>How are attitudes about Donald Trump related to party id? Following the approach used in earlier chapters, the link between the Donald Trump feeling thermometer and and party identification is summarized in a line chart of group means. You can see that, on average, Strong Republicans love Donald Trump while Strong Democrats do not.</p>
 <strong>Figure <a href="regression.html#fig:figure64">6.4</a></strong>
@@ -187,7 +214,7 @@ Donald Trump feeling thermometer, as a function of party identification
 <p><span class="math display">\[60/6 = 10\]</span></p>
 <p>Review and make sure you understand the calculation in this example.</p>
 <p>Part of the regression output for this model is reproduced as Table 1. We will first focus on the <em>coefficients</em> - the column of numbers next to the variable labels.</p>
-<p><strong>Table <a href="#tab:model1">6.1</a></strong>Donald Trump Trump feeling thermometer as a function of party id.<span style="color: white;">(#tab:model1)</span></p>
+<p><strong>Table <a href="#tab:model1">6.1</a></strong> Donald Trump Trump feeling thermometer as a function of party id.<span style="color: white;">(#tab:model1)</span></p>
 <pre><code>
 ======================================================
                      Feeling Thermometer, Donald Trump
@@ -209,11 +236,12 @@ Adjusted R2                        0.596
 <p>Notice that the significance level associated with the coefficient is below 0.05 (p=0.000). This relationship is statistically significant. We can be confident that, in the population, strong Republicans have much higher average feeling thermometer responses than strong Democrats.</p>
 </div>
 <div id="example-party-id-and-income-1" class="section level3 unnumbered">
-<h3>Example: Party id and income<a class="anchor" aria-label="anchor" href="#example-party-id-and-income-1"><i class="fas fa-link"></i></a>
+<h3>
+<strong>Example: Party id and income</strong><a class="anchor" aria-label="anchor" href="#example-party-id-and-income-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>In Chapter 1 we looked at the link between income and party identification, expecting that high income voters are more likely to identify with the Republican party than with the Democratic party. If Y is party id from 1 to 7 with “7” designating strong Republicans and X is income (on a scale from “1” designating $5,000 or lower household income and “22” designating $250,000 more), then <span class="math inline">\(\beta_1\)</span> should be positive.</p>
 <p>The output from a linear regression testing the link between party id and income is reproduced as Table 2.</p>
-<p><strong>Table <a href="#tab:model2">6.2</a></strong>Party identification as a function of income.<span style="color: white;">(#tab:model2)</span></p>
+<p><strong>Table <a href="#tab:model2">6.2</a></strong> Party identification as a function of income.<span style="color: white;">(#tab:model2)</span></p>
 <pre><code>
 ================================
             Party identification
@@ -384,7 +412,7 @@ Adjusted R2               0.045
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="measures-of-association-chi-square.html"><span class="header-section-number">5</span> Measures of association: Chi-square</a></div>
+<div class="prev"><a href="measures-of-association-chi-square.html"><span class="header-section-number">5</span> Measures of association: chi-square</a></div>
 <div class="next"><a href="statistical-models-with-many-predictors.html"><span class="header-section-number">7</span> Statistical models with many predictors</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
@@ -447,7 +475,7 @@ Adjusted R2               0.045
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -7,17 +7,43 @@
 <title>7 Statistical models with many predictors | Applied Statistics for Political Science</title>
 <meta name="author" content="J.K. Corder">
 <meta name="description" content="This chapter introduces the statistical model that is most commonly used in the social sciences and the building block for more complex models that have emerged to confront specific research...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
 <meta property="og:title" content="7 Statistical models with many predictors | Applied Statistics for Political Science">
 <meta property="og:type" content="book">
 <meta property="og:description" content="This chapter introduces the statistical model that is most commonly used in the social sciences and the building block for more complex models that have emerged to confront specific research...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="7 Statistical models with many predictors | Applied Statistics for Political Science">
 <meta name="twitter:description" content="This chapter introduces the statistical model that is most commonly used in the social sciences and the building block for more complex models that have emerged to confront specific research...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -44,7 +70,7 @@
 <li><a class="" href="descriptive-statistics.html"><span class="header-section-number">2</span> Descriptive statistics</a></li>
 <li><a class="" href="an-introduction-to-measures-of-association-correlation.html"><span class="header-section-number">3</span> An introduction to measures of association: correlation</a></li>
 <li><a class="" href="measures-of-association-t-test.html"><span class="header-section-number">4</span> Measures of association: t-test</a></li>
-<li><a class="" href="measures-of-association-chi-square.html"><span class="header-section-number">5</span> Measures of association: Chi-square</a></li>
+<li><a class="" href="measures-of-association-chi-square.html"><span class="header-section-number">5</span> Measures of association: chi-square</a></li>
 <li><a class="" href="regression.html"><span class="header-section-number">6</span> Regression</a></li>
 <li><a class="active" href="statistical-models-with-many-predictors.html"><span class="header-section-number">7</span> Statistical models with many predictors</a></li>
 <li><a class="" href="references.html">References</a></li>
@@ -79,10 +105,10 @@
 <h3>
 <span class="header-section-number">7.1.1</span> Red state, Blue state: cross tabulation with a control variable<a class="anchor" aria-label="anchor" href="#red-state-blue-state-cross-tabulation-with-a-control-variable"><i class="fas fa-link"></i></a>
 </h3>
-<p>Observers of American politics claim that the South is politically distinctive (100 % “Red State”). We associate Red states with what? Republican voting, support for the military, guns, Christian values, maybe even NASCAR and country music. We associate Blue states with Democratic voting, urban living, Volvos, latte and book clubs. While the stereotypes are fun, are Red states really that different? The 2004 election should be very good test of this question – George Bush – from Texas – was running for re-election against John Kerry, a northerner, a liberal, and career politician and diplomat. Kerry was portrayed as elitist, affected and out-of-touch. So what happened to Kerry in the South? Was the proportion of the electorate supporting Bush in 2004 really that different between Southern and other states? The South is all red, the rest of the country a mixture of red and blue – so did the South deliver votes for Bush? Table 2 reports each candidate’s percentage of the two-party vote [anes2004].</p>
-<div id="table-1.-support-for-george-bush-percentage-of-the-two-party-vote-by-region-2004." class="section level4" number="7.1.1.1">
+<p>Observers of American politics claim that the South is politically distinctive (100 % “Red State”). We associate Red states with what? Republican voting, support for the military, guns, Christian values, maybe even NASCAR and country music. We associate Blue states with Democratic voting, urban living, Volvos, latte and book clubs. While the stereotypes are fun, are Red states really that different? The 2004 election should be very good test of this question – George Bush – from Texas – was running for re-election against John Kerry, a northerner, a liberal, and career politician and diplomat. Kerry was portrayed as elitist, affected and out-of-touch. So what happened to Kerry in the South? Was the proportion of the electorate supporting Bush in 2004 really that different between Southern and other states? The South is all red, the rest of the country a mixture of red and blue – so did the South deliver votes for Bush? Table 2 reports each candidate’s percentage of the two-party vote <span class="citation">(<a href="references.html#ref-anes2004">U. of M. American National Election Studies [ANES] 2005</a>)</span>.</p>
+<div id="table-7.1-support-for-george-bush-percentage-of-the-two-party-vote-by-region-2004" class="section level4 unnumbered">
 <h4>
-<span class="header-section-number">7.1.1.1</span> Table 1. Support for George Bush, percentage of the two-party vote, by region, 2004.<a class="anchor" aria-label="anchor" href="#table-1.-support-for-george-bush-percentage-of-the-two-party-vote-by-region-2004."><i class="fas fa-link"></i></a>
+<strong>Table 7.1 Support for George Bush, percentage of the two-party vote, by region, 2004</strong><a class="anchor" aria-label="anchor" href="#table-7.1-support-for-george-bush-percentage-of-the-two-party-vote-by-region-2004"><i class="fas fa-link"></i></a>
 </h4>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
@@ -104,9 +130,9 @@
 <p>Perhaps we should consider other factors that could be distorting the relationship - what demographic feature of the South distinguishes the South from the rest of the US? One is race – the South has a higher proportion of African-Americans than the rest of the US and a couple of big states with large Latinx population (Texas and Florida). In the 2004 ANES sample, 40 percent of Southerns were racial and ethnic minorities, compared to only 20 percent outside of the South. This is somewhat puzzling to outside observers of American politics – the region of the country that is arguably the most ethnically and racially diverse is expected to be more Republican?</p>
 <p>In any case, this question requires a controlled comparison – we know that the South is more diverse, we know or think that a diverse electorate is going to be more Democratic – so we need to control for race in order to clarify the link between region and vote. Table 2 reports the controlled comparison – summarizing the link between region and vote for White respondents compared to respondents with any other ethnic or racial identity.</p>
 </div>
-<div id="table-2.-bush-and-kerry-vote-in-the-south-and-outside-of-the-south-by-race-anes-2004." class="section level4" number="7.1.1.2">
+<div id="table-7.2-bush-and-kerry-vote-in-the-south-and-outside-of-the-south-by-race-anes-2004" class="section level4 unnumbered">
 <h4>
-<span class="header-section-number">7.1.1.2</span> Table 2. Bush and Kerry vote in the South and outside of the South, by race, ANES 2004.<a class="anchor" aria-label="anchor" href="#table-2.-bush-and-kerry-vote-in-the-south-and-outside-of-the-south-by-race-anes-2004."><i class="fas fa-link"></i></a>
+<strong>Table 7.2 Bush and Kerry vote in the South and outside of the South, by race, ANES 2004</strong><a class="anchor" aria-label="anchor" href="#table-7.2-bush-and-kerry-vote-in-the-south-and-outside-of-the-south-by-race-anes-2004"><i class="fas fa-link"></i></a>
 </h4>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
@@ -145,18 +171,18 @@
 <span class="header-section-number">7.1.2</span> Turnout, income and education: bar charts with a control variable<a class="anchor" aria-label="anchor" href="#turnout-income-and-education-bar-charts-with-a-control-variable"><i class="fas fa-link"></i></a>
 </h3>
 <p>We know that wealthy respondents are more likely to turnout in elections. This could be the case since higher income families are more likely to have access to transportation, a job that permits time off, and may perceive more at stake in an election. But we also know that highly educated people are more likely to turn out to vote – perhaps for reasons unrelated to income – highly educated people have more information, so the costs of voting (acquiring information, making choices) are lower – and, again, perhaps perceive the stakes as higher (more incentive to vote). But education and income are intertwined – maybe the effect of income is just due to high income people having more education? We should test whether the link between income and turnout is spurious. Figure 1 summarizes self-reported turnout for people in the lower, middle, and upper 1/3 of the income distribution. The turnout numbers seem high for a couple of reasons – the ANES has a potential response bias that is a consequence of people who are interested in politics being more likely to participate in the survey and, on top of that, people know they are supposed to vote, so they may self-report a vote when they did not vote. In any case, the results are fairly clear – higher income is associated with higher self-reported voting.</p>
-<div id="figure-1.-household-income-and-self-reported-turnout-2020-anes." class="section level4" number="7.1.2.1">
+<div id="figure-7.1.-household-income-and-self-reported-turnout-2020-anes" class="section level4 unnumbered">
 <h4>
-<span class="header-section-number">7.1.2.1</span> Figure 1. Household income and self-reported turnout, 2020 ANES.<a class="anchor" aria-label="anchor" href="#figure-1.-household-income-and-self-reported-turnout-2020-anes."><i class="fas fa-link"></i></a>
+<strong>Figure 7.1. Household income and self-reported turnout, 2020 ANES</strong><a class="anchor" aria-label="anchor" href="#figure-7.1.-household-income-and-self-reported-turnout-2020-anes"><i class="fas fa-link"></i></a>
 </h4>
-<div class="inline-figure"><img src="07-models_files/figure-html/figure%201-1.png" width="672"></div>
+<div class="inline-figure"><img src="07-models_files/figure-html/figure71-1.png" width="672"></div>
 <p>Figure 2 breaks out the link between income and turnout across 3 levels of education – a controlled comparison. Now we can understand the link between turnout and income for people with the same (or at least similar) levels of education).</p>
 </div>
-<div id="figure-2.-household-and-inomce-and-self-reported-turnout-controlling-for-education-2020-anes." class="section level4" number="7.1.2.2">
+<div id="figure-7.2.-household-and-income-and-self-reported-turnout-controlling-for-education-2020-anes" class="section level4 unnumbered">
 <h4>
-<span class="header-section-number">7.1.2.2</span> Figure 2. Household and inomce and self-reported turnout, controlling for education, 2020 ANES.<a class="anchor" aria-label="anchor" href="#figure-2.-household-and-inomce-and-self-reported-turnout-controlling-for-education-2020-anes."><i class="fas fa-link"></i></a>
+<strong>Figure 7.2. Household and income and self-reported turnout, controlling for education, 2020 ANES</strong><a class="anchor" aria-label="anchor" href="#figure-7.2.-household-and-income-and-self-reported-turnout-controlling-for-education-2020-anes"><i class="fas fa-link"></i></a>
 </h4>
-<div class="inline-figure"><img src="07-models_files/figure-html/figure2-1.png" width="672"></div>
+<div class="inline-figure"><img src="07-models_files/figure-html/figure72-1.png" width="672"></div>
 <p>The data in the figure would lead us to conclude that there is an effect of income - a positive link – for every level of education. We can also see that education matters – in each case – each income group – the effect of more education is also positive. Although education and income are related, they both exert an independent effect on turnout – and the combined effects are large – low income, low education respondents are almost half as likely to vote as high education, high income – a reality that grossly distorts what we learn about citizen preferences from elections – we learn about the what voters want – not what everyone wants and the two things are very different since low income and low education voters are under-represented.</p>
 <p>This is a good example of additive effects – the introduction of controls highlights the fact that we need to pay attention to both education and income.</p>
 </div>
@@ -242,9 +268,9 @@
 <p>The link between how people feel about Donald Trump and party identification helped us understand correlation and regression. Below, we consider whether or not the Trump feeling thermometer is primarily driven by party id or ideology or both. We will also consider a broader model with several variables in order to see how we use the standardized coefficients.</p>
 <p>The single variable models predicting the Donald Trump feeling thermometer are reproduced as columnn one and column two in Table 3. The first column reports the link to party id – Strong Republicans (party id= 7) are about 82 pts lower on the feeling thermometer than Strong Democrats (party id = 1).</p>
 <p>The second column reports the same numbers for the link between the ideology and the thermometer. The coefficient indicates the effect of ideology is even more powerful, with feelings declining about 100 points - the full range of the thermometer - as we compare extreme liberals (ideology = 1) to extreme conservatives (ideology=7).</p>
-<div id="table-3.-two-bivariate-models-predicting-the-donald-trump-feeling-thermometer-using-party-and-ideology." class="section level4" number="7.4.0.1">
+<div id="table-7.3.-two-bivariate-models-predicting-the-donald-trump-feeling-thermometer-using-party-and-ideology" class="section level4 unnumbered">
 <h4>
-<span class="header-section-number">7.4.0.1</span> Table 3. Two bivariate models predicting the Donald Trump feeling thermometer, using party and ideology.<a class="anchor" aria-label="anchor" href="#table-3.-two-bivariate-models-predicting-the-donald-trump-feeling-thermometer-using-party-and-ideology."><i class="fas fa-link"></i></a>
+<strong>Table 7.3. Two bivariate models predicting the Donald Trump feeling thermometer, using party and ideology</strong><a class="anchor" aria-label="anchor" href="#table-7.3.-two-bivariate-models-predicting-the-donald-trump-feeling-thermometer-using-party-and-ideology"><i class="fas fa-link"></i></a>
 </h4>
 <p><br></p>
 <div class="inline-table"><table style="text-align:center" class="table table-sm">
@@ -398,9 +424,9 @@ Adjusted R<sup>2</sup>
 <p>Notice that the coefficient on party identification is lower than the coefficient for ideology, but the r-squared is higher for the model that uses party id. How can that be the case? Shouldn’t the large effect be associated with a higher r-squared? Yes, but, in this case, we know that there are many people who are at the ends of the party identification scale (1 or 7), while most people are in the middle of the scale for ideology (middle of the road), so the errors will be lower (better fit for 1 and 7) for party id. To settle any uncertainty about which variable matters more, we can test the link in a single multivariate model.</p>
 <p>Moreover, how can we be sure if either of these models are accurate? We know that party id and ideology are correlated - conservatives are likely to be Republican – so we know that full effects (the slopes above) and partial effects (in a multivariate model) will be different. By introducing both predictors in one model we can disentangle the effects of ideology and party id. This permits us to clarify, for instance, if an extremely liberal Strong Democrat would feel differently about Hillary Clinton than a middle of the road Strong Democrat. Or if a conservative Strong Republican would feel differently than a conservative Independent. The coefficients from a multivariate model with both party id and ideology appears below as Table 4. The first column reports the unstandardized coefficients and standardized coefficients are reported at the bottom of the table.</p>
 </div>
-<div id="table-4.-a-multvariate-model-predicing-the-donald-trump-feeling-thermometer-using-party-and-ideology-in-one-model." class="section level4" number="7.4.0.2">
+<div id="table-7.4.-a-multvariate-model-predicing-the-donald-trump-feeling-thermometer-using-party-and-ideology-in-one-model." class="section level4 unnumbered">
 <h4>
-<span class="header-section-number">7.4.0.2</span> Table 4. A multvariate model predicing the Donald Trump feeling thermometer, using party and ideology in one model.<a class="anchor" aria-label="anchor" href="#table-4.-a-multvariate-model-predicing-the-donald-trump-feeling-thermometer-using-party-and-ideology-in-one-model."><i class="fas fa-link"></i></a>
+<strong>Table 7.4. A multvariate model predicing the Donald Trump feeling thermometer, using party and ideology in one model.</strong><a class="anchor" aria-label="anchor" href="#table-7.4.-a-multvariate-model-predicing-the-donald-trump-feeling-thermometer-using-party-and-ideology-in-one-model."><i class="fas fa-link"></i></a>
 </h4>
 <p><br></p>
 <div class="inline-table"><table style="text-align:center" class="table table-sm">
@@ -532,9 +558,9 @@ Adjusted R<sup>2</sup>
 <p>So while this is an example of additive effects – both variables remain significant in the model – the multivariate models leads us to conclude that it is partisanship, not ideology, that is the most important predictor. The adjusted R<sup>2</sup> is informative here too - the model that best fits the data is in Table 4 - the two predictor model is better than either of the single predictor models in Table 3.</p>
 <p>We could use a similar strategy to evaluate a range of variables. The table below reports the coefficients from a complex model – party id, ideology, race, gender, age, education and income.</p>
 </div>
-<div id="table-5.-a-multvariate-model-predicing-the-donald-trump-feeling-thermometer-testing-several-potential-predictors." class="section level4" number="7.4.0.3">
+<div id="table-7.5.-a-multvariate-model-predicing-the-donald-trump-feeling-thermometer-testing-several-potential-predictors." class="section level4 unnumbered">
 <h4>
-<span class="header-section-number">7.4.0.3</span> Table 5. A multvariate model predicing the Donald Trump feeling thermometer, testing several potential predictors.<a class="anchor" aria-label="anchor" href="#table-5.-a-multvariate-model-predicing-the-donald-trump-feeling-thermometer-testing-several-potential-predictors."><i class="fas fa-link"></i></a>
+<strong>Table 7.5. A multvariate model predicing the Donald Trump feeling thermometer, testing several potential predictors.</strong><a class="anchor" aria-label="anchor" href="#table-7.5.-a-multvariate-model-predicing-the-donald-trump-feeling-thermometer-testing-several-potential-predictors."><i class="fas fa-link"></i></a>
 </h4>
 <div class="inline-table"><table style="text-align:center" class="table table-sm">
 <tr>
@@ -757,12 +783,12 @@ Adjusted R<sup>2</sup>
 </tr>
 <tr class="even">
 <td align="left">Minority</td>
-<td align="left">0.02</td>
+<td align="left">-0.05</td>
 </tr>
 </tbody>
 </table></div>
 <p>This type of table has a lot of information, but we can focus on a few numbers. First, which variables can we ignore as not statistically significant? You can see that the coefficient on income is not statistically significant - after controlling for other factors, income doesn’t matter.</p>
-<p>To figure out which of the significant variables are the best predictors, we can use the standadrized coefficients. The largest (in absolute value) is party identification, followed by ideology, then education, and, weakest, race and gender.</p>
+<p>To figure out which of the significant variables are the best predictors, we can use the standardized coefficients. The largest (in absolute value) is party identification, followed by ideology, then education, and, weakest, race and gender.</p>
 <p>So we could conclude that highly educated, liberal, Strong Democrats will dislike Donald Trump, while poorly educated, conservative Strong Republicans will like Donald Trump the most. Gender and race matter, but the effects are small - White respondents about 4 pts higher than others, and women about 2 pts higher than men. Notice the r-squared – nearly 64 percent of the variation in this attitude is explained by five variables. Review the table to be sure you understand how these conclusions follow from the numbers.</p>
 </div>
 <div id="the-key-thing-to-report-how-coefficients-change-when-you-introduce-controls" class="section level3" number="7.4.1">
@@ -844,7 +870,7 @@ Adjusted R<sup>2</sup>
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

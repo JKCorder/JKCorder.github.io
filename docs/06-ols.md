@@ -65,7 +65,7 @@ This calculation - the size of the change in Y given a particular change in X - 
 
 ### Graphing relationships between two variables {-}
 
-The relationship between two variables may be linear, or it could take some other form – U-shaped or a curve.  One way to understand the utility and use of the linear model is to produce a scatterplot of X and Y to see what it means to assume the relationship is linear.  The examples below draws on data published by @pollock2011 in an introductory text on social science statistics.  The dependent variable (Y) is the percentage of state legislators who are women and the independent or predictor variable (X) is the percentage of state population who are Christian – “adhere to a Christian faith.” 
+The relationship between two variables may be linear, or it could take some other form – U-shaped or a curve.  One way to understand the utility and use of the linear model is to produce a scatterplot of X and Y to see what it means to assume the relationship is linear.  The example below draws on data published by @pollock2011 in an introductory text on social science statistics.  The dependent variable (Y) is the percentage of state legislators who are women and the independent or predictor variable (X) is the percentage of state population who are Christian – “adhere to a Christian faith.” 
 
 A simple scatter plot of this data for the 50 U.S. states is reproduced as Figure 1, below.
 
@@ -80,7 +80,7 @@ Experiment with sketching the line in the figure above that you think best descr
  
 What is best way to draw a line that describes the relationship between X and Y?
 
-We are interested in the two parameters or numbers that describe the line that summarizes the relationship between X and Y – the slope and the intercept. What criteria should we use to pick one line over another?  Maybe the distance between points and the line (lowest average error)? Maybe the squared distance between the points and the line (lowest sum of squared errors)?  The second criteria – minimize squared error – is the approach we use. The actual regression line is added to the data in \@fig:figure62, below.
+We are interested in the two parameters or numbers that describe the line that summarizes the relationship between X and Y – the slope and the intercept. What criteria should we use to pick one line over another?  Maybe the distance between points and the line (lowest average error)? Maybe the squared distance between the points and the line (lowest sum of squared errors)?  The second criteria – minimize squared error – is the approach we use. The actual regression line is added to the data in \@(fig:figure62), below.
 
 **Figure \@ref(fig:figure62)**
 Scatterplot of women in the state legislature as a function of the proportion of state residents who are Christian. with OLS line
@@ -133,7 +133,7 @@ If p<0.05, then in the population $\beta_1$ is not equal to zero.  (Formally, yo
 
 To see how regression works in practice, we use two examples – the link between the the Donald Trump feeling thermometer and party id and the link between income and party identification (introduced in Chapter 1).
 
-#### Example: Feelings toward Donald Trump and  party identification {-}
+#### **Example: Feelings toward Donald Trump and  party identification** {-}
 
 
 
@@ -158,7 +158,7 @@ Review and make sure you understand the calculation in this example.
 
 Part of the regression output for this model is reproduced as Table 1.  We will first focus on the *coefficients* - the column of numbers next to the variable labels.
 
-**Table \@ref(tab:model1)**Donald Trump Trump feeling thermometer as a function of party id.<span style="color: white;">(\#tab:model1)</span> 
+**Table \@ref(tab:model1)** Donald Trump Trump feeling thermometer as a function of party id.<span style="color: white;">(\#tab:model1)</span> 
 
 
 ```
@@ -189,13 +189,13 @@ $$(X_{max}-X_{min}) * \beta_1$$
 
 Notice that the significance level associated with the coefficient is below 0.05 (p=0.000).  This relationship is statistically significant.  We can be confident that, in the population, strong Republicans have much higher average feeling thermometer responses than strong Democrats.
 
-### Example: Party id and income {-}
+### **Example: Party id and income** {-}
 
 In Chapter 1 we looked at the link between income and party identification, expecting that high income voters are more likely to identify with the Republican party than with the Democratic party.  If Y is party id from 1 to 7 with “7” designating strong Republicans and X is income (on a scale from “1” designating $5,000 or lower household income and “22” designating $250,000 more), then $\beta_1$ should be positive.
 
 The output from a linear regression testing the link between party id and income is reproduced as Table 2.
 
-**Table \@ref(tab:model2)**Party identification as a function of income.<span style="color: white;">(\#tab:model2)</span> 
+**Table \@ref(tab:model2)** Party identification as a function of income.<span style="color: white;">(\#tab:model2)</span> 
 
 ```
 

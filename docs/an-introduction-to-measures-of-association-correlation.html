@@ -7,17 +7,43 @@
 <title>3 An introduction to measures of association: correlation | Applied Statistics for Political Science</title>
 <meta name="author" content="J.K. Corder">
 <meta name="description" content="Many research questions in many different disciplines focus on the answer to one simple question: If you compare members of two groups, how does the mean of some variable of interest differ? In...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
 <meta property="og:title" content="3 An introduction to measures of association: correlation | Applied Statistics for Political Science">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Many research questions in many different disciplines focus on the answer to one simple question: If you compare members of two groups, how does the mean of some variable of interest differ? In...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3 An introduction to measures of association: correlation | Applied Statistics for Political Science">
 <meta name="twitter:description" content="Many research questions in many different disciplines focus on the answer to one simple question: If you compare members of two groups, how does the mean of some variable of interest differ? In...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -44,7 +70,7 @@
 <li><a class="" href="descriptive-statistics.html"><span class="header-section-number">2</span> Descriptive statistics</a></li>
 <li><a class="active" href="an-introduction-to-measures-of-association-correlation.html"><span class="header-section-number">3</span> An introduction to measures of association: correlation</a></li>
 <li><a class="" href="measures-of-association-t-test.html"><span class="header-section-number">4</span> Measures of association: t-test</a></li>
-<li><a class="" href="measures-of-association-chi-square.html"><span class="header-section-number">5</span> Measures of association: Chi-square</a></li>
+<li><a class="" href="measures-of-association-chi-square.html"><span class="header-section-number">5</span> Measures of association: chi-square</a></li>
 <li><a class="" href="regression.html"><span class="header-section-number">6</span> Regression</a></li>
 <li><a class="" href="statistical-models-with-many-predictors.html"><span class="header-section-number">7</span> Statistical models with many predictors</a></li>
 <li><a class="" href="references.html">References</a></li>
@@ -69,22 +95,22 @@
 <span class="header-section-number">3.1</span> Experimental research in social science and public policy<a class="anchor" aria-label="anchor" href="#experimental-research-in-social-science-and-public-policy"><i class="fas fa-link"></i></a>
 </h2>
 <p>The social sciences – economics, sociology, political science – have historically relied more on observation and less on experiments. But there are at least two types of experimental designs that are fairly common in social science. Public policy can be evaluated by randomly assigning people to receive or not receive some service or program. And, survey research can randomly give one set of questions to one group and another set of questions to another group.</p>
-<p>One interesting set of work in the survey tradition asks respondents to evaluate a candidate’s suitability for office after reading a biographical sketch and viewing a picture. One group – selected at random – is shown a picture of a white candidate. The second group is shown a picture of a minority candidate. The <em>manipulation</em> - what is changed as the survey is repeated - is simply the picture. For example, <span class="citation">Terkildsen (<a href="references.html#ref-terkildsen1997" role="doc-biblioref">2014</a>)</span> surveyed white members of jury pools in Kentucky in 1991/2 and found that white candidates are viewed more favorably than minority candidates: this is obviously troubling - this is a jury!</p>
+<p>One interesting set of work in the survey tradition asks respondents to evaluate a candidate’s suitability for office after reading a biographical sketch and viewing a picture. One group – selected at random – is shown a picture of a white candidate. The second group is shown a picture of a minority candidate. The <em>manipulation</em> - what is changed as the survey is repeated - is simply the picture. For example, <span class="citation">Terkildsen (<a href="references.html#ref-terkildsen1997">2014</a>)</span> surveyed white members of jury pools in Kentucky in 1991/2 and found that white candidates are viewed more favorably than minority candidates: this is obviously troubling - this is a jury!</p>
 <p>The costs and complexity of this type of experiment are important to understand – two different surveys need to be administered to two groups taken completely at random from some potential pool. The Kentucky survey required cooperation and consent from the local authorities to gain access to the jury pool and all of the interviews were conducted face-to-face. You cannot rely on already completed surveys to go back and manipulate survey conditions or wording, so historical research of this type is not possible. Experimental research design also requires careful attention to survey wording and conditions and many political science researchers, for instance, don’t have extensive training in this design (compared to psychologists who have decades of experience with these types of experiments).</p>
-<p>Social science experiments also raise ethical questions: We cringe at the idea that a social scientist might manipulate the vote choice or other attitudes in the form an experiment. This problem emerged in a recent controversial experiment by two political scientists studying judicial elections in Montana <span class="citation">(<a href="references.html#ref-johnson2015" role="doc-biblioref">Johnson 2015</a>)</span>.</p>
+<p>Social science experiments also raise ethical questions: We cringe at the idea that a social scientist might manipulate the vote choice or other attitudes in the form an experiment. This problem emerged in a recent controversial experiment by two political scientists studying judicial elections in Montana <span class="citation">(<a href="references.html#ref-johnson2015">Johnson 2015</a>)</span>.</p>
 <p>Public policy experiments raise similar challenges. In order to test the effect of a program, some people need to get access and others must be denied access. This is similar to the ethical dilemma faced by medical researchers – the benefits to gaining information about the efficacy of a drug must outweigh the costs of delaying treatment of people randomly assigned to a control group. Can we undo the impact of denying access to a program that works? Administrative costs are also a factor. In order to test a new program, agencies might need to simultaneously administer two programs – the original and the new program – to see what happens over the course of a year or more. This is expensive.</p>
-<p>But the benefits of experimental approaches can be large: what if we had access to good data about exactly which government programs worked and with what effect. We could make better decisions about the allocation of resources. This insight is behind a recent collection of essays published as <em>Moneyball for Government</em> <span class="citation">(<a href="references.html#ref-nussle" role="doc-biblioref">Nussle and Orzag 2014</a>)</span>. Any program that has high levels of demand and low levels of available services is a candidate for an experiment. One randomly selected group of applicants – to a charter school or for a particular drug treatment program or repeat offender intervention – can receive the treatment. The remainder of the applicants can be wait-listed for one year. After one year, is the treatment group better off? In medicine, this experimental design is being advocated not just as a way to evaluate new drugs, but for all sorts of innovations in medical practice (see <span class="citation">Sanger-Katz (<a href="references.html#ref-sangerkatz2014" role="doc-biblioref">2014</a>)</span> for an overview of this controversy).</p>
+<p>But the benefits of experimental approaches can be large: what if we had access to good data about exactly which government programs worked and with what effect. We could make better decisions about the allocation of resources. This insight is behind a recent collection of essays published as <em>Moneyball for Government</em> <span class="citation">(<a href="references.html#ref-nussle">Nussle and Orzag 2014</a>)</span>. Any program that has high levels of demand and low levels of available services is a candidate for an experiment. One randomly selected group of applicants – to a charter school or for a particular drug treatment program or repeat offender intervention – can receive the treatment. The remainder of the applicants can be wait-listed for one year. After one year, is the treatment group better off? In medicine, this experimental design is being advocated not just as a way to evaluate new drugs, but for all sorts of innovations in medical practice (see <span class="citation">Sanger-Katz (<a href="references.html#ref-sangerkatz2014">2014</a>)</span> for an overview of this controversy).</p>
 <div id="an-example-job-training-and-partnership-act-jtpa-programs" class="section level3" number="3.1.1">
 <h3>
 <span class="header-section-number">3.1.1</span> An example: Job Training and Partnership Act (JTPA) programs<a class="anchor" aria-label="anchor" href="#an-example-job-training-and-partnership-act-jtpa-programs"><i class="fas fa-link"></i></a>
 </h3>
-<p>An early and compelling example of this type of research involved an evaluation of Job Training and Partnership Act (JTPA) programs in the late 1980s. The JTPA programs offered classroom training, on-the-job training, or job search assistance to people who are out of work. In September, 1987: two-thirds of the eligible population who applied to the program were directed to services, one-third were deferred for 18 months. Do training and services offered to the unemployed increase earnings? The results are summarized in the two figures below.</p>
+<p>An early and compelling example of this type of research involved an evaluation of Job Training and Partnership Act (JTPA) programs in the late 1980s. The JTPA programs offered classroom training, on-the-job training, or job search assistance to people who are out of work. In September, 1987, two-thirds of the eligible population who applied to the program were directed to services, one-third were deferred for 18 months. Do training and services offered to the unemployed increase earnings? The results are summarized in the two figures below.</p>
 <p>Figure 3.1 <strong>Estimated effects of JTPA programs on earnings</strong></p>
 <p>Women 21 and over</p>
 <div class="inline-figure"><img src="images/bloom19971a.png" width="80%"></div>
 <p>Women 18-20</p>
 <div class="inline-figure"><img src="images/bloom19972a.png" width="80%"></div>
-<p>Reproduced from <span class="citation">Bloom (<a href="references.html#ref-bloom1997" role="doc-biblioref">1997</a>)</span>. “The Benefits and Costs of JTPA Title II-A Programs….”</p>
+<p>Reproduced from <span class="citation">Bloom (<a href="references.html#ref-bloom1997">1997</a>)</span>. “The Benefits and Costs of JTPA Title II-A Programs….”</p>
 <p>The results are remarkable. The benefits of the program for adult women were large: they had persistent positive differences in earnings. Women who got the service earned more money (and paid more taxes!) in the long run. The program worked. But the benefits were not observed for younger women – these services did not work. A sensible response to this evaluation would be to design different services for younger women and enroll as many adult women as possible in order to produce long-term earnings gains for as many unemployed older women as possible.</p>
 </div>
 </div>
@@ -102,7 +128,7 @@
 <h4>Example: party id and income<a class="anchor" aria-label="anchor" href="#example-party-id-and-income"><i class="fas fa-link"></i></a>
 </h4>
 <p>How would you expect the distribution of party id to change across income groups? Building on the income and vote example from Chapter 1, what should we observe for low income respondents? What should we observe for high income respondents?</p>
-<p>One way to answer this question empirically is to create a cross-tab of income and party id using the ANES. For this example, I created a measure of household income divides respondents into three categories - low income, middle income, an high income The table is reproduced as Table 3.1, below</p>
+<p>One way to answer this question empirically is to create a cross-tab of income and party id using the ANES. For this example, I created a measure of household income divides respondents into three categories - low income, middle income, and high income The table is reproduced as Table 3.1, below</p>
 <p>Table 3.1 <strong>Party identification and income, 2020 ANES</strong></p>
 <div class="inline-table"><table style="width:100%;" class="table table-sm">
 <colgroup>
@@ -180,7 +206,7 @@
 <p>Figure 3.2 <strong>Scatterplot. Donald Trump feeling thermometer and party id</strong></p>
 <div class="inline-figure"><img src="03-corr_files/figure-html/figure2-1.png" width="672"></div>
 <p>The first figure – the scatterplot – is obviously not very useful. Since there are 5,000 respondents and 700 cells, at least one person occupies most cells on the table. You just end with a grid. This will be the case with any survey with a finite or small number of possible responses and many participants.</p>
-<p>The second and third figures, below, make things very clear. There is a steep decrease in positive feelings as you move from strong Democrat to strong Republican. The third figure appears more dramatic since the Y-axis excludes 0 and 100, so the effect is steeper. Notice that, as you might have expected, the Independent-leaners are actually strong partisans in their attitudes.</p>
+<p>The second and third figures, below, make things very clear. There is a steep increase in positive feelings as you move from strong Democrat to strong Republican. Notice that, as you might have expected, the Independent-leaners are actually strong partisans in their attitudes.</p>
 <p>Figure 3.3 <strong>Bar chart of group means. Donald Trump feeling thermometer and party id.</strong></p>
 <div class="inline-figure"><img src="03-corr_files/figure-html/figure3-1.png" width="672"></div>
 <p>Figure 3.4. <strong>Line chart. Donald Trump feeling thermometer and party id</strong>
@@ -212,7 +238,11 @@
 <span class="header-section-number">3.4</span> What are measures of association?<a class="anchor" aria-label="anchor" href="#what-are-measures-of-association"><i class="fas fa-link"></i></a>
 </h2>
 <p>If we do have a random sample from a broader population, we can use measures of association to describe relationships between variables. In the lexicon of data science, the variable we are primarily interested in known as the dependent variable (<span class="math inline">\(Y\)</span>) and the predictor variable is known as the independent variable (<span class="math inline">\(X\)</span>). We assume (expect) that <span class="math inline">\(X\)</span> influences <span class="math inline">\(Y\)</span> or <span class="math inline">\(Y\)</span> is a function of <span class="math inline">\(X\)</span>.</p>
-<p>We use measures of association to answer three questions: What is the direction of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Does an increase in <span class="math inline">\(X\)</span> increase (+) Y or decrease (-) <span class="math inline">\(Y\)</span>? What is the size of the effect? Does <span class="math inline">\(X\)</span> have a big impact on <span class="math inline">\(Y\)</span> or small? Could the observed effect be due to chance? Or is the effect statistically significant? We will focus on size and direction as we learn about correlation and turn to the concept of statistical significance in Chapter 5.</p>
+<p>We use measures of association to answer three questions: What is the direction of the relationship? What is the size of the effect? Is the effect in the sample statistically significant?</p>
+<p>Direction. What is the direction of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Does an increase in <span class="math inline">\(X\)</span> increase (+) Y or decrease (-) <span class="math inline">\(Y\)</span>?</p>
+<p>Size. What is the size of the effect? Does <span class="math inline">\(X\)</span> have a big impact on <span class="math inline">\(Y\)</span> or small?</p>
+<p>Statistical significance. Could the observed effect be due to chance? Or is the effect statistically significant?</p>
+<p>We will focus on size and direction as we learn about correlation and turn to the concept of statistical significance in Chapter 5.</p>
 <p>Recall the discussion of types of variables in earlier chapters. We distinguish between categorical variables (respondents are grouped into categories that cannot be ranked – region, religion, marital status), ordinal variables (respondents are grouped into categories that can be ranked (party id, ideology) or interval variables (Respondents are grouped into categories that can be ranked on a scale with equal intervals between units – like age or years of education).</p>
 <p>For this course, we look at three different measures of association: chi-square, correlation, and the t-test. The choice of which measure of association to use is determined by the types of variables you are using.</p>
 <ul>
@@ -233,7 +263,7 @@ We might produce a figure to communicate what we have learned to a client or col
 <span class="header-section-number">3.5.1</span> What is correlation?<a class="anchor" aria-label="anchor" href="#what-is-correlation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Correlation is a measure of association appropriate for interval level variables (and can be applied to ordinal variables that are “approximately interval” e.g. party id or ideology). The test statistic ranges from -1 to +1 and gives you a one-number summary of the direction and size of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
-<p>If two variables have a correlation of +1 or -1, then they are perfectly correlated. If correlation is greater than 0, then the variables are described as positively related or directly related. If correlation is less than 0, then the variables are described as negatively related or inversely related. As the correlation moves away from zero (closer to +1 or -1), the stronger the link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. A correlation of zero is a null relationship. Negative does not mean null. Null is zero. To give you a sense how numbers translate into data, the figures below show hypothetical samples wth different levels of correlation.</p>
+<p>If two variables have a correlation of +1 or -1, then they are perfectly correlated. If correlation is greater than 0, then the variables are described as positively related or directly related. If correlation is less than 0, then the variables are described as negatively related or inversely related. As the correlation moves away from zero (closer to +1 or -1), the stronger the link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. A correlation of zero is a null relationship. Negative does not mean null. Null is zero. To give you a sense how numbers translate into data, the figures below show hypothetical samples with different levels of correlation.</p>
 <p>Figure 3.6 <strong>Positive, negative and null effects</strong>
 <img src="03-corr_files/figure-html/example-1.png" width="672"></p>
 <p>You can always describe your expectations using these numbers. For example, you would expect to observe that as the education level of a respondent increased, income would also increase. Income should be positively correlated with education. Maybe something in between what we observe above for 0.2 and 0.6?</p>
@@ -243,13 +273,13 @@ We might produce a figure to communicate what we have learned to a client or col
 <span class="header-section-number">3.5.2</span> Computation<a class="anchor" aria-label="anchor" href="#computation"><i class="fas fa-link"></i></a>
 </h3>
 <p>Computation of the correlation coefficient requires that we compute the covariance of two variables and the standard deviation of each variable.</p>
-<p>Recall that standard deviation <span class="math inline">\(\sigma\)</span>is simply the square root of the sample variance.</p>
+<p>Recall that standard deviation <span class="math inline">\(\sigma\)</span> is simply the square root of the sample variance.</p>
 <p><span class="math display">\[ \sigma_x = \sqrt{\frac{( \sum_{i=1}^n (X_i - \mu)^2}{n-1}}\]</span></p>
 <p>We compare every individual value of <span class="math inline">\(X\)</span> to the group mean. If many people are higher or lower than the mean, we see that the variance and standard deviation are high. If many people are close to or equal to the group mean, we see that the variance and the standard deviation are low.</p>
 <p>The building block for correlation is the covariance and it follows the same logic as the variance. We compare very individual of <span class="math inline">\(X\)</span> to the mean of <span class="math inline">\(X\)</span> and multiply that by same individual’s value of <span class="math inline">\(Y\)</span> minus the mean of <span class="math inline">\(Y\)</span>. If people who have high values of, for example, income also have high values of party id then that implies a positive covariance. If people who are low income are low on the party id scale that also implies a positive covariance.</p>
 <p>In symbols, the covariance is:</p>
 <p><span class="math display">\[
-cov(x,y)= \frac{\sum_{i=1}^n (X_i - \mu)^2 (Y_i - \mu)^2}{n-1}
+cov(X,Y)= \frac{\sum_{i=1}^n (X_i - \mu)^2 (Y_i - \mu)^2}{n-1}
 \]</span></p>
 <p>Once we know the covariance between the two variables and the standard deviation for each variable, we can calculate the correlation. The sample correlation coefficient (<span class="math inline">\(\rho\)</span>) is, in words, the covariance between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> divided by the standard deviation of <span class="math inline">\(X\)</span> and the standard deviation of <span class="math inline">\(Y\)</span>. In symbols:</p>
 <p><span class="math display">\[
@@ -257,11 +287,10 @@ cov(x,y)= \frac{\sum_{i=1}^n (X_i - \mu)^2 (Y_i - \mu)^2}{n-1}
 \]</span></p>
 <p>This number (the correlation) can never be large than 1.0 and never be smaller than -1.0. The farther the number is from zero, the larger the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</p>
 </div>
-<div id="limits-of-the-correlation-coefficient" class="section level3" number="3.5.3">
+<div id="three-important-limits-of-the-correlation-coefficient" class="section level3" number="3.5.3">
 <h3>
-<span class="header-section-number">3.5.3</span> Limits of the correlation coefficient<a class="anchor" aria-label="anchor" href="#limits-of-the-correlation-coefficient"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.5.3</span> Three important limits of the correlation coefficient<a class="anchor" aria-label="anchor" href="#three-important-limits-of-the-correlation-coefficient"><i class="fas fa-link"></i></a>
 </h3>
-<p>Three important cautions about correlation.</p>
 <div id="correlation-is-most-useful-as-a-relative-measure" class="section level4 unnumbered">
 <h4>Correlation is most useful as a relative measure<a class="anchor" aria-label="anchor" href="#correlation-is-most-useful-as-a-relative-measure"><i class="fas fa-link"></i></a>
 </h4>
@@ -271,23 +300,23 @@ cov(x,y)= \frac{\sum_{i=1}^n (X_i - \mu)^2 (Y_i - \mu)^2}{n-1}
 <h4>Correlation assumes a linear relationship<a class="anchor" aria-label="anchor" href="#correlation-assumes-a-linear-relationship"><i class="fas fa-link"></i></a>
 </h4>
 <p>Second, statements about correlation also assume that the relationship between two variables is linear (or approximately linear). Nonlinear relationships may not be reflected in correlation.</p>
-<p>For instance, we could not test the link between party id and attention to politics with a correlation coefficient. This would not work since strong Republicans and strong Democrats are both likely to pay attention to campaigns, while Independents are not likely to pay attention – the relationship between party id and attention is U-shaped or nonlinear.</p>
+<p>For instance, we could not test the link between party id and attention to politics with a correlation coefficient. This would not work since strong Republicans and strong Democrats are both likely to pay attention to campaigns, while Independents are not likely to pay attention – the relationship between party id and attention is U-shaped or nonlinear. The link between partissanship and interest in politics in 2020 is summarized in Figure 3.5.</p>
 <p>Figure 3.5. <strong>Example of a U-shaped relationship. Partisanship and interest in politics</strong></p>
 <div class="inline-figure"><img src="03-corr_files/figure-html/figure7-1.png" width="672"></div>
-<p>Notice, again, that leaners are more likely strong partisans - very interested in politics compared to weak partisans. The interest scale goes from 1 to 4 and 3.0 indicates that someone follows politics “Fairly closely.” The blue span is the best-fitting curve.</p>
+<p>Notice, again, that leaners are more like strong partisans - very interested in politics compared to weak partisans. The interest scale goes from 1 to 4 and 3.0 indicates that someone follows politics “Fairly closely.” The blue span is the best-fitting curve.</p>
 </div>
 <div id="correlation-doesnt-work-for-arbitrary-categories" class="section level4 unnumbered">
 <h4>Correlation doesn’t work for arbitrary categories<a class="anchor" aria-label="anchor" href="#correlation-doesnt-work-for-arbitrary-categories"><i class="fas fa-link"></i></a>
 </h4>
 <p>Finally, never use correlation if variables are not scales. Recall that we have access to a number of variables that are simply categories- race, religion, and region. We use a number to place people in categories. For the 2020 ANES religion variable, 1=mainline Protestant and 4=Roman Catholic. The numbers are meaningless in the sense that Catholics are not 4 times more anything than Protestants and we could just as easily used 1=Roman Catholic or 3=Roman Catholic.</p>
-<p>Any time the order of the categories is arbitrary (race, marital status, employment status, region, religion), you should not use correlation since it will be misleading and uninformative. You will see an example of this on the final exam and you should be able to report that the correlation is meaningless. Almost everyone gets this question wrong on the exam!</p>
+<p>Any time the order of the categories is arbitrary (race, marital status, employment status, region, religion), you should not use correlation since it will be misleading.</p>
 </div>
 </div>
 <div id="reading-a-correlation-matrix" class="section level3" number="3.5.4">
 <h3>
 <span class="header-section-number">3.5.4</span> Reading a correlation matrix<a class="anchor" aria-label="anchor" href="#reading-a-correlation-matrix"><i class="fas fa-link"></i></a>
 </h3>
-<p>Most statistical software produces correlations in the form of a matrix. Table 3.2 reproduces output that summarizes the link between education and income. We just need to focus one number for now the Pearson correlation at the top right corner.</p>
+<p>Most statistical software produces correlations in the form of a matrix. Table 3.2 reproduces output that summarizes the link between education and income. We just need to focus one number for now, the Pearson correlation at the top right corner.</p>
 <p>Table 3.2 <strong>Correlation between education and income</strong></p>
 <pre><code>          income education
 income     1.000     0.369
@@ -300,7 +329,7 @@ ideology     1.000   0.735 -0.005    -0.141
 partyid      0.735   1.000  0.033    -0.112
 income      -0.005   0.033  1.000     0.350
 education   -0.141  -0.112  0.350     1.000</code></pre>
-<p>This output is in the form of a correlation matrix – so you can see all three correlations – party vs. ideology, education vs. ideology, and income vs. ideology in one table. In this sample, the correlation between ideology and income is very close to zero (-0.005) – there is no relationship. The link between education and ideology is a bit stronger and negative (-0.141) – more education means a slightly lower ideology or more liberal. It would be safe to conclude that poorly educated respondents are the most conservative and highly educated are the most liberal. But party id is clearly the best predictor (0.735 - the fartherst of any of the correlations from zero). We can also see that education and income are more closely related to each other (0.350) than either are to ideology. The number in this table is slightly different than immediately above since a few observations were missing - meaning that a few respondents did not answer the ideology question.</p>
+<p>This output is in the form of a correlation matrix – so you can see all three correlations – party vs. ideology, education vs. ideology, and income vs. ideology in one table. In this sample, the correlation between ideology and income is very close to zero (-0.005) – there is no relationship. The link between education and ideology is a bit stronger and negative (-0.141) – more education means a slightly lower ideology or more liberal. It would be safe to conclude that poorly educated respondents are the most conservative and highly educated are the most liberal. But party id is clearly the best predictor (0.735 - the farthest of any of the correlations from zero). We can also see that education and income are more closely related to each other (0.350) than either are to ideology. The number in this table is slightly different than immediately above since a few observations were missing - meaning that a few respondents did not answer the ideology question.</p>
 </div>
 </div>
 <div id="conclusion" class="section level2" number="3.6">
@@ -334,7 +363,7 @@ education   -0.141  -0.112  0.350     1.000</code></pre>
 <a class="nav-link" href="#correlation"><span class="header-section-number">3.5</span> Correlation</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#what-is-correlation"><span class="header-section-number">3.5.1</span> What is correlation?</a></li>
 <li><a class="nav-link" href="#computation"><span class="header-section-number">3.5.2</span> Computation</a></li>
-<li><a class="nav-link" href="#limits-of-the-correlation-coefficient"><span class="header-section-number">3.5.3</span> Limits of the correlation coefficient</a></li>
+<li><a class="nav-link" href="#three-important-limits-of-the-correlation-coefficient"><span class="header-section-number">3.5.3</span> Three important limits of the correlation coefficient</a></li>
 <li><a class="nav-link" href="#reading-a-correlation-matrix"><span class="header-section-number">3.5.4</span> Reading a correlation matrix</a></li>
 </ul>
 </li>
@@ -369,7 +398,7 @@ education   -0.141  -0.112  0.350     1.000</code></pre>
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

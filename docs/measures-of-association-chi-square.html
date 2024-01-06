@@ -4,20 +4,46 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>5 Measures of association: Chi-square | Applied Statistics for Political Science</title>
+<title>5 Measures of association: chi-square | Applied Statistics for Political Science</title>
 <meta name="author" content="J.K. Corder">
-<meta name="description" content="The Chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="5 Measures of association: Chi-square | Applied Statistics for Political Science">
+<meta name="description" content="The chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="5 Measures of association: chi-square | Applied Statistics for Political Science">
 <meta property="og:type" content="book">
-<meta property="og:description" content="The Chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship...">
+<meta property="og:description" content="The chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="5 Measures of association: Chi-square | Applied Statistics for Political Science">
-<meta name="twitter:description" content="The Chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:title" content="5 Measures of association: chi-square | Applied Statistics for Political Science">
+<meta name="twitter:description" content="The chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -44,7 +70,7 @@
 <li><a class="" href="descriptive-statistics.html"><span class="header-section-number">2</span> Descriptive statistics</a></li>
 <li><a class="" href="an-introduction-to-measures-of-association-correlation.html"><span class="header-section-number">3</span> An introduction to measures of association: correlation</a></li>
 <li><a class="" href="measures-of-association-t-test.html"><span class="header-section-number">4</span> Measures of association: t-test</a></li>
-<li><a class="active" href="measures-of-association-chi-square.html"><span class="header-section-number">5</span> Measures of association: Chi-square</a></li>
+<li><a class="active" href="measures-of-association-chi-square.html"><span class="header-section-number">5</span> Measures of association: chi-square</a></li>
 <li><a class="" href="regression.html"><span class="header-section-number">6</span> Regression</a></li>
 <li><a class="" href="statistical-models-with-many-predictors.html"><span class="header-section-number">7</span> Statistical models with many predictors</a></li>
 <li><a class="" href="references.html">References</a></li>
@@ -58,10 +84,10 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="measures-of-association-chi-square" class="section level1" number="5">
 <h1>
-<span class="header-section-number">5</span> Measures of association: Chi-square<a class="anchor" aria-label="anchor" href="#measures-of-association-chi-square"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5</span> Measures of association: chi-square<a class="anchor" aria-label="anchor" href="#measures-of-association-chi-square"><i class="fas fa-link"></i></a>
 </h1>
-<p>The Chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship and whether the effect on Y is large or small and you can use a measure of association - the chi-square - to make an inference about the population from the sample data.</p>
-<p>In this chapter we will use an example – the link between gender and ideology self-placement - to introduce the Chi-square – how the statistic is calculated, what it means, and how you can use the test statistic to evaluate what you find in a sample. We also cover hypothesis testing and Type I and Type II errors.</p>
+<p>The chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship and whether the effect on Y is large or small and you can use a measure of association - the chi-square - to make an inference about the population from the sample data.</p>
+<p>In this chapter we will use an example – the link between gender and ideology self-placement - to introduce the chi-square – how the statistic is calculated, what it means, and how you can use the test statistic to evaluate what you find in a sample. We also cover hypothesis testing and Type I and Type II errors.</p>
 <div id="what-is-the-distribution-of-ideology-today" class="section level2" number="5.1">
 <h2>
 <span class="header-section-number">5.1</span> What is the distribution of ideology today?<a class="anchor" aria-label="anchor" href="#what-is-the-distribution-of-ideology-today"><i class="fas fa-link"></i></a>
@@ -106,7 +132,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>We have learned that a larger proportion of Americans are strong partisans, but despite that partisan identity, most voters pick “middle of the road” to describe their ideology. Figure 5.1 reports the proportion selecting “middle of the road’ in each ANES sample from 1972 thru 2016 <span class="citation">American National Election Studies [ANES] (<a href="references.html#ref-anesguide" role="doc-biblioref">2021b</a>)</span>. The middle of the road is obviously the mode but there are two other responses - liberal and conservative - that now make up over 1/3 of the electorate - so today there are more”ideologues” - a fair characterization? - than moderates.</p>
+<p>We have learned that a larger proportion of Americans are strong partisans, but despite that partisan identity, most voters pick “middle of the road” to describe their ideology. Figure 5.1 reports the proportion selecting “middle of the road’ in each ANES sample from 1972 thru 2016 <span class="citation">(<a href="references.html#ref-anesguide">S. U. American National Election Studies [ANES] University of Michigan 2021b</a>)</span>. The middle of the road is obviously the mode but there are two other responses - liberal and conservative - that now make up over 1/3 of the electorate - so today there are more”ideologues” - a fair characterization? - than moderates.</p>
 </div>
 <div id="figure-5.1.-middle-of-the-road-is-always-the-mode" class="section level3 unnumbered">
 <h3>Figure 5.1. Middle of the road is always the mode<a class="anchor" aria-label="anchor" href="#figure-5.1.-middle-of-the-road-is-always-the-mode"><i class="fas fa-link"></i></a>
@@ -119,7 +145,7 @@
 <span class="header-section-number">5.2</span> Should we expect differences between men and women?<a class="anchor" aria-label="anchor" href="#should-we-expect-differences-between-men-and-women"><i class="fas fa-link"></i></a>
 </h2>
 <p>Is there a link between gender and ideology? Are men or women more likely to self-identify as a conservative or liberal or middle of the road?</p>
-<p>Given what you see in Table 5.1, what would you expect to see if we compared men and women? There might be a couple of reasons that could lead you to the idea that women are more liberal. We know that women are more likely to identity as strong Democrats, so there might be reasons rooted in partisanship to find more female liberals. Women are more likely to be economically disadvantaged, heading single parent households, receiving less pay for the same work, so that also might lead to more liberal views, particularly attitudes toward social welfare. Some might also make a case based on psychological differences – if women are more nurturing and caring, then there could be fewer conservative women. To test the basic expectation – that women are more likely to self-place as liberal – we can produce a simple table and ask for the Chi-square test statistic.</p>
+<p>Given what you see in Table 5.1, what would you expect to see if we compared men and women? There might be a couple of reasons that could lead you to the idea that women are more liberal. We know that women are more likely to identity as strong Democrats, so there might be reasons rooted in partisanship to find more female liberals. Women are more likely to be economically disadvantaged, heading single parent households, receiving less pay for the same work, so that also might lead to more liberal views, particularly attitudes toward social welfare. Some might also make a case based on psychological differences – if women are more nurturing and caring, then there could be fewer conservative women. To test the basic expectation – that women are more likely to self-place as liberal – we can produce a simple table and ask for the chi-square test statistic.</p>
 <p>The data from the 2020 ANES is summarized below in Table 5.2. The test statistic is reported at the bottom ot the table.</p>
 <div id="table-5.2.-gender-and-ideology-percentages-2020-anes" class="section level3 unnumbered">
 <h3>Table 5.2. Gender and ideology, percentages, 2020 ANES<a class="anchor" aria-label="anchor" href="#table-5.2.-gender-and-ideology-percentages-2020-anes"><i class="fas fa-link"></i></a>
@@ -170,7 +196,7 @@
 </table></div>
 <pre><code>Chi-square = 55.49066 , p = 0.000 , df = 6</code></pre>
 <p>The table suggests that there are some differences in the distribution of ideology. While the most common response - or mode - for men and women is the same (“Middle of the road”) and the second most frequent response is also the same (“Conservative”), there are a higher proportion of women in each of the three liberal categories. So women are slightly more liberal than men. You can see that the p-value or significance level associated with this table is 0.000, so we know the result is statistically significant.</p>
-<p>The actual test statistic- the Chi-square -is computed by comparing the actual number of people in each cell of the table with the expected number of people in each cell. The expected number is the number we would see if the distribution of the groups was identical, the same as the entire sample. The observed and expected counts for the 2020 table are reproduced below. We expect to see more women than men in each cell since there are more women in the sample.</p>
+<p>The actual test statistic- the chi-square -is computed by comparing the actual number of people in each cell of the table with the expected number of people in each cell. The expected number is the number we would see if the distribution of the groups was identical, the same as the entire sample. The observed and expected counts for the 2020 table are reproduced below. We expect to see more women than men in each cell since there are more women in the sample.</p>
 </div>
 <div id="table-5.3.-gender-and-ideology-observed-counts-2020-anes" class="section level3 unnumbered">
 <h3>Table 5.3. Gender and ideology, observed counts, 2020 ANES<a class="anchor" aria-label="anchor" href="#table-5.3.-gender-and-ideology-observed-counts-2020-anes"><i class="fas fa-link"></i></a>
@@ -274,22 +300,22 @@
 <span class="header-section-number">5.3</span> Chi-square tests<a class="anchor" aria-label="anchor" href="#chi-square-tests"><i class="fas fa-link"></i></a>
 </h2>
 <div id="how-do-we-calculate-chi-square" class="section level3 unnumbered">
-<h3>How do we calculate Chi-square?<a class="anchor" aria-label="anchor" href="#how-do-we-calculate-chi-square"><i class="fas fa-link"></i></a>
+<h3>How do we calculate chi-square?<a class="anchor" aria-label="anchor" href="#how-do-we-calculate-chi-square"><i class="fas fa-link"></i></a>
 </h3>
-<p>The Chi-square test statistic (55.49, from Table 5.2) is computed by comparing expected and observed numbers in each cell of the table (14 cells in the example above – 7 columns for 2 groups). For instance, if the distribution of ideology was identical for men and women, we would expect 15.6% of men and 15.6% of women to be liberal (this is based on the distribution reported in Table 5.1).</p>
-<p>In Table 5.4, you can see the number of liberal women we should see or expect if the distribution was identical - 479. The number we actually see - in Table 5.3 - is 542. To compute the Chi-square we take the difference between expected and observed, square it, divide by expected and repeat that for all 14 cells in the table and sum those caculations. For the numbers above <span class="math inline">\((542-479)^2/479=8.3\)</span>. It is obvious that this cell contributes to the large Chi-square we observe. But look at the large differences in the conservatives and slightly conservative columns. Many more men are slightly conservative and conservative. All of these differences combined lead to the Chi-square of 55.49. How do we use this number?</p>
+<p>The chi-square test statistic (55.49, from Table 5.2) is computed by comparing expected and observed numbers in each cell of the table (14 cells in the example above – 7 columns for 2 groups). For instance, if the distribution of ideology was identical for men and women, we would expect 15.6% of men and 15.6% of women to be liberal (this is based on the distribution reported in Table 5.1).</p>
+<p>In Table 5.4, you can see the number of liberal women we should see or expect if the distribution was identical - 479. The number we actually see - in Table 5.3 - is 542. To compute the chi-square we take the difference between expected and observed, square it, divide by expected and repeat that for all 14 cells in the table and sum those caculations. For the numbers above <span class="math inline">\((542-479)^2/479=8.3\)</span>. It is obvious that this cell contributes to the large chi-square we observe. But look at the large differences in the conservatives and slightly conservative columns. Many more men are slightly conservative and conservative. All of these differences combined lead to the chi-square of 55.49. How do we use this number?</p>
 </div>
 <div id="how-do-we-use-chi-square" class="section level3 unnumbered">
-<h3>How do we use Chi-square?<a class="anchor" aria-label="anchor" href="#how-do-we-use-chi-square"><i class="fas fa-link"></i></a>
+<h3>How do we use chi-square?<a class="anchor" aria-label="anchor" href="#how-do-we-use-chi-square"><i class="fas fa-link"></i></a>
 </h3>
-<p>So what do we learn from Chi-square? Notice that the Chi-square is associated with a p-value. This is known as the significance level or probability value (<span class="math inline">\(p\)</span>). We use this number to determine if we can make an inference about the population from our sample data.</p>
+<p>So what do we learn from chi-square? Notice that the chi-square is associated with a p-value. This is known as the significance level or probability value (<span class="math inline">\(p\)</span>). We use this number to determine if we can make an inference about the population from our sample data.</p>
 <p>If <span class="math inline">\(p&lt;0.05\)</span>, then we can very confident that the result we observe in the sample will also be observed in the population. If <span class="math inline">\(p&gt;0.05\)</span>, then we cannot make that inference. If <span class="math inline">\(p&lt;0.05\)</span>, then we say that the link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is statistically significant. So we know from the output in Table 5.3, that (1) women are more likely to be liberal and men are more likely to be slightly conservative, (2) these differences are not very large – not all women are liberals and not all men are conservatives, and (3) we can be confident that we will observe these differences in the population based on what we see in the sample.</p>
-<p>So what is the measure of significance or the “p-value”? As discussed in Chapter 4, all statistics we use will be accompanied by a measure of significance – often denoted as <span class="math inline">\(p\)</span> or the probability value. For our purposes. <span class="math inline">\(p\)</span> is the probability that a test statistic of some value could be observed in a sample drawn from a population where the actual or true value of the test statistic is zero (meaning the distribution of <span class="math inline">\(Y\)</span> is the same for all categories of <span class="math inline">\(X\)</span>). There is a near 0 probability that we could observe a Chi-square of 55.49 in our sample even if men and women had identical distributions of ideology in the population. Note that this is very specific type of inference – we can learn something about the population from our small sample.</p>
+<p>So what is the measure of significance or the “p-value”? As discussed in Chapter 4, all statistics we use will be accompanied by a measure of significance – often denoted as <span class="math inline">\(p\)</span> or the probability value. For our purposes. <span class="math inline">\(p\)</span> is the probability that a test statistic of some value could be observed in a sample drawn from a population where the actual or true value of the test statistic is zero (meaning the distribution of <span class="math inline">\(Y\)</span> is the same for all categories of <span class="math inline">\(X\)</span>). There is a near 0 probability that we could observe a chi-square of 55.49 in our sample even if men and women had identical distributions of ideology in the population. Note that this is very specific type of inference – we can learn something about the population from our small sample.</p>
 </div>
 <div id="why-are-statistics-reported-with-a-value-for-p" class="section level3 unnumbered">
 <h3>Why are statistics reported with a value for p?<a class="anchor" aria-label="anchor" href="#why-are-statistics-reported-with-a-value-for-p"><i class="fas fa-link"></i></a>
 </h3>
-<p>Recall that statistics relies on the logic of repeated sampling. Each dataset we use is a random sample from a population (one of an infinite number of random samples). So each sample produces a different value of the test statistic. And if we were to repeat the sampling procedure many times, we would see that test statistics have particular sampling distributions. Moreover, test statistics have sampling distributions with known properties, enabling us to evaluate the probability that our sample could have been drawn from a population with no link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The p-value is simply the probability that the observed test statistic – Chi-square or correlation or t-test- could be drawn from a sampling distribution where the true value was zero. The probability can determined analytically or simulated by drawing 1000s of samples from a contrived population with a true value of zero and examining the probability that value as high as your sample Chi-square is observed</p>
+<p>Recall that statistics relies on the logic of repeated sampling. Each dataset we use is a random sample from a population (one of an infinite number of random samples). So each sample produces a different value of the test statistic. And if we were to repeat the sampling procedure many times, we would see that test statistics have particular sampling distributions. Moreover, test statistics have sampling distributions with known properties, enabling us to evaluate the probability that our sample could have been drawn from a population with no link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The p-value is simply the probability that the observed test statistic – chi-square or correlation or t-test- could be drawn from a sampling distribution where the true value was zero. The probability can determined analytically or simulated by drawing 1000s of samples from a contrived population with a true value of zero and examining the probability that value as high as your sample chi-square is observed</p>
 </div>
 </div>
 <div id="hypothesis-testing-type-i-and-type-ii-errors" class="section level2" number="5.4">
@@ -311,8 +337,8 @@
 <div id="example-what-happens-if-we-use-a-small-sample" class="section level3 unnumbered">
 <h3>Example: what happens if we use a small sample?<a class="anchor" aria-label="anchor" href="#example-what-happens-if-we-use-a-small-sample"><i class="fas fa-link"></i></a>
 </h3>
-<p>We can evaluate how much Chi-square changes as sample size changes. Table 5.1 reported the value of the Chi-square test statistic, the degrees of freedom (df) (in practice, the number of row minus one multiplied by the number of columns minus one), and, the probability value. In our original sample, we generate a Chi-square of 55.49 with 6 degrees of freedom has a p-value of 0.000 (significant).</p>
-<p>You can calculate the Chi-square for the same percentages - the same distributions for men and women - but a smaller sample size. If I just rely on a sample that is 1/10th of the original, I would see a Chi-square of 5.54 with 6 degrees of freedom has a p-value of 0.476 (not significant). The smaller sample would lead to a Type II error. The specific numbers are below.</p>
+<p>We can evaluate how much chi-square changes as sample size changes. Table 5.1 reported the value of the chi-square test statistic, the degrees of freedom (df) (in practice, the number of row minus one multiplied by the number of columns minus one), and, the probability value. In our original sample, we generate a chi-square of 55.49 with 6 degrees of freedom has a p-value of 0.000 (significant).</p>
+<p>You can calculate the chi-square for the same percentages - the same distributions for men and women - but a smaller sample size. If I just rely on a sample that is 1/10th of the original, I would see a chi-square of 5.54 with 6 degrees of freedom has a p-value of 0.476 (not significant). The smaller sample would lead to a Type II error. The specific numbers are below.</p>
 </div>
 <div id="table-5.6.-gender-and-ideology-original-sample-chi-square-and-small-sample-chi-square" class="section level3 unnumbered">
 <h3>Table 5.6. Gender and ideology, original sample chi-square and small sample chi-square<a class="anchor" aria-label="anchor" href="#table-5.6.-gender-and-ideology-original-sample-chi-square-and-small-sample-chi-square"><i class="fas fa-link"></i></a>
@@ -333,8 +359,8 @@ n= 606 Chi-square = 5.549066 , p = 0.476 , df = 6</code></pre>
 <h2>
 <span class="header-section-number">5.6</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion-2"><i class="fas fa-link"></i></a>
 </h2>
-<p>The Chi-square test statistic is useful when you can summarize the difference between a small number of groups in a simple table. If group differences are large enough and the sample size is large enough, you will see differences that are statistically significant. You can be confident that the groups are different in the population.</p>
-<p>We use a threshold for significance of 0.05. When is <span class="math inline">\(p&lt;.05\)</span> inappropriate? In social science, 5% probability of Type I error is the standard, an arbitrary choice traced to <span class="citation">Fisher (<a href="references.html#ref-fisher1926" role="doc-biblioref">1926</a>)</span>. The author of the t-test, Gossett, argued that the threshold should be tailored to the specific research enterprise, reflecting costs of each type of error in practice. He is, of course, correct and in public policy questions it would be essential to know the costs of a Type I and Type II error and costs of collecting additional data to lower the probability of a Type II error. Even the Supreme Court was compelled to evaluate the standard of statistical significance and the Court determined that statistical significance alone can’t be used to evaluate the usefulness of information (see <span class="citation"><em><span class="upright">Matrixx Initiatives, Inc. V. Siracusano, 563 <span>U.S.</span> 27 (2011)</span></em></span>).</p>
+<p>The chi-square test statistic is useful when you can summarize the difference between a small number of groups in a simple table. If group differences are large enough and the sample size is large enough, you will see differences that are statistically significant. You can be confident that the groups are different in the population.</p>
+<p>We use a threshold for significance of 0.05. When is <span class="math inline">\(p&lt;.05\)</span> inappropriate? In social science, 5% probability of Type I error is the standard, an arbitrary choice traced to <span class="citation">Fisher (<a href="references.html#ref-fisher1926">1926</a>)</span>. The author of the t-test, Gossett, argued that the threshold should be tailored to the specific research enterprise, reflecting costs of each type of error in practice. He is, of course, correct and in public policy questions it would be essential to know the costs of a Type I and Type II error and costs of collecting additional data to lower the probability of a Type II error. Even the Supreme Court was compelled to evaluate the standard of statistical significance and the Court determined that statistical significance alone can’t be used to evaluate the usefulness of information (for details, take a look at the opinion in <span class="citation"><em><span class="upright">Matrixx Initiatives, Inc. V. Siracusano, 563 <span>U.S.</span> 27 (2011)</span></em></span>).</p>
 
 </div>
 </div>
@@ -344,7 +370,7 @@ n= 606 Chi-square = 5.549066 , p = 0.476 , df = 6</code></pre>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#measures-of-association-chi-square"><span class="header-section-number">5</span> Measures of association: Chi-square</a></li>
+<li><a class="nav-link" href="#measures-of-association-chi-square"><span class="header-section-number">5</span> Measures of association: chi-square</a></li>
 <li>
 <a class="nav-link" href="#what-is-the-distribution-of-ideology-today"><span class="header-section-number">5.1</span> What is the distribution of ideology today?</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#table-5.1-2020-anes-ideology-measure">Table 5.1 2020 ANES ideology measure</a></li>
@@ -360,8 +386,8 @@ n= 606 Chi-square = 5.549066 , p = 0.476 , df = 6</code></pre>
 </li>
 <li>
 <a class="nav-link" href="#chi-square-tests"><span class="header-section-number">5.3</span> Chi-square tests</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#how-do-we-calculate-chi-square">How do we calculate Chi-square?</a></li>
-<li><a class="nav-link" href="#how-do-we-use-chi-square">How do we use Chi-square?</a></li>
+<li><a class="nav-link" href="#how-do-we-calculate-chi-square">How do we calculate chi-square?</a></li>
+<li><a class="nav-link" href="#how-do-we-use-chi-square">How do we use chi-square?</a></li>
 <li><a class="nav-link" href="#why-are-statistics-reported-with-a-value-for-p">Why are statistics reported with a value for p?</a></li>
 </ul>
 </li>
@@ -404,7 +430,7 @@ n= 606 Chi-square = 5.549066 , p = 0.476 , df = 6</code></pre>
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
