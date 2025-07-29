@@ -26,6 +26,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+          margin-bottom: 0em;
         }
     .hanging div.csl-entry {
       margin-left:2em;
@@ -86,56 +87,56 @@
 <h1>
 <span class="header-section-number">5</span> Measures of association: chi-square<a class="anchor" aria-label="anchor" href="#measures-of-association-chi-square"><i class="fas fa-link"></i></a>
 </h1>
-<p>The chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship and whether the effect on Y is large or small and you can use a measure of association - the chi-square - to make an inference about the population from the sample data.</p>
+<p>The chi-square test statistic is appropriate when the relationship between two variables can be summarized with a simple table. You can use the table to determine the direction of the relationship and whether the effect on some variable <span class="math inline">\(Y\)</span> is large or small and you can use a measure of association - the chi-square - to make an inference about the population from the sample data.</p>
 <p>In this chapter we will use an example – the link between gender and ideology self-placement - to introduce the chi-square – how the statistic is calculated, what it means, and how you can use the test statistic to evaluate what you find in a sample. We also cover hypothesis testing and Type I and Type II errors.</p>
 <div id="what-is-the-distribution-of-ideology-today" class="section level2" number="5.1">
 <h2>
 <span class="header-section-number">5.1</span> What is the distribution of ideology today?<a class="anchor" aria-label="anchor" href="#what-is-the-distribution-of-ideology-today"><i class="fas fa-link"></i></a>
 </h2>
-<p>The ANES includes a survey question that asks respondents to report their ideology - a “self-placement.” The distribution of the response in 2020 is summarized below in Table 5.1</p>
-<div id="table-5.1-2020-anes-ideology-measure" class="section level3 unnumbered">
-<h3>Table 5.1 2020 ANES ideology measure<a class="anchor" aria-label="anchor" href="#table-5.1-2020-anes-ideology-measure"><i class="fas fa-link"></i></a>
+<p>The ANES includes a survey question that asks respondents to report their ideology - a “self-placement.” The distribution of the response in 2024 is summarized below in Table 5.1</p>
+<div id="table-5.1-2024-anes-ideology-measure" class="section level3 unnumbered">
+<h3>Table 5.1 2024 ANES ideology measure<a class="anchor" aria-label="anchor" href="#table-5.1-2024-anes-ideology-measure"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
+<thead><tr>
 <th align="left">Ideology</th>
 <th align="right">Percentage</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">Extremely liberal</td>
-<td align="right">4.8</td>
+<td align="right">5.5</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">Liberal</td>
-<td align="right">15.6</td>
+<td align="right">15.7</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">Slightly liberal</td>
-<td align="right">12.0</td>
+<td align="right">10.7</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">Middle of the road</td>
-<td align="right">28.1</td>
+<td align="right">28.0</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">Slightly conservative</td>
-<td align="right">12.4</td>
+<td align="right">13.1</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">Conservative</td>
-<td align="right">21.0</td>
+<td align="right">19.8</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">Extremely conservative</td>
-<td align="right">6.1</td>
+<td align="right">7.2</td>
 </tr>
 </tbody>
 </table></div>
-<p>We have learned that a larger proportion of Americans are strong partisans, but despite that partisan identity, most voters pick “middle of the road” to describe their ideology. Figure 5.1 reports the proportion selecting “middle of the road’ in each ANES sample from 1972 thru 2016 <span class="citation">(<a href="references.html#ref-anesguide">S. U. American National Election Studies [ANES] University of Michigan 2021b</a>)</span>. The middle of the road is obviously the mode but there are two other responses - liberal and conservative - that now make up over 1/3 of the electorate - so today there are more”ideologues” - a fair characterization? - than moderates.</p>
+<p>We have learned that a larger proportion of Americans are strong partisans, but despite that partisan identity, most voters pick “middle of the road” to describe their ideology. Figure 5.1 reports the proportion selecting “middle of the road’ in each ANES sample from 1972 thru 2016 (ANES, 2021). The middle of the road is obviously the mode but there are two other responses - liberal and conservative - that now make up over 1/3 of the electorate - so today there are more”ideologues” - a fair characterization? - than moderates.</p>
 </div>
-<div id="figure-5.1.-middle-of-the-road-is-always-the-mode" class="section level3 unnumbered">
-<h3>Figure 5.1. Middle of the road is always the mode<a class="anchor" aria-label="anchor" href="#figure-5.1.-middle-of-the-road-is-always-the-mode"><i class="fas fa-link"></i></a>
+<div id="figure-5.1-middle-of-the-road-is-always-the-mode" class="section level3 unnumbered">
+<h3>Figure 5.1 Middle of the road is always the mode<a class="anchor" aria-label="anchor" href="#figure-5.1-middle-of-the-road-is-always-the-mode"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure"><img src="images/ANES_ideology.png" width="100%"></div>
 </div>
@@ -146,10 +147,8 @@
 </h2>
 <p>Is there a link between gender and ideology? Are men or women more likely to self-identify as a conservative or liberal or middle of the road?</p>
 <p>Given what you see in Table 5.1, what would you expect to see if we compared men and women? There might be a couple of reasons that could lead you to the idea that women are more liberal. We know that women are more likely to identity as strong Democrats, so there might be reasons rooted in partisanship to find more female liberals. Women are more likely to be economically disadvantaged, heading single parent households, receiving less pay for the same work, so that also might lead to more liberal views, particularly attitudes toward social welfare. Some might also make a case based on psychological differences – if women are more nurturing and caring, then there could be fewer conservative women. To test the basic expectation – that women are more likely to self-place as liberal – we can produce a simple table and ask for the chi-square test statistic.</p>
-<p>The data from the 2020 ANES is summarized below in Table 5.2. The test statistic is reported at the bottom ot the table.</p>
-<div id="table-5.2.-gender-and-ideology-percentages-2020-anes" class="section level3 unnumbered">
-<h3>Table 5.2. Gender and ideology, percentages, 2020 ANES<a class="anchor" aria-label="anchor" href="#table-5.2.-gender-and-ideology-percentages-2020-anes"><i class="fas fa-link"></i></a>
-</h3>
+<p>The data from the 2024 ANES is summarized below in Table 5.2. The test statistic is reported at the bottom ot the table.</p>
+<p><strong>Table 5.2 Gender and ideology, percentages, 2024 ANES{-}</strong></p>
 <div class="inline-table"><table style="width:100%;" class="table table-sm">
 <colgroup>
 <col width="4%">
@@ -161,7 +160,7 @@
 <col width="10%">
 <col width="18%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th align="left"></th>
 <th align="right">Extremely liberal</th>
 <th align="right">Liberal</th>
@@ -172,35 +171,32 @@
 <th align="right">Extremely conservative</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
+<td align="left">Women</td>
+<td align="right">5.9</td>
+<td align="right">18.7</td>
+<td align="right">12.3</td>
+<td align="right">27.7</td>
+<td align="right">10.4</td>
+<td align="right">18.1</td>
+<td align="right">6.8</td>
+</tr>
+<tr>
 <td align="left">Men</td>
 <td align="right">3.9</td>
-<td align="right">13.6</td>
-<td align="right">11.6</td>
-<td align="right">27.4</td>
-<td align="right">13.7</td>
-<td align="right">23</td>
-<td align="right">6.9</td>
-</tr>
-<tr class="even">
-<td align="left">Women</td>
-<td align="right">5.8</td>
-<td align="right">17.8</td>
-<td align="right">12.5</td>
-<td align="right">28.6</td>
-<td align="right">11.1</td>
-<td align="right">19</td>
-<td align="right">5.3</td>
+<td align="right">12.7</td>
+<td align="right">10.5</td>
+<td align="right">29.0</td>
+<td align="right">15.5</td>
+<td align="right">21.7</td>
+<td align="right">6.6</td>
 </tr>
 </tbody>
 </table></div>
-<pre><code>Chi-square = 55.49066 , p = 0.000 , df = 6</code></pre>
+<pre><code>Chi-square = 32.98854 , p = 0.000 , df = 6</code></pre>
 <p>The table suggests that there are some differences in the distribution of ideology. While the most common response - or mode - for men and women is the same (“Middle of the road”) and the second most frequent response is also the same (“Conservative”), there are a higher proportion of women in each of the three liberal categories. So women are slightly more liberal than men. You can see that the p-value or significance level associated with this table is 0.000, so we know the result is statistically significant.</p>
-<p>The actual test statistic- the chi-square -is computed by comparing the actual number of people in each cell of the table with the expected number of people in each cell. The expected number is the number we would see if the distribution of the groups was identical, the same as the entire sample. The observed and expected counts for the 2020 table are reproduced below. We expect to see more women than men in each cell since there are more women in the sample.</p>
-</div>
-<div id="table-5.3.-gender-and-ideology-observed-counts-2020-anes" class="section level3 unnumbered">
-<h3>Table 5.3. Gender and ideology, observed counts, 2020 ANES<a class="anchor" aria-label="anchor" href="#table-5.3.-gender-and-ideology-observed-counts-2020-anes"><i class="fas fa-link"></i></a>
-</h3>
+<p>The actual test statistic- the chi-square -is computed by comparing the actual number of people in each cell of the table with the expected number of people in each cell. The expected number is the number we would see if the distribution of the groups was identical, the same as the entire sample. The observed and expected counts for the 2024 table are reproduced below. We expect to see more women than men in each cell since there are more women in the sample.</p>
+<p><strong>Table 5.3 Gender and ideology, observed counts, 2024 ANES.</strong></p>
 <div class="inline-table"><table style="width:100%;" class="table table-sm">
 <colgroup>
 <col width="4%">
@@ -212,7 +208,7 @@
 <col width="10%">
 <col width="18%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th align="left"></th>
 <th align="right">Extremely liberal</th>
 <th align="right">Liberal</th>
@@ -223,32 +219,29 @@
 <th align="right">Extremely conservative</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
-<td align="left">Men</td>
-<td align="right">116</td>
-<td align="right">410</td>
-<td align="right">349</td>
-<td align="right">823</td>
-<td align="right">411</td>
-<td align="right">691</td>
-<td align="right">207</td>
-</tr>
-<tr class="even">
+<tr>
 <td align="left">Women</td>
-<td align="right">176</td>
-<td align="right">542</td>
-<td align="right">380</td>
-<td align="right">872</td>
-<td align="right">338</td>
-<td align="right">579</td>
-<td align="right">162</td>
+<td align="right">64</td>
+<td align="right">200</td>
+<td align="right">132</td>
+<td align="right">297</td>
+<td align="right">112</td>
+<td align="right">195</td>
+<td align="right">73</td>
+</tr>
+<tr>
+<td align="left">Men</td>
+<td align="right">42</td>
+<td align="right">137</td>
+<td align="right">113</td>
+<td align="right">313</td>
+<td align="right">167</td>
+<td align="right">234</td>
+<td align="right">71</td>
 </tr>
 </tbody>
 </table></div>
-</div>
-<div id="table-5.4.-gender-and-ideology-expected-counts-2020-anes" class="section level3 unnumbered">
-<h3>Table 5.4. Gender and ideology, expected counts, 2020 ANES<a class="anchor" aria-label="anchor" href="#table-5.4.-gender-and-ideology-expected-counts-2020-anes"><i class="fas fa-link"></i></a>
-</h3>
+<p><strong>Table 5.4. Gender and ideology, expected counts, 2024 ANES.</strong></p>
 <div class="inline-table"><table style="width:100%;" class="table table-sm">
 <colgroup>
 <col width="4%">
@@ -260,7 +253,7 @@
 <col width="10%">
 <col width="18%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th align="left"></th>
 <th align="right">Extremely liberal</th>
 <th align="right">Liberal</th>
@@ -271,29 +264,28 @@
 <th align="right">Extremely conservative</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
-<td align="left">Men</td>
-<td align="right">145</td>
-<td align="right">473</td>
-<td align="right">362</td>
-<td align="right">842</td>
-<td align="right">372</td>
-<td align="right">631</td>
-<td align="right">183</td>
-</tr>
-<tr class="even">
+<tr>
 <td align="left">Women</td>
-<td align="right">147</td>
-<td align="right">479</td>
-<td align="right">367</td>
-<td align="right">854</td>
-<td align="right">377</td>
-<td align="right">639</td>
-<td align="right">186</td>
+<td align="right">53</td>
+<td align="right">168</td>
+<td align="right">122</td>
+<td align="right">304</td>
+<td align="right">139</td>
+<td align="right">214</td>
+<td align="right">72</td>
+</tr>
+<tr>
+<td align="left">Men</td>
+<td align="right">53</td>
+<td align="right">169</td>
+<td align="right">123</td>
+<td align="right">306</td>
+<td align="right">140</td>
+<td align="right">215</td>
+<td align="right">72</td>
 </tr>
 </tbody>
 </table></div>
-</div>
 </div>
 <div id="chi-square-tests" class="section level2" number="5.3">
 <h2>
@@ -302,15 +294,15 @@
 <div id="how-do-we-calculate-chi-square" class="section level3 unnumbered">
 <h3>How do we calculate chi-square?<a class="anchor" aria-label="anchor" href="#how-do-we-calculate-chi-square"><i class="fas fa-link"></i></a>
 </h3>
-<p>The chi-square test statistic (55.49, from Table 5.2) is computed by comparing expected and observed numbers in each cell of the table (14 cells in the example above – 7 columns for 2 groups). For instance, if the distribution of ideology was identical for men and women, we would expect 15.6% of men and 15.6% of women to be liberal (this is based on the distribution reported in Table 5.1).</p>
-<p>In Table 5.4, you can see the number of liberal women we should see or expect if the distribution was identical - 479. The number we actually see - in Table 5.3 - is 542. To compute the chi-square we take the difference between expected and observed, square it, divide by expected and repeat that for all 14 cells in the table and sum those caculations. For the numbers above <span class="math inline">\((542-479)^2/479=8.3\)</span>. It is obvious that this cell contributes to the large chi-square we observe. But look at the large differences in the conservatives and slightly conservative columns. Many more men are slightly conservative and conservative. All of these differences combined lead to the chi-square of 55.49. How do we use this number?</p>
+<p>The chi-square test statistic (32.99, from Table 5.2) is computed by comparing expected and observed numbers in each cell of the table (14 cells in the example above – 7 columns for 2 groups). For instance, if the distribution of ideology was identical for men and women, we would expect 15.7% of men and 15.7% of women to be liberal (this is based on the distribution reported in Table 5.1).</p>
+<p>In Table 5.4, you can see the number of liberal women we should see or expect if the distribution was identical - 168. The number we actually see - in Table 5.3 - is 200. To compute the chi-square we take the difference between expected and observed, square it, divide by expected and repeat that for all 14 cells in the table and sum those calculations. For the numbers above <span class="math inline">\((200-168)^2/168=6.1\)</span>. It is obvious that this cell contributes to the large chi-square we observe. But look at the large differences in the conservatives and slightly conservative columns. Many more men are slightly conservative and conservative. All of these differences combined lead to the chi-square of 32.98. How do we use this number?</p>
 </div>
 <div id="how-do-we-use-chi-square" class="section level3 unnumbered">
 <h3>How do we use chi-square?<a class="anchor" aria-label="anchor" href="#how-do-we-use-chi-square"><i class="fas fa-link"></i></a>
 </h3>
 <p>So what do we learn from chi-square? Notice that the chi-square is associated with a p-value. This is known as the significance level or probability value (<span class="math inline">\(p\)</span>). We use this number to determine if we can make an inference about the population from our sample data.</p>
 <p>If <span class="math inline">\(p&lt;0.05\)</span>, then we can very confident that the result we observe in the sample will also be observed in the population. If <span class="math inline">\(p&gt;0.05\)</span>, then we cannot make that inference. If <span class="math inline">\(p&lt;0.05\)</span>, then we say that the link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is statistically significant. So we know from the output in Table 5.3, that (1) women are more likely to be liberal and men are more likely to be slightly conservative, (2) these differences are not very large – not all women are liberals and not all men are conservatives, and (3) we can be confident that we will observe these differences in the population based on what we see in the sample.</p>
-<p>So what is the measure of significance or the “p-value”? As discussed in Chapter 4, all statistics we use will be accompanied by a measure of significance – often denoted as <span class="math inline">\(p\)</span> or the probability value. For our purposes. <span class="math inline">\(p\)</span> is the probability that a test statistic of some value could be observed in a sample drawn from a population where the actual or true value of the test statistic is zero (meaning the distribution of <span class="math inline">\(Y\)</span> is the same for all categories of <span class="math inline">\(X\)</span>). There is a near 0 probability that we could observe a chi-square of 55.49 in our sample even if men and women had identical distributions of ideology in the population. Note that this is very specific type of inference – we can learn something about the population from our small sample.</p>
+<p>So what is the measure of significance or the “p-value”? As discussed in Chapter 4, all statistics we use will be accompanied by a measure of significance – often denoted as <span class="math inline">\(p\)</span> or the probability value. For our purposes. <span class="math inline">\(p\)</span> is the probability that a test statistic of some value could be observed in a sample drawn from a population where the actual or true value of the test statistic is zero (meaning the distribution of <span class="math inline">\(Y\)</span> is the same for all categories of <span class="math inline">\(X\)</span>). There is a near 0 probability that we could observe a chi-square of 32.99 in our sample even if men and women had identical distributions of ideology in the population. Note that this is very specific type of inference – we can learn something about the population from our small sample.</p>
 </div>
 <div id="why-are-statistics-reported-with-a-value-for-p" class="section level3 unnumbered">
 <h3>Why are statistics reported with a value for p?<a class="anchor" aria-label="anchor" href="#why-are-statistics-reported-with-a-value-for-p"><i class="fas fa-link"></i></a>
@@ -326,25 +318,19 @@
 <p>If <span class="math inline">\(p&lt;.05\)</span>, then we can reject the null hypothesis – the test statistic must be different from zero in the population. If <span class="math inline">\(p&gt;0.05\)</span>, then we accept the null, there is probably no link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 <p>Why is there a standard for <span class="math inline">\(p&lt;.05\)</span>? Consider the general problem of inference in the form of a 2 x 2 table. You can observe the link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> in the sample, you want to know the truth about the link <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> in the population, which you cannot observe directly. The expectation that <span class="math inline">\(X\)</span> influences <span class="math inline">\(Y\)</span> could be true or false in the population and your sample could support or not support your expectation that there is a link.</p>
 <p>Table 5.5 sketches out the ways this could play out in a research situation</p>
-<div id="table-5.5.-type-i-and-type-ii-errors" class="section level3 unnumbered">
-<h3>Table 5.5. Type I and Type II errors<a class="anchor" aria-label="anchor" href="#table-5.5.-type-i-and-type-ii-errors"><i class="fas fa-link"></i></a>
-</h3>
-<div class="inline-figure"><img src="images/Error_types.png" width="80%"></div>
-<p>You could commit one of two types of errors as you attempt to draw an inference based on a sample. A <em>Type I error</em> is rejecting a null hypothesis you should accept (X does not affect Y, but you conclude that it does). A <em>Type II error</em> is accepting a null hypothesis you should reject (X does affect Y, but you conclude that is does not).</p>
+<p><strong>Table 5.5 Type I and Type II errors</strong>
+<img src="images/Error_types.png" width="80%"></p>
+<p>You could commit one of two types of errors as you attempt to draw an inference based on a sample. A <em>Type I error</em> is rejecting a null hypothesis you should accept (<span class="math inline">\(X\)</span> does not affect <span class="math inline">\(Y\)</span>, but you conclude that it does). A <em>Type II error</em> is accepting a null hypothesis you should reject (<span class="math inline">\(X\)</span> does affect <span class="math inline">\(Y\)</span>, but you conclude that is does not).</p>
 <p>If p=0.05, then there is a 5% probability of Type I error. This is an arbitrary but very widespread standard in social science – that we only accept results if the chance of a Type I error is lower than 5%.</p>
 <p>The probability of Type II error is a mainly function of sample size (small sample sizes imply high probability of Type II error). So one option to minimize Type II error is to collect more data.</p>
-</div>
 <div id="example-what-happens-if-we-use-a-small-sample" class="section level3 unnumbered">
 <h3>Example: what happens if we use a small sample?<a class="anchor" aria-label="anchor" href="#example-what-happens-if-we-use-a-small-sample"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can evaluate how much chi-square changes as sample size changes. Table 5.1 reported the value of the chi-square test statistic, the degrees of freedom (df) (in practice, the number of row minus one multiplied by the number of columns minus one), and, the probability value. In our original sample, we generate a chi-square of 55.49 with 6 degrees of freedom has a p-value of 0.000 (significant).</p>
 <p>You can calculate the chi-square for the same percentages - the same distributions for men and women - but a smaller sample size. If I just rely on a sample that is 1/10th of the original, I would see a chi-square of 5.54 with 6 degrees of freedom has a p-value of 0.476 (not significant). The smaller sample would lead to a Type II error. The specific numbers are below.</p>
-</div>
-<div id="table-5.6.-gender-and-ideology-original-sample-chi-square-and-small-sample-chi-square" class="section level3 unnumbered">
-<h3>Table 5.6. Gender and ideology, original sample chi-square and small sample chi-square<a class="anchor" aria-label="anchor" href="#table-5.6.-gender-and-ideology-original-sample-chi-square-and-small-sample-chi-square"><i class="fas fa-link"></i></a>
-</h3>
-<pre><code>n= 6055 Chi-square = 55.49066 , p = 0.000 , df = 6
-n= 606 Chi-square = 5.549066 , p = 0.476 , df = 6</code></pre>
+<p><strong>Table 5.6 Gender and ideology, original sample chi-square and small sample chi-square.</strong></p>
+<pre><code>n= 2149 Chi-square = 32.98854 , p = 0.000 , df = 6
+n= 215 Chi-square = 3.298854 , p = 0.771 , df = 6</code></pre>
 <p>Failure to reject the null doesn’t necessarily “prove” that the alternative is false – with a small sample you simply don’t have enough data to draw an inference about the population.</p>
 </div>
 </div>
@@ -373,17 +359,11 @@ n= 606 Chi-square = 5.549066 , p = 0.476 , df = 6</code></pre>
 <li><a class="nav-link" href="#measures-of-association-chi-square"><span class="header-section-number">5</span> Measures of association: chi-square</a></li>
 <li>
 <a class="nav-link" href="#what-is-the-distribution-of-ideology-today"><span class="header-section-number">5.1</span> What is the distribution of ideology today?</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#table-5.1-2020-anes-ideology-measure">Table 5.1 2020 ANES ideology measure</a></li>
-<li><a class="nav-link" href="#figure-5.1.-middle-of-the-road-is-always-the-mode">Figure 5.1. Middle of the road is always the mode</a></li>
+<li><a class="nav-link" href="#table-5.1-2024-anes-ideology-measure">Table 5.1 2024 ANES ideology measure</a></li>
+<li><a class="nav-link" href="#figure-5.1-middle-of-the-road-is-always-the-mode">Figure 5.1 Middle of the road is always the mode</a></li>
 </ul>
 </li>
-<li>
-<a class="nav-link" href="#should-we-expect-differences-between-men-and-women"><span class="header-section-number">5.2</span> Should we expect differences between men and women?</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#table-5.2.-gender-and-ideology-percentages-2020-anes">Table 5.2. Gender and ideology, percentages, 2020 ANES</a></li>
-<li><a class="nav-link" href="#table-5.3.-gender-and-ideology-observed-counts-2020-anes">Table 5.3. Gender and ideology, observed counts, 2020 ANES</a></li>
-<li><a class="nav-link" href="#table-5.4.-gender-and-ideology-expected-counts-2020-anes">Table 5.4. Gender and ideology, expected counts, 2020 ANES</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#should-we-expect-differences-between-men-and-women"><span class="header-section-number">5.2</span> Should we expect differences between men and women?</a></li>
 <li>
 <a class="nav-link" href="#chi-square-tests"><span class="header-section-number">5.3</span> Chi-square tests</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#how-do-we-calculate-chi-square">How do we calculate chi-square?</a></li>
@@ -392,11 +372,7 @@ n= 606 Chi-square = 5.549066 , p = 0.476 , df = 6</code></pre>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#hypothesis-testing-type-i-and-type-ii-errors"><span class="header-section-number">5.4</span> Hypothesis testing, Type I and Type II errors</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#table-5.5.-type-i-and-type-ii-errors">Table 5.5. Type I and Type II errors</a></li>
-<li><a class="nav-link" href="#example-what-happens-if-we-use-a-small-sample">Example: what happens if we use a small sample?</a></li>
-<li><a class="nav-link" href="#table-5.6.-gender-and-ideology-original-sample-chi-square-and-small-sample-chi-square">Table 5.6. Gender and ideology, original sample chi-square and small sample chi-square</a></li>
-</ul>
+<a class="nav-link" href="#hypothesis-testing-type-i-and-type-ii-errors"><span class="header-section-number">5.4</span> Hypothesis testing, Type I and Type II errors</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#example-what-happens-if-we-use-a-small-sample">Example: what happens if we use a small sample?</a></li></ul>
 </li>
 <li><a class="nav-link" href="#when-errors-have-consequences"><span class="header-section-number">5.5</span> When errors have consequences</a></li>
 <li><a class="nav-link" href="#conclusion-2"><span class="header-section-number">5.6</span> Conclusion</a></li>

@@ -26,6 +26,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+          margin-bottom: 0em;
         }
     .hanging div.csl-entry {
       margin-left:2em;
@@ -86,17 +87,16 @@
 <h1>
 <span class="header-section-number">4</span> Measures of association: t-test<a class="anchor" aria-label="anchor" href="#measures-of-association-t-test"><i class="fas fa-link"></i></a>
 </h1>
-<!-- Add this info - Gossett's data from Kalamazoo....https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2008.00279.x -->
 <div id="what-is-the-t-test" class="section level2" number="4.1">
 <h2>
 <span class="header-section-number">4.1</span> What is the t-test?<a class="anchor" aria-label="anchor" href="#what-is-the-t-test"><i class="fas fa-link"></i></a>
 </h2>
 <p>In many research situations, the <span class="math inline">\(Y\)</span> variable is some type of scale - either an interval or an ordinal variable. This would include concrete measures like household income, year of education, or age and concepts that we order in a meaningful way – like ideology (from extreme liberal to extreme conservative) or party identification (from strong Democrat to strong Republican) or a feeling thermometer (from 0 – don’t like it – to 100- really like it). But the <span class="math inline">\(X\)</span> variable may be a category: race, marital status, gender, employment status. If you are interested in determining the relationship between two variables when <span class="math inline">\(Y\)</span> is a scale, and <span class="math inline">\(X\)</span> is a category, then a t-test is the appropriate measure of association.</p>
-<p>We have used statistics (mean, median, and standard deviation) to describe individual variables. We will use a simple test statistic (t-test) to determine if two groups in a sample are different. T-tests are most appropriate and informative when you compare two groups (male/female, straight ticket / split ticket, Northern/Southern) on a continuous scale.</p>
+<p>We have used statistics (mean, median, and standard deviation) to describe individual variables. We will use a simple test statistic (t-test) to determine if two groups in a sample are different. T-tests are most appropriate and informative when you compare two groups (male/female, working / not working, Northern/Southern) on a continuous scale.</p>
 <p>Recall that we use measures of association to describing relationships between variables. We identify a dependent variable (<span class="math inline">\(Y\)</span>), an independent variable (<span class="math inline">\(X\)</span>), and we have a theory about how <span class="math inline">\(X\)</span> influences <span class="math inline">\(Y\)</span>. The measure of association helps use be precise and clear about three things:
-the direction of relationship (does changing from one category of <span class="math inline">\(X\)</span> to another increase (+) <span class="math inline">\(Y\)</span> or decrease (-) <span class="math inline">\(Y\)</span>
-the size of the effect (does <span class="math inline">\(X\)</span> have a big impact on <span class="math inline">\(Y\)</span> or small?)
-whether or not effects in the sample are statistically significant (Could the observed effect be due to chance or sampling error)?</p>
+- the direction of relationship (does changing from one category of <span class="math inline">\(X\)</span> to another increase (+) <span class="math inline">\(Y\)</span> or decrease (-) <span class="math inline">\(Y\)</span>
+- the size of the effect (does <span class="math inline">\(X\)</span> have a big impact on <span class="math inline">\(Y\)</span> or small?)
+- whether or not effects in the sample are statistically significant (Could the observed effect be due to chance or sampling error)?</p>
 <p>We covered size and direction in Chapter 3, so the focus of this chapter is broadening your understanding of statistical significance. To do this, we talk about inference and introduce the concept of a sampling distribution. After the preliminaries, we review some t-test output related to the National Rifle Association (NRA) feeling thermometer. At the end of the chapter, you should have a sense of what statistical significance means.</p>
 </div>
 <div id="what-is-inference-and-what-does-this-have-to-do-with-random-samples" class="section level2" number="4.2">
@@ -112,65 +112,59 @@ whether or not effects in the sample are statistically significant (Could the ob
 <h2>
 <span class="header-section-number">4.3</span> Sampling distribution of the mean<a class="anchor" aria-label="anchor" href="#sampling-distribution-of-the-mean"><i class="fas fa-link"></i></a>
 </h2>
-<p>The mean has a sampling distribution – we didn’t talk about this in Chapter 2 since I wanted to focus on interpretation of descriptive statistics rather than the sampling distributions.
-Consider an experiment: If we took 1,000 random samples (or any really large number of samples) from a population it happens to be the case that the sample means – the means from each of the 1,000 samples - are distributed normally with some features we understand,</p>
+<p>The mean has a sampling distribution – we didn’t talk about this in Chapter 2 since I wanted to focus on interpretation of descriptive statistics rather than the sampling distributions.</p>
+<p>Consider an experiment: If we took 1,000 random samples (or any really large number of samples) from a population it happens to be the case that the sample means – the means from each of the 1,000 samples - are distributed normally with some features we understand,</p>
 <p>The mean of the sample means is equal to the population mean (the sample mean is an unbiased estimate of the population mean). On average, our random samples will be accurate.</p>
 <p>The standard deviation of the sampling distribution will be equal to the standard deviation of the variable in the population (approximated with standard deviation of the sample) divided by the square root of the sample size. Formally:</p>
 <p><span class="math display">\[ \sigma_{M} = \frac{\sigma}{\sqrt{n}} \]</span></p>
 <p>As the sample size gets larger, the width of the sampling distribution gets smaller. If your sample starts to approach the population size, you can imagine no sample would be very different from the population. With very small samples, you could get means very different from the true population mean.</p>
 <p>Since we know the mean and standard deviation of this normal distribution, we can exploit other things we know about the normal distribution. Figure 4.1 shows a standard normal distribution - a distribution with a mean of zero and a standard deviation of one. We know – from statistics that 95% of the area covered by this distribution if between -2 and +2 standard deviations from the mean.</p>
 <p>So, since our sampling distribution is also normal, we know that any 95% of the samples we draw in our experiment would be within -2/+2 standard deviations of the mean. This is a powerful fact we will leverage to make an inference about the population from our sample.</p>
-<div id="figure-4.1-the-standard-normal-distribution" class="section level4" number="4.3.0.1">
-<h4>
-<span class="header-section-number">4.3.0.1</span> Figure 4.1 The standard normal distribution<a class="anchor" aria-label="anchor" href="#figure-4.1-the-standard-normal-distribution"><i class="fas fa-link"></i></a>
-</h4>
-<div class="inline-figure"><img src="04-ttest_files/figure-html/figure1-1.png" width="672"></div>
-</div>
+<p><strong>Figure 4.1 The standard normal distribution</strong>
+<img src="04-ttest_files/figure-html/figure1-1.png" width="672"></p>
 <div id="calculating-the-margin-of-error" class="section level3 unnumbered">
 <h3>Calculating the margin of error<a class="anchor" aria-label="anchor" href="#calculating-the-margin-of-error"><i class="fas fa-link"></i></a>
 </h3>
 <p>We know that 95% of the reported values from a large number of repeated samples will be within approximately 2.0 standard deviations (technically, 1.96) of the population mean. The margin of error associated with any random sample is:</p>
 <p><span class="math display">\[ME=2*\sigma_{M}=2*\frac{\sigma}{\sqrt{n}}\]</span>
 If you have in front of you data from a single random sample – you can use software to compute the mean and standard deviation, and knowing the sample size, you can report an estimate for the population mean +/- the margin of error. Table 4.1 reports the descriptive statistics for age in the 2020 ANES. The average respondent in the sample is 47.3 years old. What does that tell us about the population?</p>
-<div id="table-4.1.-descriptive-statistics-for-age-in-the-2020-anes" class="section level4 unnumbered">
-<h4>Table 4.1. Descriptive statistics for age in the 2020 ANES<a class="anchor" aria-label="anchor" href="#table-4.1.-descriptive-statistics-for-age-in-the-2020-anes"><i class="fas fa-link"></i></a>
-</h4>
+<p><strong>Table 4.1 Descriptive statistics for age in the 2024 ANES</strong></p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
+<thead><tr>
 <th align="left"></th>
 <th align="center">Descriptive statistics</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">N</td>
-<td align="center">7159</td>
+<td align="center">2759</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">Mean</td>
-<td align="center">47.26</td>
+<td align="center">48.06</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">Median</td>
-<td align="center">47</td>
+<td align="center">48</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">Variance</td>
-<td align="center">303.74</td>
+<td align="center">326.66</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">Standard deviation</td>
-<td align="center">17.43</td>
+<td align="center">18.07</td>
 </tr>
 </tbody>
 </table></div>
-<p>Using the formula above, the standard error of the mean would be:</p>
-<p><span class="math display">\[ \sigma_M=17.43 / \sqrt{7159} = 0.206 \]</span>
-<span class="math display">\[ ME = 2 * .206=0.412\]</span>
-We know (with 95% certainty) that the population mean is +/- 2 standard error of the means from the sample mean. The <em>95% confidence interval</em> is 47.26 +/- 0.412 years. That is remarkable – we can be very confident that we know the true age of the actual very large US electorate within less than about 5 months (0.4 of a year).</p>
+<p><br>
+Using the formula above, the standard error of the mean would be:</p>
+<p><span class="math display">\[ \sigma_M=18.07 / \sqrt{2759} = 0.344 \]</span>
+<span class="math display">\[ ME = 2 * 0.344=0.688\]</span>
+We know (with 95% certainty) that the population mean is +/- 2 standard error of the means from the sample mean. The <em>95% confidence interval</em> is 48.06 +/- 0.688 years. That is remarkable – we can be very confident that we know the true age of the actual very large US electorate within less than about 9 months (0.75 of a year).</p>
 <blockquote>
 <p>The key lesson: the “margin of error” associated with the survey response is 2 times the standard error of the mean.</p>
 </blockquote>
-</div>
 </div>
 <div id="margin-of-error-and-sample-size" class="section level3 unnumbered">
 <h3>Margin of error and sample size<a class="anchor" aria-label="anchor" href="#margin-of-error-and-sample-size"><i class="fas fa-link"></i></a>
@@ -184,8 +178,8 @@ We know (with 95% certainty) that the population mean is +/- 2 standard error of
 So we could be confident that our population mean would be within +/- 2 x the standard error = 0.032 or 3.2% of the sample mean of 50%.</p>
 <p>As you see on the news, if you ask 1,000 people if they favor or do not favor a particular proposal, the margin of error is roughly +/- 3%</p>
 <p>One implication to note here. What if we were to consider how the collection of additional information would improve our estimates? Since the standard error of the mean drops as the sample size gets larger (we are dividing by the square root of the number of observations), each new observation improves our estimates. The figure below shows this improvement for the 0/1 question example above. Assuming the standard deviation is 0.5, we can see how the margin of error declines as the sample size increases.</p>
-<div id="figure-4.2.-margin-of-error-if-sample-standard-deviation-0.5-for-samples-from-100-to-2500" class="section level4 unnumbered">
-<h4>Figure 4.2. Margin of error if sample standard deviation ~ 0.5, for samples from 100 to 2500<a class="anchor" aria-label="anchor" href="#figure-4.2.-margin-of-error-if-sample-standard-deviation-0.5-for-samples-from-100-to-2500"><i class="fas fa-link"></i></a>
+<div id="figure-4.2-margin-of-error-if-sample-standard-deviation-0.5-for-samples-from-100-to-2500" class="section level4 unnumbered">
+<h4>Figure 4.2 Margin of error if sample standard deviation ~ 0.5, for samples from 100 to 2500<a class="anchor" aria-label="anchor" href="#figure-4.2-margin-of-error-if-sample-standard-deviation-0.5-for-samples-from-100-to-2500"><i class="fas fa-link"></i></a>
 </h4>
 <div class="inline-figure"><img src="04-ttest_files/figure-html/figure2-1.png" width="672"></div>
 <p>You can see that there is an obvious and large gain in improvement as you move from 500 to 1,000 observations, but much smaller as you move from 1,000 to 1,500. You may see much larger samples in practice - for two reasons. First, some times we need very precise estimates - you wouldn’t, for instance, want to estimate the unemployment rate at +/- 2 percent - economic policy choices require a more much precision. Second, you might be interested in subsets of the population. If you want a decent margin of error associated with attitudes or behavior of minorities, then you would need a very large overall sample, so that the minority sample of interest was closer to 1,500.</p>
@@ -204,9 +198,8 @@ So we could be confident that our population mean would be within +/- 2 x the st
 <blockquote>
 <p>Note: if the sample means are identical, the value of t is zero. As the sample means diverge, the value of t will increase.</p>
 </blockquote>
-<div id="the-t-distribution" class="section level3" number="4.4.1">
-<h3>
-<span class="header-section-number">4.4.1</span> The t distribution<a class="anchor" aria-label="anchor" href="#the-t-distribution"><i class="fas fa-link"></i></a>
+<div id="the-t-distribution" class="section level3 unnumbered">
+<h3>The t distribution<a class="anchor" aria-label="anchor" href="#the-t-distribution"><i class="fas fa-link"></i></a>
 </h3>
 <p>Why the “t” distribution? The difference between two means is normally distributed for large samples. The t-distribution approximates this normal distribution in large samples. For small samples, the distribution of differences in the mean is not quite normal. This discrepancy was noted by an experimental brewer at Guinness (W.S. Gossett). Since quality control could involve only small samples of ingredients (malt, hops), the statisticians required a test statistic that performed well for small samples. The t-distribution was widely used after this insight. Gossett and Pearson (the statistician most closely associated with correlation) worked together for a short time at and published their findings in 1896 (correlation/Pearson), 1900 (chi-square/Pearson) and 1908 (t-distribution/Gossett). For details see <span class="citation">Porter (<a href="references.html#ref-porter1986">1986</a>)</span> or <span class="citation">Ziliak (<a href="references.html#ref-ziliak2008">2008</a>)</span>.</p>
 <p>Later work – attributed to Fisher – resulted in the rule-of-thumb: if a t test value is larger than +2 or smaller than -2, the observed difference in means is statistically significant (more on this below!).</p>
@@ -214,90 +207,85 @@ So we could be confident that our population mean would be within +/- 2 x the st
 </div>
 <div id="an-application-feelings-toward-the-national-rifle-association" class="section level2" number="4.5">
 <h2>
-<span class="header-section-number">4.5</span> An application: Feelings toward the National Rifle Association<a class="anchor" aria-label="anchor" href="#an-application-feelings-toward-the-national-rifle-association"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.5</span> An application: feelings toward the National Rifle Association<a class="anchor" aria-label="anchor" href="#an-application-feelings-toward-the-national-rifle-association"><i class="fas fa-link"></i></a>
 </h2>
-<p>The ANES includes a number of variables that are all feeling thermometers. A “0” indicates that you do not like the group, person or symbol that the thermometer refers to. A “100” indicates you very much like that group, symbol or person.</p>
-<p>There is a feeling thermomemter for the NRA. Other group thermometers include the CDC, unions, the military, and big business. Figure 4.3 summarizes the distribution of the NRA thermometer. You can see that most people are neutral, but there are a substantial number who have negative feelings (0) and a large number with positive feelings (75 and 100). Table 4.3 reports the descriptive statistics for the NRA feeling thermometer for the entire sample.</p>
-<div id="figure-4.3.-feelings-toward-the-nra" class="section level4 unnumbered">
-<h4>Figure 4.3. Feelings toward the NRA<a class="anchor" aria-label="anchor" href="#figure-4.3.-feelings-toward-the-nra"><i class="fas fa-link"></i></a>
-</h4>
-<div class="inline-figure"><img src="04-ttest_files/figure-html/figure-1.png" width="672"></div>
-</div>
-<div id="table-4.2.-descriptive-statistics.-nra-feeling-thermometer" class="section level4 unnumbered">
-<h4>Table 4.2. Descriptive statistics. NRA feeling thermometer<a class="anchor" aria-label="anchor" href="#table-4.2.-descriptive-statistics.-nra-feeling-thermometer"><i class="fas fa-link"></i></a>
-</h4>
+<p>The 2024 ANES includes a number of variables that are all feeling thermometers. A “0” indicates that you do not like the group, person or symbol that the thermometer refers to. A “100” indicates you very much like that group, symbol or person.</p>
+<p>There is a feeling thermometer for the NRA. Other group thermometers include the CDC, unions, the military, and big business. Figure 4.3 summarizes the distribution of the NRA thermometer. You can see that most people are neutral, but there are a substantial number who have negative feelings (0) and a large number with positive feelings (75 and 100). Table 4.3 reports the descriptive statistics for the NRA feeling thermometer for the entire sample.</p>
+<p><strong>Figure 4.3 Feelings toward the NRA</strong>
+<img src="04-ttest_files/figure-html/figure-1.png" width="672"></p>
+<p><strong>Table 4.2 Descriptive statistics. NRA feeling thermometer</strong></p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
+<thead><tr>
 <th align="left"></th>
 <th align="center">Descriptive statistics</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="left">N</td>
-<td align="center">6992</td>
+<td align="center">2814</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">Mean</td>
-<td align="center">51.36</td>
+<td align="center">47.56</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">Median</td>
 <td align="center">50</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="left">Variance</td>
-<td align="center">1159.48</td>
+<td align="center">977.56</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="left">Standard deviation</td>
-<td align="center">34.05</td>
+<td align="center">31.27</td>
 </tr>
 </tbody>
 </table></div>
 <p>The 95% confidence interval in this case would be:</p>
-<p><span class="math display">\[ 51.36 +/-  (2 * 34.05 / \sqrt{6992}) = 51.36 +/- 0.41 \]</span></p>
+<p><span class="math display">\[ 47.56 +/-  (2 * 31.27 / \sqrt{2814}) = 47.56 +/- 0.59 \]</span></p>
 <p>You don’t have to calculate this by hand - the information will be included in the output you use for the problem sets and papers. Again, this is precise - we know, with some certainty, that the population average is between 50.95 and 51.77.</p>
 <p>We can replicate this calculation to compare smaller samples – men compared to women, white compared to minority. Instead of using the mean and standard error of the mean for the entire sample, we look at and compare two groups. If we can be 95% confident that the group means are different in the population, then we know we can safely make an inference about the population from our sample.</p>
-</div>
 <div id="gender-and-feelings-toward-the-nra" class="section level3 unnumbered">
 <h3>Gender and feelings toward the NRA<a class="anchor" aria-label="anchor" href="#gender-and-feelings-toward-the-nra"><i class="fas fa-link"></i></a>
 </h3>
 <p>Will men and women have different attitudes toward the NRA? A lot of media coverage after the 2016 election focused on women’s activism and women’s voting, assuming or expecting that women would overwhelmingly support Democratic candidates, particular presidential nominee Hillary Clinton. Given that the Democratic party is more likely to advocate stronger restrictions on gun access, maybe women would dislike the NRA? We can test that expectation with a t-test. The results of this test are summarized in Table 4.3.</p>
-<div id="table-4.3.-gender-and-the-nra-feeling-thermometer" class="section level4 unnumbered">
-<h4>Table 4.3. Gender and the NRA feeling thermometer<a class="anchor" aria-label="anchor" href="#table-4.3.-gender-and-the-nra-feeling-thermometer"><i class="fas fa-link"></i></a>
-</h4>
-<pre><code>Mean for Women = 49.60146 
- Mean for Men = 53.01543 
- t-test =  -4.174524 
- p =  0.000</code></pre>
-<p>We only need to look at three numbers to understand this output – the average for men was 53.0 and the average for women was 49.06 – a small difference, but men slightly warmer. The significance level or p-value associated with this test is 0.000. What does this mean?</p>
-<p>The actual value of the t-test is -4.04 and we use that number to come up with a significance level (also called a p-value). If there was no relationship between gender and the NRA thermometer (same exact means for men and women), the t-test would be 0.0 and the significance level would be 1.0. If the significance level is below 0.05, then we can be 95% confident that the groups are different in the population. In Table 4.1 the significance level (p) is less than 0.05, something less than 0.0001.)</p>
-<p>All statistics we use will be accompanied by a measure of significance – often denoted as “p” or the probability value. For our purposes, “p” is the probability that a test statistic of some value could be observed in a sample drawn from a population where the actual or true value of the test statistic is zero. There is a 0.00% probability that we could observe a t-test of -4.043 in the ANES even if men and women had identical average NRA responses in the population</p>
+<p><strong>Table 4.3 Gender and the NRA feeling thermometer</strong></p>
+<pre><code>Mean for Women = 45.69444 
+ Mean for Men = 49.46702 
+ t-test =  -3.054704 
+ p =  0.001</code></pre>
+<p>We only need to look at three numbers to understand this output – the average for men was 49.5 and the average for women was 45.7 – a small difference, but men slightly warmer. The significance level or p-value associated with this test is 0.000. What does this mean?</p>
+<p>The actual value of the t-test is -3.05 and we use that number to come up with a significance level (also called a p-value). If there was no relationship between gender and the NRA thermometer (same exact means for men and women), the t-test would be 0.0 and the significance level would be 1.0. If the significance level is below 0.05, then we can be 95% confident that the groups are different in the population. In Table 4.1 the significance level (p) is less than 0.05, something less than 0.0001.)</p>
+<p>All statistics we use will be accompanied by a measure of significance – often denoted as “p” or the probability value. For our purposes, “p” is the probability that a test statistic of some value could be observed in a sample drawn from a population where the actual or true value of the test statistic is zero. There is a 0.00% probability that we could observe a t-test of -3.054 in the ANES if men and women had identical average NRA responses in the population</p>
 <blockquote>
 <p>Note: this is very specific type of inference – we can learn something about the population from our small sample. If p &lt; .05 then the observed difference between the two groups is statistically significant – this an arbitrary standard but a convention in social science. We will discuss this in a more systematic in the chapter on chi-square, but, for now, just remember the convention – p must be less than 0.05</p>
 </blockquote>
 <p>This example also illustrates a key difference between “statistically significance” and “meaningful” - the difference between men and women is very small, a couple of points on the 100 point thermometer - so while we would observe a difference between men and women in the broader population, any differences would be very small.</p>
 <p>Remember that we always report/discuss three things with a measure of association – size, direction, and significance. If a result is not significant, you can ignore size and direction – there is no effect, no link between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 </div>
-</div>
 <div id="race-and-feelings-toward-the-nra" class="section level3 unnumbered">
 <h3>Race and feelings toward the NRA<a class="anchor" aria-label="anchor" href="#race-and-feelings-toward-the-nra"><i class="fas fa-link"></i></a>
 </h3>
 <p>Will white and minority respondents have different attitudes toward the NRA? The NRA is closely tied to the Repubican Party, so might expect that this would translate into very different attitudes toward the NRA between whites and minorities. Results of a t-test are reproduced as Table 4.4.</p>
-<div id="table-4.4.-race-and-the-nra" class="section level4 unnumbered">
-<h4>Table 4.4. Race and the NRA<a class="anchor" aria-label="anchor" href="#table-4.4.-race-and-the-nra"><i class="fas fa-link"></i></a>
-</h4>
-<pre><code>Mean for Minority (Black, Hispanic, or other) = 44.01692 
- Mean for White = 54.64682 
- t-test =  -11.72829 
+<p><strong>Table 4.4 Race and the NRA</strong></p>
+<pre><code>Mean for Minority (Black, Hispanic, or other) = 41.29045 
+ Mean for White = 50.94415 
+ t-test =  -7.788897 
  p =  0.000</code></pre>
-<p>Again, three pieces of information tell the story. Race is a categorical or nominal variable with a couple of categories: 1. White, 2. Black, 3. Asian, 4. Native American, 5. Hispanic, 6. Other. The t-test permits us to compare White respondents (&lt;2 on the scale) with all minorities (&gt;=2). The average for white respondents was 54.64, but the average for minority respondents was 44.01 – much lower. The significance level in this case was again 0.000, much lower than 0.05. We can be confident that, in the larger population, white respondents have more favorable views of the NRA. Since the difference in means between White and Minority respondents is much larger than the difference between women and men, we know that race is a better predictor for understanding how someone feels about the NRA.</p>
+<p>Again, three pieces of information tell the story. Race is a categorical or nominal variable with a couple of categories: 1. White, 2. Black, 3. Asian, 4. Native American, 5. Hispanic, 6. Other. The t-test permits us to compare White respondents (&lt;2 on the scale) with all minorities (&gt;=2). The average for white respondents was 50.9, but the average for minority respondents was 41.3 – much lower. The significance level in this case was again 0.000, much lower than 0.05. We can be confident that, in the larger population, white respondents have more favorable views of the NRA. Since the difference in means between White and Minority respondents is much larger than the difference between women and men, we know that race is a better predictor for understanding how someone feels about the NRA.</p>
 </div>
 </div>
-</div>
-<div id="conclusion-1" class="section level2" number="4.6">
+<div id="the-t-test-and-kalamazoo-a-local-connection" class="section level2" number="4.6">
 <h2>
-<span class="header-section-number">4.6</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.6</span> The t-test and Kalamazoo: a local connection<a class="anchor" aria-label="anchor" href="#the-t-test-and-kalamazoo-a-local-connection"><i class="fas fa-link"></i></a>
+</h2>
+<p>Student (Gossett) used several datasets from published work to demonstrate the usefulness of the t-test. One set of data was collected by a team of physicians at the Kalamazoo Psychiatric Hospital, comparing the effects of three different chemical compounds on patient sleep (published by A. R. Cushny and A. R. Peebles in the <em>Journal of Physiology</em> in 1906). Analyzing the data, Student demonstrated that small improved sleep times associated with one compound could just be due to chance, but larger improved sleep times associated with one of the other formulations indicated the treatments were effective. The research practices associated with the data collection and 1906 publication violate a number of standards that we regard as routine today - the original work was funded by the drug manufacturer (Merck), the patients did not consent to participating in the study, and there were no blinds - doctors knew who got which drugs. But the example has persisted in the statistical literature for 100 years. For details see <span class="citation">Stigler (<a href="references.html#ref-stigler2019">2019</a>)</span>.</p>
+<!-- Also used https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1740-9713.2008.00279.x -->
+</div>
+<div id="conclusion-1" class="section level2" number="4.7">
+<h2>
+<span class="header-section-number">4.7</span> Conclusion<a class="anchor" aria-label="anchor" href="#conclusion-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>The t-test is a simple way to compare two groups and to verify that any differences between groups are not simply due to chance (sampling error). If we see a difference in sample means that is large enough to be statistically significant, we can be confident that repeated or larger samples would produce the same result.</p>
 
@@ -319,15 +307,16 @@ So we could be confident that our population mean would be within +/- 2 x the st
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#t-test-comparing-means-for-two-groups"><span class="header-section-number">4.4</span> T-test: comparing means for two groups</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-t-distribution"><span class="header-section-number">4.4.1</span> The t distribution</a></li></ul>
+<a class="nav-link" href="#t-test-comparing-means-for-two-groups"><span class="header-section-number">4.4</span> T-test: comparing means for two groups</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-t-distribution">The t distribution</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#an-application-feelings-toward-the-national-rifle-association"><span class="header-section-number">4.5</span> An application: Feelings toward the National Rifle Association</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#an-application-feelings-toward-the-national-rifle-association"><span class="header-section-number">4.5</span> An application: feelings toward the National Rifle Association</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#gender-and-feelings-toward-the-nra">Gender and feelings toward the NRA</a></li>
 <li><a class="nav-link" href="#race-and-feelings-toward-the-nra">Race and feelings toward the NRA</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#conclusion-1"><span class="header-section-number">4.6</span> Conclusion</a></li>
+<li><a class="nav-link" href="#the-t-test-and-kalamazoo-a-local-connection"><span class="header-section-number">4.6</span> The t-test and Kalamazoo: a local connection</a></li>
+<li><a class="nav-link" href="#conclusion-1"><span class="header-section-number">4.7</span> Conclusion</a></li>
 </ul>
 
       <div class="book-extra">
