@@ -1,0 +1,12 @@
+---
+title: "Constitutions and gender equality"
+description: Routledge
+date: 2024-09-18
+output:
+  distill::distill_article:
+preview: https://jkcorder.github.io/images/l&s.png
+categories:
+  - Women and politics
+---
+
+In a piece co-authored with Priscilla Lambert (WMU) and Druscilla Scribner (UW-Oshkosh), I estimated the impact of the text or language in national constitutions on the condition of women.  The constitutions of 100s of countries were coded by Lambert and Scribner and that data was merged with OECD data on the economic and political condition of women in each country. The upshot is that, yes, the language and words in constitutions matters.  Specifically, countries that adopted gender-egalitarian language scored higher on a variety of metrics that measure women's health, economic status and political rights. Nations that use language that differentiates women as mothers and wives - or omit gender entirely - score lower.  The work is published as a chapter in **Gender, Constitutions, and Equality: A Global Comparison**. Lambert, Priscilla and Druscilla Scribner.  New York: Routledge.  (2023). [Click here](https://www.routledge.com/Gender-Constitutions-and-Equality-A-Global-Comparison/Lambert-Scribner/p/book/9781032301617) to take a look at the book.
