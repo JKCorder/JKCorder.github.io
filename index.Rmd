@@ -1,0 +1,10 @@
+---
+title: "Research and media"
+site: distill::distill_website
+listing: posts
+---
+<br><br><br><br>
+
+<img align="center" src="Picture1.png" alt="Headshot" style="width:128px;height:128px;vertical-align:middle;margin:20px 20px"><font size="+3">J. Kevin Corder</font>
+
+I am a faculty member in the Department of Political Science at Western Michigan University.  I teach courses in US government and politics, as well as methods courses.  This blog profiles my work on banking, women and politics, and public policy.  You can find posts about my research and links to open source textbooks that I have developed for my undergraduate and graduate data analysis courses.  You can also navigate to my replication data at the Harvard Dataverse.  For a comprehensive list of my published work, visit [Google Scholar](https://scholar.google.com/citations?user=LSzZ9-UAAAAJ&hl=en).  This site was created with the R **distill** package. 
