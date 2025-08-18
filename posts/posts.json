@@ -1,5 +1,47 @@
 [
   {
+    "path": "posts/2025-08-18-new-edition-of-applied-statistics/",
+    "title": "New edition of Applied Statistics",
+    "description": "Updated with data from the 2024 American National Election Study",
+    "author": [],
+    "date": "2025-08-18",
+    "categories": [
+      "Textbooks"
+    ],
+    "contents": "\r\nThis is the companion text for PSCI 3590, Data for Politics and Policy.\r\nhttps://jkcorder.github.io/docs/\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.github.io/docs/cover.png",
+    "last_modified": "2025-08-18T15:57:10-04:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2025-05-27-politics-of-monetary-policy-and-the-taylor-rule/",
+    "title": "Does the FOMC respond more aggressively to inflation when Republicans are in the White House and Congress?",
+    "description": "Journal of Government and Economics",
+    "author": [],
+    "date": "2025-05-28",
+    "categories": [
+      "Monetary policy"
+    ],
+    "contents": "\r\nYes, FOMC choices reflect the party in control in Washington DC. I use the Taylor rule to explore the politics of monetary policy in the US in this recent open access piece in the Journal of Government and Economics. The original working paper that outlines these results dates to 2006, but the published work extends the data to 2024 and includes some recent political science work on politics and the Fed. The upshot is that the Fed is much more sensitive to the level of inflation when Republicans have a majority in the House and the Senate and the President is Republican.\r\nClick here to check out the full paper.\r\nThe APC for this article was covered by the Academic Center for Chinese Economic Practice and Thinking (ACCEPT), Tsinghua University and Society for the Analysis of Government and Economics (SAGE).\r\n\r\n\r\n\r\n",
+    "preview": "posts/2025-05-27-politics-of-monetary-policy-and-the-taylor-rule/1-s2.0-S2667319325X00021-cov200h.gif",
+    "last_modified": "2025-05-27T11:58:04-04:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2025-08-18-constitutions-and-gender-equality/",
+    "title": "Constitutions and gender equality",
+    "description": "Routledge",
+    "author": [],
+    "date": "2024-09-18",
+    "categories": [
+      "Women and politics"
+    ],
+    "contents": "\r\nIn a piece co-authored with Priscilla Lambert (WMU) and Druscilla Scribner (UW-Oshkosh), I estimated the impact of the text or language in national constitutions on the condition of women. The constitutions of 100s of countries were coded by Lambert and Scribner and that data was merged with OECD data on the economic and political condition of women in each country. The upshot is that, yes, the language and words in constitutions matters. Specifically, countries that adopted gender-egalitarian language scored higher on a variety of metrics that measure women’s health, economic status and political rights. Nations that use language that differentiates women as mothers and wives - or omit gender entirely - score lower. The work is published as a chapter in Gender, Constitutions, and Equality: A Global Comparison. Lambert, Priscilla and Druscilla Scribner. New York: Routledge. (2023). Click here to take a look at the book.\r\n\r\n\r\n\r\n",
+    "preview": "https://jkcorder.github.io/images/l&s.png",
+    "last_modified": "2025-08-18T15:52:06-04:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/texts/",
     "title": "Open source textbooks",
     "description": "Two textbooks for data analysis",
@@ -66,7 +108,7 @@
     ],
     "contents": "\r\nCheck out this\r\npiece by Aaron Zinter in the Wall Street Journal. He draws\r\non some of the data we used in A Century of Votes for Women to\r\ntalk about the gender gap in presidential voting.\r\n\r\n\r\n\r\n",
     "preview": "https://jkcorder.github.io/images/wsj.png",
-    "last_modified": "2022-08-16T11:10:57-04:00",
+    "last_modified": "2022-08-16T11:10:49-04:00",
     "input_file": {}
   },
   {
@@ -136,7 +178,7 @@
     ],
     "contents": "\r\nThe initial verdict and much of the early scholarship concluded that woman suffrage was a failure, as turnout was low and the addition of women voters failed to shake up the two-party balance of power. While the observers were right in important ways—women’s turnout was indeed lower than men’s—we now know that there were a host of legal and organizational factors that conspired to block or slow the mobilization of women. The incorporation of women as full equals in the electoral process would take decades, and understanding why this is the case helps us better understand the challenges facing efforts to make voting rights a reality for traditionally marginalized groups.\r\nClick here to check out the essay.\r\n\r\n\r\n\r\n",
     "preview": "https://jkcorder.files.wordpress.com/2019/11/aba-cover.png",
-    "last_modified": "2022-03-05T11:46:28-05:00",
+    "last_modified": "2025-05-27T10:47:28-04:00",
     "input_file": {}
   },
   {
