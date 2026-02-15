@@ -276,7 +276,7 @@ We might produce a figure to communicate what we have learned to a client or col
 <p>The building block for correlation is the covariance and it follows the same logic as the variance. We compare very individual of <span class="math inline">\(X\)</span> to the mean of <span class="math inline">\(X\)</span> and multiply that by same individual’s value of <span class="math inline">\(Y\)</span> minus the mean of <span class="math inline">\(Y\)</span>. If people who have high values of, for example, income also have high values of party id then that implies a positive covariance. If people who are low income are low on the party id scale that also implies a positive covariance.</p>
 <p>In symbols, the covariance is:</p>
 <p><span class="math display">\[
-cov(X,Y)= \frac{\sum_{i=1}^n (X_i - \mu)^2 (Y_i - \mu)^2}{n-1}
+cov(X,Y)= \frac{\sum_{i=1}^n (X_i - \mu) (Y_i - \mu)}{n-1}
 \]</span></p>
 <p>Once we know the covariance between the two variables and the standard deviation for each variable, we can calculate the correlation. The sample correlation coefficient (<span class="math inline">\(\rho\)</span>) is, in words, the covariance between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> divided by the standard deviation of <span class="math inline">\(X\)</span> and the standard deviation of <span class="math inline">\(Y\)</span>. In symbols:</p>
 <p><span class="math display">\[
